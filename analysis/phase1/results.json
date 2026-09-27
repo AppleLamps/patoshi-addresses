@@ -1,0 +1,837 @@
+{
+  "phase": "1: offline, CSV evidence only; zero on-chain verification",
+  "source_sha256": "e04316e814d9dc397578dc051ac3449b1dfc68603114812de42a26e5eb6a123d",
+  "source_lf_normalized_sha256": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e",
+  "extractor_sha256": "c93164bc02022a0c1169dce865f907a9d7eb6bad6aa560bb5d08162bb0272e19",
+  "extractor_lf_normalized_sha256": "4ae2d4e26d7d4d9010c2627c86657c04ece94f9ecfc8d8c1c497514d299c8c36",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "seed": 20260927
+  },
+  "structure": {
+    "rows": 21953,
+    "min_height": 3,
+    "max_height": 49973,
+    "height_duplicates": 0,
+    "outpoint_coordinate_duplicates": 0,
+    "pubkey_duplicates": 0,
+    "hash160_duplicates": 0,
+    "address_duplicates": 0,
+    "x_coordinate_duplicates": 0,
+    "all_rows_within_stated_range": true,
+    "input_sorted_by_height": true,
+    "script_type_counts": {
+      "p2pk": 21953
+    },
+    "output_index_counts": {
+      "0": 21953
+    },
+    "amount_counts": {
+      "50.0": 21949,
+      "52.01": 1,
+      "50.14": 1,
+      "50.12": 1,
+      "50.22": 1
+    },
+    "amount_exceptions": [
+      {
+        "height": 2817,
+        "amount_btc": "52.01",
+        "excess_over_50_btc": "2.01"
+      },
+      {
+        "height": 19863,
+        "amount_btc": "50.14",
+        "excess_over_50_btc": "0.14"
+      },
+      {
+        "height": 23079,
+        "amount_btc": "50.12",
+        "excess_over_50_btc": "0.12"
+      },
+      {
+        "height": 28507,
+        "amount_btc": "50.22",
+        "excess_over_50_btc": "0.22"
+      }
+    ],
+    "csv_total_btc": "1097652.49",
+    "fifty_per_row_btc": "1097650",
+    "excess_over_fifty_per_row_btc": "2.49",
+    "malformed_keys": [],
+    "independent_key_validation": "all keys decoded and reserialized by cryptography/OpenSSL",
+    "all_base58check_roundtrips_passed": true,
+    "extractor_list_count": 6183,
+    "extractor_unique_heights": 6183,
+    "csv_only_heights_count": 15770,
+    "extractor_only_heights": []
+  },
+  "gaps": {
+    "range_size": 49971,
+    "missing_count": 28018,
+    "listed_fraction": 0.4393148025854996,
+    "gap_count": 8899,
+    "longest_gaps": [
+      {
+        "start_height": 37312,
+        "end_height": 37737,
+        "length": 426
+      },
+      {
+        "start_height": 49484,
+        "end_height": 49796,
+        "length": 313
+      },
+      {
+        "start_height": 35204,
+        "end_height": 35510,
+        "length": 307
+      },
+      {
+        "start_height": 21309,
+        "end_height": 21466,
+        "length": 158
+      },
+      {
+        "start_height": 20343,
+        "end_height": 20441,
+        "length": 99
+      },
+      {
+        "start_height": 25717,
+        "end_height": 25810,
+        "length": 94
+      },
+      {
+        "start_height": 49868,
+        "end_height": 49956,
+        "length": 89
+      },
+      {
+        "start_height": 49798,
+        "end_height": 49866,
+        "length": 69
+      },
+      {
+        "start_height": 26186,
+        "end_height": 26250,
+        "length": 65
+      },
+      {
+        "start_height": 28693,
+        "end_height": 28751,
+        "length": 59
+      },
+      {
+        "start_height": 26858,
+        "end_height": 26910,
+        "length": 53
+      },
+      {
+        "start_height": 48295,
+        "end_height": 48345,
+        "length": 51
+      }
+    ],
+    "runs": 17799,
+    "runs_expected_global": 24618.444277681054,
+    "runs_z_global": -61.92549934778454,
+    "runs_p_normal_approx": 0.0,
+    "permutation_nulls": {
+      "global_fixed_count": {
+        "permutations": 1999,
+        "p_fewer_runs": 0.0005,
+        "p_more_runs": 1.0,
+        "p_runs_two_sided": 0.0005,
+        "p_longest_gap": 0.0005,
+        "runs_exact_expectation": 24618.444277681054,
+        "runs_mean": 24616.942971485743,
+        "runs_sd": 112.14727710085441,
+        "longest_gap_mean": 17.785892946473236,
+        "longest_gap_95pct": 22.0,
+        "longest_gap_max_simulated": 28
+      },
+      "within_1000_height_windows": {
+        "permutations": 1999,
+        "p_fewer_runs": 1.0,
+        "p_more_runs": 0.0005,
+        "p_runs_two_sided": 0.0005,
+        "p_longest_gap": 0.0005,
+        "runs_exact_expectation": 16751.94782333482,
+        "runs_mean": 16752.87343671836,
+        "runs_sd": 77.1408205552729,
+        "longest_gap_mean": 74.0600300150075,
+        "longest_gap_95pct": 102.0,
+        "longest_gap_max_simulated": 143
+      },
+      "within_250_height_windows": {
+        "permutations": 1999,
+        "p_fewer_runs": 1.0,
+        "p_more_runs": 0.0005,
+        "p_runs_two_sided": 0.0005,
+        "p_longest_gap": 0.0015,
+        "runs_exact_expectation": 16552.953393782533,
+        "runs_mean": 16553.87543771886,
+        "runs_sd": 74.26455558482938,
+        "longest_gap_mean": 295.69634817408706,
+        "longest_gap_95pct": 357.0,
+        "longest_gap_max_simulated": 443
+      },
+      "within_500_height_windows": {
+        "permutations": 1999,
+        "p_fewer_runs": 1.0,
+        "p_more_runs": 0.0005,
+        "p_runs_two_sided": 0.0005,
+        "p_longest_gap": 0.0005,
+        "runs_exact_expectation": 16663.898170295903,
+        "runs_mean": 16663.66183091546,
+        "runs_sd": 76.3308135155218,
+        "longest_gap_mean": 194.55127563781892,
+        "longest_gap_95pct": 289.0999999999999,
+        "longest_gap_max_simulated": 402
+      },
+      "within_2000_height_windows": {
+        "permutations": 1999,
+        "p_fewer_runs": 1.0,
+        "p_more_runs": 0.0005,
+        "p_runs_two_sided": 0.0005,
+        "p_longest_gap": 0.0005,
+        "runs_exact_expectation": 16848.910755144258,
+        "runs_mean": 16849.158579289644,
+        "runs_sd": 75.4466869236174,
+        "longest_gap_mean": 63.08504252126063,
+        "longest_gap_95pct": 84.0,
+        "longest_gap_max_simulated": 135
+      }
+    },
+    "permutation_tests_holm": [
+      {
+        "test": "global_fixed_count/p_runs_two_sided",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "global_fixed_count/p_longest_gap",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_1000_height_windows/p_runs_two_sided",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_1000_height_windows/p_longest_gap",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_250_height_windows/p_runs_two_sided",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_250_height_windows/p_longest_gap",
+        "p_raw": 0.0015,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_500_height_windows/p_runs_two_sided",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_500_height_windows/p_longest_gap",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_2000_height_windows/p_runs_two_sided",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      },
+      {
+        "test": "within_2000_height_windows/p_longest_gap",
+        "p_raw": 0.0005,
+        "p_holm": 0.005
+      }
+    ],
+    "windows": [
+      {
+        "start_height": 3,
+        "end_height": 999,
+        "listed": 833,
+        "total": 997,
+        "listed_fraction": 0.835506519558676
+      },
+      {
+        "start_height": 1000,
+        "end_height": 1999,
+        "listed": 829,
+        "total": 1000,
+        "listed_fraction": 0.829
+      },
+      {
+        "start_height": 2000,
+        "end_height": 2999,
+        "listed": 709,
+        "total": 1000,
+        "listed_fraction": 0.709
+      },
+      {
+        "start_height": 3000,
+        "end_height": 3999,
+        "listed": 688,
+        "total": 1000,
+        "listed_fraction": 0.688
+      },
+      {
+        "start_height": 4000,
+        "end_height": 4999,
+        "listed": 706,
+        "total": 1000,
+        "listed_fraction": 0.706
+      },
+      {
+        "start_height": 5000,
+        "end_height": 5999,
+        "listed": 806,
+        "total": 1000,
+        "listed_fraction": 0.806
+      },
+      {
+        "start_height": 6000,
+        "end_height": 6999,
+        "listed": 792,
+        "total": 1000,
+        "listed_fraction": 0.792
+      },
+      {
+        "start_height": 7000,
+        "end_height": 7999,
+        "listed": 763,
+        "total": 1000,
+        "listed_fraction": 0.763
+      },
+      {
+        "start_height": 8000,
+        "end_height": 8999,
+        "listed": 740,
+        "total": 1000,
+        "listed_fraction": 0.74
+      },
+      {
+        "start_height": 9000,
+        "end_height": 9999,
+        "listed": 755,
+        "total": 1000,
+        "listed_fraction": 0.755
+      },
+      {
+        "start_height": 10000,
+        "end_height": 10999,
+        "listed": 802,
+        "total": 1000,
+        "listed_fraction": 0.802
+      },
+      {
+        "start_height": 11000,
+        "end_height": 11999,
+        "listed": 731,
+        "total": 1000,
+        "listed_fraction": 0.731
+      },
+      {
+        "start_height": 12000,
+        "end_height": 12999,
+        "listed": 741,
+        "total": 1000,
+        "listed_fraction": 0.741
+      },
+      {
+        "start_height": 13000,
+        "end_height": 13999,
+        "listed": 688,
+        "total": 1000,
+        "listed_fraction": 0.688
+      },
+      {
+        "start_height": 14000,
+        "end_height": 14999,
+        "listed": 709,
+        "total": 1000,
+        "listed_fraction": 0.709
+      },
+      {
+        "start_height": 15000,
+        "end_height": 15999,
+        "listed": 771,
+        "total": 1000,
+        "listed_fraction": 0.771
+      },
+      {
+        "start_height": 16000,
+        "end_height": 16999,
+        "listed": 746,
+        "total": 1000,
+        "listed_fraction": 0.746
+      },
+      {
+        "start_height": 17000,
+        "end_height": 17999,
+        "listed": 661,
+        "total": 1000,
+        "listed_fraction": 0.661
+      },
+      {
+        "start_height": 18000,
+        "end_height": 18999,
+        "listed": 620,
+        "total": 1000,
+        "listed_fraction": 0.62
+      },
+      {
+        "start_height": 19000,
+        "end_height": 19999,
+        "listed": 708,
+        "total": 1000,
+        "listed_fraction": 0.708
+      },
+      {
+        "start_height": 20000,
+        "end_height": 20999,
+        "listed": 557,
+        "total": 1000,
+        "listed_fraction": 0.557
+      },
+      {
+        "start_height": 21000,
+        "end_height": 21999,
+        "listed": 581,
+        "total": 1000,
+        "listed_fraction": 0.581
+      },
+      {
+        "start_height": 22000,
+        "end_height": 22999,
+        "listed": 731,
+        "total": 1000,
+        "listed_fraction": 0.731
+      },
+      {
+        "start_height": 23000,
+        "end_height": 23999,
+        "listed": 620,
+        "total": 1000,
+        "listed_fraction": 0.62
+      },
+      {
+        "start_height": 24000,
+        "end_height": 24999,
+        "listed": 402,
+        "total": 1000,
+        "listed_fraction": 0.402
+      },
+      {
+        "start_height": 25000,
+        "end_height": 25999,
+        "listed": 225,
+        "total": 1000,
+        "listed_fraction": 0.225
+      },
+      {
+        "start_height": 26000,
+        "end_height": 26999,
+        "listed": 287,
+        "total": 1000,
+        "listed_fraction": 0.287
+      },
+      {
+        "start_height": 27000,
+        "end_height": 27999,
+        "listed": 336,
+        "total": 1000,
+        "listed_fraction": 0.336
+      },
+      {
+        "start_height": 28000,
+        "end_height": 28999,
+        "listed": 330,
+        "total": 1000,
+        "listed_fraction": 0.33
+      },
+      {
+        "start_height": 29000,
+        "end_height": 29999,
+        "listed": 275,
+        "total": 1000,
+        "listed_fraction": 0.275
+      },
+      {
+        "start_height": 30000,
+        "end_height": 30999,
+        "listed": 150,
+        "total": 1000,
+        "listed_fraction": 0.15
+      },
+      {
+        "start_height": 31000,
+        "end_height": 31999,
+        "listed": 200,
+        "total": 1000,
+        "listed_fraction": 0.2
+      },
+      {
+        "start_height": 32000,
+        "end_height": 32999,
+        "listed": 174,
+        "total": 1000,
+        "listed_fraction": 0.174
+      },
+      {
+        "start_height": 33000,
+        "end_height": 33999,
+        "listed": 178,
+        "total": 1000,
+        "listed_fraction": 0.178
+      },
+      {
+        "start_height": 34000,
+        "end_height": 34999,
+        "listed": 191,
+        "total": 1000,
+        "listed_fraction": 0.191
+      },
+      {
+        "start_height": 35000,
+        "end_height": 35999,
+        "listed": 127,
+        "total": 1000,
+        "listed_fraction": 0.127
+      },
+      {
+        "start_height": 36000,
+        "end_height": 36999,
+        "listed": 158,
+        "total": 1000,
+        "listed_fraction": 0.158
+      },
+      {
+        "start_height": 37000,
+        "end_height": 37999,
+        "listed": 70,
+        "total": 1000,
+        "listed_fraction": 0.07
+      },
+      {
+        "start_height": 38000,
+        "end_height": 38999,
+        "listed": 132,
+        "total": 1000,
+        "listed_fraction": 0.132
+      },
+      {
+        "start_height": 39000,
+        "end_height": 39999,
+        "listed": 149,
+        "total": 1000,
+        "listed_fraction": 0.149
+      },
+      {
+        "start_height": 40000,
+        "end_height": 40999,
+        "listed": 123,
+        "total": 1000,
+        "listed_fraction": 0.123
+      },
+      {
+        "start_height": 41000,
+        "end_height": 41999,
+        "listed": 118,
+        "total": 1000,
+        "listed_fraction": 0.118
+      },
+      {
+        "start_height": 42000,
+        "end_height": 42999,
+        "listed": 137,
+        "total": 1000,
+        "listed_fraction": 0.137
+      },
+      {
+        "start_height": 43000,
+        "end_height": 43999,
+        "listed": 139,
+        "total": 1000,
+        "listed_fraction": 0.139
+      },
+      {
+        "start_height": 44000,
+        "end_height": 44999,
+        "listed": 144,
+        "total": 1000,
+        "listed_fraction": 0.144
+      },
+      {
+        "start_height": 45000,
+        "end_height": 45999,
+        "listed": 165,
+        "total": 1000,
+        "listed_fraction": 0.165
+      },
+      {
+        "start_height": 46000,
+        "end_height": 46999,
+        "listed": 146,
+        "total": 1000,
+        "listed_fraction": 0.146
+      },
+      {
+        "start_height": 47000,
+        "end_height": 47999,
+        "listed": 123,
+        "total": 1000,
+        "listed_fraction": 0.123
+      },
+      {
+        "start_height": 48000,
+        "end_height": 48999,
+        "listed": 116,
+        "total": 1000,
+        "listed_fraction": 0.116
+      },
+      {
+        "start_height": 49000,
+        "end_height": 49973,
+        "listed": 71,
+        "total": 974,
+        "listed_fraction": 0.0728952772073922
+      }
+    ]
+  },
+  "randomness": {
+    "test_count": 765,
+    "familywise_alpha": 0.05,
+    "uncorrected_below_005": 46,
+    "holm_significant": [],
+    "smallest_p_tests": [
+      {
+        "test": "x/bit_170/balance",
+        "statistic": 3.705317313675812,
+        "p_raw": 0.00021112625565452138,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 0.16151158557570885
+      },
+      {
+        "test": "y/bit_081/balance",
+        "statistic": -3.489342534008005,
+        "p_raw": 0.00048421024468229206,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 0.36993662693727114
+      },
+      {
+        "test": "hash160/bit_137/balance",
+        "statistic": 3.3948535679033394,
+        "p_raw": 0.0006866531525349329,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 0.5239163553841538
+      },
+      {
+        "test": "hash160/byte_12/uniform",
+        "statistic": 332.0606295267162,
+        "p_raw": 0.0008229851654694103,
+        "method": "Pearson chi-square df=255",
+        "p_holm": 0.6271146960876907
+      },
+      {
+        "test": "x/bit_227/balance",
+        "statistic": -3.0573929746723914,
+        "p_raw": 0.0022327135617552984,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "x/bit_039/balance",
+        "statistic": 2.9899008560262015,
+        "p_raw": 0.0027906801049593028,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "hash160/byte_17/uniform",
+        "statistic": 319.93290210905116,
+        "p_raw": 0.003561533114360993,
+        "method": "Pearson chi-square df=255",
+        "p_holm": 1.0
+      },
+      {
+        "test": "x/bit_109/balance",
+        "statistic": 2.8684150424630603,
+        "p_raw": 0.004125339741029252,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "y/bit_252/balance",
+        "statistic": -2.854916618733822,
+        "p_raw": 0.0043048129170858455,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "y/bit_198/balance",
+        "statistic": 2.8009229238168705,
+        "p_raw": 0.005095668807511272,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "y/bit_092/balance",
+        "statistic": -2.7874245000876328,
+        "p_raw": 0.005312883267096381,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      },
+      {
+        "test": "y/bit_243/balance",
+        "statistic": -2.692935533982967,
+        "p_raw": 0.0070825962146510955,
+        "method": "two-sided binomial normal approximation",
+        "p_holm": 1.0
+      }
+    ],
+    "first_byte_tests": [
+      {
+        "test": "x/byte_00/uniform",
+        "statistic": 233.8027148909033,
+        "p_raw": 0.8254259841598455,
+        "method": "Pearson chi-square df=255",
+        "p_holm": 1.0
+      },
+      {
+        "test": "y/byte_00/uniform",
+        "statistic": 201.7108823395436,
+        "p_raw": 0.994090167486368,
+        "method": "Pearson chi-square df=255",
+        "p_holm": 1.0
+      },
+      {
+        "test": "hash160/byte_00/uniform",
+        "statistic": 275.15360087459567,
+        "p_raw": 0.184254374186743,
+        "method": "Pearson chi-square df=255",
+        "p_holm": 1.0
+      }
+    ],
+    "assumption": "Independent near-uniform curve coordinates and uniform HASH160; 04 marker excluded. X and Y are mathematically dependent, so these are diagnostics, not an entropy proof."
+  },
+  "vanity": {
+    "candidate_count": 354,
+    "rule_counts": {
+      "hex_dictionary": 343,
+      "user_named_1CFB_prefix": 1,
+      "repeated_hex": 10
+    },
+    "longest_repeated_hex": {
+      "length": 6,
+      "height": 10194,
+      "component": "pubkey_xy",
+      "pattern": "eeeeee",
+      "offset": 39
+    },
+    "longest_repeat_familywise_union_bound": 1.0,
+    "longest_common_prefixes": [
+      {
+        "component": "x",
+        "hex_digits": 7,
+        "prefix": "725794a",
+        "heights": [
+          48528,
+          14733
+        ],
+        "expected_pairs_at_least_this_long": 0.8976315259933472,
+        "p_birthday_poisson_approx": 0.5924662493269407,
+        "p_bonferroni_three_components": 1.0
+      },
+      {
+        "component": "y",
+        "hex_digits": 6,
+        "prefix": "2c7447",
+        "heights": [
+          6749,
+          26798
+        ],
+        "expected_pairs_at_least_this_long": 14.362104415893555,
+        "p_birthday_poisson_approx": 0.999999421081666,
+        "p_bonferroni_three_components": 1.0
+      },
+      {
+        "component": "hash160",
+        "hex_digits": 6,
+        "prefix": "0e25be",
+        "heights": [
+          2797,
+          22673
+        ],
+        "expected_pairs_at_least_this_long": 14.362104415893555,
+        "p_birthday_poisson_approx": 0.999999421081666,
+        "p_bonferroni_three_components": 1.0
+      }
+    ],
+    "1CFB": {
+      "hits": [
+        {
+          "height": 264,
+          "address": "1CFBdvaiZgZPTZERqnezAtDQJuGHKoHSzg"
+        }
+      ],
+      "single_address_probability_approx": 1.2957005928606032e-05,
+      "expected_hits": 0.2844451511506882,
+      "probability_at_least_one_approx": 0.24756976223472316,
+      "selection_caveat": "1CFB was selected from a known example, so this is chance calibration, not a discovery p-value."
+    },
+    "rules": {
+      "hex_words": [
+        "deadbeef",
+        "cafebabe",
+        "feedface",
+        "decafbad",
+        "face",
+        "babe",
+        "cafe",
+        "dead",
+        "beef",
+        "1cfb"
+      ],
+      "ascii_words_case_insensitive": [
+        "satoshi",
+        "bitcoin",
+        "patoshi",
+        "nakamoto",
+        "genesis",
+        "finney",
+        "hal"
+      ],
+      "address_words_case_insensitive": [
+        "satoshi",
+        "bitcoin",
+        "patoshi",
+        "nakamoto",
+        "genesis",
+        "finney"
+      ],
+      "repeat": "at least 6 identical hex digits anywhere, or at least 4 at the start of XY/HASH160",
+      "sequence": "8 consecutive ascending or descending hexadecimal digits"
+    },
+    "interpretation": "Exploratory candidates are not evidence of intentional vanity. No finite semantic dictionary excludes every recognizable string."
+  },
+  "block_264": {
+    "block_height": 264,
+    "output_index": 0,
+    "amount_btc": "50.0",
+    "pubkey_uncompressed": "042ecd5eb8bf25555f4ee1276cf80031307f87d31f1ea928fede578fe2c33665f116239f256c131055b546743c523fc593be8b5631802eb5c5254046d8bca14788",
+    "hash160": "7b581609d8f9b74c34f7648c3b79fd8a6848022d",
+    "p2pkh_address": "1CFBdvaiZgZPTZERqnezAtDQJuGHKoHSzg"
+  }
+}

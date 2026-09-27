@@ -1,0 +1,4 @@
+# Phase 1 requires no network or downloaded blockchain data.
+numpy>=1.24,<3
+# Optional independent secp256k1 point decoding and serialization:
+cryptography>=41

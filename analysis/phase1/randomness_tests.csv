@@ -1,0 +1,766 @@
+test,statistic,p_raw,method,p_holm
+x/byte_00/uniform,233.8027148909033,0.8254259841598455,Pearson chi-square df=255,1.0
+x/byte_01/uniform,222.72450234592083,0.9284735022976671,Pearson chi-square df=255,1.0
+x/byte_02/uniform,243.10841342868855,0.6933404499605675,Pearson chi-square df=255,1.0
+x/byte_03/uniform,228.9749464765636,0.877857216813215,Pearson chi-square df=255,1.0
+x/byte_04/uniform,278.3954357035485,0.15029096686553706,Pearson chi-square df=255,1.0
+x/byte_05/uniform,270.37247756570855,0.24294255293375702,Pearson chi-square df=255,1.0
+x/byte_06/uniform,222.72450234592083,0.9284735022976671,Pearson chi-square df=255,1.0
+x/byte_07/uniform,299.0358948663053,0.030264119654396016,Pearson chi-square df=255,1.0
+x/byte_08/uniform,258.8278139662005,0.42146502259237273,Pearson chi-square df=255,1.0
+x/byte_09/uniform,273.0778936819569,0.20848564223257454,Pearson chi-square df=255,1.0
+x/byte_10/uniform,241.6857377123856,0.7158287285228826,Pearson chi-square df=255,1.0
+x/byte_11/uniform,230.21104177105633,0.8655575348573834,Pearson chi-square df=255,1.0
+x/byte_12/uniform,284.34268664874963,0.09995101294426309,Pearson chi-square df=255,1.0
+x/byte_13/uniform,282.5934951942787,0.11320753459058028,Pearson chi-square df=255,1.0
+x/byte_14/uniform,200.98788320502894,0.9946907448316594,Pearson chi-square df=255,1.0
+x/byte_15/uniform,234.64232678904938,0.8151132323344197,Pearson chi-square df=255,1.0
+x/byte_16/uniform,244.7176695668018,0.6671113857197939,Pearson chi-square df=255,1.0
+x/byte_17/uniform,272.93795836559923,0.2101887177689786,Pearson chi-square df=255,1.0
+x/byte_18/uniform,262.2562292169635,0.36400652236618347,Pearson chi-square df=255,1.0
+x/byte_19/uniform,232.17013620006378,0.8444748531202598,Pearson chi-square df=255,1.0
+x/byte_20/uniform,260.1805220243247,0.39845874073717646,Pearson chi-square df=255,1.0
+x/byte_21/uniform,230.65417027285565,0.8609593419945761,Pearson chi-square df=255,1.0
+x/byte_22/uniform,275.5500842709425,0.17984662232122392,Pearson chi-square df=255,1.0
+x/byte_23/uniform,270.8389286202341,0.23677376347529885,Pearson chi-square df=255,1.0
+x/byte_24/uniform,241.5458023960279,0.7180020861562711,Pearson chi-square df=255,1.0
+x/byte_25/uniform,206.72523117569352,0.9880802469104509,Pearson chi-square df=255,1.0
+x/byte_26/uniform,221.93153555322738,0.933580726654114,Pearson chi-square df=255,1.0
+x/byte_27/uniform,247.53969844668154,0.6194462510135261,Pearson chi-square df=255,1.0
+x/byte_28/uniform,234.80558465813328,0.8130678137816364,Pearson chi-square df=255,1.0
+x/byte_29/uniform,216.70728374254088,0.9607031300834817,Pearson chi-square df=255,1.0
+x/byte_30/uniform,274.174053660092,0.19544801454514546,Pearson chi-square df=255,1.0
+x/byte_31/uniform,261.71981050425916,0.3728003131095809,Pearson chi-square df=255,1.0
+x/pooled_bytes/uniform,227.66747141620732,0.8900270370207171,Pearson chi-square df=255; approximate independent-byte null,1.0
+x/bit_000/balance,0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+x/bit_001/balance,0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+x/bit_002/balance,2.2339891271888774,0.025483788476363952,two-sided binomial normal approximation,1.0
+x/bit_003/balance,0.46569561865870857,0.6414333889270163,two-sided binomial normal approximation,1.0
+x/bit_004/balance,0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+x/bit_005/balance,-0.8031562118896568,0.4218844510590713,two-sided binomial normal approximation,1.0
+x/bit_006/balance,1.1946105000375569,0.23223924490764034,two-sided binomial normal approximation,1.0
+x/bit_007/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+x/bit_008/balance,0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+x/bit_009/balance,1.4105852797053637,0.1583669345659365,two-sided binomial normal approximation,1.0
+x/bit_010/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+x/bit_011/balance,-0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_012/balance,-0.46569561865870857,0.6414333889270163,two-sided binomial normal approximation,1.0
+x/bit_013/balance,-0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+x/bit_014/balance,-0.5331877373048982,0.5939036292647742,two-sided binomial normal approximation,1.0
+x/bit_015/balance,1.8155379915825016,0.0694412730397073,two-sided binomial normal approximation,1.0
+x/bit_016/balance,-0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+x/bit_017/balance,-1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+x/bit_018/balance,0.41170192374175685,0.6805579147907987,two-sided binomial normal approximation,1.0
+x/bit_019/balance,1.4780773983515534,0.13938706289364286,two-sided binomial normal approximation,1.0
+x/bit_020/balance,0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+x/bit_021/balance,0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+x/bit_022/balance,-0.31721295763709134,0.7510820184939843,two-sided binomial normal approximation,1.0
+x/bit_023/balance,-1.0461278390159396,0.2955020136177012,two-sided binomial normal approximation,1.0
+x/bit_024/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_025/balance,-1.154115228849843,0.2484529306594491,two-sided binomial normal approximation,1.0
+x/bit_026/balance,0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+x/bit_027/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+x/bit_028/balance,1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+x/bit_029/balance,0.384705076283281,0.7004559338038548,two-sided binomial normal approximation,1.0
+x/bit_030/balance,0.8031562118896568,0.4218844510590713,two-sided binomial normal approximation,1.0
+x/bit_031/balance,-2.1799954322719257,0.029257800140255603,two-sided binomial normal approximation,1.0
+x/bit_032/balance,-1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+x/bit_033/balance,0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+x/bit_034/balance,1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+x/bit_035/balance,0.5061908898464224,0.6127226497880713,two-sided binomial normal approximation,1.0
+x/bit_036/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+x/bit_037/balance,-2.004515923791833,0.04501482288418714,two-sided binomial normal approximation,1.0
+x/bit_038/balance,-1.8155379915825016,0.0694412730397073,two-sided binomial normal approximation,1.0
+x/bit_039/balance,2.9899008560262015,0.0027906801049593028,two-sided binomial normal approximation,1.0
+x/bit_040/balance,-1.8965285339579292,0.05789019057500847,two-sided binomial normal approximation,1.0
+x/bit_041/balance,0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+x/bit_042/balance,-1.2890994661422224,0.19736350914224324,two-sided binomial normal approximation,1.0
+x/bit_043/balance,-1.734547449207074,0.08282099440152377,two-sided binomial normal approximation,1.0
+x/bit_044/balance,0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+x/bit_045/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_046/balance,1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+x/bit_047/balance,-1.4240837034346017,0.15442224329215132,two-sided binomial normal approximation,1.0
+x/bit_048/balance,0.9921341440989879,0.3211320925483808,two-sided binomial normal approximation,1.0
+x/bit_049/balance,-0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+x/bit_050/balance,-1.3160963136006982,0.18814171812533942,two-sided binomial normal approximation,1.0
+x/bit_051/balance,0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+x/bit_052/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+x/bit_053/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+x/bit_054/balance,1.6400584831024085,0.1009930075965701,two-sided binomial normal approximation,1.0
+x/bit_055/balance,-0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+x/bit_056/balance,-0.7896577881604189,0.4297276496419626,two-sided binomial normal approximation,1.0
+x/bit_057/balance,0.8031562118896568,0.4218844510590713,two-sided binomial normal approximation,1.0
+x/bit_058/balance,0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+x/bit_059/balance,-0.08773975424004654,0.9300835221326459,two-sided binomial normal approximation,1.0
+x/bit_060/balance,-0.7491625169727051,0.45375925811288065,two-sided binomial normal approximation,1.0
+x/bit_061/balance,1.0461278390159396,0.2955020136177012,two-sided binomial normal approximation,1.0
+x/bit_062/balance,-0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+x/bit_063/balance,2.517456025502874,0.011820572415303418,two-sided binomial normal approximation,1.0
+x/bit_064/balance,0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+x/bit_065/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+x/bit_066/balance,0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+x/bit_067/balance,1.9640206526041188,0.04952769691257445,two-sided binomial normal approximation,1.0
+x/bit_068/balance,0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+x/bit_069/balance,-1.6130616356439327,0.10673111770026977,two-sided binomial normal approximation,1.0
+x/bit_070/balance,-2.193493856001164,0.02827181677244878,two-sided binomial normal approximation,1.0
+x/bit_071/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+x/bit_072/balance,-0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+x/bit_073/balance,0.7896577881604189,0.4297276496419626,two-sided binomial normal approximation,1.0
+x/bit_074/balance,2.0720080424380223,0.038264691178359886,two-sided binomial normal approximation,1.0
+x/bit_075/balance,1.8020395678532637,0.07153918047162225,two-sided binomial normal approximation,1.0
+x/bit_076/balance,-0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_077/balance,0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+x/bit_078/balance,-1.4645789746223155,0.14303582182899707,two-sided binomial normal approximation,1.0
+x/bit_079/balance,-1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+x/bit_080/balance,1.6805537542901223,0.09284962488550504,two-sided binomial normal approximation,1.0
+x/bit_081/balance,-0.8976451779943223,0.36937474521896213,two-sided binomial normal approximation,1.0
+x/bit_082/balance,0.2632192627201396,0.7923815846516651,two-sided binomial normal approximation,1.0
+x/bit_083/balance,-0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+x/bit_084/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+x/bit_085/balance,-0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+x/bit_086/balance,-1.0056325678282259,0.31459235150550374,two-sided binomial normal approximation,1.0
+x/bit_087/balance,0.8706483305358464,0.3839461987194036,two-sided binomial normal approximation,1.0
+x/bit_088/balance,0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+x/bit_089/balance,-0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+x/bit_090/balance,1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+x/bit_091/balance,0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+x/bit_092/balance,0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+x/bit_093/balance,-1.154115228849843,0.2484529306594491,two-sided binomial normal approximation,1.0
+x/bit_094/balance,0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+x/bit_095/balance,1.3160963136006982,0.18814171812533942,two-sided binomial normal approximation,1.0
+x/bit_096/balance,0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+x/bit_097/balance,-1.2756010424129844,0.20209658543547013,two-sided binomial normal approximation,1.0
+x/bit_098/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+x/bit_099/balance,1.1136199576621293,0.2654422607977055,two-sided binomial normal approximation,1.0
+x/bit_100/balance,-1.0731246864744155,0.28321517613389235,two-sided binomial normal approximation,1.0
+x/bit_101/balance,1.8560332627702154,0.0634488170542461,two-sided binomial normal approximation,1.0
+x/bit_102/balance,-0.8976451779943223,0.36937474521896213,two-sided binomial normal approximation,1.0
+x/bit_103/balance,-0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+x/bit_104/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+x/bit_105/balance,0.8706483305358464,0.3839461987194036,two-sided binomial normal approximation,1.0
+x/bit_106/balance,-0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+x/bit_107/balance,0.7491625169727051,0.45375925811288065,two-sided binomial normal approximation,1.0
+x/bit_108/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+x/bit_109/balance,2.8684150424630603,0.004125339741029252,two-sided binomial normal approximation,1.0
+x/bit_110/balance,1.0191309915574638,0.3081407827419499,two-sided binomial normal approximation,1.0
+x/bit_111/balance,0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+x/bit_112/balance,-0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_113/balance,-0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+x/bit_114/balance,-0.384705076283281,0.7004559338038548,two-sided binomial normal approximation,1.0
+x/bit_115/balance,-0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+x/bit_116/balance,0.37120665255404306,0.710483618525716,two-sided binomial normal approximation,1.0
+x/bit_117/balance,1.0191309915574638,0.3081407827419499,two-sided binomial normal approximation,1.0
+x/bit_118/balance,1.5050742458100292,0.13230498946760014,two-sided binomial normal approximation,1.0
+x/bit_119/balance,-0.2632192627201396,0.7923815846516651,two-sided binomial normal approximation,1.0
+x/bit_120/balance,-0.7491625169727051,0.45375925811288065,two-sided binomial normal approximation,1.0
+x/bit_121/balance,0.3982035000125189,0.690480186209827,two-sided binomial normal approximation,1.0
+x/bit_122/balance,0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+x/bit_123/balance,1.3295947373299362,0.18365183300234325,two-sided binomial normal approximation,1.0
+x/bit_124/balance,-0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+x/bit_125/balance,0.4926924661171844,0.6222299017530326,two-sided binomial normal approximation,1.0
+x/bit_126/balance,0.8571499068066085,0.3913620427430134,two-sided binomial normal approximation,1.0
+x/bit_127/balance,0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+x/bit_128/balance,0.6951688220557534,0.48694950873333875,two-sided binomial normal approximation,1.0
+x/bit_129/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_130/balance,-0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+x/bit_131/balance,-1.2081089237667948,0.22700536765617835,two-sided binomial normal approximation,1.0
+x/bit_132/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+x/bit_133/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_134/balance,0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+x/bit_135/balance,-0.8301530593481327,0.40645225108681987,two-sided binomial normal approximation,1.0
+x/bit_136/balance,2.2339891271888774,0.025483788476363952,two-sided binomial normal approximation,1.0
+x/bit_137/balance,0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+x/bit_138/balance,-1.8695316864994533,0.06154887945548774,two-sided binomial normal approximation,1.0
+x/bit_139/balance,-1.9640206526041188,0.04952769691257445,two-sided binomial normal approximation,1.0
+x/bit_140/balance,-0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+x/bit_141/balance,0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+x/bit_142/balance,0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+x/bit_143/balance,0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+x/bit_144/balance,0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+x/bit_145/balance,-0.8166546356188947,0.4141258227411517,two-sided binomial normal approximation,1.0
+x/bit_146/balance,-0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+x/bit_147/balance,2.355474940752019,0.018499044723652058,two-sided binomial normal approximation,1.0
+x/bit_148/balance,-0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+x/bit_149/balance,1.6670553305608844,0.09550340324283582,two-sided binomial normal approximation,1.0
+x/bit_150/balance,2.3689733644812567,0.01783753800380196,two-sided binomial normal approximation,1.0
+x/bit_151/balance,0.08773975424004654,0.9300835221326459,two-sided binomial normal approximation,1.0
+x/bit_152/balance,-1.8830301102286913,0.05969628753775496,two-sided binomial normal approximation,1.0
+x/bit_153/balance,0.7896577881604189,0.4297276496419626,two-sided binomial normal approximation,1.0
+x/bit_154/balance,0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+x/bit_155/balance,-1.2756010424129844,0.20209658543547013,two-sided binomial normal approximation,1.0
+x/bit_156/balance,-0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+x/bit_157/balance,2.0450111949795464,0.04085375442501041,two-sided binomial normal approximation,1.0
+x/bit_158/balance,-0.8436514830773706,0.3988641863396419,two-sided binomial normal approximation,1.0
+x/bit_159/balance,-0.8031562118896568,0.4218844510590713,two-sided binomial normal approximation,1.0
+x/bit_160/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_161/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+x/bit_162/balance,0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+x/bit_163/balance,-0.8436514830773706,0.3988641863396419,two-sided binomial normal approximation,1.0
+x/bit_164/balance,-1.3835884322468879,0.1664845123575269,two-sided binomial normal approximation,1.0
+x/bit_165/balance,-0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+x/bit_166/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_167/balance,-0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+x/bit_168/balance,1.76154429666555,0.07814632248769426,two-sided binomial normal approximation,1.0
+x/bit_169/balance,-0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+x/bit_170/balance,3.705317313675812,0.00021112625565452138,two-sided binomial normal approximation,0.16151158557570885
+x/bit_171/balance,0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+x/bit_172/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+x/bit_173/balance,0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+x/bit_174/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_175/balance,1.559067940726981,0.11898030057018383,two-sided binomial normal approximation,1.0
+x/bit_176/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+x/bit_177/balance,-1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+x/bit_178/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_179/balance,1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+x/bit_180/balance,-0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+x/bit_181/balance,-0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+x/bit_182/balance,0.8166546356188947,0.4141258227411517,two-sided binomial normal approximation,1.0
+x/bit_183/balance,0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+x/bit_184/balance,-0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+x/bit_185/balance,0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+x/bit_186/balance,0.762660940701943,0.44566563047747976,two-sided binomial normal approximation,1.0
+x/bit_187/balance,-0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+x/bit_188/balance,0.8436514830773706,0.3988641863396419,two-sided binomial normal approximation,1.0
+x/bit_189/balance,-0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+x/bit_190/balance,0.37120665255404306,0.710483618525716,two-sided binomial normal approximation,1.0
+x/bit_191/balance,0.9921341440989879,0.3211320925483808,two-sided binomial normal approximation,1.0
+x/bit_192/balance,0.4926924661171844,0.6222299017530326,two-sided binomial normal approximation,1.0
+x/bit_193/balance,1.559067940726981,0.11898030057018383,two-sided binomial normal approximation,1.0
+x/bit_194/balance,-0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+x/bit_195/balance,-0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+x/bit_196/balance,-0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+x/bit_197/balance,-0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+x/bit_198/balance,-0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+x/bit_199/balance,1.37009000851765,0.17065880637217962,two-sided binomial normal approximation,1.0
+x/bit_200/balance,2.2204907034596397,0.026385476052584313,two-sided binomial normal approximation,1.0
+x/bit_201/balance,-0.6141782796803258,0.5390975247083829,two-sided binomial normal approximation,1.0
+x/bit_202/balance,0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+x/bit_203/balance,-0.1552318728862362,0.8766385219071391,two-sided binomial normal approximation,1.0
+x/bit_204/balance,-0.965137296640512,0.3344760482372238,two-sided binomial normal approximation,1.0
+x/bit_205/balance,-1.2351057712252707,0.21679114180667747,two-sided binomial normal approximation,1.0
+x/bit_206/balance,0.27671768644937755,0.7819968901677312,two-sided binomial normal approximation,1.0
+x/bit_207/balance,0.4791940423879465,0.6318005921324139,two-sided binomial normal approximation,1.0
+x/bit_208/balance,-0.1552318728862362,0.8766385219071391,two-sided binomial normal approximation,1.0
+x/bit_209/balance,-1.748045872936312,0.08045608441206116,two-sided binomial normal approximation,1.0
+x/bit_210/balance,0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+x/bit_211/balance,1.1271183813913672,0.25969243266270503,two-sided binomial normal approximation,1.0
+x/bit_212/balance,1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+x/bit_213/balance,1.2216073474960327,0.22185614875688486,two-sided binomial normal approximation,1.0
+x/bit_214/balance,1.4780773983515534,0.13938706289364286,two-sided binomial normal approximation,1.0
+x/bit_215/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+x/bit_216/balance,-1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+x/bit_217/balance,-1.0866231102036534,0.2772034073730385,two-sided binomial normal approximation,1.0
+x/bit_218/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+x/bit_219/balance,-0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+x/bit_220/balance,0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+x/bit_221/balance,-1.545569516997743,0.12220856785640223,two-sided binomial normal approximation,1.0
+x/bit_222/balance,-1.5995632119146947,0.10969551506096542,two-sided binomial normal approximation,1.0
+x/bit_223/balance,1.2081089237667948,0.22700536765617835,two-sided binomial normal approximation,1.0
+x/bit_224/balance,0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+x/bit_225/balance,0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+x/bit_226/balance,0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+x/bit_227/balance,-3.0573929746723914,0.0022327135617552984,two-sided binomial normal approximation,1.0
+x/bit_228/balance,-1.37009000851765,0.17065880637217962,two-sided binomial normal approximation,1.0
+x/bit_229/balance,0.08773975424004654,0.9300835221326459,two-sided binomial normal approximation,1.0
+x/bit_230/balance,0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+x/bit_231/balance,0.8706483305358464,0.3839461987194036,two-sided binomial normal approximation,1.0
+x/bit_232/balance,0.8166546356188947,0.4141258227411517,two-sided binomial normal approximation,1.0
+x/bit_233/balance,-0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+x/bit_234/balance,-0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+x/bit_235/balance,-1.559067940726981,0.11898030057018383,two-sided binomial normal approximation,1.0
+x/bit_236/balance,-1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+x/bit_237/balance,0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+x/bit_238/balance,-0.4252003474709948,0.6706906309104762,two-sided binomial normal approximation,1.0
+x/bit_239/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+x/bit_240/balance,0.8301530593481327,0.40645225108681987,two-sided binomial normal approximation,1.0
+x/bit_241/balance,-0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+x/bit_242/balance,0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+x/bit_243/balance,-1.734547449207074,0.08282099440152377,two-sided binomial normal approximation,1.0
+x/bit_244/balance,0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+x/bit_245/balance,-1.0461278390159396,0.2955020136177012,two-sided binomial normal approximation,1.0
+x/bit_246/balance,2.4364654831274466,0.014831584885642258,two-sided binomial normal approximation,1.0
+x/bit_247/balance,0.9786357203697499,0.3277600031568717,two-sided binomial normal approximation,1.0
+x/bit_248/balance,-0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+x/bit_249/balance,1.4510805508930775,0.1467574315652019,two-sided binomial normal approximation,1.0
+x/bit_250/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+x/bit_251/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+x/bit_252/balance,0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+x/bit_253/balance,-0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+x/bit_254/balance,-1.2890994661422224,0.19736350914224324,two-sided binomial normal approximation,1.0
+x/bit_255/balance,0.8301530593481327,0.40645225108681987,two-sided binomial normal approximation,1.0
+x/height_correlation,0.005831798292323278,0.38757593699236437,Pearson r; large-sample Fisher-z approximation,1.0
+x/lag1_correlation,0.0005128984568810156,0.9394295102441197,Pearson r; large-sample Fisher-z approximation,1.0
+y/byte_00/uniform,201.7108823395436,0.994090167486368,Pearson chi-square df=255,1.0
+y/byte_01/uniform,202.48052657951078,0.9933872118939183,Pearson chi-square df=255,1.0
+y/byte_02/uniform,234.38577870906025,0.8183011376287856,Pearson chi-square df=255,1.0
+y/byte_03/uniform,239.47009520338906,0.7493594013785199,Pearson chi-square df=255,1.0
+y/byte_04/uniform,243.01512321778344,0.6948361854535701,Pearson chi-square df=255,1.0
+y/byte_05/uniform,246.0470550721997,0.6448923014133252,Pearson chi-square df=255,1.0
+y/byte_06/uniform,267.8536418712705,0.2778362844400536,Pearson chi-square df=255,1.0
+y/byte_07/uniform,266.8740946567667,0.29209988521219077,Pearson chi-square df=255,1.0
+y/byte_08/uniform,273.9408281328292,0.19817683914216222,Pearson chi-square df=255,1.0
+y/byte_09/uniform,246.81669931216692,0.6318312506760148,Pearson chi-square df=255,1.0
+y/byte_10/uniform,299.19915273538925,0.029821142898659534,Pearson chi-square df=255,1.0
+y/byte_11/uniform,246.6301188903567,0.6350097508385255,Pearson chi-square df=255,1.0
+y/byte_12/uniform,250.94479114471827,0.5599976032239258,Pearson chi-square df=255,1.0
+y/byte_13/uniform,291.1995171502756,0.05914354362485114,Pearson chi-square df=255,1.0
+y/byte_14/uniform,274.03411834373435,0.19708237539292403,Pearson chi-square df=255,1.0
+y/byte_15/uniform,237.30109779984514,0.7802162198159173,Pearson chi-square df=255,1.0
+y/byte_16/uniform,241.2892543160388,0.7219678287507978,Pearson chi-square df=255,1.0
+y/byte_17/uniform,236.36819569079395,0.7928404788442116,Pearson chi-square df=255,1.0
+y/byte_18/uniform,220.8586981278185,0.9400530319352454,Pearson chi-square df=255,1.0
+y/byte_19/uniform,283.3398168815196,0.10739888453491112,Pearson chi-square df=255,1.0
+y/byte_20/uniform,276.7861795654353,0.16655991951495291,Pearson chi-square df=255,1.0
+y/byte_21/uniform,236.90461440349839,0.7856306016455388,Pearson chi-square df=255,1.0
+y/byte_22/uniform,297.3100259645606,0.03530021456983088,Pearson chi-square df=255,1.0
+y/byte_23/uniform,244.27454106500252,0.6744114114371762,Pearson chi-square df=255,1.0
+y/byte_24/uniform,254.95627021363822,0.4889945895899185,Pearson chi-square df=255,1.0
+y/byte_25/uniform,249.96524393021457,0.5772457005860676,Pearson chi-square df=255,1.0
+y/byte_26/uniform,283.3398168815196,0.10739888453491112,Pearson chi-square df=255,1.0
+y/byte_27/uniform,236.15829271625745,0.7956251604432529,Pearson chi-square df=255,1.0
+y/byte_28/uniform,250.52498519564523,0.5674000601833592,Pearson chi-square df=255,1.0
+y/byte_29/uniform,272.19163667835835,0.21941885403869288,Pearson chi-square df=255,1.0
+y/byte_30/uniform,245.93044230856827,0.6468592842133055,Pearson chi-square df=255,1.0
+y/byte_31/uniform,278.3721131508222,0.15051848605138154,Pearson chi-square df=255,1.0
+y/pooled_bytes/uniform,243.94734204892268,0.6797648449644126,Pearson chi-square df=255; approximate independent-byte null,1.0
+y/bit_000/balance,0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+y/bit_001/balance,-1.5185726695392672,0.12887009486516787,two-sided binomial normal approximation,1.0
+y/bit_002/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+y/bit_003/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+y/bit_004/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+y/bit_005/balance,1.9640206526041188,0.04952769691257445,two-sided binomial normal approximation,1.0
+y/bit_006/balance,0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+y/bit_007/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+y/bit_008/balance,-0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+y/bit_009/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_010/balance,-1.356591584788412,0.17491101710613985,two-sided binomial normal approximation,1.0
+y/bit_011/balance,0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+y/bit_012/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_013/balance,-0.5331877373048982,0.5939036292647742,two-sided binomial normal approximation,1.0
+y/bit_014/balance,0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+y/bit_015/balance,1.3970868559761258,0.16238745390191936,two-sided binomial normal approximation,1.0
+y/bit_016/balance,0.27671768644937755,0.7819968901677312,two-sided binomial normal approximation,1.0
+y/bit_017/balance,0.8571499068066085,0.3913620427430134,two-sided binomial normal approximation,1.0
+y/bit_018/balance,-1.8155379915825016,0.0694412730397073,two-sided binomial normal approximation,1.0
+y/bit_019/balance,0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+y/bit_020/balance,-1.0461278390159396,0.2955020136177012,two-sided binomial normal approximation,1.0
+y/bit_021/balance,-1.3835884322468879,0.1664845123575269,two-sided binomial normal approximation,1.0
+y/bit_022/balance,0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+y/bit_023/balance,-0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+y/bit_024/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+y/bit_025/balance,1.1136199576621293,0.2654422607977055,two-sided binomial normal approximation,1.0
+y/bit_026/balance,1.1271183813913672,0.25969243266270503,two-sided binomial normal approximation,1.0
+y/bit_027/balance,-1.9100269576871671,0.05612974246303088,two-sided binomial normal approximation,1.0
+y/bit_028/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_029/balance,-0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+y/bit_030/balance,0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+y/bit_031/balance,-0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+y/bit_032/balance,1.5860647881854568,0.11272461345324096,two-sided binomial normal approximation,1.0
+y/bit_033/balance,-1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+y/bit_034/balance,-0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+y/bit_035/balance,-0.8166546356188947,0.4141258227411517,two-sided binomial normal approximation,1.0
+y/bit_036/balance,-0.762660940701943,0.44566563047747976,two-sided binomial normal approximation,1.0
+y/bit_037/balance,-1.3295947373299362,0.18365183300234325,two-sided binomial normal approximation,1.0
+y/bit_038/balance,-0.6411751271388016,0.5214089077999755,two-sided binomial normal approximation,1.0
+y/bit_039/balance,0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+y/bit_040/balance,-1.6940521780193603,0.0902553684517615,two-sided binomial normal approximation,1.0
+y/bit_041/balance,-0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+y/bit_042/balance,-0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+y/bit_043/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_044/balance,-2.0450111949795464,0.04085375442501041,two-sided binomial normal approximation,1.0
+y/bit_045/balance,-0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+y/bit_046/balance,-0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+y/bit_047/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+y/bit_048/balance,1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+y/bit_049/balance,1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+y/bit_050/balance,-0.31721295763709134,0.7510820184939843,two-sided binomial normal approximation,1.0
+y/bit_051/balance,-0.5061908898464224,0.6127226497880713,two-sided binomial normal approximation,1.0
+y/bit_052/balance,1.4510805508930775,0.1467574315652019,two-sided binomial normal approximation,1.0
+y/bit_053/balance,0.7356640932434672,0.46193514664587915,two-sided binomial normal approximation,1.0
+y/bit_054/balance,-1.8020395678532637,0.07153918047162225,two-sided binomial normal approximation,1.0
+y/bit_055/balance,0.8166546356188947,0.4141258227411517,two-sided binomial normal approximation,1.0
+y/bit_056/balance,-0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+y/bit_057/balance,0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+y/bit_058/balance,-1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+y/bit_059/balance,-0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+y/bit_060/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_061/balance,1.7885411441240258,0.07368874378459306,two-sided binomial normal approximation,1.0
+y/bit_062/balance,-2.0315127712503087,0.04220300533626276,two-sided binomial normal approximation,1.0
+y/bit_063/balance,-1.3835884322468879,0.1664845123575269,two-sided binomial normal approximation,1.0
+y/bit_064/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_065/balance,0.006749211864618965,0.9946149489388467,two-sided binomial normal approximation,1.0
+y/bit_066/balance,0.45219719492947064,0.651126928790468,two-sided binomial normal approximation,1.0
+y/bit_067/balance,-0.31721295763709134,0.7510820184939843,two-sided binomial normal approximation,1.0
+y/bit_068/balance,-0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+y/bit_069/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+y/bit_070/balance,-1.748045872936312,0.08045608441206116,two-sided binomial normal approximation,1.0
+y/bit_071/balance,-0.7491625169727051,0.45375925811288065,two-sided binomial normal approximation,1.0
+y/bit_072/balance,-1.76154429666555,0.07814632248769426,two-sided binomial normal approximation,1.0
+y/bit_073/balance,0.37120665255404306,0.710483618525716,two-sided binomial normal approximation,1.0
+y/bit_074/balance,-0.45219719492947064,0.651126928790468,two-sided binomial normal approximation,1.0
+y/bit_075/balance,-1.0461278390159396,0.2955020136177012,two-sided binomial normal approximation,1.0
+y/bit_076/balance,-0.4926924661171844,0.6222299017530326,two-sided binomial normal approximation,1.0
+y/bit_077/balance,-0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+y/bit_078/balance,0.6141782796803258,0.5390975247083829,two-sided binomial normal approximation,1.0
+y/bit_079/balance,-0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+y/bit_080/balance,-2.2069922797304016,0.027314598709791634,two-sided binomial normal approximation,1.0
+y/bit_081/balance,-3.489342534008005,0.00048421024468229206,two-sided binomial normal approximation,0.36993662693727114
+y/bit_082/balance,1.5860647881854568,0.11272461345324096,two-sided binomial normal approximation,1.0
+y/bit_083/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_084/balance,-0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+y/bit_085/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_086/balance,-0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+y/bit_087/balance,-0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+y/bit_088/balance,0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+y/bit_089/balance,-0.31721295763709134,0.7510820184939843,two-sided binomial normal approximation,1.0
+y/bit_090/balance,-0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+y/bit_091/balance,1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+y/bit_092/balance,-2.7874245000876328,0.005312883267096381,two-sided binomial normal approximation,1.0
+y/bit_093/balance,0.4926924661171844,0.6222299017530326,two-sided binomial normal approximation,1.0
+y/bit_094/balance,-0.9111436017235602,0.36221971542781806,two-sided binomial normal approximation,1.0
+y/bit_095/balance,2.139500161084212,0.03239518289035306,two-sided binomial normal approximation,1.0
+y/bit_096/balance,1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+y/bit_097/balance,-1.3835884322468879,0.1664845123575269,two-sided binomial normal approximation,1.0
+y/bit_098/balance,-0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+y/bit_099/balance,0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+y/bit_100/balance,-0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+y/bit_101/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+y/bit_102/balance,0.762660940701943,0.44566563047747976,two-sided binomial normal approximation,1.0
+y/bit_103/balance,-2.2069922797304016,0.027314598709791634,two-sided binomial normal approximation,1.0
+y/bit_104/balance,-0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_105/balance,1.8695316864994533,0.06154887945548774,two-sided binomial normal approximation,1.0
+y/bit_106/balance,0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+y/bit_107/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+y/bit_108/balance,0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+y/bit_109/balance,1.4240837034346017,0.15442224329215132,two-sided binomial normal approximation,1.0
+y/bit_110/balance,-1.2351057712252707,0.21679114180667747,two-sided binomial normal approximation,1.0
+y/bit_111/balance,-0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+y/bit_112/balance,0.006749211864618965,0.9946149489388467,two-sided binomial normal approximation,1.0
+y/bit_113/balance,-0.965137296640512,0.3344760482372238,two-sided binomial normal approximation,1.0
+y/bit_114/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_115/balance,0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+y/bit_116/balance,1.6940521780193603,0.0902553684517615,two-sided binomial normal approximation,1.0
+y/bit_117/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_118/balance,0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+y/bit_119/balance,-0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+y/bit_120/balance,-1.356591584788412,0.17491101710613985,two-sided binomial normal approximation,1.0
+y/bit_121/balance,-0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+y/bit_122/balance,-0.5061908898464224,0.6127226497880713,two-sided binomial normal approximation,1.0
+y/bit_123/balance,-0.006749211864618965,0.9946149489388467,two-sided binomial normal approximation,1.0
+y/bit_124/balance,-1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+y/bit_125/balance,0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+y/bit_126/balance,-1.1946105000375569,0.23223924490764034,two-sided binomial normal approximation,1.0
+y/bit_127/balance,-0.9381404491820361,0.3481722370714341,two-sided binomial normal approximation,1.0
+y/bit_128/balance,1.3970868559761258,0.16238745390191936,two-sided binomial normal approximation,1.0
+y/bit_129/balance,0.9111436017235602,0.36221971542781806,two-sided binomial normal approximation,1.0
+y/bit_130/balance,-0.8976451779943223,0.36937474521896213,two-sided binomial normal approximation,1.0
+y/bit_131/balance,-1.4645789746223155,0.14303582182899707,two-sided binomial normal approximation,1.0
+y/bit_132/balance,0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+y/bit_133/balance,-1.6805537542901223,0.09284962488550504,two-sided binomial normal approximation,1.0
+y/bit_134/balance,0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+y/bit_135/balance,1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+y/bit_136/balance,-0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+y/bit_137/balance,0.6141782796803258,0.5390975247083829,two-sided binomial normal approximation,1.0
+y/bit_138/balance,1.2756010424129844,0.20209658543547013,two-sided binomial normal approximation,1.0
+y/bit_139/balance,1.76154429666555,0.07814632248769426,two-sided binomial normal approximation,1.0
+y/bit_140/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+y/bit_141/balance,1.2216073474960327,0.22185614875688486,two-sided binomial normal approximation,1.0
+y/bit_142/balance,-0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+y/bit_143/balance,0.4252003474709948,0.6706906309104762,two-sided binomial normal approximation,1.0
+y/bit_144/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_145/balance,1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+y/bit_146/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+y/bit_147/balance,-1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+y/bit_148/balance,-1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+y/bit_149/balance,-0.4252003474709948,0.6706906309104762,two-sided binomial normal approximation,1.0
+y/bit_150/balance,-0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+y/bit_151/balance,-0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+y/bit_152/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+y/bit_153/balance,1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+y/bit_154/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_155/balance,-0.2632192627201396,0.7923815846516651,two-sided binomial normal approximation,1.0
+y/bit_156/balance,2.0315127712503087,0.04220300533626276,two-sided binomial normal approximation,1.0
+y/bit_157/balance,2.4499639068566843,0.014287053518808464,two-sided binomial normal approximation,1.0
+y/bit_158/balance,-0.2632192627201396,0.7923815846516651,two-sided binomial normal approximation,1.0
+y/bit_159/balance,-0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+y/bit_160/balance,-0.9921341440989879,0.3211320925483808,two-sided binomial normal approximation,1.0
+y/bit_161/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_162/balance,1.734547449207074,0.08282099440152377,two-sided binomial normal approximation,1.0
+y/bit_163/balance,-1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+y/bit_164/balance,-0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+y/bit_165/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+y/bit_166/balance,-1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+y/bit_167/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_168/balance,1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+y/bit_169/balance,-2.287982822105829,0.02213852149871978,two-sided binomial normal approximation,1.0
+y/bit_170/balance,-0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+y/bit_171/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+y/bit_172/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+y/bit_173/balance,-0.6141782796803258,0.5390975247083829,two-sided binomial normal approximation,1.0
+y/bit_174/balance,2.0855064661672604,0.03702335182752015,two-sided binomial normal approximation,1.0
+y/bit_175/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_176/balance,1.6805537542901223,0.09284962488550504,two-sided binomial normal approximation,1.0
+y/bit_177/balance,1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+y/bit_178/balance,1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+y/bit_179/balance,1.559067940726981,0.11898030057018383,two-sided binomial normal approximation,1.0
+y/bit_180/balance,-1.8695316864994533,0.06154887945548774,two-sided binomial normal approximation,1.0
+y/bit_181/balance,0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+y/bit_182/balance,-1.3160963136006982,0.18814171812533942,two-sided binomial normal approximation,1.0
+y/bit_183/balance,0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+y/bit_184/balance,-0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+y/bit_185/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+y/bit_186/balance,-1.7750427203947878,0.07589083361175512,two-sided binomial normal approximation,1.0
+y/bit_187/balance,0.45219719492947064,0.651126928790468,two-sided binomial normal approximation,1.0
+y/bit_188/balance,-1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+y/bit_189/balance,0.8436514830773706,0.3988641863396419,two-sided binomial normal approximation,1.0
+y/bit_190/balance,0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+y/bit_191/balance,0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+y/bit_192/balance,0.37120665255404306,0.710483618525716,two-sided binomial normal approximation,1.0
+y/bit_193/balance,0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+y/bit_194/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+y/bit_195/balance,0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+y/bit_196/balance,1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+y/bit_197/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+y/bit_198/balance,2.8009229238168705,0.005095668807511272,two-sided binomial normal approximation,1.0
+y/bit_199/balance,-0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+y/bit_200/balance,-0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+y/bit_201/balance,0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+y/bit_202/balance,1.4780773983515534,0.13938706289364286,two-sided binomial normal approximation,1.0
+y/bit_203/balance,-0.8436514830773706,0.3988641863396419,two-sided binomial normal approximation,1.0
+y/bit_204/balance,0.006749211864618965,0.9946149489388467,two-sided binomial normal approximation,1.0
+y/bit_205/balance,-0.6951688220557534,0.48694950873333875,two-sided binomial normal approximation,1.0
+y/bit_206/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_207/balance,-0.762660940701943,0.44566563047747976,two-sided binomial normal approximation,1.0
+y/bit_208/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+y/bit_209/balance,0.9381404491820361,0.3481722370714341,two-sided binomial normal approximation,1.0
+y/bit_210/balance,-0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+y/bit_211/balance,0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+y/bit_212/balance,0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+y/bit_213/balance,0.9786357203697499,0.3277600031568717,two-sided binomial normal approximation,1.0
+y/bit_214/balance,-0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+y/bit_215/balance,0.7491625169727051,0.45375925811288065,two-sided binomial normal approximation,1.0
+y/bit_216/balance,-0.24972083899090172,0.8028032414882149,two-sided binomial normal approximation,1.0
+y/bit_217/balance,2.571449720419826,0.010127371981782731,two-sided binomial normal approximation,1.0
+y/bit_218/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+y/bit_219/balance,0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+y/bit_220/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+y/bit_221/balance,0.6951688220557534,0.48694950873333875,two-sided binomial normal approximation,1.0
+y/bit_222/balance,-0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+y/bit_223/balance,-0.4386987712002327,0.6608798175762152,two-sided binomial normal approximation,1.0
+y/bit_224/balance,-1.3160963136006982,0.18814171812533942,two-sided binomial normal approximation,1.0
+y/bit_225/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+y/bit_226/balance,0.9111436017235602,0.36221971542781806,two-sided binomial normal approximation,1.0
+y/bit_227/balance,0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+y/bit_228/balance,-1.4105852797053637,0.1583669345659365,two-sided binomial normal approximation,1.0
+y/bit_229/balance,-0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+y/bit_230/balance,0.3982035000125189,0.690480186209827,two-sided binomial normal approximation,1.0
+y/bit_231/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+y/bit_232/balance,-1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+y/bit_233/balance,0.31721295763709134,0.7510820184939843,two-sided binomial normal approximation,1.0
+y/bit_234/balance,0.7896577881604189,0.4297276496419626,two-sided binomial normal approximation,1.0
+y/bit_235/balance,-1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+y/bit_236/balance,-1.6805537542901223,0.09284962488550504,two-sided binomial normal approximation,1.0
+y/bit_237/balance,0.3982035000125189,0.690480186209827,two-sided binomial normal approximation,1.0
+y/bit_238/balance,0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+y/bit_239/balance,1.2081089237667948,0.22700536765617835,two-sided binomial normal approximation,1.0
+y/bit_240/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+y/bit_241/balance,-1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+y/bit_242/balance,-1.37009000851765,0.17065880637217962,two-sided binomial normal approximation,1.0
+y/bit_243/balance,-2.692935533982967,0.0070825962146510955,two-sided binomial normal approximation,1.0
+y/bit_244/balance,0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+y/bit_245/balance,-0.9786357203697499,0.3277600031568717,two-sided binomial normal approximation,1.0
+y/bit_246/balance,-0.8031562118896568,0.4218844510590713,two-sided binomial normal approximation,1.0
+y/bit_247/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+y/bit_248/balance,0.08773975424004654,0.9300835221326459,two-sided binomial normal approximation,1.0
+y/bit_249/balance,-2.0450111949795464,0.04085375442501041,two-sided binomial normal approximation,1.0
+y/bit_250/balance,0.5196893135756603,0.6032801363688627,two-sided binomial normal approximation,1.0
+y/bit_251/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+y/bit_252/balance,-2.854916618733822,0.0043048129170858455,two-sided binomial normal approximation,1.0
+y/bit_253/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+y/bit_254/balance,0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+y/bit_255/balance,1.5050742458100292,0.13230498946760014,two-sided binomial normal approximation,1.0
+y/height_correlation,0.0008693018831143696,0.8975224459704767,Pearson r; large-sample Fisher-z approximation,1.0
+y/lag1_correlation,-0.004801359484910033,0.4768759045135645,Pearson r; large-sample Fisher-z approximation,1.0
+hash160/byte_00/uniform,275.15360087459567,0.184254374186743,Pearson chi-square df=255,1.0
+hash160/byte_01/uniform,206.93513415023006,0.987744015942246,Pearson chi-square df=255,1.0
+hash160/byte_02/uniform,254.69972213364917,0.49352657004772016,Pearson chi-square df=255,1.0
+hash160/byte_03/uniform,273.84753792192413,0.19927521236621734,Pearson chi-square df=255,1.0
+hash160/byte_04/uniform,244.06463809046602,0.6778493903952272,Pearson chi-square df=255,1.0
+hash160/byte_05/uniform,246.8633444176195,0.6310354552593388,Pearson chi-square df=255,1.0
+hash160/byte_06/uniform,268.69325376941646,0.26591398254825177,Pearson chi-square df=255,1.0
+hash160/byte_07/uniform,234.75893955268074,0.8136535453235332,Pearson chi-square df=255,1.0
+hash160/byte_08/uniform,266.7574818931354,0.2938227299488838,Pearson chi-square df=255,1.0
+hash160/byte_09/uniform,256.775429326288,0.45701982468109104,Pearson chi-square df=255,1.0
+hash160/byte_10/uniform,228.08868947296497,0.8862001987939067,Pearson chi-square df=255,1.0
+hash160/byte_11/uniform,269.9993167220881,0.24794468848552154,Pearson chi-square df=255,1.0
+hash160/byte_12/uniform,332.0606295267162,0.0008229851654694103,Pearson chi-square df=255,0.6271146960876907
+hash160/byte_13/uniform,229.09155924019495,0.8767299481555841,Pearson chi-square df=255,1.0
+hash160/byte_14/uniform,232.96310299275729,0.83538935122487,Pearson chi-square df=255,1.0
+hash160/byte_15/uniform,237.51100077438167,0.7773207829163639,Pearson chi-square df=255,1.0
+hash160/byte_16/uniform,265.3114836241061,0.31560846050817226,Pearson chi-square df=255,1.0
+hash160/byte_17/uniform,319.93290210905116,0.003561533114360993,Pearson chi-square df=255,1.0
+hash160/byte_18/uniform,266.47761126041996,0.297978676011917,Pearson chi-square df=255,1.0
+hash160/byte_19/uniform,283.47975219787725,0.10633521427637443,Pearson chi-square df=255,1.0
+hash160/pooled_bytes/uniform,260.09802760442767,0.3998503037042112,Pearson chi-square df=255; approximate independent-byte null,1.0
+hash160/bit_000/balance,1.0731246864744155,0.28321517613389235,two-sided binomial normal approximation,1.0
+hash160/bit_001/balance,0.35770822882480513,0.7205616743415268,two-sided binomial normal approximation,1.0
+hash160/bit_002/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+hash160/bit_003/balance,-1.3025978898714603,0.1927120785636077,two-sided binomial normal approximation,1.0
+hash160/bit_004/balance,-0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+hash160/bit_005/balance,1.6940521780193603,0.0902553684517615,two-sided binomial normal approximation,1.0
+hash160/bit_006/balance,-1.4510805508930775,0.1467574315652019,two-sided binomial normal approximation,1.0
+hash160/bit_007/balance,-1.2216073474960327,0.22185614875688486,two-sided binomial normal approximation,1.0
+hash160/bit_008/balance,-0.33071138136632927,0.7408625045292108,two-sided binomial normal approximation,1.0
+hash160/bit_009/balance,0.3982035000125189,0.690480186209827,two-sided binomial normal approximation,1.0
+hash160/bit_010/balance,0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+hash160/bit_011/balance,0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+hash160/bit_012/balance,-0.06074290678157068,0.9515639600791983,two-sided binomial normal approximation,1.0
+hash160/bit_013/balance,-0.6681719745972775,0.5040238226323579,two-sided binomial normal approximation,1.0
+hash160/bit_014/balance,1.1136199576621293,0.2654422607977055,two-sided binomial normal approximation,1.0
+hash160/bit_015/balance,-1.0056325678282259,0.31459235150550374,two-sided binomial normal approximation,1.0
+hash160/bit_016/balance,-0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+hash160/bit_017/balance,-0.9786357203697499,0.3277600031568717,two-sided binomial normal approximation,1.0
+hash160/bit_018/balance,-1.572566364456219,0.1158192611332287,two-sided binomial normal approximation,1.0
+hash160/bit_019/balance,-1.8560332627702154,0.0634488170542461,two-sided binomial normal approximation,1.0
+hash160/bit_020/balance,0.8571499068066085,0.3913620427430134,two-sided binomial normal approximation,1.0
+hash160/bit_021/balance,-0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+hash160/bit_022/balance,0.1552318728862362,0.8766385219071391,two-sided binomial normal approximation,1.0
+hash160/bit_023/balance,1.4780773983515534,0.13938706289364286,two-sided binomial normal approximation,1.0
+hash160/bit_024/balance,-0.5061908898464224,0.6127226497880713,two-sided binomial normal approximation,1.0
+hash160/bit_025/balance,1.9100269576871671,0.05612974246303088,two-sided binomial normal approximation,1.0
+hash160/bit_026/balance,-0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+hash160/bit_027/balance,-0.8301530593481327,0.40645225108681987,two-sided binomial normal approximation,1.0
+hash160/bit_028/balance,0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+hash160/bit_029/balance,-0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+hash160/bit_030/balance,1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+hash160/bit_031/balance,0.7356640932434672,0.46193514664587915,two-sided binomial normal approximation,1.0
+hash160/bit_032/balance,-1.5185726695392672,0.12887009486516787,two-sided binomial normal approximation,1.0
+hash160/bit_033/balance,-1.0191309915574638,0.3081407827419499,two-sided binomial normal approximation,1.0
+hash160/bit_034/balance,1.167613652579081,0.24296264064932033,two-sided binomial normal approximation,1.0
+hash160/bit_035/balance,-0.4926924661171844,0.6222299017530326,two-sided binomial normal approximation,1.0
+hash160/bit_036/balance,1.734547449207074,0.08282099440152377,two-sided binomial normal approximation,1.0
+hash160/bit_037/balance,0.4791940423879465,0.6318005921324139,two-sided binomial normal approximation,1.0
+hash160/bit_038/balance,-0.384705076283281,0.7004559338038548,two-sided binomial normal approximation,1.0
+hash160/bit_039/balance,-0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+hash160/bit_040/balance,0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+hash160/bit_041/balance,0.4791940423879465,0.6318005921324139,two-sided binomial normal approximation,1.0
+hash160/bit_042/balance,-1.167613652579081,0.24296264064932033,two-sided binomial normal approximation,1.0
+hash160/bit_043/balance,0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+hash160/bit_044/balance,0.7896577881604189,0.4297276496419626,two-sided binomial normal approximation,1.0
+hash160/bit_045/balance,0.8571499068066085,0.3913620427430134,two-sided binomial normal approximation,1.0
+hash160/bit_046/balance,-0.5061908898464224,0.6127226497880713,two-sided binomial normal approximation,1.0
+hash160/bit_047/balance,1.6535569068316465,0.09821757459902872,two-sided binomial normal approximation,1.0
+hash160/bit_048/balance,-1.356591584788412,0.17491101710613985,two-sided binomial normal approximation,1.0
+hash160/bit_049/balance,2.1799954322719257,0.029257800140255603,two-sided binomial normal approximation,1.0
+hash160/bit_050/balance,-1.2081089237667948,0.22700536765617835,two-sided binomial normal approximation,1.0
+hash160/bit_051/balance,-1.0866231102036534,0.2772034073730385,two-sided binomial normal approximation,1.0
+hash160/bit_052/balance,1.5185726695392672,0.12887009486516787,two-sided binomial normal approximation,1.0
+hash160/bit_053/balance,0.9786357203697499,0.3277600031568717,two-sided binomial normal approximation,1.0
+hash160/bit_054/balance,-1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+hash160/bit_055/balance,1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+hash160/bit_056/balance,-1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+hash160/bit_057/balance,-0.033746059323094824,0.9730796498419589,two-sided binomial normal approximation,1.0
+hash160/bit_058/balance,0.6681719745972775,0.5040238226323579,two-sided binomial normal approximation,1.0
+hash160/bit_059/balance,0.7761593644311809,0.43765489580605377,two-sided binomial normal approximation,1.0
+hash160/bit_060/balance,0.384705076283281,0.7004559338038548,two-sided binomial normal approximation,1.0
+hash160/bit_061/balance,0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+hash160/bit_062/balance,-0.4252003474709948,0.6706906309104762,two-sided binomial normal approximation,1.0
+hash160/bit_063/balance,-0.573683008492612,0.566182328485548,two-sided binomial normal approximation,1.0
+hash160/bit_064/balance,1.923525381416405,0.054414102059621904,two-sided binomial normal approximation,1.0
+hash160/bit_065/balance,0.9111436017235602,0.36221971542781806,two-sided binomial normal approximation,1.0
+hash160/bit_066/balance,-0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+hash160/bit_067/balance,-0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+hash160/bit_068/balance,-1.8290364153117395,0.06739415318177175,two-sided binomial normal approximation,1.0
+hash160/bit_069/balance,-1.8965285339579292,0.05789019057500847,two-sided binomial normal approximation,1.0
+hash160/bit_070/balance,-1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+hash160/bit_071/balance,-0.8976451779943223,0.36937474521896213,two-sided binomial normal approximation,1.0
+hash160/bit_072/balance,1.545569516997743,0.12220856785640223,two-sided binomial normal approximation,1.0
+hash160/bit_073/balance,0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+hash160/bit_074/balance,-1.167613652579081,0.24296264064932033,two-sided binomial normal approximation,1.0
+hash160/bit_075/balance,-1.0596262627451776,0.28931466075951173,two-sided binomial normal approximation,1.0
+hash160/bit_076/balance,-0.27671768644937755,0.7819968901677312,two-sided binomial normal approximation,1.0
+hash160/bit_077/balance,1.3160963136006982,0.18814171812533942,two-sided binomial normal approximation,1.0
+hash160/bit_078/balance,0.6141782796803258,0.5390975247083829,two-sided binomial normal approximation,1.0
+hash160/bit_079/balance,0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+hash160/bit_080/balance,-0.23622241526166377,0.8132600867781719,two-sided binomial normal approximation,1.0
+hash160/bit_081/balance,0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+hash160/bit_082/balance,0.3982035000125189,0.690480186209827,two-sided binomial normal approximation,1.0
+hash160/bit_083/balance,1.0731246864744155,0.28321517613389235,two-sided binomial normal approximation,1.0
+hash160/bit_084/balance,0.6006798559510879,0.5480532384744956,two-sided binomial normal approximation,1.0
+hash160/bit_085/balance,0.2632192627201396,0.7923815846516651,two-sided binomial normal approximation,1.0
+hash160/bit_086/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+hash160/bit_087/balance,-0.10123817796928447,0.9193613907524887,two-sided binomial normal approximation,1.0
+hash160/bit_088/balance,0.7086672457849913,0.4785309953866215,two-sided binomial normal approximation,1.0
+hash160/bit_089/balance,0.12823502542776033,0.8979629825951381,two-sided binomial normal approximation,1.0
+hash160/bit_090/balance,-0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+hash160/bit_091/balance,-2.2069922797304016,0.027314598709791634,two-sided binomial normal approximation,1.0
+hash160/bit_092/balance,-0.7221656695142292,0.47019262745975643,two-sided binomial normal approximation,1.0
+hash160/bit_093/balance,1.2486041949545086,0.21180987726917905,two-sided binomial normal approximation,1.0
+hash160/bit_094/balance,-0.5331877373048982,0.5939036292647742,two-sided binomial normal approximation,1.0
+hash160/bit_095/balance,-1.0731246864744155,0.28321517613389235,two-sided binomial normal approximation,1.0
+hash160/bit_096/balance,-0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+hash160/bit_097/balance,1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+hash160/bit_098/balance,0.46569561865870857,0.6414333889270163,two-sided binomial normal approximation,1.0
+hash160/bit_099/balance,-0.2092255678031879,0.8342721538760222,two-sided binomial normal approximation,1.0
+hash160/bit_100/balance,-1.6940521780193603,0.0902553684517615,two-sided binomial normal approximation,1.0
+hash160/bit_101/balance,-0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+hash160/bit_102/balance,-1.7885411441240258,0.07368874378459306,two-sided binomial normal approximation,1.0
+hash160/bit_103/balance,1.1136199576621293,0.2654422607977055,two-sided binomial normal approximation,1.0
+hash160/bit_104/balance,2.0315127712503087,0.04220300533626276,two-sided binomial normal approximation,1.0
+hash160/bit_105/balance,1.3970868559761258,0.16238745390191936,two-sided binomial normal approximation,1.0
+hash160/bit_106/balance,-1.2621026186837465,0.2069118631096143,two-sided binomial normal approximation,1.0
+hash160/bit_107/balance,0.4791940423879465,0.6318005921324139,two-sided binomial normal approximation,1.0
+hash160/bit_108/balance,-0.19572714407394998,0.8448237374147756,two-sided binomial normal approximation,1.0
+hash160/bit_109/balance,-0.6276767034095637,0.5302157496994013,two-sided binomial normal approximation,1.0
+hash160/bit_110/balance,-1.154115228849843,0.2484529306594491,two-sided binomial normal approximation,1.0
+hash160/bit_111/balance,1.4915758220807913,0.13581038044667348,two-sided binomial normal approximation,1.0
+hash160/bit_112/balance,0.5871814322218499,0.5570818613138961,two-sided binomial normal approximation,1.0
+hash160/bit_113/balance,0.5601845847633741,0.5753535404933305,two-sided binomial normal approximation,1.0
+hash160/bit_114/balance,1.4510805508930775,0.1467574315652019,two-sided binomial normal approximation,1.0
+hash160/bit_115/balance,-0.9246420254527982,0.35515214510282045,two-sided binomial normal approximation,1.0
+hash160/bit_116/balance,-1.0056325678282259,0.31459235150550374,two-sided binomial normal approximation,1.0
+hash160/bit_117/balance,-0.8841467542650844,0.37661699707352325,two-sided binomial normal approximation,1.0
+hash160/bit_118/balance,-0.3037145339078534,0.761345384290423,two-sided binomial normal approximation,1.0
+hash160/bit_119/balance,-2.6119449916075395,0.009002873863811761,two-sided binomial normal approximation,1.0
+hash160/bit_120/balance,1.545569516997743,0.12220856785640223,two-sided binomial normal approximation,1.0
+hash160/bit_121/balance,-0.16873029661547412,0.8660087871843513,two-sided binomial normal approximation,1.0
+hash160/bit_122/balance,1.0191309915574638,0.3081407827419499,two-sided binomial normal approximation,1.0
+hash160/bit_123/balance,0.07424133051080861,0.9408183595815308,two-sided binomial normal approximation,1.0
+hash160/bit_124/balance,1.545569516997743,0.12220856785640223,two-sided binomial normal approximation,1.0
+hash160/bit_125/balance,0.8571499068066085,0.3913620427430134,two-sided binomial normal approximation,1.0
+hash160/bit_126/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+hash160/bit_127/balance,1.4105852797053637,0.1583669345659365,two-sided binomial normal approximation,1.0
+hash160/bit_128/balance,0.18222872034471205,0.8554032347550302,two-sided binomial normal approximation,1.0
+hash160/bit_129/balance,0.4791940423879465,0.6318005921324139,two-sided binomial normal approximation,1.0
+hash160/bit_130/balance,1.6940521780193603,0.0902553684517615,two-sided binomial normal approximation,1.0
+hash160/bit_131/balance,2.004515923791833,0.04501482288418714,two-sided binomial normal approximation,1.0
+hash160/bit_132/balance,0.14173344915699826,0.8872905530360353,two-sided binomial normal approximation,1.0
+hash160/bit_133/balance,-1.4240837034346017,0.15442224329215132,two-sided binomial normal approximation,1.0
+hash160/bit_134/balance,-1.37009000851765,0.17065880637217962,two-sided binomial normal approximation,1.0
+hash160/bit_135/balance,-1.6130616356439327,0.10673111770026977,two-sided binomial normal approximation,1.0
+hash160/bit_136/balance,0.6546735508680396,0.5126779577847891,two-sided binomial normal approximation,1.0
+hash160/bit_137/balance,3.3948535679033394,0.0006866531525349329,two-sided binomial normal approximation,0.5239163553841538
+hash160/bit_138/balance,1.0326294152867017,0.30177735702354697,two-sided binomial normal approximation,1.0
+hash160/bit_139/balance,-1.8425348390409775,0.06539695532952813,two-sided binomial normal approximation,1.0
+hash160/bit_140/balance,-0.27671768644937755,0.7819968901677312,two-sided binomial normal approximation,1.0
+hash160/bit_141/balance,1.2351057712252707,0.21679114180667747,two-sided binomial normal approximation,1.0
+hash160/bit_142/balance,-1.1406168051206051,0.2540294208430378,two-sided binomial normal approximation,1.0
+hash160/bit_143/balance,0.6411751271388016,0.5214089077999755,two-sided binomial normal approximation,1.0
+hash160/bit_144/balance,-1.2081089237667948,0.22700536765617835,two-sided binomial normal approximation,1.0
+hash160/bit_145/balance,0.37120665255404306,0.710483618525716,two-sided binomial normal approximation,1.0
+hash160/bit_146/balance,1.4510805508930775,0.1467574315652019,two-sided binomial normal approximation,1.0
+hash160/bit_147/balance,0.1552318728862362,0.8766385219071391,two-sided binomial normal approximation,1.0
+hash160/bit_148/balance,-0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+hash160/bit_149/balance,-0.04724448305233275,0.9623183747338124,two-sided binomial normal approximation,1.0
+hash160/bit_150/balance,0.3442098050955672,0.7306885089507746,two-sided binomial normal approximation,1.0
+hash160/bit_151/balance,-0.2902161101786155,0.7716509121998412,two-sided binomial normal approximation,1.0
+hash160/bit_152/balance,-0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+hash160/bit_153/balance,-0.020247635593856894,0.9838458279533345,two-sided binomial normal approximation,1.0
+hash160/bit_154/balance,1.76154429666555,0.07814632248769426,two-sided binomial normal approximation,1.0
+hash160/bit_155/balance,-0.1147366016985224,0.9086539015341403,two-sided binomial normal approximation,1.0
+hash160/bit_156/balance,-1.1271183813913672,0.25969243266270503,two-sided binomial normal approximation,1.0
+hash160/bit_157/balance,-0.5466861610341361,0.5845943634159794,two-sided binomial normal approximation,1.0
+hash160/bit_158/balance,-0.6816703983265154,0.495447389334458,two-sided binomial normal approximation,1.0
+hash160/bit_159/balance,0.22272399153242584,0.8237503277893228,two-sided binomial normal approximation,1.0
+hash160/height_correlation,0.008348396778822447,0.21612860453842336,Pearson r; large-sample Fisher-z approximation,1.0
+hash160/lag1_correlation,0.004561130934597903,0.49920248126226463,Pearson r; large-sample Fisher-z approximation,1.0

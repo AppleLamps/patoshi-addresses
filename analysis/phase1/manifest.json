@@ -1,0 +1,15 @@
+{
+  "patoshi_pubkeys_COMPLETE.csv": "e04316e814d9dc397578dc051ac3449b1dfc68603114812de42a26e5eb6a123d",
+  "extract_patoshi_addresses.py": "c93164bc02022a0c1169dce865f907a9d7eb6bad6aa560bb5d08162bb0272e19",
+  "scripts/phase1_offline.py": "a2cefd0b091bb4fd77adfe958f2bbf5104ca7c3c256730368c6363793c49b6c7",
+  "patoshi_p2pkh_addresses.csv": "30e28b44e9552b0a924bae05ed40eeb5a2dd3a4799dda8cd40a6a9a6b3e5d3f8",
+  "analysis/phase1/byte_frequencies.csv": "48218f5677a94b45c023dcabd18ba4d728292f63f26e4b2d86497435b5eaadff",
+  "analysis/phase1/csv_heights_absent_from_extractor.csv": "f04094494e45c2f729420fbc932ac2aeb01501547efccc60d17b143dedcb518a",
+  "analysis/phase1/gap_ranges.csv": "65c310c51e8e9c84c3476383f293540f2a1636ef9ae2036db04eb9b9fd753210",
+  "analysis/phase1/gap_tests.csv": "681fdd0e2a9061e7438999f656488ada5159694bafb0742af9eb1b99b867d40b",
+  "analysis/phase1/height_windows.csv": "977d43bce98faa37f22049281f2c2030ab923b85bad3b7d82fcdd6797ed535bb",
+  "analysis/phase1/missing_heights.csv": "8d01818a9f1f188450c90671a26c1e2e0548a937b92a82e10d7f9e4c3270e791",
+  "analysis/phase1/randomness_tests.csv": "1f49662b014c41c5c2fc13a9ae56fcc041274c9bca0dcb5360a12db331c4fdcf",
+  "analysis/phase1/results.json": "4df20e27b876e12d41b65695ba00cb29942ddd9ebaed7653dc29fc765aaee91a",
+  "analysis/phase1/vanity_candidates.csv": "f0293d7d22caedca39fd644efabf56bb84c6e4e2ff113b50a5b811d42a54c13e"
+}

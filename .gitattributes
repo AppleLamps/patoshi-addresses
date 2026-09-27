@@ -1,0 +1,8 @@
+# Keep new reproducibility artifacts byte-stable on Windows and Unix.
+/scripts/** text eol=lf
+/tests/** text eol=lf
+/analysis/** text eol=lf
+/patoshi_p2pkh_addresses.csv text eol=lf
+/requirements-analysis.txt text eol=lf
+/.gitignore text eol=lf
+/.gitattributes text eol=lf

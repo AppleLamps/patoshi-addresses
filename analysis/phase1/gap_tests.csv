@@ -1,0 +1,11 @@
+test,p_raw,p_holm
+global_fixed_count/p_runs_two_sided,0.0005,0.005
+global_fixed_count/p_longest_gap,0.0005,0.005
+within_1000_height_windows/p_runs_two_sided,0.0005,0.005
+within_1000_height_windows/p_longest_gap,0.0005,0.005
+within_250_height_windows/p_runs_two_sided,0.0005,0.005
+within_250_height_windows/p_longest_gap,0.0015,0.005
+within_500_height_windows/p_runs_two_sided,0.0005,0.005
+within_500_height_windows/p_longest_gap,0.0005,0.005
+within_2000_height_windows/p_runs_two_sided,0.0005,0.005
+within_2000_height_windows/p_longest_gap,0.0005,0.005

@@ -301,9 +301,9 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "bytes": 578,
+      "bytes": 569,
       "path": "analysis/phase2_bigquery/schema/tables.stderr.txt",
-      "sha256": "7f752d14ac456da33622c5374a9d3346a38b6e899c4a46669dd7f401702c45fc"
+      "sha256": "ca877e580f491481bf100c3450a4004663633ac5c106cb561a0be1e5b3ce93c5"
     },
     {
       "bytes": 2629115,

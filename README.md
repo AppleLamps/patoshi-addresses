@@ -53,3 +53,17 @@ python scripts/phase1_offline.py --permutations 1999
 
 No network access is used by this analysis. Attribution and spend status remain
 unverified until a separate on-chain audit.
+
+## Provenance investigation
+
+The [provenance report](analysis/provenance/REPORT.md) establishes that the CSV's
+21,953 heights exactly match Lopp's published 2022 list and the list in
+`tehran19r/TaintedBySatoshi`, in the same order. The extractor is a strict subset:
+6,183 shared heights, zero extractor-only heights, and 15,770 CSV-only heights.
+
+Use the [pinned Lopp height list](analysis/provenance/lopp_patoshi_heights.txt) as
+the declared population for subsequent verification. Exact list agreement does
+not independently verify the CSV's pubkeys, amounts, spend status or miner attribution.
+The [comparison script](scripts/provenance_compare.py) and
+[reproduction instructions](analysis/provenance/METHODS.md) work offline using
+the committed source snapshots.

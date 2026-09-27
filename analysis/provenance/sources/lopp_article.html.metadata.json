@@ -1,0 +1,20 @@
+{
+  "requested_url": "https://blog.lopp.net/was-satoshi-a-greedy-miner/",
+  "fetched_at_utc": "2026-09-27T22:49:16.003781+00:00",
+  "status": 200,
+  "final_url": "https://blog.lopp.net/was-satoshi-a-greedy-miner/",
+  "headers": {
+    "Server": "nginx/1.24.0 (Ubuntu)",
+    "Date": "Sun, 27 Sep 2026 22:49:16 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Content-Length": "62063",
+    "Connection": "close",
+    "X-Powered-By": "Express",
+    "Cache-Control": "public, max-age=0",
+    "ETag": "W/\"f26f-vYrNQWM1Gsrs3ShATCBLzulYeVg\"",
+    "Vary": "Accept-Encoding",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "bytes": 62063,
+  "sha256": "98bfd6e771a40a55e6888c1027c029e861c1c33f46d1552a2cf40d8c1fad817d"
+}

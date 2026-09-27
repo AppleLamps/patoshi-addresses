@@ -1,0 +1,587 @@
+{
+  "artifacts": {
+    "extractor": {
+      "rows": 6183,
+      "unique": 6183,
+      "duplicates": 0,
+      "sorted": true,
+      "heights": {
+        "n": 6183,
+        "min": 3,
+        "median": 4047,
+        "mean": 4017.9514798641435,
+        "p90_nearest_rank": 7267,
+        "p99_nearest_rank": 7991,
+        "max": 49973
+      },
+      "interlisted_delta": {
+        "n": 6182,
+        "min": 1,
+        "median": 1.0,
+        "mean": 8.083144613393724,
+        "p90_nearest_rank": 2,
+        "p99_nearest_rank": 4,
+        "max": 39654
+      },
+      "canonical_set_sha256": "3dab3fff213278b1ea6d678e060e73fb05c99dacdadccf23e29d0af537dd1da7",
+      "source_file": "extract_patoshi_addresses.py",
+      "source_raw_sha256": "c93164bc02022a0c1169dce865f907a9d7eb6bad6aa560bb5d08162bb0272e19",
+      "source_lf_sha256": "4ae2d4e26d7d4d9010c2627c86657c04ece94f9ecfc8d8c1c497514d299c8c36"
+    },
+    "csv": {
+      "rows": 21953,
+      "unique": 21953,
+      "duplicates": 0,
+      "sorted": true,
+      "heights": {
+        "n": 21953,
+        "min": 3,
+        "median": 14586,
+        "mean": 16385.054206714343,
+        "p90_nearest_rank": 33549,
+        "p99_nearest_rank": 47694,
+        "max": 49973
+      },
+      "interlisted_delta": {
+        "n": 21952,
+        "min": 1,
+        "median": 1.0,
+        "mean": 2.276330174927114,
+        "p90_nearest_rank": 5,
+        "p99_nearest_rank": 13,
+        "max": 427
+      },
+      "canonical_set_sha256": "33a74d805c95c368636c4a7334e3cff80d8624fd4b0182bde84eca9e4749465f",
+      "source_file": "patoshi_pubkeys_COMPLETE.csv",
+      "source_raw_sha256": "e04316e814d9dc397578dc051ac3449b1dfc68603114812de42a26e5eb6a123d",
+      "source_lf_sha256": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e"
+    },
+    "lopp": {
+      "rows": 21953,
+      "unique": 21953,
+      "duplicates": 0,
+      "sorted": true,
+      "heights": {
+        "n": 21953,
+        "min": 3,
+        "median": 14586,
+        "mean": 16385.054206714343,
+        "p90_nearest_rank": 33549,
+        "p99_nearest_rank": 47694,
+        "max": 49973
+      },
+      "interlisted_delta": {
+        "n": 21952,
+        "min": 1,
+        "median": 1.0,
+        "mean": 2.276330174927114,
+        "p90_nearest_rank": 5,
+        "p99_nearest_rank": 13,
+        "max": 427
+      },
+      "canonical_set_sha256": "33a74d805c95c368636c4a7334e3cff80d8624fd4b0182bde84eca9e4749465f",
+      "source_file": "analysis/provenance/sources/lopp_streaks_2022.php",
+      "source_raw_sha256": "0063a387a4e9b29769d56bf20b5990e3a0e02f6dc37aad15a997dd4bd556ec84",
+      "source_lf_sha256": "0063a387a4e9b29769d56bf20b5990e3a0e02f6dc37aad15a997dd4bd556ec84"
+    },
+    "tehran": {
+      "rows": 21953,
+      "unique": 21953,
+      "duplicates": 0,
+      "sorted": true,
+      "heights": {
+        "n": 21953,
+        "min": 3,
+        "median": 14586,
+        "mean": 16385.054206714343,
+        "p90_nearest_rank": 33549,
+        "p99_nearest_rank": 47694,
+        "max": 49973
+      },
+      "interlisted_delta": {
+        "n": 21952,
+        "min": 1,
+        "median": 1.0,
+        "mean": 2.276330174927114,
+        "p90_nearest_rank": 5,
+        "p99_nearest_rank": 13,
+        "max": 427
+      },
+      "canonical_set_sha256": "33a74d805c95c368636c4a7334e3cff80d8624fd4b0182bde84eca9e4749465f",
+      "source_file": "analysis/provenance/sources/tehran_patoshiBlocks_initial.js",
+      "source_raw_sha256": "ecfa826e974aa1532014121a7b3c45ea98b9799f81995e888b00aa9250e8786f",
+      "source_lf_sha256": "ecfa826e974aa1532014121a7b3c45ea98b9799f81995e888b00aa9250e8786f"
+    }
+  },
+  "pairwise": [
+    {
+      "left": "extractor",
+      "right": "csv",
+      "intersection": 6183,
+      "left_only": 0,
+      "right_only": 15770,
+      "union": 21953,
+      "jaccard": 0.28164715528629347,
+      "identical_sequence": false
+    },
+    {
+      "left": "extractor",
+      "right": "lopp",
+      "intersection": 6183,
+      "left_only": 0,
+      "right_only": 15770,
+      "union": 21953,
+      "jaccard": 0.28164715528629347,
+      "identical_sequence": false
+    },
+    {
+      "left": "extractor",
+      "right": "tehran",
+      "intersection": 6183,
+      "left_only": 0,
+      "right_only": 15770,
+      "union": 21953,
+      "jaccard": 0.28164715528629347,
+      "identical_sequence": false
+    },
+    {
+      "left": "csv",
+      "right": "lopp",
+      "intersection": 21953,
+      "left_only": 0,
+      "right_only": 0,
+      "union": 21953,
+      "jaccard": 1.0,
+      "identical_sequence": true
+    },
+    {
+      "left": "csv",
+      "right": "tehran",
+      "intersection": 21953,
+      "left_only": 0,
+      "right_only": 0,
+      "union": 21953,
+      "jaccard": 1.0,
+      "identical_sequence": true
+    },
+    {
+      "left": "lopp",
+      "right": "tehran",
+      "intersection": 21953,
+      "left_only": 0,
+      "right_only": 0,
+      "union": 21953,
+      "jaccard": 1.0,
+      "identical_sequence": true
+    }
+  ],
+  "script_archaeology": {
+    "assignment_line": 24,
+    "assignment_end_line": 24,
+    "assignment_line_characters": 30009,
+    "list_entry_count": 6183,
+    "last_entries": [
+      8039,
+      8042,
+      8043,
+      8044,
+      8124,
+      8241,
+      8263,
+      8280,
+      8281,
+      8283,
+      8284,
+      8286,
+      8287,
+      8289,
+      8293,
+      8294,
+      8296,
+      8298,
+      8300,
+      9921,
+      9938,
+      9949,
+      10180,
+      10232,
+      10259,
+      10270,
+      10271,
+      10272,
+      10319,
+      49973
+    ],
+    "functions": {
+      "get_block_data_mempool": {
+        "line": 26,
+        "end_line": 50
+      },
+      "extract_pubkey_from_asm": {
+        "line": 52,
+        "end_line": 67
+      },
+      "extract_block_rewards": {
+        "line": 69,
+        "end_line": 99
+      },
+      "main": {
+        "line": 101,
+        "end_line": 155
+      }
+    }
+  },
+  "local": {
+    "strict_subset": true,
+    "csv_only_count": 15770,
+    "csv_only_heights": {
+      "n": 15770,
+      "min": 8047,
+      "median": 18968.5,
+      "mean": 21233.86816740647,
+      "p90_nearest_rank": 37852,
+      "p99_nearest_rank": 48346,
+      "max": 49958
+    },
+    "csv_only_interlisted_delta": {
+      "n": 15769,
+      "min": 1,
+      "median": 1,
+      "mean": 2.6578096264823388,
+      "p90_nearest_rank": 6,
+      "p99_nearest_rank": 14,
+      "max": 427
+    },
+    "matching_initial_csv_prefix_rows": 6157,
+    "last_prefix_height": 8044,
+    "first_omitted_height": 8047,
+    "extractor_tail_after_prefix": [
+      8124,
+      8241,
+      8263,
+      8280,
+      8281,
+      8283,
+      8284,
+      8286,
+      8287,
+      8289,
+      8293,
+      8294,
+      8296,
+      8298,
+      8300,
+      9921,
+      9938,
+      9949,
+      10180,
+      10232,
+      10259,
+      10270,
+      10271,
+      10272,
+      10319,
+      49973
+    ],
+    "descriptive_height_KS_distance_extractor_vs_extra": 0.9957949215591136,
+    "log10_probability_initial_prefix_under_uniform_random_subset": -5583.253814798491,
+    "transition_windows": [
+      {
+        "low": 3,
+        "high": 8044,
+        "span": 8042,
+        "extractor": 6157,
+        "csv_only": 0,
+        "csv": 6157
+      },
+      {
+        "low": 8045,
+        "high": 10319,
+        "span": 2275,
+        "extractor": 25,
+        "csv_only": 1717,
+        "csv": 1742
+      },
+      {
+        "low": 10320,
+        "high": 49972,
+        "span": 39653,
+        "extractor": 0,
+        "csv_only": 14053,
+        "csv": 14053
+      },
+      {
+        "low": 49973,
+        "high": 49973,
+        "span": 1,
+        "extractor": 1,
+        "csv_only": 0,
+        "csv": 1
+      },
+      {
+        "low": 6045,
+        "high": 8044,
+        "span": 2000,
+        "extractor": 1549,
+        "csv_only": 0,
+        "csv": 1549
+      },
+      {
+        "low": 8045,
+        "high": 10044,
+        "span": 2000,
+        "extractor": 18,
+        "csv_only": 1486,
+        "csv": 1504
+      }
+    ],
+    "largest_omitted_csv_rank_runs": [
+      {
+        "first_csv_rank_1based": 7900,
+        "last_csv_rank_1based": 21952,
+        "first_height": 10320,
+        "last_height": 49958,
+        "omitted_csv_rows": 14053
+      },
+      {
+        "first_csv_rank_1based": 6326,
+        "last_csv_rank_1based": 7563,
+        "first_height": 8302,
+        "last_height": 9918,
+        "omitted_csv_rows": 1238
+      },
+      {
+        "first_csv_rank_1based": 7588,
+        "last_csv_rank_1based": 7780,
+        "first_height": 9951,
+        "last_height": 10179,
+        "omitted_csv_rows": 193
+      },
+      {
+        "first_csv_rank_1based": 6218,
+        "last_csv_rank_1based": 6284,
+        "first_height": 8125,
+        "last_height": 8239,
+        "omitted_csv_rows": 67
+      },
+      {
+        "first_csv_rank_1based": 6158,
+        "last_csv_rank_1based": 6216,
+        "first_height": 8047,
+        "last_height": 8123,
+        "omitted_csv_rows": 59
+      },
+      {
+        "first_csv_rank_1based": 7782,
+        "last_csv_rank_1based": 7823,
+        "first_height": 10181,
+        "last_height": 10231,
+        "omitted_csv_rows": 42
+      },
+      {
+        "first_csv_rank_1based": 7860,
+        "last_csv_rank_1based": 7898,
+        "first_height": 10274,
+        "last_height": 10317,
+        "omitted_csv_rows": 39
+      },
+      {
+        "first_csv_rank_1based": 7825,
+        "last_csv_rank_1based": 7845,
+        "first_height": 10235,
+        "last_height": 10258,
+        "omitted_csv_rows": 21
+      },
+      {
+        "first_csv_rank_1based": 6286,
+        "last_csv_rank_1based": 6300,
+        "first_height": 8242,
+        "last_height": 8262,
+        "omitted_csv_rows": 15
+      },
+      {
+        "first_csv_rank_1based": 7565,
+        "last_csv_rank_1based": 7577,
+        "first_height": 9922,
+        "last_height": 9936,
+        "omitted_csv_rows": 13
+      }
+    ],
+    "largest_gaps": {
+      "extractor": [
+        {
+          "set": "extractor",
+          "left_height": 10319,
+          "right_height": 49973,
+          "delta": 39654,
+          "missing_between": 39653
+        },
+        {
+          "set": "extractor",
+          "left_height": 8300,
+          "right_height": 9921,
+          "delta": 1621,
+          "missing_between": 1620
+        },
+        {
+          "set": "extractor",
+          "left_height": 9949,
+          "right_height": 10180,
+          "delta": 231,
+          "missing_between": 230
+        },
+        {
+          "set": "extractor",
+          "left_height": 8124,
+          "right_height": 8241,
+          "delta": 117,
+          "missing_between": 116
+        },
+        {
+          "set": "extractor",
+          "left_height": 8044,
+          "right_height": 8124,
+          "delta": 80,
+          "missing_between": 79
+        },
+        {
+          "set": "extractor",
+          "left_height": 10180,
+          "right_height": 10232,
+          "delta": 52,
+          "missing_between": 51
+        },
+        {
+          "set": "extractor",
+          "left_height": 10272,
+          "right_height": 10319,
+          "delta": 47,
+          "missing_between": 46
+        },
+        {
+          "set": "extractor",
+          "left_height": 10232,
+          "right_height": 10259,
+          "delta": 27,
+          "missing_between": 26
+        }
+      ],
+      "csv_only": [
+        {
+          "set": "csv_only",
+          "left_height": 37311,
+          "right_height": 37738,
+          "delta": 427,
+          "missing_between": 426
+        },
+        {
+          "set": "csv_only",
+          "left_height": 49483,
+          "right_height": 49797,
+          "delta": 314,
+          "missing_between": 313
+        },
+        {
+          "set": "csv_only",
+          "left_height": 35203,
+          "right_height": 35511,
+          "delta": 308,
+          "missing_between": 307
+        },
+        {
+          "set": "csv_only",
+          "left_height": 21308,
+          "right_height": 21467,
+          "delta": 159,
+          "missing_between": 158
+        },
+        {
+          "set": "csv_only",
+          "left_height": 20342,
+          "right_height": 20442,
+          "delta": 100,
+          "missing_between": 99
+        },
+        {
+          "set": "csv_only",
+          "left_height": 25716,
+          "right_height": 25811,
+          "delta": 95,
+          "missing_between": 94
+        },
+        {
+          "set": "csv_only",
+          "left_height": 49867,
+          "right_height": 49957,
+          "delta": 90,
+          "missing_between": 89
+        },
+        {
+          "set": "csv_only",
+          "left_height": 49797,
+          "right_height": 49867,
+          "delta": 70,
+          "missing_between": 69
+        }
+      ],
+      "csv": [
+        {
+          "set": "csv",
+          "left_height": 37311,
+          "right_height": 37738,
+          "delta": 427,
+          "missing_between": 426
+        },
+        {
+          "set": "csv",
+          "left_height": 49483,
+          "right_height": 49797,
+          "delta": 314,
+          "missing_between": 313
+        },
+        {
+          "set": "csv",
+          "left_height": 35203,
+          "right_height": 35511,
+          "delta": 308,
+          "missing_between": 307
+        },
+        {
+          "set": "csv",
+          "left_height": 21308,
+          "right_height": 21467,
+          "delta": 159,
+          "missing_between": 158
+        },
+        {
+          "set": "csv",
+          "left_height": 20342,
+          "right_height": 20442,
+          "delta": 100,
+          "missing_between": 99
+        },
+        {
+          "set": "csv",
+          "left_height": 25716,
+          "right_height": 25811,
+          "delta": 95,
+          "missing_between": 94
+        },
+        {
+          "set": "csv",
+          "left_height": 49867,
+          "right_height": 49957,
+          "delta": 90,
+          "missing_between": 89
+        },
+        {
+          "set": "csv",
+          "left_height": 49797,
+          "right_height": 49867,
+          "delta": 70,
+          "missing_between": 69
+        }
+      ]
+    }
+  }
+}

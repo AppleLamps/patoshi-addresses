@@ -1,2 +1,10 @@
 __pycache__/
 *.py[cod]
+# Downloaded prose/HTML and redundant source copies stay in the local cache.
+/analysis/provenance/sources/*.html
+/analysis/provenance/sources/*_doc*.md
+/analysis/provenance/sources/*.patch
+/analysis/provenance/sources/bensig_csv.csv
+/analysis/provenance/sources/bensig_extractor.py
+/analysis/provenance/sources/lopp_streaks.php
+/analysis/provenance/sources/tehran_patoshiBlocks.js

@@ -2,6 +2,8 @@
 /scripts/** text eol=lf
 /tests/** text eol=lf
 /analysis/** text eol=lf
+# Preserve downloaded evidence, including original trailing whitespace.
+/analysis/provenance/sources/** -text -whitespace
 /patoshi_p2pkh_addresses.csv text eol=lf
 /requirements-analysis.txt text eol=lf
 /.gitignore text eol=lf

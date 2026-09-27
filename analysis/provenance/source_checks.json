@@ -1,0 +1,42 @@
+{
+  "patoshi_pubkeys_COMPLETE.csv": {
+    "lf_normalized_identical_to_bensig": true,
+    "lf_sha256": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e"
+  },
+  "extract_patoshi_addresses.py": {
+    "lf_normalized_identical_to_bensig": true,
+    "lf_sha256": "4ae2d4e26d7d4d9010c2627c86657c04ece94f9ecfc8d8c1c497514d299c8c36"
+  },
+  "lopp_streaks_2022.php": {
+    "identical_to_current_cached_copy": true,
+    "other": "lopp_streaks.php"
+  },
+  "tehran_patoshiBlocks_initial.js": {
+    "identical_to_current_cached_copy": true,
+    "other": "tehran_patoshiBlocks.js"
+  },
+  "lopp_secondary_list": {
+    "count": 21953,
+    "identical_to_primary_sequence": true,
+    "canonical_set_sha256": "33a74d805c95c368636c4a7334e3cff80d8624fd4b0182bde84eca9e4749465f"
+  },
+  "history": {
+    "lopp": {
+      "commit": "45b9eb0f0d71dc7dd66c51fd3058943c1f6df0cb",
+      "date_header": "Tue, 13 Sep 2022 15:28:30 -0400",
+      "subject": "[PATCH] add patoshi streak script"
+    },
+    "tehran": {
+      "commit": "f013a619c7faa5db44de2e55b3423de48edef336",
+      "date_header": "Wed, 7 Jan 2026 21:16:49 +0100",
+      "subject": "[PATCH] Added Patoshi addresses"
+    }
+  },
+  "local_initial_commit": {
+    "commit": "414637ce52aa4819926bf1934b2235ed182a0280",
+    "committer_date": "2025-07-15T16:48:22-07:00",
+    "source_file_commits": [
+      "414637ce52aa4819926bf1934b2235ed182a0280"
+    ]
+  }
+}

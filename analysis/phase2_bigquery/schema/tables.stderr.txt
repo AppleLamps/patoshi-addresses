@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform/bq\bq.py", line 36, in <module>
+    from pyglib import appcommands
+  File "C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform/bq\third_party\pyglib\appcommands.py", line 133, in <module>
+    from absl import app
+  File "C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform/bq\third_party\absl\app.py", line 49, in <module>
+    FLAGS = flags.FLAGS
+            ^^^^^^^^^^^
+AttributeError: module 'absl.flags' has no attribute 'FLAGS'

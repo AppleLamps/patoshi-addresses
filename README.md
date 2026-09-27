@@ -51,8 +51,8 @@ python -m unittest discover -s tests -v
 python scripts/phase1_offline.py --permutations 1999
 ```
 
-No network access is used by this analysis. Attribution and spend status remain
-unverified until a separate on-chain audit.
+No network access is used by the Phase 1 analysis. See the completed Phase 2
+verification below for chain-data comparisons and spend status.
 
 ## Provenance investigation
 
@@ -67,3 +67,17 @@ not independently verify the CSV's pubkeys, amounts, spend status or miner attri
 The [comparison script](scripts/provenance_compare.py) and
 [reproduction instructions](analysis/provenance/METHODS.md) work offline using
 the committed source snapshots.
+
+## Phase 2 — BigQuery chain verification
+
+The [verification report](analysis/phase2_bigquery/REPORT.md) finds **21,953/21,953
+pubkey matches** and **31 live-confirmed spent coinbase outputs (1,550 BTC)**.
+The remaining 21,922 have no spend in the BigQuery input index through its
+September 27, 2026 watermark; they were not individually rechecked live.
+The spend count reproduces published research and does not establish miner identity.
+
+[SQL and methods](analysis/phase2_bigquery/METHODS.md),
+[every output's status](analysis/phase2_bigquery/spend_status_all.csv),
+[cached query results](analysis/phase2_bigquery/results/), and
+[checksums](analysis/phase2_bigquery/manifest.json) are committed for reproduction.
+The earlier API collector was stopped when BigQuery was selected and must not be resumed.

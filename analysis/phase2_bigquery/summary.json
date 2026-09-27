@@ -1,0 +1,275 @@
+{
+  "classifier": {
+    "boundary": {
+      "combined_evaluable": 158,
+      "combined_pass": 10,
+      "extra_nonce_parseable": 2582,
+      "inner_range_pass": 520,
+      "lsb_pass": 530,
+      "n": 2583
+    },
+    "control_adjacent_extra_nonce_delta": {
+      "max": 12759.0,
+      "mean": 0.012337445815271757,
+      "median": 7.0,
+      "min": -12329.0,
+      "n": 2999,
+      "p90": 961.0000000000014,
+      "p99": 5544.699999999999
+    },
+    "increments": {
+      "negative_deltas": 286,
+      "nonnegative_deltas_smaller_than_height_delta": 1495,
+      "pairs": 21952,
+      "positive_time_nonnegative_increment_rate_per_hour": {
+        "max": 6327.272727272727,
+        "mean": 29.52386632894333,
+        "median": 16.853932584269664,
+        "min": 0.0,
+        "n": 21666,
+        "p90": 61.520939197476785,
+        "p99": 175.21808141023263
+      },
+      "zero_deltas": 6
+    },
+    "interpolation": {
+      "anchors": 13199,
+      "calibration_95pct_scaled_residual": 0.49163097080738594,
+      "calibration_n": 4281,
+      "evaluation_combined_fit": 4075,
+      "evaluation_n": 4290,
+      "evaluation_residual": {
+        "max": 723.3065674022866,
+        "mean": 6.61648814619456,
+        "median": 3.017626825290108,
+        "min": 0.0007377351530521992,
+        "n": 4290,
+        "p90": 13.503894208904,
+        "p99": 58.21492865626958
+      },
+      "limitations": "Interpolation threshold is learned from reference labels; not an independent replication of the original manual/algorithmic label assignment. Unsupported blocks remain unclassified. Flags require review, not automatic relabeling.",
+      "listed_flag_count": 1005
+    },
+    "listed": {
+      "combined_evaluable": 21497,
+      "combined_pass": 20493,
+      "extra_nonce_parseable": 21953,
+      "inner_range_pass": 21952,
+      "lsb_pass": 21953,
+      "n": 21953
+    },
+    "unlisted_controls": {
+      "combined_evaluable": 2735,
+      "combined_pass": 13,
+      "extra_nonce_parseable": 3000,
+      "inner_range_pass": 589,
+      "lsb_pass": 602,
+      "n": 3000
+    }
+  },
+  "counts": {
+    "amount_matches": 21953,
+    "coinbase_txids_reconstructed_including_context": 27406,
+    "linked_headers_hash_and_pow_validated": 54620,
+    "listed": 21953,
+    "listed_single_tx_inclusions_proven": 21775,
+    "live_confirmed_spends": 31,
+    "live_control_header_anchors": [
+      2817,
+      19863,
+      23079,
+      28507
+    ],
+    "no_spend_found_in_dataset": 21922,
+    "pubkey_matches": 21953,
+    "spend_hits": 31,
+    "spent_satoshis": 155000000000,
+    "total_coinbase_satoshis": 109765249000000
+  },
+  "generated_at": "2026-09-27T23:46:14.171113+00:00",
+  "live_candidate_confirmations": {
+    "checked": 25,
+    "confirmed": 25
+  },
+  "pinned_height_sha256": "33a74d805c95c368636c4a7334e3cff80d8624fd4b0182bde84eca9e4749465f",
+  "snapshot": {
+    "blocks_available": 968903,
+    "maximum_block_height": 968902,
+    "maximum_block_timestamp": "2026-09-27T23:24:41+00:00",
+    "query_at": "2026-09-27T23:31:22.685332+00:00"
+  },
+  "source": "BigQuery crypto_bitcoin with live confirmation of every spend hit",
+  "table_watermarks": [
+    {
+      "maximum_block_height": "968902",
+      "maximum_block_timestamp": "2026-09-27 23:24:41+00",
+      "observed_at": "2026-09-27 23:37:00.233427+00",
+      "source_table": "transactions"
+    },
+    {
+      "maximum_block_height": "968902",
+      "maximum_block_timestamp": "2026-09-27 23:24:41+00",
+      "observed_at": "2026-09-27 23:37:00.233427+00",
+      "source_table": "inputs"
+    }
+  ],
+  "temporal": {
+    "gaps_exceeding_hours": {
+      "12": 26,
+      "24": 14,
+      "48": 5,
+      "6": 45,
+      "72": 2
+    },
+    "inter_listed_timestamp_seconds": {
+      "max": 862029.0,
+      "mean": 1796.348988702624,
+      "median": 1194.0,
+      "min": 12.0,
+      "n": 21952,
+      "p90": 3424.9000000000015,
+      "p99": 6928.920000000013
+    },
+    "largest_adjacent_1000_height_density_changes": [
+      {
+        "boundary_height": 24000,
+        "fraction_change": -0.21799999999999997
+      },
+      {
+        "boundary_height": 25000,
+        "fraction_change": -0.17700000000000002
+      },
+      {
+        "boundary_height": 20000,
+        "fraction_change": -0.1509999999999999
+      },
+      {
+        "boundary_height": 22000,
+        "fraction_change": 0.15000000000000002
+      },
+      {
+        "boundary_height": 30000,
+        "fraction_change": -0.12500000000000003
+      },
+      {
+        "boundary_height": 2000,
+        "fraction_change": -0.12
+      },
+      {
+        "boundary_height": 23000,
+        "fraction_change": -0.11099999999999999
+      },
+      {
+        "boundary_height": 5000,
+        "fraction_change": 0.10000000000000009
+      },
+      {
+        "boundary_height": 37000,
+        "fraction_change": -0.088
+      },
+      {
+        "boundary_height": 19000,
+        "fraction_change": 0.08799999999999997
+      }
+    ],
+    "longest_gaps": [
+      {
+        "height_left": 21308,
+        "height_right": 21467,
+        "left_utc": "2009-08-14T21:37:24+00:00",
+        "missing_heights": 158,
+        "right_utc": "2009-08-24T21:04:33+00:00",
+        "seconds": 862029
+      },
+      {
+        "height_left": 20342,
+        "height_right": 20442,
+        "left_utc": "2009-07-29T18:30:18+00:00",
+        "missing_heights": 99,
+        "right_utc": "2009-08-04T03:57:45+00:00",
+        "seconds": 466047
+      },
+      {
+        "height_left": 37311,
+        "height_right": 37738,
+        "left_utc": "2010-01-30T22:43:13+00:00",
+        "missing_heights": 426,
+        "right_utc": "2010-02-02T11:58:19+00:00",
+        "seconds": 220506
+      },
+      {
+        "height_left": 35203,
+        "height_right": 35511,
+        "left_utc": "2010-01-18T10:01:31+00:00",
+        "missing_heights": 307,
+        "right_utc": "2010-01-20T19:25:00+00:00",
+        "seconds": 206609
+      },
+      {
+        "height_left": 26185,
+        "height_right": 26251,
+        "left_utc": "2009-10-31T01:54:23+00:00",
+        "missing_heights": 65,
+        "right_utc": "2009-11-02T02:07:49+00:00",
+        "seconds": 173606
+      },
+      {
+        "height_left": 49483,
+        "height_right": 49797,
+        "left_utc": "2010-04-08T03:22:45+00:00",
+        "missing_heights": 313,
+        "right_utc": "2010-04-09T19:49:41+00:00",
+        "seconds": 145616
+      },
+      {
+        "height_left": 20186,
+        "height_right": 20211,
+        "left_utc": "2009-07-25T09:33:15+00:00",
+        "missing_heights": 24,
+        "right_utc": "2009-07-27T01:28:38+00:00",
+        "seconds": 143723
+      },
+      {
+        "height_left": 28692,
+        "height_right": 28752,
+        "left_utc": "2009-12-03T22:30:19+00:00",
+        "missing_heights": 59,
+        "right_utc": "2009-12-05T10:23:44+00:00",
+        "seconds": 129205
+      },
+      {
+        "height_left": 19721,
+        "height_right": 19727,
+        "left_utc": "2009-07-17T16:39:00+00:00",
+        "missing_heights": 5,
+        "right_utc": "2009-07-19T04:06:25+00:00",
+        "seconds": 127645
+      },
+      {
+        "height_left": 23411,
+        "height_right": 23435,
+        "left_utc": "2009-09-22T01:01:41+00:00",
+        "missing_heights": 23,
+        "right_utc": "2009-09-23T12:26:28+00:00",
+        "seconds": 127487
+      }
+    ],
+    "null": "Independent circular shifts of the listed-label sequence within each 1000-height stratum, preserving counts and most local serial dependence. Pearson discrepancy against per-stratum all-block timestamp exposure. Two hypotheses, Holm correction. This null is an approximation, not a human sleep detector.",
+    "permutations": 1999,
+    "schedule_tests": [
+      {
+        "holm_p": 1,
+        "name": "hour_utc",
+        "p": 0.519,
+        "statistic": 6.864873442486722
+      },
+      {
+        "holm_p": 1,
+        "name": "weekday_utc",
+        "p": 0.639,
+        "statistic": 3.7384142701787626
+      }
+    ],
+    "timestamp_reversals": 0
+  }
+}

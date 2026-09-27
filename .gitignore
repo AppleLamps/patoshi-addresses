@@ -8,3 +8,16 @@ __pycache__/
 /analysis/provenance/sources/bensig_extractor.py
 /analysis/provenance/sources/lopp_streaks.php
 /analysis/provenance/sources/tehran_patoshiBlocks.js
+
+# Phase 2 immutable response cache and background-run state; manifests are committed.
+/analysis/phase2/cache/
+/analysis/phase2/*.log
+/analysis/phase2/*.lock
+/analysis/phase2/progress.json
+/analysis/phase2/job.json
+
+# BigQuery query outputs are committed as CSV. Full REST envelopes stay local.
+/analysis/phase2_bigquery/cache/*
+!/analysis/phase2_bigquery/cache/schema_*.json
+!/analysis/phase2_bigquery/cache/tables.json
+/analysis/phase2_bigquery/*.log

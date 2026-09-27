@@ -1,0 +1,54 @@
+[
+  {
+    "amount_match": true,
+    "block_hash": "00000000d50a3cd05e451166e5f618c76cc3273104608fe424835ae5c0d47db9",
+    "chain_pubkey": "0479ecd6e117cf7333f1dfd2b02cb44d3b658a7e52ebcb722d30a268d0ad1cf15b0820b4a8e936001ea752cf1cd266b6716de974765761e1ff9b683a1038e5924c",
+    "chain_script": "410479ecd6e117cf7333f1dfd2b02cb44d3b658a7e52ebcb722d30a268d0ad1cf15b0820b4a8e936001ea752cf1cd266b6716de974765761e1ff9b683a1038e5924cac",
+    "coinbase_txid": "e958faf790304fc4185b377552e93fddae3a513c255f8bb09526b5886ab83936",
+    "csv_pubkey": "0479ecd6e117cf7333f1dfd2b02cb44d3b658a7e52ebcb722d30a268d0ad1cf15b0820b4a8e936001ea752cf1cd266b6716de974765761e1ff9b683a1038e5924c",
+    "height": 2817,
+    "pubkey_match": true,
+    "single_tx_inclusion_proven": false,
+    "txid_reconstructed": true,
+    "value_sats": 5201000000
+  },
+  {
+    "amount_match": true,
+    "block_hash": "00000000a2c8e86230ff39d8ce2e61a97d619c3d94d834ff1db18c5d94cae238",
+    "chain_pubkey": "042437a3015da8dc874cfd18036ca8753611c615396395ad9356801a4979eb07634f68ff2d335aa60dc03bb05972ec0af443a58a30d519bddf724dc85be6af5100",
+    "chain_script": "41042437a3015da8dc874cfd18036ca8753611c615396395ad9356801a4979eb07634f68ff2d335aa60dc03bb05972ec0af443a58a30d519bddf724dc85be6af5100ac",
+    "coinbase_txid": "2965f8b54500acfc739438aeba191dca218612a8a7b7ab34df6a73360b223031",
+    "csv_pubkey": "042437a3015da8dc874cfd18036ca8753611c615396395ad9356801a4979eb07634f68ff2d335aa60dc03bb05972ec0af443a58a30d519bddf724dc85be6af5100",
+    "height": 19863,
+    "pubkey_match": true,
+    "single_tx_inclusion_proven": false,
+    "txid_reconstructed": true,
+    "value_sats": 5014000000
+  },
+  {
+    "amount_match": true,
+    "block_hash": "00000000e6bc6f51500e72d775fcb2e340fb21ff9021ef63320be81c1980a4de",
+    "chain_pubkey": "040cc959cc107b30c8c9a5ca9a9fe6f0669a28361eb48c36474f7dcf9198b94eab623cc8fd795e93ed9c5d60f98abb64f6fe919e0b7e367a0d04e9ff369f43d19d",
+    "chain_script": "41040cc959cc107b30c8c9a5ca9a9fe6f0669a28361eb48c36474f7dcf9198b94eab623cc8fd795e93ed9c5d60f98abb64f6fe919e0b7e367a0d04e9ff369f43d19dac",
+    "coinbase_txid": "b03dd2bb01eaa6c322098551ea1ea7fa9de7dd75ad10a1e837ea55b5a65840e1",
+    "csv_pubkey": "040cc959cc107b30c8c9a5ca9a9fe6f0669a28361eb48c36474f7dcf9198b94eab623cc8fd795e93ed9c5d60f98abb64f6fe919e0b7e367a0d04e9ff369f43d19d",
+    "height": 23079,
+    "pubkey_match": true,
+    "single_tx_inclusion_proven": false,
+    "txid_reconstructed": true,
+    "value_sats": 5012000000
+  },
+  {
+    "amount_match": true,
+    "block_hash": "00000000e0b22bbdc2b7cbda261c03be9b9121a42ca1c59ba965b014ae97e0a0",
+    "chain_pubkey": "045587f85921a4ddd304e0e1981851297c0db52fa8855233161a6902dc4cfa14a6f95892d8699b3e334eda34293aa9d8e9c8a6cf9a2bdc06e7e6cbdbbb88e990c1",
+    "chain_script": "41045587f85921a4ddd304e0e1981851297c0db52fa8855233161a6902dc4cfa14a6f95892d8699b3e334eda34293aa9d8e9c8a6cf9a2bdc06e7e6cbdbbb88e990c1ac",
+    "coinbase_txid": "b523ce673cc529a4a260876c33dd0a65b6ef8506dbdb4c2fcdd22123bdb6d707",
+    "csv_pubkey": "045587f85921a4ddd304e0e1981851297c0db52fa8855233161a6902dc4cfa14a6f95892d8699b3e334eda34293aa9d8e9c8a6cf9a2bdc06e7e6cbdbbb88e990c1",
+    "height": 28507,
+    "pubkey_match": true,
+    "single_tx_inclusion_proven": false,
+    "txid_reconstructed": true,
+    "value_sats": 5022000000
+  }
+]

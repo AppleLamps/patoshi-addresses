@@ -1,0 +1,93 @@
+[
+  {
+    "query": "context",
+    "query_identity_sha256": "4bff1f0d70148b64166b8c7a8d65a41fb60a041804f0f0166d958ccd17c9ebf0",
+    "csv_sha256": "631148b736f6fba79e17df5c3ba89747dbb707b795cc6f7060c3584dfd8e3f13",
+    "rows": 5453,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_l5ujAhaEHobxZQxtlB2S3uF9tdJE",
+      "location": "US"
+    },
+    "totalBytesProcessed": "453466954",
+    "cached_at": "2026-09-27T23:31:30.389903+00:00"
+  },
+  {
+    "query": "headers",
+    "query_identity_sha256": "cf862030f7473e2c7e3cd82affb297cc3a83e720b482033d069681381df8f355",
+    "csv_sha256": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+    "rows": 54620,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_Yw2mLCgBJrsDWlL52iBSHh1o3CzR",
+      "location": "US"
+    },
+    "totalBytesProcessed": "11011043",
+    "cached_at": "2026-09-27T23:32:02.690563+00:00"
+  },
+  {
+    "query": "pubkeys",
+    "query_identity_sha256": "b7ba06406d1b011ed0418107924e223f76645ecaca0952277b257e4d3d37c9d3",
+    "csv_sha256": "4604f51efa215b347b96f4f1f4aa5c1287c5c47cf8f2c483b8e1e11975c82f90",
+    "rows": 21953,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_Hcd8QzlvG2s1bdncLO1ZbWrxJOss",
+      "location": "US"
+    },
+    "totalBytesProcessed": "453466954",
+    "cached_at": "2026-09-27T23:31:06.527845+00:00"
+  },
+  {
+    "query": "smoke",
+    "query_identity_sha256": "e3f37faddfef7e18d4d2e1a45503a60c148bc086f861b3b509907b7e656a0a30",
+    "csv_sha256": "ad1a3a171241ff88c2678e8f1e12dd5a3b79f3c0823f34cb408fb3d246415b46",
+    "rows": 10,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_f-PbRB0WdHOFfjY4A899wz0ge9aA",
+      "location": "US"
+    },
+    "totalBytesProcessed": "1387794",
+    "cached_at": "2026-09-27T23:29:23.911803+00:00"
+  },
+  {
+    "query": "snapshot",
+    "query_identity_sha256": "7507f1a5447105c696b2dfb7016311ef054be90a305f9d931bd55be3cdc99138",
+    "csv_sha256": "7b3a1bd00db2289f8624744adf3e6be2ff1124e05313d59a5c9ba9511ec67b4f",
+    "rows": 1,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_3tdSC4TBc0b-PMwH4JB5I2fGngO7",
+      "location": "US"
+    },
+    "totalBytesProcessed": "15502400",
+    "cached_at": "2026-09-27T23:31:26.740805+00:00"
+  },
+  {
+    "query": "spends",
+    "query_identity_sha256": "4b92ee6930aad947caf43e7f2f60b868adae8bcaaff0764ffd186fcfbeebce9b",
+    "csv_sha256": "e91b3d1941b0abaf516996bed27e526b3a74fbc90a74e22cfffe82ed93d6ca4e",
+    "rows": 31,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_3OhSHq22HRvFKBiJXZXc9W6SGnC0",
+      "location": "US"
+    },
+    "totalBytesProcessed": null,
+    "cached_at": "2026-09-27T23:32:44.681397+00:00"
+  },
+  {
+    "query": "watermarks",
+    "query_identity_sha256": "61cf2fadf9e4ce4937163a4a80b8d7c38b33f48ce691cf601acc26a0856f7567",
+    "csv_sha256": "f09400e93ed32556df3af5a82f45b1cf42de31e6551d4cfb5e772c97fdf55ee9",
+    "rows": 2,
+    "jobReference": {
+      "projectId": "gen-lang-client-0469054007",
+      "jobId": "job_9nSfJQDYZAWGYN_dxR6y7wzcV0nn",
+      "location": "US"
+    },
+    "totalBytesProcessed": "79329963728",
+    "cached_at": "2026-09-27T23:37:04.678738+00:00"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "all_body_checksums_verified": true,
+  "body_encoding": "zlib compressed exact response bytes in responses.body_zlib",
+  "logical_receipt_sha256": "8c76795cd0258878dbe44f3d3af8cdef043ade91a6bf5342641e5f6848cf157c",
+  "manifest_sha256": "d415d067a971f5a6f07aad2fb70af5c964dc01de1b6b0510f12cb933edbac167",
+  "raw_cache": "analysis/phase2/cache/chain.sqlite3",
+  "response_count": 112
+}

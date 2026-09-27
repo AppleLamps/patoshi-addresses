@@ -1,0 +1,42 @@
+{
+  "completed_at": "2026-09-27T23:24:50.357926+00:00",
+  "controls": [
+    {
+      "block_hash": "00000000d50a3cd05e451166e5f618c76cc3273104608fe424835ae5c0d47db9",
+      "chain_sats": 5201000000,
+      "expected_sats": 5201000000,
+      "height": 2817,
+      "inclusion_verified": true,
+      "pubkey_match": true,
+      "txid": "e958faf790304fc4185b377552e93fddae3a513c255f8bb09526b5886ab83936"
+    },
+    {
+      "block_hash": "00000000a2c8e86230ff39d8ce2e61a97d619c3d94d834ff1db18c5d94cae238",
+      "chain_sats": 5014000000,
+      "expected_sats": 5014000000,
+      "height": 19863,
+      "inclusion_verified": true,
+      "pubkey_match": true,
+      "txid": "2965f8b54500acfc739438aeba191dca218612a8a7b7ab34df6a73360b223031"
+    },
+    {
+      "block_hash": "00000000e6bc6f51500e72d775fcb2e340fb21ff9021ef63320be81c1980a4de",
+      "chain_sats": 5012000000,
+      "expected_sats": 5012000000,
+      "height": 23079,
+      "inclusion_verified": true,
+      "pubkey_match": true,
+      "txid": "b03dd2bb01eaa6c322098551ea1ea7fa9de7dd75ad10a1e837ea55b5a65840e1"
+    },
+    {
+      "block_hash": "00000000e0b22bbdc2b7cbda261c03be9b9121a42ca1c59ba965b014ae97e0a0",
+      "chain_sats": 5022000000,
+      "expected_sats": 5022000000,
+      "height": 28507,
+      "inclusion_verified": true,
+      "pubkey_match": true,
+      "txid": "b523ce673cc529a4a260876c33dd0a65b6ef8506dbdb4c2fcdd22123bdb6d707"
+    }
+  ],
+  "passed": true
+}

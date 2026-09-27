@@ -8,3 +8,5 @@
 /requirements-analysis.txt text eol=lf
 /.gitignore text eol=lf
 /.gitattributes text eol=lf
+/analysis/phase2_bigquery/*.gz -text
+/analysis/phase2_bigquery/schema/* -text

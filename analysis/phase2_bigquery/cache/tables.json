@@ -1,0 +1,65 @@
+{
+  "fetched_at": "2026-09-27T23:27:23.118635+00:00",
+  "url": "https://bigquery.googleapis.com/bigquery/v2/projects/bigquery-public-data/datasets/crypto_bitcoin/tables?maxResults=1000",
+  "method": "GET",
+  "request": null,
+  "status": 200,
+  "raw_sha256": "3537143318c055e9179bfa8a9b6a4c5dcdce4542984db22e60d05a83d5b85473",
+  "body": {
+    "kind": "bigquery#tableList",
+    "etag": "pcenAUZK6oBlSqrS8r0wxA==",
+    "tables": [
+      {
+        "kind": "bigquery#table",
+        "id": "bigquery-public-data:crypto_bitcoin.blocks",
+        "tableReference": {
+          "projectId": "bigquery-public-data",
+          "datasetId": "crypto_bitcoin",
+          "tableId": "blocks"
+        },
+        "type": "VIEW",
+        "view": {
+          "privacyPolicy": {}
+        },
+        "creationTime": "1786049584941"
+      },
+      {
+        "kind": "bigquery#table",
+        "id": "bigquery-public-data:crypto_bitcoin.inputs",
+        "tableReference": {
+          "projectId": "bigquery-public-data",
+          "datasetId": "crypto_bitcoin",
+          "tableId": "inputs"
+        },
+        "type": "VIEW",
+        "creationTime": "1786049592584"
+      },
+      {
+        "kind": "bigquery#table",
+        "id": "bigquery-public-data:crypto_bitcoin.outputs",
+        "tableReference": {
+          "projectId": "bigquery-public-data",
+          "datasetId": "crypto_bitcoin",
+          "tableId": "outputs"
+        },
+        "type": "VIEW",
+        "creationTime": "1786049600155"
+      },
+      {
+        "kind": "bigquery#table",
+        "id": "bigquery-public-data:crypto_bitcoin.transactions",
+        "tableReference": {
+          "projectId": "bigquery-public-data",
+          "datasetId": "crypto_bitcoin",
+          "tableId": "transactions"
+        },
+        "type": "VIEW",
+        "view": {
+          "privacyPolicy": {}
+        },
+        "creationTime": "1786049607772"
+      }
+    ],
+    "totalItems": 4
+  }
+}

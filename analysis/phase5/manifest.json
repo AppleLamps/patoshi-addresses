@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "patoshi_pubkeys_COMPLETE.csv": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e",
+    "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+    "analysis/phase5/sql/cospend_census.sql": "d8c4e27e034aa5a184e0992dba9a1aeee4ef0bb659d47e20b31a1583f2204430",
+    "analysis/phase5/sql/cospend_census_semijoin.sql": "10fc4ceef6cb5cbdde9f636eb008a34526d9366a0be7063e62be5796517474ac",
+    "analysis/phase5/results/cospend_census.csv": "a9edc199484d7f43478b0b83332d7b39d110c2ee9ffd6c208b3e7d7dbc806c9d",
+    "analysis/phase5/results/cospend_census.metadata.json": "ff5b1e94e0e6262e7996b7ab2bfd0c01ee40f318f76919290e8cabdfc7696b92"
+  },
+  "outputs": {
+    "analysis/phase5/census_blocks.csv": "5944a125d458ef435060e7f38718a2a08b5440caf0b169adf3410bf0891e219b",
+    "analysis/phase5/census_clusters.csv": "bd4be2773062df1a925c0e9dc38b989ba507ad311da0720b03c52668aa5a5194",
+    "analysis/phase5/census_eras.csv": "5cd4b6497991e211379784b8771fd308e75129786e3137ae0d48f1523a174431",
+    "analysis/phase5/census_listed_with_other_miner_co_members.csv": "0dd3e348b80c8d99b64f1953dfc027aae5aa25c2f9645de7bd62aa8a09fb4d73",
+    "analysis/phase5/census_omission_candidates.csv": "686cc72c27e2ac975f8e87969a4c5fcd95a9f751805ecc2127d92928af90facc",
+    "analysis/phase5/census_summary.json": "9864e7ea5eb325005024bc0b8a019e8ae387d015ba4fd27807208a9e237297c8",
+    "analysis/phase5/census_transactions.csv": "e0d16b12590a08de4e28a541482ec1cbedb873f99af7d7834d0676fb51f3ab28"
+  },
+  "scripts": {
+    "scripts/phase5_offline.py": "9805c2d4bbde5491ed4a59acc69e5d201b70c46959b23dd6a914bcee54ac9f4d",
+    "scripts/phase5_bigquery.py": "b3c0d835ed7275d58a05d306d7d3f0f7935e4ae894e5aa0e555c7556066cb51b",
+    "scripts/phase4_offline.py": "a2f1838af08c16752c33853c7431000bda0c890bf04540d6b6abe761d539a21e",
+    "scripts/phase2_analyze.py": "fe1080449ecf9ad809748e57d3fac394f2018227283ca05075c1fb142c9e88c7"
+  }
+}

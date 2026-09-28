@@ -6,15 +6,47 @@
                                                          # reports exceeded resources (may bill two input scans)
 
 Authentication is gcloud application-default credentials, as in Phase 2. Set GCLOUD to the gcloud executable when
-it is not at the Phase 2 Windows path, and BQ_PROJECT to bill a different project.
+it is not at the Phase 2 Windows path, and BQ_PROJECT to bill a different project. Where gcloud is unavailable, set
+GOOGLE_APPLICATION_CREDENTIALS to a service-account JSON key file; it is read in place and never copied.
 """
-import argparse, json, os
+import argparse, base64, json, os, time, urllib.parse, urllib.request
 from pathlib import Path
 import phase2_bigquery as bq
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'analysis/phase5'
 USD_PER_TIB = 6.25   # BigQuery on-demand list price; the first 1 TiB each month is free
+SCOPE = 'https://www.googleapis.com/auth/bigquery'
+
+
+def service_account_token(path):
+    """OAuth access token from a service-account key via the signed-JWT grant (RFC 7523)."""
+    from cryptography.hazmat.primitives import hashes, serialization
+    from cryptography.hazmat.primitives.asymmetric import padding
+    key = json.loads(Path(path).read_text(encoding='utf8'))
+    b64 = lambda b: base64.urlsafe_b64encode(b).rstrip(b'=')
+    now = int(time.time())
+    claims = {'iss': key['client_email'], 'scope': SCOPE, 'aud': key['token_uri'], 'iat': now, 'exp': now + 3600}
+    unsigned = b64(json.dumps({'alg': 'RS256', 'typ': 'JWT'}).encode()) + b'.' + b64(json.dumps(claims).encode())
+    signer = serialization.load_pem_private_key(key['private_key'].encode(), password=None)
+    jwt = unsigned + b'.' + b64(signer.sign(unsigned, padding.PKCS1v15(), hashes.SHA256()))
+    body = urllib.parse.urlencode({'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer', 'assertion': jwt.decode()})
+    req = urllib.request.Request(key['token_uri'], data=body.encode(),
+                                 headers={'Content-Type': 'application/x-www-form-urlencoded'})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read())['access_token']
+
+
+class ServiceAccountBigQuery(bq.BigQuery):
+    def __init__(self, path):
+        super().__init__()
+        self.path = path
+
+    def auth(self):
+        if self.token is None or time.monotonic() - self.token_time > 2400:
+            self.token = service_account_token(self.path)
+            self.token_time = time.monotonic()
+        return self.token
 
 
 def main():
@@ -29,7 +61,8 @@ def main():
     bq.PROJECT = os.environ.get('BQ_PROJECT', bq.PROJECT)
     sql = (OUT / ('sql/cospend_census_semijoin.sql' if a.semijoin else 'sql/cospend_census.sql')).read_text(encoding='utf8')
     cap = int(a.max_tb * 1e12)
-    client = bq.BigQuery()
+    sa = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+    client = ServiceAccountBigQuery(sa) if sa else bq.BigQuery()
     dry = client.query('cospend_census', sql, dry=True, max_bytes=cap)
     est = dry.get('totalBytesProcessed')
     if est is not None and not dry.get('local_cache_reused'):

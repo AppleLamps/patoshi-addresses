@@ -1,0 +1,22 @@
+{
+ "inputs": {
+  "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+  "analysis/phase5/census_blocks.csv": "5944a125d458ef435060e7f38718a2a08b5440caf0b169adf3410bf0891e219b",
+  "analysis/phase5/census_summary.json": "9864e7ea5eb325005024bc0b8a019e8ae387d015ba4fd27807208a9e237297c8",
+  "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c",
+  "analysis/phase8/revised_list.csv": "084ac23d0dcad0e7bcc6288cd623ebe50bc8e8835e0c8ef942f3c37c64951ae7"
+ },
+ "outputs": {
+  "analysis/phase10_clock_model/model_summary.json": "f4711fafca6908a06bd60a7605f362405737a6e5c6a38336c92aa1cafbac1262",
+  "analysis/phase10_clock_model/posterior_m10.csv": "2531c352aebbd330500618ecf25cdf2f7d10d84c20a6b7e5f4c1ab01fa8f9a42",
+  "analysis/phase10_clock_model/suspects.csv": "75a407ed19e9a0983ad5da76a6b1fefbfcbb930599770c9bf23f3e67289f13c9",
+  "analysis/phase10_clock_model/suspects_summary.json": "355342bffe87c9076205021edff18553dcff64242bbdf105bf9f6e6aec73e77f",
+  "analysis/phase10_clock_model/tier_changes.csv": "61b60e24b1404caf393b038bc07f4a9a6a9f575fd703f393030de12388a3b680"
+ },
+ "scripts": {
+  "scripts/phase10_clock_model.py": "2a22b5f44d4951d3098b21eea95108a71deb4ed38cb0e3a3f25748f82cbf1a21",
+  "scripts/phase6_posterior.py": "80156bfe70e7843778f0b64eff8700b7e64b64b89c535dc4b9d9f22864f947fe",
+  "scripts/phase9_nonce_clock.py": "ee5a76beb7f8aef39112bff92a83a49de70d272c72ae3e699057099910e9e5b4",
+  "analysis/phase10_clock_model/PREREGISTRATION.md": "b6a3af3cb2313cf53850fd7fda1e4f5cb04980946b1182d02b4d7e6cb48d58ae"
+ }
+}

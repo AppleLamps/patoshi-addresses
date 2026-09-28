@@ -1,0 +1,38 @@
+{
+ "trackless_listed_scored": 1029,
+ "clock_consistent_suspects": 169,
+ "expected_consistent_if_all_patoshi": 128.1,
+ "clock_only_false_positive_estimate_m": 43.4,
+ "m_ci95": [
+  20.1,
+  69.5
+ ],
+ "a_spending": {
+  "suspects": 169,
+  "spent": 1,
+  "spent_heights": [
+   44838
+  ],
+  "expected_if_m_false_positives": 10.64,
+  "expected_if_no_excess": 0.147,
+  "p_observed_or_fewer_under_H_FP": 0.0002789079989153177,
+  "p_observed_or_more_under_H0": 0.13655825241122377
+ },
+ "b_shape": {
+  "suspects_in_band": 93,
+  "suspects_low": 34,
+  "suspects_share": 0.366,
+  "fitted_in_band": 3613,
+  "fitted_low": 1712,
+  "fitted_share": 0.474,
+  "fisher_p": 0.045226037873244807
+ },
+ "c_dead_time": {
+  "suspects": 160,
+  "suspects_under_300s": 0,
+  "fitted": 17153,
+  "fitted_under_300s": 0,
+  "fisher_p": 1.0
+ },
+ "excess_false_positives_claimed": false
+}

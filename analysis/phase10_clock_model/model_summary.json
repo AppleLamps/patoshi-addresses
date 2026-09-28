@@ -1,0 +1,263 @@
+{
+ "reproduces_phase6_when_clock_off_max_abs_diff": 4.97828145305107e-06,
+ "ordinary_clock_inconsistent_by_era": [
+  0.0862,
+  0.0403,
+  0.0629
+ ],
+ "ordinary_clock_reference_blocks": [
+  858,
+  2975,
+  1255
+ ],
+ "patoshi_track_rates_fitted_m10": [
+  [
+   0.7732,
+   0.9583,
+   0.9737
+  ],
+  [
+   0.9231,
+   0.7796,
+   0.8379
+  ]
+ ],
+ "expected_unlisted_patoshi": {
+  "in_span_phase6": 208.8,
+  "in_span_m10": 215.6,
+  "after_end_phase6": 362.5,
+  "after_end_m10": 373.9,
+  "blocks_1_2_m10": [
+   0.838,
+   0.9982
+  ]
+ },
+ "V1_holdout": {
+  "phase6_baseline": [
+   {
+    "era": [
+     1,
+     24999
+    ],
+    "hidden": 1731,
+    "p_ge_0_9": 0.9752,
+    "p_ge_0_5": 0.9896
+   },
+   {
+    "era": [
+     25000,
+     49973
+    ],
+    "hidden": 463,
+    "p_ge_0_9": 0.6458,
+    "p_ge_0_5": 0.8769
+   }
+  ],
+  "m10": [
+   {
+    "era": [
+     1,
+     24999
+    ],
+    "hidden": 1731,
+    "p_ge_0_9": 0.9832,
+    "p_ge_0_5": 0.9948
+   },
+   {
+    "era": [
+     25000,
+     49973
+    ],
+    "hidden": 463,
+    "p_ge_0_9": 0.7991,
+    "p_ge_0_5": 0.9503
+   }
+  ],
+  "preregistered_floor": {
+   "0": 0.975,
+   "1": 0.646
+  },
+  "pass": true
+ },
+ "V2_null_test_half": {
+  "phase6_baseline": [
+   {
+    "era": [
+     1,
+     24999
+    ],
+    "blocks": 554,
+    "p_ge_0_9": 0.0054,
+    "p_ge_0_5": 0.0126
+   },
+   {
+    "era": [
+     25000,
+     49973
+    ],
+    "blocks": 1579,
+    "p_ge_0_9": 0.0063,
+    "p_ge_0_5": 0.0475
+   },
+   {
+    "era": [
+     49974,
+     54619
+    ],
+    "blocks": 257,
+    "p_ge_0_9": 0.0467,
+    "p_ge_0_5": 0.0506
+   }
+  ],
+  "m10": [
+   {
+    "era": [
+     1,
+     24999
+    ],
+    "blocks": 554,
+    "p_ge_0_9": 0.0036,
+    "p_ge_0_5": 0.009
+   },
+   {
+    "era": [
+     25000,
+     49973
+    ],
+    "blocks": 1579,
+    "p_ge_0_9": 0.0051,
+    "p_ge_0_5": 0.0405
+   },
+   {
+    "era": [
+     49974,
+     54619
+    ],
+    "blocks": 257,
+    "p_ge_0_9": 0.0272,
+    "p_ge_0_5": 0.0739
+   }
+  ],
+  "pass": true
+ },
+ "V3_shape_calibration": {
+  "ordinary_shape_reference": 0.1999,
+  "bins": [
+   {
+    "bin": "0-0.1",
+    "blocks": 964,
+    "mean_posterior": 0.008,
+    "shape_fraction": -0.055,
+    "shape_lo": 0.0,
+    "shape_hi": 0.038,
+    "inside": 1.0,
+    "counts_for_V3": true
+   },
+   {
+    "bin": "0.1-0.5",
+    "blocks": 48,
+    "mean_posterior": 0.284,
+    "shape_fraction": 0.181,
+    "shape_lo": 0.0,
+    "shape_hi": 0.678,
+    "inside": 1.0,
+    "counts_for_V3": true
+   },
+   {
+    "bin": "0.5-0.9",
+    "blocks": 100,
+    "mean_posterior": 0.762,
+    "shape_fraction": 0.866,
+    "shape_lo": 0.53,
+    "shape_hi": 1.0,
+    "inside": 1.0,
+    "counts_for_V3": true
+   },
+   {
+    "bin": "0.9-1",
+    "blocks": 442,
+    "mean_posterior": 0.985,
+    "shape_fraction": 0.92,
+    "shape_lo": 0.754,
+    "shape_hi": 1.0,
+    "inside": 1.0,
+    "counts_for_V3": true
+   }
+  ],
+  "pass": true
+ },
+ "adopted_as_calibrated": true,
+ "tiers": {
+  "added_possible": {
+   "tier_phase8": 94,
+   "tier_m10": 116
+  },
+  "added_probable": {
+   "tier_phase8": 307,
+   "tier_m10": 65
+  },
+  "listed_uncontradicted": {
+   "tier_phase8": 21941,
+   "tier_m10": 21941
+  },
+  "no_patoshi_evidence": {
+   "tier_phase8": 5212,
+   "tier_m10": 5210
+  },
+  "added_robust": {
+   "tier_phase8": 111,
+   "tier_m10": 418
+  },
+  "other_miner": {
+   "tier_phase8": 25646,
+   "tier_m10": 25646
+  },
+  "unresolved": {
+   "tier_phase8": 1296,
+   "tier_m10": 1211
+  },
+  "listed_contradicted": {
+   "tier_phase8": 12,
+   "tier_m10": 12
+  }
+ },
+ "tier_changes": 516,
+ "E1_model_free_aggregate": {
+  "in_span": {
+   "scored_unlisted_not_other": 4960,
+   "unscored": 111,
+   "clock_inconsistent": 431.0,
+   "non_stock_blocks": 209.8,
+   "ci95": [
+    167.0,
+    256.2
+   ]
+  },
+  "after_list_end": {
+   "scored_unlisted_not_other": 1907,
+   "unscored": 40,
+   "clock_inconsistent": 440.0,
+   "non_stock_blocks": 391.9,
+   "ci95": [
+    352.1,
+    434.1
+   ]
+  },
+  "phase5_for_comparison": {
+   "in_span": [
+    188.4,
+    [
+     118.6,
+     258.2
+    ]
+   ],
+   "after_list_end": [
+    352.9,
+    [
+     309.7,
+     396.2
+    ]
+   ]
+  }
+ }
+}

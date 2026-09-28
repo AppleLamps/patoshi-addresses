@@ -1,98 +1,89 @@
-# Patoshi Addresses
+# Patoshi addresses: dataset and independent audit
 
-Dataset of 21,953 Bitcoin blocks attributed to the hypothesized "Patoshi" miner,
-with their public keys. Attribution, completeness, and the hypothesis that Patoshi
-was Satoshi Nakamoto require independent verification.
+This repository contains public keys from **21,953 early Bitcoin coinbase outputs** attributed to the hypothesized “Patoshi” miner. It also contains an independent audit of the CSV, its block-list provenance, chain data, spending, and bounded forensic screens. **“Patoshi = Satoshi Nakamoto” is a hypothesis, not an assumption of this audit.** The block list is a published classification, not ground truth about who mined each block.
 
-## Credits
+The chain-data balance watermark is **block 968,902, timestamped 2026-09-27 23:24:41 UTC**. BigQuery queries were separate snapshots, and the 21,922 outputs with no indexed spend were not each checked against a live node at the tip. Later spends or index corrections require a fresh audit.
 
-Based on the work of:
-- **Sergio Demian Lerner** ([@SDLerner](https://github.com/SDLerner)) - Discovered the Patoshi pattern
-- **Jameson Lopp** ([@jlopp](https://github.com/jlopp)) - Curated the Patoshi blocks dataset
+## Results at a glance
 
-## Dataset
+| Work | Result | Evidence and limit |
+|---|---|---|
+| CSV audit | 21,953 distinct heights, 3–49,973; valid, unique uncompressed secp256k1 keys; four amounts above 50 BTC | [Phase 1](analysis/phase1/REPORT.md); initially CSV-only |
+| List provenance | CSV heights exactly equal [Lopp's September 2022 published list](https://github.com/jlopp/bitcoin-utils/blob/45b9eb0f0d71dc7dd66c51fd3058943c1f6df0cb/findPatoshiMiningStreaks.php); bundled extractor contains only 6,183 of them | [Provenance report](analysis/provenance/REPORT.md); list membership does not prove miner attribution |
+| Coinbase verification | **21,953/21,953** CSV pubkeys and amounts match indexed coinbase output-zero scripts; zero mismatches | [Phase 2](analysis/phase2_bigquery/REPORT.md); BigQuery, with cryptographic and targeted live checks |
+| Coinbase spends | **31 spent outputs / 1,550 BTC**, all spend hits live-confirmed; **21,922 outputs / 1,096,102.49 BTC** have no spend reference through the watermark | [Every status](analysis/phase2_bigquery/spend_status_all.csv); the 21,922 are dataset-bounded, not individually live-confirmed |
+| Novelty review | Bounded downstream traces, a P2PKH funding census, reset and boundary analyses; no demonstrated hidden message, hash collision, human schedule, key weakness, or miner identity | [Phase 3](analysis/phase3/REPORT.md); distinguishes replication from possible additions to prior work |
+| Debian OpenSSL screen | **0 matches / 7,339,808 modeled keygen slots**, after reproducing nine published weak-key vectors | [Follow-up](analysis/phase3/debian/REPORT.md); PID/startup/offset window only, not an exhaustive Debian-weak-key exclusion |
 
-- **Blocks**: 21,953 (blocks 3-49,973)
-- **Total BTC in CSV**: 1,097,652.49 BTC (1,097,650 BTC at 50 per row, plus 2.49 BTC)
-- **Format**: CSV with columns: Block Height, Output Index, Address/Pubkey, Amount (BTC), Script Type
+Labels in the reports distinguish **(a) verified observations**, **(b) statistical or model inferences with stated tests**, and **(c) speculation**. BigQuery is a secondary chain index; each report says which material findings were also checked through a live API. An unlisted block is an *unlisted control*, not a proven different miner.
 
-## Usage
+## What the dataset contains
 
-```bash
-# Extract the 6,183 heights in the bundled script (not the full CSV)
-python3 extract_patoshi_addresses.py
+[`patoshi_pubkeys_COMPLETE.csv`](patoshi_pubkeys_COMPLETE.csv) has `Block Height`, `Output Index`, `Address/Pubkey`, `Amount (BTC)`, and `Script Type`. All 21,953 listed outputs are **output zero, pay-to-public-key (P2PK)**. The `Address/Pubkey` field is an uncompressed `04…` public key, not a P2PKH address. The four fee-inclusive coinbases are:
 
-# View the data
-head patoshi_pubkeys_COMPLETE.csv
-```
+| Height | Coinbase amount |
+|---:|---:|
+| 2,817 | 52.01 BTC |
+| 19,863 | 50.14 BTC |
+| 23,079 | 50.12 BTC |
+| 28,507 | 50.22 BTC |
 
-## Files
+The other 21,949 rows are 50 BTC, giving **1,097,652.49 BTC** in the CSV. The four amounts were reproduced from the chain in the BigQuery smoke and full runs. [`patoshi_p2pkh_addresses.csv`](patoshi_p2pkh_addresses.csv) contains Base58Check P2PKH encodings derived from the same public keys. These are useful for looking up payments to the key hashes, but **spending the original coinbases is determined by their P2PK outpoints**, not by activity at the derived addresses.
 
-- `patoshi_pubkeys_COMPLETE.csv` - The complete dataset
-- `extract_patoshi_addresses.py` - Script to generate the dataset from block numbers
-- `README.md` - This file
+## How the audit developed
 
-## Independent offline audit
+### 1. Offline structural and key audit
 
-See [the Phase 1 report](analysis/phase1/REPORT.md) for the reproducible CSV-only audit,
-including its limitations. It finds four amounts above 50 BTC (CSV total
-**1,097,652.49 BTC**) and 15,770 CSV heights absent from the bundled extractor's
-input list. These are local observations, not independent on-chain verification.
+[Phase 1](analysis/phase1/REPORT.md) inspected every CSV row before network retrieval. It checked height and key validity, duplicates, amounts, key-byte distributions, gaps and vanity patterns, then derived the address list. There are **28,018 unlisted heights in 8,899 intervals** within the height range; the longest interval is **426 heights**. Global and height-local permutation tests found structured gap behavior. No pubkey-byte anomaly survived correction across 765 tests, and the short vanity-like strings, including block 264's `1CFB…` address, were not convincing evidence of intentional vanity mining. These are tests of the supplied list and keys, not tests of the miner's identity or the security of every possible key generator.
 
-- [Derived P2PKH addresses](patoshi_p2pkh_addresses.csv) preserve the original
-  public keys, amounts, heights and output indexes. These encodings do not replace
-  the original P2PK output scripts and cannot alone establish spend status.
-- [Offline analysis script](scripts/phase1_offline.py), with dependencies in
-  `requirements-analysis.txt`.
-- [Gap maps, statistical tests and provenance hashes](analysis/phase1/).
+### 2. Provenance of the 21,953-height list
 
-```bash
-python -m unittest discover -s tests -v
+The [provenance comparison](analysis/provenance/REPORT.md) found that the CSV's heights equal Lopp's 2022 list and the later [`TaintedBySatoshi` array](https://github.com/tehran19r/TaintedBySatoshi/blob/f013a619c7faa5db44de2e55b3423de48edef336/backend/src/data/patoshiBlocks.js), including order. The latter explicitly cites the `bensig/patoshi-addresses` source. The bundled [`extract_patoshi_addresses.py`](extract_patoshi_addresses.py) lists **6,183 heights, all present in the CSV**, leaving **15,770 CSV-only heights**. It preserves the first 6,157 CSV entries through height 8,044, then becomes sparse; it cannot reproduce the shipped full CSV. Its default output filename also differs. No evidence establishes who populated the extra CSV rows or which extractor produced them. The chain verification below independently checked their pubkeys and amounts.
+
+The declared analysis population is the [pinned Lopp height file](analysis/provenance/lopp_patoshi_heights.txt). The older extractor remains as an artifact of the repository's history; running it does **not** regenerate `patoshi_pubkeys_COMPLETE.csv`.
+
+### 3. Chain verification, spending and classifier checks
+
+[Phase 2](analysis/phase2_bigquery/REPORT.md) first inspected the actual `bigquery-public-data.crypto_bitcoin` schema and passed a ten-block smoke test, including the 52.01 BTC control. One bulk coinbase comparison then matched **all 21,953 complete P2PK scripts and amounts**. All queried coinbase transaction IDs were reconstructed; 54,620 consecutive block headers and their proof of work were checked. For **21,775** listed single-transaction blocks, the header Merkle root also directly binds the reconstructed coinbase. The remaining **178 multi-transaction blocks** have matching indexed outputs but no exhaustive independent Merkle-proof audit.
+
+A whole-input-index outpoint join found **31 spent coinbases**, each checked live through [mempool.space](https://mempool.space/docs/api/rest). The earliest is block 9's coinbase, spent at block 170; the latest listed spend occurred in December 2017. The count agrees with [Bitquery's September 2026 audit](https://www.bitquery.io/investigations/satoshi-nakamoto-net-worth), so the spend count is a verification, not a newly discovered movement. The other 21,922 have no spend reference through the stated BigQuery watermark. Query CSVs, SQL, metadata, spend statuses, live-check receipts and a [checksummed manifest](analysis/phase2_bigquery/manifest.json) are committed; full API/REST envelopes remain in ignored local cache.
+
+The same chain data were used to reproduce broad nonce-LSB and extraNonce *signatures*, not Lerner's original labeling process. All 21,953 listed blocks meet the broad nonce rule, but so do **602/3,000 unlisted controls**. The extraNonce consistency model accepts **4,075/4,290 evaluable held-out listed blocks** and **13/2,735 evaluable unlisted controls**. Its **1,005 review flags are not 1,005 proven misclassifications**. Block **37,808** alone fails Lerner's tighter 2020 nonce bound and remains a disputed attribution. Ten sampled unlisted blocks near the endpoint pass the local screening rules; none is promoted to a verified omission. No significant UTC hour or weekday pattern survived the specified temporal tests. [Methods, controls and limits](analysis/phase2_bigquery/METHODS.md).
+
+### 4. Novelty hunt and bounded null screens
+
+[Phase 3](analysis/phase3/REPORT.md) compared candidate findings with [Lerner's work](https://bitslog.com/2013/04/17/the-well-deserved-fortune-of-satoshi-nakamoto/), [BitMEX Research](https://web.archive.org/web/20241223083952/https://blog.bitmex.com/satoshis-1-million-bitcoin/), [Lopp](https://blog.lopp.net/was-satoshi-a-greedy-miner/) and [Bitquery](https://www.bitquery.io/investigations/satoshi-nakamoto-net-worth). The [literature ledger](analysis/phase3/SOURCES.md) records what was already published. Search absence cannot prove universal novelty.
+
+- **Downstream trace:** the 31 spent coinbases enter 20 first-spending transactions. Three further generations yielded 1,259 reconstructed transaction IDs and 1,474 explicit outpoint edges. A May 2010 **100 BTC** path has verified later 95/5 and 5/90 BTC splits; the related **500 BTC** path joins a previously discussed 9,000 BTC consolidation. Tracing stops at a documented frontier. Output-to-output “taint” allocations are heuristics, not ownership or physical coin tracking.
+- **Additional P2PKH funding:** exact script matching found 82,151 historical P2PKH outputs to 21,926 derived key hashes. At the watermark, 82,149 outputs totaling **7.05258112 BTC** had no spend reference. This is distinct from the original P2PK coinbase balance. The two spent P2PKH hits revealed the expected public keys, not a collision.
+- **Counter and boundary review:** filtered extraNonce decreases produce an approximately several-day reset-candidate cadence, but a decrease is not proof of a reboot or backup. No reset-hour or weekday scheduling signal survived permutation testing. A separate multi-track classifier supported **41 of the 50 largest Phase 2 residual flags**; nine remain unresolved. Its recall is too low to replace the published block list. Candidate blocks around 49,973 and block 37,808 remain attribution questions.
+- **Key and coinbase screens:** no match in the stated small/structured private-key classes or the pinned Milk Sad address corpus; no internal HASH160 duplicate; no tested 100-position key-order artifact; no extra coinbase message bytes or nonstandard script layout. These are bounded nulls. The stock client's 100-key pool was introduced after this block range, so a 100-reward refill premise is unsupported.
+- **Public-key exposure:** the 21,922 original outputs with no indexed spend expose **1,096,102.49 BTC** in P2PK public keys. This is a conditional future quantum-risk measurement, not a demonstrated present-day key recovery. The report records a **September 28, 2026** BTC/USD quote for a historical snapshot; it is not a live valuation.
+
+The later [Debian OpenSSL CVE-2008-0166 follow-up](analysis/phase3/debian/REPORT.md) searched published weak-key corpora, modeled the historical PRNG from source, reproduced **nine published P-256 weak keys**, then checked **7,339,808 secp256k1 candidate keygen slots** against all CSV pubkeys with **zero matches**. It covers PIDs 1–32,767, little/big-endian paths and the first 16 consecutive modeled keygens across specified startup states. PID 0 or raised PID limits, deeper offsets, other preceding RNG calls and other process histories remain untested. This null does not show that the actual miner used Debian or that every vulnerable key was excluded.
+
+## Files and reproduction
+
+| Area | Primary files |
+|---|---|
+| Dataset and derived encodings | [coinbase CSV](patoshi_pubkeys_COMPLETE.csv), [P2PKH list](patoshi_p2pkh_addresses.csv) |
+| Offline audit | [report](analysis/phase1/REPORT.md), [script](scripts/phase1_offline.py), [results](analysis/phase1/results.json) |
+| Provenance | [report](analysis/provenance/REPORT.md), [comparison script](scripts/provenance_compare.py), [pinned heights](analysis/provenance/lopp_patoshi_heights.txt) |
+| Chain verification | [report](analysis/phase2_bigquery/REPORT.md), [methods](analysis/phase2_bigquery/METHODS.md), [SQL](analysis/phase2_bigquery/sql/), [all spend statuses](analysis/phase2_bigquery/spend_status_all.csv) |
+| Novelty work | [report](analysis/phase3/REPORT.md), [methods](analysis/phase3/METHODS.md), [source ledger](analysis/phase3/SOURCES.md), [cached query CSVs](analysis/phase3/results/) |
+| Debian screen | [report](analysis/phase3/debian/REPORT.md), [model/screen](scripts/debian_weak_screen.py), [result](analysis/phase3/debian/result.json), [checksums](analysis/phase3/debian/manifest.json) |
+
+Install the [analysis dependencies](requirements-analysis.txt) in a Python environment. Offline Phase 1 and the committed provenance comparison can be reproduced without cloud credentials:
+
+```powershell
 python scripts/phase1_offline.py --permutations 1999
+python scripts/provenance_compare.py --source lopp=analysis/provenance/sources/lopp_streaks_2022.php --source tehran=analysis/provenance/sources/tehran_patoshiBlocks_initial.js
 ```
 
-No network access is used by the Phase 1 analysis. See the completed Phase 2
-verification below for chain-data comparisons and spend status.
+For Phase 2, the committed [query results](analysis/phase2_bigquery/results/) and [methods](analysis/phase2_bigquery/METHODS.md) preserve the schema, SQL, query identities, output comparisons, spend statuses and watermark. Repeating the **BigQuery collection** requires Google application-default credentials and may process substantial data; a matching completed query reuses its committed CSV. Phase 3 offline reanalysis and its separately cached sources are documented in [Phase 3 methods](analysis/phase3/METHODS.md). The Debian report includes the four commands to validate vectors, rerun the bounded screen, aggregate and checksum it; the full screen is computationally expensive.
 
-## Provenance investigation
+Ignored local caches contain raw BigQuery and live API responses, source downloads and progress files. A fresh clone has the committed result CSVs and receipts, but not every raw response envelope or external source archive. This distinction is recorded in the manifests and methods. The earlier per-block API collector was stopped when BigQuery became the bulk source; its files remain for audit history.
 
-The [provenance report](analysis/provenance/REPORT.md) establishes that the CSV's
-21,953 heights exactly match Lopp's published 2022 list and the list in
-`tehran19r/TaintedBySatoshi`, in the same order. The extractor is a strict subset:
-6,183 shared heights, zero extractor-only heights, and 15,770 CSV-only heights.
+## Credits and interpretation
 
-Use the [pinned Lopp height list](analysis/provenance/lopp_patoshi_heights.txt) as
-the declared population for subsequent verification. Exact list agreement does
-not independently verify the CSV's pubkeys, amounts, spend status or miner attribution.
-The [comparison script](scripts/provenance_compare.py) and
-[reproduction instructions](analysis/provenance/METHODS.md) work offline using
-the committed source snapshots.
-
-## Phase 2 — BigQuery chain verification
-
-The [verification report](analysis/phase2_bigquery/REPORT.md) finds **21,953/21,953
-pubkey matches** and **31 live-confirmed spent coinbase outputs (1,550 BTC)**.
-The remaining 21,922 have no spend in the BigQuery input index through its
-September 27, 2026 watermark; they were not individually rechecked live.
-The spend count reproduces published research and does not establish miner identity.
-
-[SQL and methods](analysis/phase2_bigquery/METHODS.md),
-[every output's status](analysis/phase2_bigquery/spend_status_all.csv),
-[cached query results](analysis/phase2_bigquery/results/), and
-[checksums](analysis/phase2_bigquery/manifest.json) are committed for reproduction.
-The earlier API collector was stopped when BigQuery was selected and must not be resumed.
-
-## Phase 3 — novelty hunt
-
-The [novelty report](analysis/phase3/REPORT.md) separates bounded new measurements
-from established findings. It adds downstream transaction paths, a P2PKH funding
-census, reset-time tests, and an exploratory slope classifier. No demonstrated
-key weakness, hash collision, embedded message, or new miner attribution was found.
-The [Debian OpenSSL follow-up](analysis/phase3/debian/REPORT.md) screens 7,339,808
-modeled keygen slots against the full CSV, with nine published weak-key validation
-vectors. It finds zero matches within that stated space; other process histories
-remain untested. Every novelty candidate states its prior-art comparison and
-limitations.
-
-[Methods](analysis/phase3/METHODS.md) · [Literature ledger](analysis/phase3/SOURCES.md)
-· [Cached BigQuery results](analysis/phase3/results/) · [Manifest](analysis/phase3/manifest.json).
+[Sergio Demian Lerner](https://bitslog.com/2013/04/17/the-well-deserved-fortune-of-satoshi-nakamoto/) identified the Patoshi patterns; [Jameson Lopp](https://blog.lopp.net/was-satoshi-a-greedy-miner/) published the height list used here. This audit checks that list's artifacts and chain consequences. It does not establish that every listed block came from one miner, that the miner was Satoshi, that observed spending identifies a person, or that an unlisted block cannot share the same mining pattern.

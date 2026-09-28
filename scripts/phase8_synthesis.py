@@ -283,7 +283,7 @@ def manifest():
               'analysis/phase6/posterior_summary.json', 'analysis/phase7/verify_summary.json',
               'analysis/phase7/second_sequence_summary.json', 'analysis/phase7/omission_position.csv',
               'analysis/phase4/cospend_listed_in_other_miner_clusters.csv', 'patoshi_pubkeys_COMPLETE.csv',
-              'analysis/phase8/results/coinbase_pubkeys.csv']
+              'analysis/phase8/results/coinbase_pubkeys.csv', 'analysis/phase8/results/coinbase_pubkeys.metadata.json']
     digest = lambda f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest()
     outputs = sorted(str(f.relative_to(ROOT)).replace('\\', '/') for f in OUT.iterdir()
                      if f.is_file() and f.suffix in ('.csv', '.json') and f.name != 'manifest.json')

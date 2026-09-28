@@ -50,5 +50,24 @@ class Estimate(unittest.TestCase):
         self.assertEqual(p.simulate(inp, draws=1000)['false_positives'], [12.0, 12.0, 12.0])
 
 
+class CommittedArtifacts(unittest.TestCase):
+    """The committed outputs must be what the script produces from the committed inputs."""
+
+    def test_list_covers_every_height_and_matches_tier_summary(self):
+        import csv
+        rows = p.build_list()
+        self.assertEqual([r['height'] for r in rows], list(range(54620)))
+        committed = {r['tier']: int(r['blocks']) for r in csv.DictReader(open(p.OUT / 'tier_summary.csv'))}
+        self.assertEqual({t['tier']: t['blocks'] for t in p.tier_table(rows)}, committed)
+        self.assertEqual(sum(committed.values()), 54620)
+
+    def test_estimate_matches_committed(self):
+        import json
+        committed = json.loads((p.OUT / 'revised_estimate.json').read_text())
+        fresh = p.simulate(p.inputs_from_phases())
+        self.assertEqual(fresh['total_blocks'], committed['answer']['total_blocks_median_and_95ci'])
+        self.assertEqual(fresh['total_btc'], committed['answer']['total_btc_median_and_95ci'])
+
+
 if __name__ == '__main__':
     unittest.main()

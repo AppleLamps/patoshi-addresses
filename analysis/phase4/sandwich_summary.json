@@ -1,0 +1,41 @@
+{
+  "unlisted_heights_in_range": 28018,
+  "evaluable_heights": 20818,
+  "anchor_windows": 7959,
+  "candidate_heights": 21,
+  "windows_with_candidates_observed": 17,
+  "windows_with_candidates_expected_if_no_omissions": 15.283,
+  "poisson_binomial_upper_tail_p": 0.36102645164329195,
+  "by_window_false_positive_stratum": {
+    "fp<0.002": {
+      "windows": 6821,
+      "expected": 1.156,
+      "observed": 1,
+      "poisson_binomial_upper_tail_p": 0.6855054337453432
+    },
+    "0.002<=fp<0.01": {
+      "windows": 813,
+      "expected": 3.834,
+      "observed": 6,
+      "poisson_binomial_upper_tail_p": 0.18902458187457238
+    },
+    "fp>=0.01": {
+      "windows": 325,
+      "expected": 10.293,
+      "observed": 10,
+      "poisson_binomial_upper_tail_p": 0.5845123019953582
+    }
+  },
+  "multi_candidate_windows": {
+    "27473-27479": {
+      "candidates": 5,
+      "heights_in_window": 5,
+      "p_independent": 4.719964197263948e-09,
+      "p_independent_x_windows": 3.7566195046023765e-05,
+      "p_correlated_counter_bound": 2.860935549601536e-05,
+      "p_correlated_counter_bound_x_windows": 0.22770186039278625
+    }
+  },
+  "includes_14450": true,
+  "rule": "Unlisted height h between consecutive listed heights L<h<R with time(L)<time(h)<time(R), time(R)-time(L)<=3h, 0<=en(R)-en(L)<=60, en(L)<en(h)<en(R) (the counter never repeats between Patoshi blocks), and Lerner-2020 tight nonce pass. Null per height: P(tight nonce)=0.1907 for a uniform nonce times the share of nearby broad-nonce-failing blocks (+/-150) whose extraNonce falls in (en(L),en(R)). Inference is per anchor window. Exploratory; not a replacement list."
+}

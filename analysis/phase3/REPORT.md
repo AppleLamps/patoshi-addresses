@@ -22,6 +22,8 @@ Labels throughout: **(a)** verified data/fact, with BigQuery-only census results
 
 **Novelty statement.** [Bitquery](https://www.bitquery.io/investigations/satoshi-nakamoto-net-worth) describes the original transfer and its July movement, but explicitly stops its trace at the first hop. Exact and prefix transaction searches did not locate a prior narrative of these subsequent 95/5 and 5/90 splits. The addition is these precise later edges, not discovery of the original transfer. That original txid also appears in a [June 2022 forum post](https://bitcointalk.org/index.php?topic=5402488.msg60403902#msg60403902), which is another reason not to call it new. Search absence cannot establish universal novelty.
 
+**Phase 4 update.** The July 11 recipient `15VjRaDX…` is Gavin Andresen's published Bitcoin Faucet donation address, and the 5 BTC outputs are faucet payouts. See [Phase 4 LINKS.md](../phase4/LINKS.md) section 2.
+
 **Limitations.** These single-input transitions preserve an explicit outpoint path. They establish neither a payment purpose nor the same owner across outputs. At the 2011 two-input transaction, allocation among outputs becomes heuristic. No substantiated exchange/entity label was obtained. No identity conclusion follows from 5 BTC denominations. [Every May edge and output](may2010_paths.csv).
 
 ### 2. A precise census of additional funds sent to the exposed key hashes

@@ -1,0 +1,21 @@
+{
+ "min_reset_fraction_at_80pct_power": {
+  "sigma=0,T=30": 0.75,
+  "sigma=0,T=60": 0.2,
+  "sigma=0,T=120": 0.1,
+  "sigma=0,T=188": 0.1,
+  "sigma=0,T=300": 0.1,
+  "sigma=30,T=30": 0.3,
+  "sigma=30,T=60": 0.2,
+  "sigma=30,T=120": 0.1,
+  "sigma=30,T=188": 0.1,
+  "sigma=30,T=300": 0.1,
+  "sigma=60,T=30": 0.2,
+  "sigma=60,T=60": 0.2,
+  "sigma=60,T=120": 0.1,
+  "sigma=60,T=188": 0.1,
+  "sigma=60,T=300": 0.1
+ },
+ "simulations_per_cell": 400,
+ "alpha_one_sided": 0.005
+}

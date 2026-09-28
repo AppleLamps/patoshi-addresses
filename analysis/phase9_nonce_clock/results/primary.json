@@ -1,0 +1,37 @@
+{
+ "groups": {
+  "C_S_positive_control": 17216,
+  "C_P_patoshi_after_non_patoshi": 8585,
+  "C_P_outside_subranges_excluded": 0
+ },
+ "T0_positive_control_stock_u_S": {
+  "n_short": 1661,
+  "n_long": 5354,
+  "median_short": 0.0022,
+  "median_long": 0.0737,
+  "z": -61.212,
+  "p_one_sided": 0.0,
+  "P_short_below_long": 0.9963
+ },
+ "T1_primary_u_IN": {
+  "n_short": 424,
+  "n_long": 3943,
+  "median_short": 0.4627,
+  "median_long": 0.483,
+  "z": -1.303,
+  "p_one_sided": 0.09624843721400889,
+  "P_short_below_long": 0.5192,
+  "p_holm": 0.19249687442801777
+ },
+ "T1_alternative_u_IP": {
+  "n_short": 424,
+  "n_long": 3943,
+  "median_short": 0.5373,
+  "median_long": 0.517,
+  "z": 1.303,
+  "p_one_sided": 0.9037515627859911,
+  "P_short_below_long": 0.4808,
+  "p_holm": 0.9037515627859911
+ },
+ "verdict": "failure: reset not supported"
+}

@@ -2,3 +2,6 @@
 numpy>=1.24,<3
 # Optional independent secp256k1 point decoding and serialization:
 cryptography>=41
+# Optional: tests/test_phase5.py executes the Phase 5 census SQL locally when both are installed:
+# duckdb
+# sqlglot

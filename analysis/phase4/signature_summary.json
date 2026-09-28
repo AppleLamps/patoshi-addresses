@@ -1,0 +1,59 @@
+{
+  "signatures_parsed": 88865,
+  "transactions": 1259,
+  "stats": {
+    "segwit_inputs_skipped": 6
+  },
+  "verified": {
+    "True": 71407,
+    "": 17458
+  },
+  "unverified_by_prev_type": {
+    "pubkey": 442,
+    "scripthash": 17016
+  },
+  "der_strict_false": 0,
+  "high_s": 1000,
+  "high_s_by_era": {
+    "before_height_100000": {
+      "signatures": 1311,
+      "high_s": 690
+    },
+    "100000_to_390999": {
+      "signatures": 631,
+      "high_s": 310
+    },
+    "391000_and_later": {
+      "signatures": 86923,
+      "high_s": 0
+    }
+  },
+  "sighash_types": {
+    "1": 88865
+  },
+  "listed_key_signatures": {
+    "n": 36,
+    "verified_true": 36,
+    "high_s": 14,
+    "der_strict_false": 0
+  },
+  "small_k_screen": {
+    "k_range": [
+      1,
+      65536
+    ],
+    "plus_k_half": true,
+    "hits": 0,
+    "listed_key_hits": 0
+  },
+  "r_reuse_same_pubkey": {
+    "groups": 0,
+    "listed_key_groups": 0,
+    "examples": []
+  },
+  "r_reuse_cross_pubkey": {
+    "groups": 0,
+    "examples": []
+  },
+  "policy": "Reuse is reported only as counts and transaction references. No private key is computed. Multisig inputs are parsed but not verified; their R values are included in reuse counts without a digest."
+}

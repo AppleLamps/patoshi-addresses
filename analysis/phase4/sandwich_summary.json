@@ -1,0 +1,30 @@
+{
+  "unlisted_heights_in_range": 28018,
+  "evaluable_short_monotone_windows": 20818,
+  "candidates_observed": 21,
+  "candidates_expected_if_no_omissions": 15.697,
+  "excess": 5.303,
+  "poisson_upper_tail_p": 0.11552665770396042,
+  "by_false_positive_stratum": {
+    "fp<0.002": {
+      "windows": 19002,
+      "expected": 3.784,
+      "observed": 6,
+      "poisson_upper_tail_p": 0.1820329426280718
+    },
+    "0.002<=fp<0.01": {
+      "windows": 1565,
+      "expected": 7.352,
+      "observed": 5,
+      "poisson_upper_tail_p": 0.8567404493342716
+    },
+    "fp>=0.01": {
+      "windows": 251,
+      "expected": 4.562,
+      "observed": 10,
+      "poisson_upper_tail_p": 0.01856375351813655
+    }
+  },
+  "includes_14450": true,
+  "rule": "Unlisted height h between consecutive listed heights L<h<R with time(L)<time(h)<time(R), time(R)-time(L)<=3h, 0<=en(R)-en(L)<=60, en(L)<en(h)<en(R) (the counter never repeats between Patoshi blocks), and Lerner-2020 tight nonce pass. Null: P(tight nonce)=0.1907 for a uniform nonce times the share of nearby broad-nonce-failing blocks (+/-150) whose extraNonce falls in [en(L),en(R)]. Exploratory; not a replacement list."
+}

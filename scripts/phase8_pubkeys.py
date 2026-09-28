@@ -1,7 +1,7 @@
 """Fetch the public key of every coinbase at heights 0 to 54,619 for revised_list.csv.
 
     python scripts/phase8_pubkeys.py            # dry run only: validates the SQL, prints bytes
-    python scripts/phase8_pubkeys.py --execute  # billed query (a few GB), cached under analysis/phase8/results
+    python scripts/phase8_pubkeys.py --execute  # billed query (about 15 MB processed), cached under analysis/phase8/results
 
 Authentication is as in scripts/phase5_bigquery.py (gcloud, or GOOGLE_APPLICATION_CREDENTIALS).
 """

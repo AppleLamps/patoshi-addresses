@@ -19,7 +19,7 @@
   },
   "scripts": {
     "scripts/phase8_synthesis.py": "5a1bdc3662fdbdeefa54026dce19fe67116ebaded85459af3979a970af426924",
-    "scripts/phase8_pubkeys.py": "d84395021992dee3e5b3fa9c87d068be124204434137ed859e89b910760f6a40",
+    "scripts/phase8_pubkeys.py": "4802da3f50055c23ed27f50bcd7f5e97fe9ce1a26e3c3024cab5e66c209dddb7",
     "analysis/phase8/sql/coinbase_pubkeys.sql": "5a56eb5b11dd6eac685b5688b6cd85733590a4d782b267964a87d124d0df148e"
   }
 }

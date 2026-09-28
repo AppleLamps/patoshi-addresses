@@ -65,8 +65,8 @@ class CommittedArtifacts(unittest.TestCase):
         import csv
         committed = list(csv.DictReader(open(p.OUT / 'revised_list.csv')))
         fresh = p.build_list()
-        self.assertEqual([(int(r['height']), r['pubkey'], r['p2pkh_address']) for r in committed],
-                         [(r['height'], r['pubkey'], r['p2pkh_address']) for r in fresh])
+        # Every column, as the CSV writer renders it, so a regression in any existing column also fails.
+        self.assertEqual(committed, [{k: str(v) for k, v in r.items()} for r in fresh])
         self.assertEqual(committed[0]['p2pkh_address'], '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa')   # genesis
         self.assertEqual(len({r['pubkey'] for r in committed}), 54620)
 

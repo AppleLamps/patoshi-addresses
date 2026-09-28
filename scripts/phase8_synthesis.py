@@ -165,7 +165,7 @@ def simulate(inputs, draws=DRAWS, seed=SEED, q=Q, b_tail=None):
     q_ = lambda x: [round(float(v), 1) for v in np.percentile(x, [2.5, 50, 97.5])]
     return {'total_blocks': q_(total), 'false_positives': q_(fp), 'omitted_in_span': q_(o_in),
             'after_list_end': q_(o_post), 'before_list_start': q_(pre),
-            'total_btc': [round(v * 50 + inputs['listed_fee_btc'], 0) for v in q_(total)]}
+            'total_btc': [round(v * 50 + inputs['fee_btc'], 0) for v in q_(total)]}
 
 
 def inputs_from_phases():
@@ -176,9 +176,14 @@ def inputs_from_phases():
     fp = s5['measurement']['list_false_positive_rate_among_other_miner_blocks']
     lo, hi = fp['implied_false_positive_heights_ci']
     listed = [h for h, r in P.items() if r['listed'] == 'True']
+    fee = lambda h: int(C[h]['value_sats']) - 5_000_000_000
     return {
         'listed': len(listed),
-        'listed_fee_btc': round(sum(int(C[h]['value_sats']) - 5_000_000_000 for h in listed) / 1e8, 2),
+        # Fees on top of the 50 BTC subsidy, per component: actual fees of listed blocks not contradicted by
+        # co-spending, plus probability-weighted fees of unlisted blocks (the 12 contradicted blocks carry none).
+        'fee_btc': round((sum(fee(h) for h in listed if P[h]['co_spend_label'] != 'other')
+                          + sum(fee(h) * float(r['posterior']) for h, r in P.items()
+                                if r['listed'] == 'False' and r['co_spend_label'] != 'other')) / 1e8, 2),
         'b': bg['rate'], 'b_sd': (bg['wilson95'][1] - bg['wilson95'][0]) / 3.92,
         'fp': fp['implied_false_positive_heights'], 'fp_sd': (hi - lo) / 3.92, 'fp_identified': fp['hits'],
         'in_span': {'k': s5['omission_bound']['of_which_pass_band'], 'n': s5['omission_bound']['unlisted_not_other_miner'],

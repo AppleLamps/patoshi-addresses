@@ -32,7 +32,7 @@ class Estimate(unittest.TestCase):
         self.assertAlmostEqual(p.omission(70, 150, 0.2, q=1.0), 50.0)
 
     def test_simulation_recovers_point_values(self):
-        inp = {'listed': 1000, 'listed_fee_btc': 0.0, 'b': 0.2, 'b_sd': 1e-12, 'fp': 20.0, 'fp_sd': 1e-12,
+        inp = {'listed': 1000, 'fee_btc': 0.0, 'b': 0.2, 'b_sd': 1e-12, 'fp': 20.0, 'fp_sd': 1e-12,
                'fp_identified': 10, 'in_span': {'k': 70, 'n': 150, 'floor': 0}, 'after_end': {'k': 70, 'n': 150, 'floor': 0},
                'pre': [1.0, 0.0]}
         out = p.simulate(inp, draws=20000, q=1.0)
@@ -44,7 +44,7 @@ class Estimate(unittest.TestCase):
         self.assertEqual(out['false_positives'][1], 20.0)
 
     def test_false_positives_never_below_identified(self):
-        inp = {'listed': 1000, 'listed_fee_btc': 0.0, 'b': 0.2, 'b_sd': 1e-12, 'fp': 5.0, 'fp_sd': 1e-12,
+        inp = {'listed': 1000, 'fee_btc': 0.0, 'b': 0.2, 'b_sd': 1e-12, 'fp': 5.0, 'fp_sd': 1e-12,
                'fp_identified': 12, 'in_span': {'k': 30, 'n': 150, 'floor': 0}, 'after_end': {'k': 30, 'n': 150, 'floor': 0},
                'pre': []}
         self.assertEqual(p.simulate(inp, draws=1000)['false_positives'], [12.0, 12.0, 12.0])

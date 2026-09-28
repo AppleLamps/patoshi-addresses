@@ -10,11 +10,11 @@
     "analysis/phase4/cospend_listed_in_other_miner_clusters.csv": "7d11288b05d94aae0df298182eb78f8fdaf39ef1713d7fb2aa8d06135248649b"
   },
   "outputs": {
-    "analysis/phase8/revised_estimate.json": "746a191d02c712aaef3cd12ddd808f103b6cb30713baf39e2821a80d4a959fb4",
+    "analysis/phase8/revised_estimate.json": "cf95df6d670acc929e02f911b9586244084f6dcdecd2ff62be19e920d9ee0d23",
     "analysis/phase8/revised_list.csv": "28b3b909e95669d4797ec33701dd73cbfd5f8b3a1503d1891f61009615e8dd25",
     "analysis/phase8/tier_summary.csv": "4ddc4f9f5292d32885417d5b3136242f50bf35236cfe5599945507092b808620"
   },
   "scripts": {
-    "scripts/phase8_synthesis.py": "2a8348798d1155e7e0903c3d05afd0fa0e80f384cc4abc81adc0a351e5d0c668"
+    "scripts/phase8_synthesis.py": "75b7a1b9cfb47844654d2473352b3457685c0b33c8079fde28845bb5116d428a"
   }
 }

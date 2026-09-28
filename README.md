@@ -6,7 +6,7 @@ The chain-data balance watermark is **block 968,902, timestamped 2026-09-27 23:2
 
 ## The revised answer
 
-**Patoshi mined about 22,481 blocks (95% interval 22,388 to 22,572), worth about 1.124 million BTC**, at heights 1 to 54,619. That is the 21,953 listed blocks, minus about 15 false positives (12 identified), plus about 189 omissions inside the list's span and about 353 blocks after its end at 49,973. [Revised list of every height](analysis/phase8/revised_list.csv) with tiers and evidence; [one-page summary with five ten-minute checks](analysis/phase8/REPORT.md). The shipped CSV below is unchanged; the revision is a separate, probabilistic layer.
+**Patoshi mined about 22,481 blocks (95% interval 22,388 to 22,572), worth about 1.124 million BTC**, at heights 1 to 54,619. That is the 21,953 listed blocks, minus about 15 false positives (12 identified), plus about 189 omissions inside the list's span and about 353 blocks after its end at 49,973. [Revised list of every height](analysis/phase8/revised_list.csv) with tiers, evidence, public keys and derived addresses; [one-page summary with five ten-minute checks](analysis/phase8/REPORT.md). The shipped CSV below is unchanged; the revision is a separate, probabilistic layer.
 
 ## Results at a glance
 
@@ -108,7 +108,7 @@ The later [Debian OpenSSL CVE-2008-0166 follow-up](analysis/phase3/debian/REPORT
 | Phase 5 | [report](analysis/phase5/REPORT.md), [methods](analysis/phase5/METHODS.md), [census SQL](analysis/phase5/sql/cospend_census.sql), [query result](analysis/phase5/results/cospend_census.csv), [every block's label](analysis/phase5/census_blocks.csv), [eras](analysis/phase5/census_eras.csv), [checksums](analysis/phase5/manifest.json) |
 | Phase 6 | [report](analysis/phase6/REPORT.md), [script](scripts/phase6_posterior.py), [probability per block](analysis/phase6/posterior_blocks.csv), [ranked candidates](analysis/phase6/posterior_candidates.csv), [checksums](analysis/phase6/manifest.json) |
 | Phase 7 | [report](analysis/phase7/REPORT.md), [script](scripts/phase7_verify.py), [habit tests](analysis/phase7/habit_tests.csv), [calibration](analysis/phase7/calibration_by_posterior.csv), [January 2009 episodes](analysis/phase7/second_sequence_blocks.csv), [checksums](analysis/phase7/manifest.json) |
-| Phase 8 | [report](analysis/phase8/REPORT.md), [script](scripts/phase8_synthesis.py), [revised list](analysis/phase8/revised_list.csv), [tiers](analysis/phase8/tier_summary.csv), [estimate](analysis/phase8/revised_estimate.json), [checksums](analysis/phase8/manifest.json) |
+| Phase 8 | [report](analysis/phase8/REPORT.md), [script](scripts/phase8_synthesis.py), [key query](scripts/phase8_pubkeys.py), [revised list](analysis/phase8/revised_list.csv), [tiers](analysis/phase8/tier_summary.csv), [estimate](analysis/phase8/revised_estimate.json), [checksums](analysis/phase8/manifest.json) |
 
 Install the [analysis dependencies](requirements-analysis.txt) in a Python environment. Offline Phase 1, the committed provenance comparison and all of Phase 4 (`python scripts/phase4_offline.py cospend sandwich fingerprint signatures`, then `python scripts/phase4_links.py` for the identifier cross-reference, then `python scripts/phase4_offline.py manifest`) can be reproduced without cloud credentials:
 

@@ -26,3 +26,4 @@ __pycache__/
 /analysis/phase3/*.log
 /analysis/phase5/cache/
 /analysis/phase5/*.log
+/analysis/phase8/cache/

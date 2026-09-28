@@ -1,0 +1,94 @@
+{
+  "published_p256_vectors": [
+    {
+      "architecture": "le64",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "baa8d5620e1abed385dc25b9642d8e7f93bb5f82268bd742d64ba216eafb0925",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "72acf44b7600b66afe30f912e1f2a7ddfc241e91c3a4300febc9e48f64764dfc",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le64/1-nornd-new.key",
+      "startup": "poll-first"
+    },
+    {
+      "architecture": "le64",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "51b4046e700a439c8b61c529aeaa3c40095ef19b4311c0586b4bb1639b74514b",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "abbc41cc42b97550711bcb79505f6b73c5ff247ad9b298e4ff231c665b846502",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le64/1-nornd-old.key",
+      "startup": "old-cli-nornd"
+    },
+    {
+      "architecture": "le64",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "2aae6eedfb4b5916c3dee26346493c2e2a018904343292c0d1760e813054894f",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "f9d282434687b7a13c0030ff8f516817407a91e6980813af4add47a46c685114",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le64/1-rnd.key",
+      "startup": "cli-rnd"
+    },
+    {
+      "architecture": "le32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "5e4c441127c7c1411ed65526511a95b5777856f1c704c7836eec8063aeae188c",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "2712998f17bb7f11feeb7c3101ce6be4f072b0410a471840229502d5d10a4876",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le32/1-nornd-new.key",
+      "startup": "poll-first"
+    },
+    {
+      "architecture": "le32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "fbf51e061a6b859a492f7f02fb7c1be33457c0142f05e76fa737a98a78d2a6b8",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "80fa2da8fb024749af7bcbe878583dad63999bf661df5b43685fa83e371811d1",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le32/1-nornd-old.key",
+      "startup": "old-cli-nornd"
+    },
+    {
+      "architecture": "le32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "47225109bc9fd00eb958fc065a0a6adf90890da8a8d96553471fcad7363a76fe",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "7856362b44ca8d789b4e09547b9fcd6aa710c396d2d4be6addc38552303493d4",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/le32/1-rnd.key",
+      "startup": "cli-rnd"
+    },
+    {
+      "architecture": "be32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "15a69e96dfe0e0df516a7b9d9b01ca3fd25997e8de6ef876c7325f69920615ea",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "480b5d064246f3973ec3506cba8ba8b34df730e1a6739c165aa08f34c2076bf9",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/be32/1-nornd-new.key",
+      "startup": "poll-first"
+    },
+    {
+      "architecture": "be32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "0e28e6c6b63181f6dcd94c990089ce1ad1ee1a041525e66ae43a6f9cb4efb4ba",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "169597f9c42a010804f4e1d21b2bbe886f322d9e3a13e6425d3d003cfbe80dd5",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/be32/1-nornd-old.key",
+      "startup": "old-cli-nornd"
+    },
+    {
+      "architecture": "be32",
+      "derived_public_key_matches_published": true,
+      "pem_sha256": "d9a676655a5ba9355bf1421552e56e81d7a611719c89e841431ffbe7b9b0d713",
+      "pid": 1,
+      "prng_scalar_matches_published": true,
+      "public_x": "8de1e14d4378470eac2bbfaa3c272472ffd65ee78dfb75431fab4e80a3297f6a",
+      "source": "https://raw.githubusercontent.com/badkeys/debianopenssl/main/ecp256/ssl/be32/1-rnd.key",
+      "startup": "cli-rnd"
+    }
+  ]
+}

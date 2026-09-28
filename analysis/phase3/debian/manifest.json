@@ -1,0 +1,100 @@
+{
+  "files": [
+    {
+      "bytes": 3262514,
+      "normalization": "CRLF to LF",
+      "path": "patoshi_pubkeys_COMPLETE.csv",
+      "sha256": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e"
+    },
+    {
+      "bytes": 16883,
+      "path": "scripts/debian_weak_screen.py",
+      "sha256": "3e8ea3a4f7727e31fc0f7086304c43315b85e5df5532cf259c78665ae6ae9c67"
+    },
+    {
+      "bytes": 9906,
+      "path": "analysis/phase3/debian/REPORT.md",
+      "sha256": "e37ccba722d171796f50907ec304993723fc95141683d8f1d0795e2061ee922c"
+    },
+    {
+      "bytes": 4267,
+      "path": "analysis/phase3/debian/validation.json",
+      "sha256": "8469c0d905449818c57a9e067df594bd09e46588eec7db4f686855f2447329de"
+    },
+    {
+      "bytes": 5105,
+      "path": "analysis/phase3/debian/result.json",
+      "sha256": "fd233986ff254f01d0682004a13151bc89fa0912f80be2bd4c80170eec656254"
+    },
+    {
+      "bytes": 377,
+      "path": "analysis/phase3/debian/worker_be32_cli-rnd.json",
+      "sha256": "07e48c923bcf20012361d673f38ed99ec56fe879f307de5c395245dec319ac9b"
+    },
+    {
+      "bytes": 382,
+      "path": "analysis/phase3/debian/worker_be32_keygen-first.json",
+      "sha256": "f80235210e0e71e7cb9f6c91025567f8929509d59dd9025604aec7c4bdb33320"
+    },
+    {
+      "bytes": 383,
+      "path": "analysis/phase3/debian/worker_be32_old-cli-nornd.json",
+      "sha256": "6c470c14fb6252cc4c4a0d9c3a73d3149fd7433db8027eba5bbeee31d5eda345"
+    },
+    {
+      "bytes": 380,
+      "path": "analysis/phase3/debian/worker_be32_poll-first.json",
+      "sha256": "afd7326a0fb23c421c8cb2cdeab9e54db3b01bb0a74dfaf0aa670f0fa3f05eeb"
+    },
+    {
+      "bytes": 392,
+      "path": "analysis/phase3/debian/worker_be64-synthetic_keygen-first.json",
+      "sha256": "a2b3344679c6093af8a4931b833430fe216574f0ffa90bf795ffaa92939b84af"
+    },
+    {
+      "bytes": 390,
+      "path": "analysis/phase3/debian/worker_be64-synthetic_poll-first.json",
+      "sha256": "36558987d7d5d8779cedfc36ae4a45b01d9912b15e4f2944d2ed40d54ba4679a"
+    },
+    {
+      "bytes": 377,
+      "path": "analysis/phase3/debian/worker_le32_cli-rnd.json",
+      "sha256": "4137ac1c70feda6753be05cff67cbd32dafc687f9fa3b0480ff6c6c440d0559e"
+    },
+    {
+      "bytes": 382,
+      "path": "analysis/phase3/debian/worker_le32_keygen-first.json",
+      "sha256": "c8698071ea78c577fde81c4b29e019e6d7ec5236c6044a430890592ad1ad91f2"
+    },
+    {
+      "bytes": 383,
+      "path": "analysis/phase3/debian/worker_le32_old-cli-nornd.json",
+      "sha256": "57e3fd9a513ba800a79eca266df8d775ec95ec65cd25bdb1da4e91d7ab8cfab6"
+    },
+    {
+      "bytes": 380,
+      "path": "analysis/phase3/debian/worker_le32_poll-first.json",
+      "sha256": "89a25a645ca06515a9510eb46801584f78e2dc927024d3570cc00342260eb79d"
+    },
+    {
+      "bytes": 377,
+      "path": "analysis/phase3/debian/worker_le64_cli-rnd.json",
+      "sha256": "847da30496561cbf61cd0a75be1d737efd9eb761acb19fc81fd8ea386750dd8a"
+    },
+    {
+      "bytes": 382,
+      "path": "analysis/phase3/debian/worker_le64_keygen-first.json",
+      "sha256": "fd433e0eea53e46173596cedfbf3df50b0dc93841e183d0bfe4aa46ad5be23f5"
+    },
+    {
+      "bytes": 383,
+      "path": "analysis/phase3/debian/worker_le64_old-cli-nornd.json",
+      "sha256": "c65853248d49355283fbe4aa1b9d15d67037f69b3f3a61e89f5f436f0eaba589"
+    },
+    {
+      "bytes": 380,
+      "path": "analysis/phase3/debian/worker_le64_poll-first.json",
+      "sha256": "c8ce06e0b29e2ba21d3c70edd3e0addccee7e8936902c4ff27b2195b688dbfde"
+    }
+  ]
+}

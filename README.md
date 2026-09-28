@@ -88,8 +88,11 @@ The [novelty report](analysis/phase3/REPORT.md) separates bounded new measuremen
 from established findings. It adds downstream transaction paths, a P2PKH funding
 census, reset-time tests, and an exploratory slope classifier. No demonstrated
 key weakness, hash collision, embedded message, or new miner attribution was found.
-Debian secp256k1 screening remains incomplete. Every novelty candidate states its
-prior-art comparison and limitations.
+The [Debian OpenSSL follow-up](analysis/phase3/debian/REPORT.md) screens 7,339,808
+modeled keygen slots against the full CSV, with nine published weak-key validation
+vectors. It finds zero matches within that stated space; other process histories
+remain untested. Every novelty candidate states its prior-art comparison and
+limitations.
 
 [Methods](analysis/phase3/METHODS.md) · [Literature ledger](analysis/phase3/SOURCES.md)
 · [Cached BigQuery results](analysis/phase3/results/) · [Manifest](analysis/phase3/manifest.json).

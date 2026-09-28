@@ -10,3 +10,6 @@
 /.gitattributes text eol=lf
 /analysis/phase2_bigquery/*.gz -text
 /analysis/phase2_bigquery/schema/* -text
+# Preserve downloaded client sources byte-for-byte (checksummed in the Phase 9 manifest), and binary results.
+/analysis/phase9_nonce_clock/sources/** -text -whitespace
+/analysis/phase9_nonce_clock/results/*.npy -text

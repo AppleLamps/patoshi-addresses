@@ -42,6 +42,7 @@
   }
  },
  "fisher_two_sided_p": 1.0,
+ "patoshi_log10_valid_orders": 7.315,
  "all_blocks": {
   "blocks": 321,
   "stock_order_match": 321,

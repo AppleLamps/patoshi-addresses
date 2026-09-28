@@ -10,8 +10,8 @@
   "analysis/phase9_nonce_clock/sources/bitcoin-v0.3.0_main.cpp": "c814cf5af1177b718a11e896a0c093aa9d943ced967b82351cbd1dcc09ef97d6"
  },
  "outputs": {
-  "analysis/phase9_nonce_clock/results/assembly_blocks.csv": "2eb7552f48391ef4858b852c0cc179a61649ab3cf477d7f657fedb212d251c7d",
-  "analysis/phase9_nonce_clock/results/assembly_summary.json": "5e166078797689f9e43fc77bc7969fe6a472b20c0182bf5850b4bc55dbdee426",
+  "analysis/phase9_nonce_clock/results/assembly_blocks.csv": "db15a36bb78e3fcbcc96e6b8a69f90e3976ec16a7cdb2258535a31780cadb605",
+  "analysis/phase9_nonce_clock/results/assembly_summary.json": "5d9b375cdea3a52295dfb2cf5b3065b6fc69d231a6839cffd05d73bd4e3915dc",
   "analysis/phase9_nonce_clock/results/clock_check_blocks.csv": "fea5d5da8e509e687cb30a8b6ae4349a872e9dcc350912528c733beb9c21a9a4",
   "analysis/phase9_nonce_clock/results/clock_check_groups.csv": "2f1ca3fd59bd7b987b0786f3ee43419a1834d3f16a5226bb2c7001b2d2630df3",
   "analysis/phase9_nonce_clock/results/clock_check_summary.json": "6d2d2ce72d0cf13b5228e353ad7820a17a0e00d8fdd6ad6e7089148ac4452a41",
@@ -27,14 +27,14 @@
   "analysis/phase9_nonce_clock/results/rayleigh_all_pairs_IN.npy": "1bb9e3e95732f650efa28f884c9e80f16c8e3c5b27186db1dba2bdbc6aa92565",
   "analysis/phase9_nonce_clock/results/rayleigh_all_pairs_IP.npy": "7f8a4874b9c073877d89b9b53d125bba306e58cf963f5dc5398f3565b88e2851",
   "analysis/phase9_nonce_clock/results/rayleigh_same_subrange_IN.npy": "6c8d9bce16b77fdd5890d50035a9eca47fab4ef0bccabd3206931466a92c7089",
-  "analysis/phase9_nonce_clock/results/run_log.txt": "f9016c21cdc81d45eefc6c8f7cc48628d8b83c4420f78085f9736d241b3b0c24",
+  "analysis/phase9_nonce_clock/results/run_log.txt": "031d10b823d940c396ac38399924a64bdc1da217a29a689c81a4295c849a8a30",
   "analysis/phase9_nonce_clock/results/stress_permutation.json": "d81045c273e2a3c5517859d29e15311895bb2b95a47d3f8bbf808dd180e6edd5",
   "analysis/phase9_nonce_clock/results/stress_primary.csv": "13ed8a6cbc2b20fac10d40d624f9993be96d084446f8383d4e159ad914556749",
   "analysis/phase9_nonce_clock/results/update_summary.json": "9f18b8de5be3b9986f37d6c5b267cda2f68113651719485d53c316e94666685c",
   "analysis/phase9_nonce_clock/results/updated_posterior.csv": "e09901dc8ac41ac87fd6f4963a44c2af7c56711d277603266431e0c002818141"
  },
  "scripts": {
-  "scripts/phase9_nonce_clock.py": "9a8a5cabcb939b65cc695c6d5dbda0b7441e0f449f12f9e2288961e44a36f03a",
+  "scripts/phase9_nonce_clock.py": "ee5a76beb7f8aef39112bff92a83a49de70d272c72ae3e699057099910e9e5b4",
   "scripts/phase9_blocktx.py": "40fc883030494e67055ab76a4e920bdd279b9d263123604d97ad2292d9389c8a",
   "analysis/phase9_nonce_clock/sql/block_transactions.sql": "af9853924c020180c73640a069b23606e249bf50b54fc12dfebc235e65d65301",
   "analysis/phase9_nonce_clock/PREREGISTRATION.md": "917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df"

@@ -1,9 +1,13 @@
 """Phase 9: does Patoshi's nonce encode the time since the parent block? (the "nonce clock")
 
-    python scripts/phase9_nonce_clock.py primary     # preregistered T0 (positive control) and T1 (primary)
-    python scripts/phase9_nonce_clock.py secondary   # S1 to S3, interpreted only if T1 succeeds
-    python scripts/phase9_nonce_clock.py stress      # declared stress tests
-    python scripts/phase9_nonce_clock.py manifest
+    python scripts/phase9_nonce_clock.py primary            # preregistered T0 (positive control) and T1 (primary)
+    python scripts/phase9_nonce_clock.py power amendment    # A1.1 power, A1.2/A1.3 continuation tests
+    python scripts/phase9_nonce_clock.py clock update       # A2 clock check by tier, A3 per-block ranking
+    python scripts/phase9_nonce_clock.py stress clock_sensitivity
+    python scripts/phase9_nonce_clock.py assembly           # A4 block-assembly order (needs results/block_transactions.csv)
+    python scripts/phase9_nonce_clock.py exploratory live manifest
+
+S1 to S3 were preregistered as conditional on T1 succeeding. T1 failed, so they are not run (see A1).
 
 Offline. Reads only committed headers (Phase 2) and tiers (Phase 8). Definitions follow
 analysis/phase9_nonce_clock/PREREGISTRATION.md exactly.
@@ -625,6 +629,23 @@ def stock_order(txs, parents):
     return order
 
 
+def valid_orders(txs, parents):
+    """Number of orders of txs in which every in-block parent precedes its child (subset DP; None above 20)."""
+    ids = sorted(txs)
+    n = len(ids)
+    if n > 20:
+        return None
+    idx = {t: i for i, t in enumerate(ids)}
+    pm = [sum(1 << idx[q] for q in set(parents[t]) if q in idx) for t in ids]
+    memo = {(1 << n) - 1: 1}
+
+    def f(mask):
+        if mask not in memo:
+            memo[mask] = sum(f(mask | 1 << i) for i in range(n) if not mask >> i & 1 and pm[i] & mask == pm[i])
+        return memo[mask]
+    return f(0)
+
+
 def assembly():
     log(f"A4 assembly: PREREGISTRATION.md sha256 {hashlib.sha256(PREREG.read_bytes()).hexdigest()}")
     B = load()
@@ -644,9 +665,11 @@ def assembly():
         one_pass = merkle_root(cb + sorted(nc)) == root
         rev = merkle_root(cb + sorted(nc, key=lambda t: t[::-1])) == root
         in_block_deps = sum(1 for t in nc for p in parents[t] if p in nc)
+        vo = valid_orders(nc, parents)
         rows.append({'height': h, 'tier': B[h]['tier'], 'transactions': len(txl), 'count_ok': count_ok,
                      'in_block_dependencies': in_block_deps, 'stock_order_matches_merkle_root': match,
-                     'one_pass_sorted_matches': one_pass, 'reverse_byte_sorted_matches': rev})
+                     'one_pass_sorted_matches': one_pass, 'reverse_byte_sorted_matches': rev,
+                     'valid_orders': vo if vo is not None else ''})
     with (RES / 'assembly_blocks.csv').open('w', newline='', encoding='utf8') as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator='\n')
         w.writeheader()
@@ -661,6 +684,7 @@ def assembly():
     out = {'patoshi_listed_uncontradicted': summ(pat), 'ordinary_other_or_no_evidence': summ(ordi),
            'by_tier': {t: summ(grp(lambda x, t=t: x == t)) for t in sorted({r['tier'] for r in rows})},
            'fisher_two_sided_p': fisher_two_sided(a, n1 - a, c, n2 - c),
+           'patoshi_log10_valid_orders': round(sum(math.log10(r['valid_orders']) for r in pat), 3),
            'all_blocks': summ(rows),
            'non_matching': [r for r in rows if not r['stock_order_matches_merkle_root']]}
     save('assembly_summary.json', out)

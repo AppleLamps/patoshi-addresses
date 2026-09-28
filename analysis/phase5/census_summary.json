@@ -117,16 +117,21 @@
     "of_which_pass_band": 1144,
     "of_which_pass_band_unspent": 893,
     "chance_passes": 994.4,
-    "excess": 149.6,
-    "excess_ci95": [
+    "excess_passes": 149.6,
+    "excess_passes_ci95": [
       94.1,
       205.0
     ],
+    "estimated_omitted": 188.4,
+    "estimated_omitted_ci95": [
+      118.6,
+      258.2
+    ],
     "recall_lower_bound": 0.9504383179492166,
-    "recall_estimate": 0.9932270757345371,
+    "recall_estimate": 0.9914854185205123,
     "recall_estimate_ci95": [
-      0.9907421407724553,
-      0.9957290265993597
+      0.9883675606560918,
+      0.9946230095300133
     ]
   },
   "after_list_end": {
@@ -134,10 +139,15 @@
     "of_which_pass_band": 662,
     "of_which_pass_band_unspent": 482,
     "chance_passes": 381.8,
-    "excess": 280.2,
-    "excess_ci95": [
+    "excess_passes": 280.2,
+    "excess_passes_ci95": [
       245.8,
       314.5
+    ],
+    "estimated_omitted": 352.9,
+    "estimated_omitted_ci95": [
+      309.7,
+      396.2
     ]
   },
   "phase4_comparison": {

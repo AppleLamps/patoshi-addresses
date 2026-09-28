@@ -260,19 +260,24 @@ def background_pass_rate(blocks, span):
             'uniform_rate': PASS_OTHER}
 
 
-def omission_room(bs, background):
+def omission_room(bs, background, patoshi_rate=1 - EPS):
     """Unlisted blocks that could still be omitted Patoshi blocks: not owned by another miner, and passing the band.
 
     Any omitted Patoshi block must be in this set (assuming Patoshi blocks always pass the band), so its size is an
-    upper bound. Ordinary blocks in the set pass at the background rate, so the excess over that is an estimate."""
+    upper bound. With M omitted blocks among n, expected passes are patoshi_rate * M + background * (n - M), so the
+    excess over background * n estimates (patoshi_rate - background) * M; dividing by that gives the block count."""
     free = [b for b in bs if not b['listed'] and b['loo_label'] != 'other']
     n, k = len(free), sum(b['broad_nonce_pass'] for b in free)
     expected = background * n
     sd = math.sqrt(n * background * (1 - background))
+    excess, lo, hi = k - expected, max(0.0, k - expected - 1.96 * sd), k - expected + 1.96 * sd
+    scale = patoshi_rate - background
     return {'unlisted_not_other_miner': n, 'of_which_pass_band': k,
             'of_which_pass_band_unspent': sum(b['broad_nonce_pass'] and not b['spent'] for b in free),
-            'chance_passes': round(expected, 1), 'excess': round(k - expected, 1),
-            'excess_ci95': [round(max(0.0, k - expected - 1.96 * sd), 1), round(k - expected + 1.96 * sd, 1)]}
+            'chance_passes': round(expected, 1), 'excess_passes': round(excess, 1),
+            'excess_passes_ci95': [round(lo, 1), round(hi, 1)],
+            'estimated_omitted': round(excess / scale, 1),
+            'estimated_omitted_ci95': [round(lo / scale, 1), round(hi / scale, 1)]}
 
 
 def era_table(blocks, background, span, width=5000):
@@ -291,8 +296,10 @@ def era_table(blocks, background, span, width=5000):
                      'loo_undetermined': sum(b['loo_label'] == 'undetermined' for b in bs),
                      'in_span_unlisted_not_other_miner': room['unlisted_not_other_miner'],
                      'in_span_omission_bound_pass_band': room['of_which_pass_band'],
-                     'in_span_chance_passes': room['chance_passes'], 'in_span_excess': room['excess'],
-                     'in_span_excess_lo95': room['excess_ci95'][0], 'in_span_excess_hi95': room['excess_ci95'][1]})
+                     'in_span_chance_passes': room['chance_passes'], 'in_span_excess_passes': room['excess_passes'],
+                     'in_span_estimated_omitted': room['estimated_omitted'],
+                     'in_span_estimated_omitted_lo95': room['estimated_omitted_ci95'][0],
+                     'in_span_estimated_omitted_hi95': room['estimated_omitted_ci95'][1]})
     return rows
 
 
@@ -328,8 +335,8 @@ def analyse(rows, write=True):
     room = omission_room([b for b in blocks.values() if span[0] <= b['height'] <= span[1]], background['rate'] or PASS_OTHER)
     tp = len(listed) - (result['list_false_positive_rate_among_other_miner_blocks']['implied_false_positive_heights'] or 0)
     room['recall_lower_bound'] = tp / (tp + room['of_which_pass_band'])
-    room['recall_estimate'] = tp / (tp + max(0.0, room['excess']))
-    room['recall_estimate_ci95'] = [tp / (tp + room['excess_ci95'][1]), tp / (tp + room['excess_ci95'][0])]
+    room['recall_estimate'] = tp / (tp + max(0.0, room['estimated_omitted']))
+    room['recall_estimate_ci95'] = [tp / (tp + room['estimated_omitted_ci95'][1]), tp / (tp + room['estimated_omitted_ci95'][0])]
     track = track_tests(blocks, clusters, headers, lsorted)
     omission = []
     for b in sorted(blocks.values(), key=lambda b: b['height']):

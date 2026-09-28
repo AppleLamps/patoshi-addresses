@@ -10,14 +10,14 @@
   "outputs": {
     "analysis/phase5/census_blocks.csv": "5944a125d458ef435060e7f38718a2a08b5440caf0b169adf3410bf0891e219b",
     "analysis/phase5/census_clusters.csv": "bd4be2773062df1a925c0e9dc38b989ba507ad311da0720b03c52668aa5a5194",
-    "analysis/phase5/census_eras.csv": "1cd80978edc26de5590fa8424c50e893c4c3c1ce0d6af756e4e023607d5c7947",
+    "analysis/phase5/census_eras.csv": "5cd4b6497991e211379784b8771fd308e75129786e3137ae0d48f1523a174431",
     "analysis/phase5/census_listed_with_other_miner_co_members.csv": "0dd3e348b80c8d99b64f1953dfc027aae5aa25c2f9645de7bd62aa8a09fb4d73",
     "analysis/phase5/census_omission_candidates.csv": "686cc72c27e2ac975f8e87969a4c5fcd95a9f751805ecc2127d92928af90facc",
-    "analysis/phase5/census_summary.json": "1e5cbf934e533d82b566deeb1cb880908d0f7f6b494eeac0cc8e94ac7c529f07",
+    "analysis/phase5/census_summary.json": "76983bd4616db6cfbb29caf91a91334f2c1cc7084404d63b45a60100ccd9b711",
     "analysis/phase5/census_transactions.csv": "e0d16b12590a08de4e28a541482ec1cbedb873f99af7d7834d0676fb51f3ab28"
   },
   "scripts": {
-    "scripts/phase5_offline.py": "73c38fb800c83e6f29fd3ced031a9fc63f4c1314c9449f1180afe06b963c3c98",
+    "scripts/phase5_offline.py": "894faec6e23f1a88b4d03462b01ccd47fe60fad5b50c79802c9c45fa15b4e8f1",
     "scripts/phase5_bigquery.py": "7213b088fcf123764e02bb3488b2004f5ed88656b1a9ba54753d85035d7ad8ad",
     "scripts/phase4_offline.py": "a2f1838af08c16752c33853c7431000bda0c890bf04540d6b6abe761d539a21e",
     "scripts/phase2_analyze.py": "fe1080449ecf9ad809748e57d3fac394f2018227283ca05075c1fb142c9e88c7"

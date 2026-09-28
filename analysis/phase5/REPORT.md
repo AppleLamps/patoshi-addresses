@@ -12,12 +12,12 @@ Completed 2026-09-28 UTC. Population: all 54,620 coinbases at heights 0 to 54,61
 | 2 | Each block's owner was labelled from the nonce band of the **other** blocks spent with it, never from the list. **22,959 blocks in the list's span are owned by other miners, and only 12 of them are listed.** List false-positive rate: **0.052%** (cluster bootstrap 95% CI 0.024% to 0.087%). | (b) | [summary](census_summary.json) |
 | 3 | That implies **about 15 false-positive heights in the list (CI 7 to 24), i.e. precision 99.93% (99.89% to 99.97%)**. This replaces Phase 4's model-based extrapolation (0.33%, about 90 heights) with a direct measurement over 81.9% of all unlisted heights in the span. | (b) | [summary](census_summary.json) |
 | 4 | The nonce band is a clean separator. Other miners' own blocks pass it at **19.61% (CI 19.10% to 20.13%)** over 22,947 blocks, which is the 19.53% chance rate for a uniform byte. | (b) | [summary](census_summary.json) |
-| 5 | **Omissions are bounded.** An omitted Patoshi block cannot be owned by another miner, and it must pass the band. Only **1,144** unlisted heights in the span meet both conditions, so recall is at least **95.0%** (hard bound). About 994 of them are expected by chance, which leaves an excess of **about 150 omitted blocks (CI 94 to 205), recall about 99.3% (99.1% to 99.6%)**. | (b) | [eras](census_eras.csv) |
-| 6 | **The late-era undercount claim is not supported.** At 40,000 to 44,999 the list holds 661 of 5,000 heights (13.2%), and 3,547 of the 4,339 unlisted heights there are owned by other miners. At most 162 unlisted heights (3.2%) could be omitted Patoshi blocks, and the excess over chance is **about 7 (CI 0 to 29)**. A residual ~14% share missed there would need about 700. | (b) | [eras](census_eras.csv) |
-| 7 | **The pattern appears to continue past the list's end at 49,973.** From 49,974 to 54,619, unlisted heights not owned by another miner pass the band at 34.0%, against 20.2% for other miners' own blocks in the same window. That is an excess of **about 280 Patoshi-like blocks (CI 246 to 315)**, concentrated from about 50,974 and fading out around height 54,470. This agrees with public extensions of the pattern to about 54,316 to 54,458. | (b) | [summary](census_summary.json) |
+| 5 | **Omissions are bounded.** An omitted Patoshi block cannot be owned by another miner, and it must pass the band. Only **1,144** unlisted heights in the span meet both conditions, so recall is at least **95.0%** (hard bound). About 994 of them are expected by chance, leaving 150 excess passes. Omitted blocks pass at 0.99 against 0.196 for ordinary ones, so that is **about 188 omitted blocks (CI 119 to 258), recall about 99.1% (98.8% to 99.5%)**. | (b) | [eras](census_eras.csv) |
+| 6 | **The late-era undercount claim is not supported.** At 40,000 to 44,999 the list holds 661 of 5,000 heights (13.2%), and 3,547 of the 4,339 unlisted heights there are owned by other miners. At most 162 unlisted heights (3.2%) could be omitted Patoshi blocks, and the estimated omissions are **about 8 (CI 0 to 36)**. A residual ~14% share missed there would need about 700. | (b) | [eras](census_eras.csv) |
+| 7 | **The pattern appears to continue past the list's end at 49,973.** From 49,974 to 54,619, unlisted heights not owned by another miner pass the band at 34.0%, against 20.2% for other miners' own blocks in the same window. That is **about 353 Patoshi-like blocks (CI 310 to 396)**, concentrated from about 50,974 and fading out around height 54,470. This agrees with public extensions of the pattern to about 54,316 to 54,458. | (b) | [summary](census_summary.json) |
 | 8 | Across the whole early chain, the census finds **no listed block swept by another miner beyond Phase 4's 12**, and **no unlisted block swept with Patoshi coins beyond 14,450**. Phase 4's counter-track result is unchanged: 8 of 12, 7 of 11 sweeps, p = 8.0 × 10⁻⁸ (conservative 4.5 × 10⁻⁵). | (a) data, (b) inference | [false-positive list](census_listed_with_other_miner_co_members.csv), [omission list](census_omission_candidates.csv) |
 
-**Summary.** For blocks owned by other miners, the published list is almost exactly right: roughly 15 false positives in 21,953, not the thousands implied by the "19.53% floor". Its main weaknesses are at the edges. There are about 150 omissions inside the span, concentrated at 25,000 to 29,999. And there is a tail of about 280 Patoshi-like blocks after the list stops. The census cannot measure recall directly from Patoshi-labelled clusters, because Patoshi coins almost never moved (10 blocks, one transaction). The recall figures come from the bound in result 5 instead.
+**Summary.** For blocks owned by other miners, the published list is almost exactly right: roughly 15 false positives in 21,953, not the thousands implied by the "19.53% floor". Its main weaknesses are at the edges. There are about 188 omissions inside the span, concentrated at 25,000 to 29,999. And there is a tail of about 353 Patoshi-like blocks after the list stops. The census cannot measure recall directly from Patoshi-labelled clusters, because Patoshi coins almost never moved (10 blocks, one transaction). The recall figures come from the bound in result 5 instead.
 
 ## 1. What was spent, and when
 
@@ -54,28 +54,28 @@ This assumes that a false-positive block, owned by an ordinary miner, was swept 
 
 - An omitted Patoshi block cannot have been swept by another miner, which rules out 22,947 of the 28,018 unlisted heights in the span.
 - It must pass the nonce band, as every listed block does. 1,144 of the remaining 5,071 do (893 of them unspent).
-- Ordinary blocks among the 5,071 pass at the background rate, so about 994 passes are expected. The excess of about 150 (CI 94 to 205) estimates the omissions. The CI treats heights as independent, so it is optimistic.
+- Ordinary blocks among the 5,071 pass at the background rate b = 19.61%, so about 994 passes are expected, against 1,144 observed. With M omitted blocks passing at q = 0.99, the expected excess is (q − b) × M. The 150 excess passes (CI 94 to 205) therefore give **M ≈ 188 (CI 119 to 258)**. The CI treats heights as independent, so it is optimistic.
 
-| Heights | Listed | Unlisted not other-miner | Of which pass band | Expected by chance | Excess (95% CI) |
+| Heights | Listed | Unlisted not other-miner | Of which pass band | Expected by chance | Estimated omitted (95% CI) |
 |---|---:|---:|---:|---:|---|
-| 3 to 4,999 | 3,765 | 331 | 84 | 64.9 | 19 (5 to 33) |
-| 5,000 to 9,999 | 3,856 | 140 | 26 | 27.5 | −2 (0 to 8) |
-| 10,000 to 14,999 | 3,671 | 298 | 67 | 58.4 | 9 (0 to 22) |
-| 15,000 to 19,999 | 3,506 | 193 | 45 | 37.8 | 7 (0 to 18) |
-| 20,000 to 24,999 | 2,891 | 194 | 30 | 38.0 | −8 (0 to 3) |
-| **25,000 to 29,999** | 1,453 | 731 | 200 | 143.4 | **57 (36 to 78)** |
-| 30,000 to 34,999 | 893 | 817 | 183 | 160.2 | 23 (0 to 45) |
-| 35,000 to 39,999 | 636 | 496 | 123 | 97.3 | 26 (8 to 43) |
-| 40,000 to 44,999 | 661 | 792 | 162 | 155.3 | 7 (0 to 29) |
-| 45,000 to 49,973 | 621 | 1,079 | 224 | 211.6 | 12 (0 to 38) |
+| 3 to 4,999 | 3,765 | 331 | 84 | 64.9 | 24 (6 to 42) |
+| 5,000 to 9,999 | 3,856 | 140 | 26 | 27.5 | −2 (0 to 10) |
+| 10,000 to 14,999 | 3,671 | 298 | 67 | 58.4 | 11 (0 to 28) |
+| 15,000 to 19,999 | 3,506 | 193 | 45 | 37.8 | 9 (0 to 23) |
+| 20,000 to 24,999 | 2,891 | 194 | 30 | 38.0 | −10 (0 to 4) |
+| **25,000 to 29,999** | 1,453 | 731 | 200 | 143.4 | **71 (45 to 98)** |
+| 30,000 to 34,999 | 893 | 817 | 183 | 160.2 | 29 (1 to 57) |
+| 35,000 to 39,999 | 636 | 496 | 123 | 97.3 | 32 (11 to 54) |
+| 40,000 to 44,999 | 661 | 792 | 162 | 155.3 | 8 (0 to 36) |
+| 45,000 to 49,973 | 621 | 1,079 | 224 | 211.6 | 16 (0 to 48) |
 
 The one clearly positive window, 25,000 to 29,999, contains Phase 4's suggestive five-block run 27,474 to 27,478. The excess is an aggregate: it does not say *which* of the 200 band-passing heights are the omitted ones. Picking them out is the per-block posterior (plan item 2 below).
 
-**On the late-era undercount claim.** Phase 4 recorded [Szpili/patoshi-forensics](https://github.com/Szpili/patoshi-forensics) as estimating about 14% Patoshi share at 40,000 to 44,999 with "about 2% listed". The list itself holds 13.2% of that window, so the 2% figure does not describe this list. Read as "about 14% of blocks missed", the claim needs about 700 omitted blocks where the census leaves room for at most 162 and estimates about 7.
+**On the late-era undercount claim.** Phase 4 recorded [Szpili/patoshi-forensics](https://github.com/Szpili/patoshi-forensics) as estimating about 14% Patoshi share at 40,000 to 44,999 with "about 2% listed". The list itself holds 13.2% of that window, so the 2% figure does not describe this list. Read as "about 14% of blocks missed", the claim needs about 700 omitted blocks where the census leaves room for at most 162 and estimates about 8.
 
 ## 5. After the list's endpoint
 
-**(b)** The list stops at 49,973, while Whale Alert and satoshi-onchain extend the pattern to about 54,316 to 54,458 ([DISCOURSE.md](../phase4/DISCOURSE.md)). The same test from 49,974 to 54,619 gives 1,947 unlisted heights not owned by another miner, of which 662 pass the band (34.0%). Other miners' own blocks in the same window pass at 20.2% (544 of 2,699), and the chance expectation is 382. The excess is **about 280 (CI 246 to 315)**. Per 500 heights, the excess is near zero at 49,974 to 50,473 (28 passing vs 29 expected). It is 9 at 50,474 to 50,973, then 27 to 51 per window from 50,974 to 54,473, and gone at 54,474 to 54,619 (8 vs 12). A Patoshi-like miner therefore appears to have kept mining, at a lower share, for about 3,500 blocks after a short pause following the list's endpoint. The tail stops around 54,470, near the public estimates.
+**(b)** The list stops at 49,973, while Whale Alert and satoshi-onchain extend the pattern to about 54,316 to 54,458 ([DISCOURSE.md](../phase4/DISCOURSE.md)). The same test from 49,974 to 54,619 gives 1,947 unlisted heights not owned by another miner, of which 662 pass the band (34.0%). Other miners' own blocks in the same window pass at 20.2% (544 of 2,699), and the chance expectation is 382. The 280 excess passes (CI 246 to 315), divided by q − b = 0.79, give **about 353 blocks (CI 310 to 396)**. Per 500 heights, the excess passes are near zero at 49,974 to 50,473 (28 passing vs 29 expected). It is 9 at 50,474 to 50,973, then 27 to 51 per window from 50,974 to 54,473, and gone at 54,474 to 54,619 (8 vs 12). A Patoshi-like miner therefore appears to have kept mining, at a lower share, for about 3,500 blocks after a short pause following the list's endpoint. The tail stops around 54,470, near the public estimates.
 
 This is an aggregate inference, not a list of blocks, and it assumes the nonce band still marks the same miner. Extending the pinned list would need per-block evidence, such as counter tracks.
 

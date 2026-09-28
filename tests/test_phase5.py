@@ -92,7 +92,16 @@ class Core(unittest.TestCase):
         # Unlisted and not another miner's: 5-9 and 15-29 (20 blocks, block 4 is 'other'); only 15 passes the band.
         self.assertEqual((room['unlisted_not_other_miner'], room['of_which_pass_band']), (20, 1))
         self.assertAlmostEqual(room['chance_passes'], 4.0)
-        self.assertEqual(room['excess_ci95'][0], 0.0)
+        self.assertEqual(room['excess_passes_ci95'][0], 0.0)
+
+    def test_omitted_count_is_rescaled_from_excess_passes(self):
+        # 100 ordinary blocks passing at exactly 20% plus 50 omitted Patoshi blocks passing at 100%.
+        def blk(h, passes):
+            return {'height': h, 'listed': False, 'loo_label': 'unclustered', 'broad_nonce_pass': passes, 'spent': False}
+        bs = [blk(h, h < 20) for h in range(100)] + [blk(100 + h, True) for h in range(50)]
+        room = p.omission_room(bs, 0.2, patoshi_rate=1.0)
+        self.assertAlmostEqual(room['excess_passes'], 40.0)          # (1 - 0.2) * 50
+        self.assertAlmostEqual(room['estimated_omitted'], 50.0)
         bg = p.background_pass_rate(self.blocks, (0, 29))
         self.assertEqual((bg['blocks'], bg['passes']), (3, 0))       # blocks 1, 2 and 4
 

@@ -1,0 +1,79 @@
+{
+ "independence_check_i_other_miner_band": {
+  "band_pass_inconsistent": 133,
+  "band_pass_n": 2345,
+  "band_fail_inconsistent": 514,
+  "band_fail_n": 10083,
+  "rate_pass": 0.0567,
+  "rate_fail": 0.051,
+  "fisher_p": 0.2565488484416787
+ },
+ "independence_check_ii_listed_track": {
+  "track_fit_inconsistent": 18534,
+  "track_fit_n": 20840,
+  "no_fit_inconsistent": 860,
+  "no_fit_n": 1029,
+  "rate_fit": 0.8893,
+  "rate_no_fit": 0.8358,
+  "fisher_p": 5.374914304179175e-07
+ },
+ "valid_for_probabilities": false,
+ "by_tier": {
+  "added_possible": {
+   "blocks": 94,
+   "scored": 93,
+   "expected_before": 65.7,
+   "expected_after": 68.0,
+   "p_ge_0_9_before": 0,
+   "p_ge_0_9_after": 62
+  },
+  "added_probable": {
+   "blocks": 307,
+   "scored": 306,
+   "expected_before": 296.5,
+   "expected_after": 291.1,
+   "p_ge_0_9_before": 307,
+   "p_ge_0_9_after": 265
+  },
+  "no_patoshi_evidence": {
+   "blocks": 5212,
+   "scored": 5088,
+   "expected_before": 6.2,
+   "expected_after": 4.6,
+   "p_ge_0_9_before": 0,
+   "p_ge_0_9_after": 0
+  },
+  "added_robust": {
+   "blocks": 111,
+   "scored": 110,
+   "expected_before": 107.0,
+   "expected_after": 108.2,
+   "p_ge_0_9_before": 111,
+   "p_ge_0_9_after": 99
+  },
+  "unresolved": {
+   "blocks": 1296,
+   "scored": 1272,
+   "expected_before": 97.8,
+   "expected_after": 114.1,
+   "p_ge_0_9_before": 0,
+   "p_ge_0_9_after": 38
+  }
+ },
+ "named_by_clock": 100,
+ "named_by_clock_by_tier": {
+  "added_robust": 0,
+  "added_probable": 0,
+  "added_possible": 62,
+  "unresolved": 38,
+  "no_patoshi_evidence": 0
+ },
+ "tail_leave_own_era_out": {
+  "tail_blocks_scored": 316,
+  "inconsistent": 276.0,
+  "rate": 0.8734,
+  "q_bar": 0.9333,
+  "other_miner_tail_test_half_rate": 0.0851,
+  "other_miner_tail_test_half_n": 1352
+ }
+}

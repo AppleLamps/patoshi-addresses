@@ -1,0 +1,183 @@
+{
+ "gap_direction": {
+  "patoshi_child_non_patoshi_parent": {
+   "n": 8585,
+   "negative_dt": 68,
+   "negative_share": 0.0079,
+   "n_0_10": 14,
+   "n_10_60": 400,
+   "density_ratio": 0.175,
+   "ratio_lo": 0.103,
+   "ratio_hi": 0.296
+  },
+  "stock_child_non_patoshi_parent": {
+   "n": 17216,
+   "negative_dt": 187,
+   "negative_share": 0.0109,
+   "n_0_10": 185,
+   "n_10_60": 1449,
+   "density_ratio": 0.638,
+   "ratio_lo": 0.548,
+   "ratio_hi": 0.744
+  },
+  "stock_child_patoshi_parent": {
+   "n": 7446,
+   "negative_dt": 355,
+   "negative_share": 0.0477,
+   "n_0_10": 31,
+   "n_10_60": 412,
+   "density_ratio": 0.376,
+   "ratio_lo": 0.262,
+   "ratio_hi": 0.541
+  },
+  "band_fail_child_patoshi_parent": {
+   "n": 1149,
+   "negative_dt": 38,
+   "negative_share": 0.0331,
+   "n_0_10": 3,
+   "n_10_60": 70,
+   "density_ratio": 0.214,
+   "ratio_lo": 0.071,
+   "ratio_hi": 0.643
+  },
+  "band_fail_child_non_patoshi_parent": {
+   "n": 3720,
+   "negative_dt": 74,
+   "negative_share": 0.0199,
+   "n_0_10": 41,
+   "n_10_60": 319,
+   "density_ratio": 0.643,
+   "ratio_lo": 0.465,
+   "ratio_hi": 0.888
+  },
+  "fisher_patoshi_vs_stock_0_10_vs_10_60": 1.2766860663779583e-07
+ },
+ "top_nibble_zero": {
+  "uniform": 0.0625,
+  "listed_uncontradicted": {
+   "blocks": 21941,
+   "top_nibble_0": 1415,
+   "share": 0.0645,
+   "lo": 0.0613,
+   "hi": 0.0678
+  },
+  "listed_uncontradicted_difficulty_1": {
+   "blocks": 19530,
+   "top_nibble_0": 1246,
+   "share": 0.0638,
+   "lo": 0.0605,
+   "hi": 0.0673
+  },
+  "other_miner_difficulty_1": {
+   "blocks": 10407,
+   "top_nibble_0": 7554,
+   "share": 0.7259,
+   "lo": 0.7172,
+   "hi": 0.7343
+  },
+  "stock_contamination_that_would_give_0.113": 0.074,
+  "stock_contamination_that_would_give_0.263": 0.301
+ },
+ "shape_check_h_ge_25000": {
+  "ordinary_reference_share_era_matched": 0.197,
+  "patoshi_reference_share": 0.477,
+  "groups": {
+   "other_miner|clock_inconsistent=True": {
+    "in_band": 202,
+    "low_0_9": 50,
+    "share": 0.248,
+    "lo": 0.193,
+    "hi": 0.311,
+    "patoshi_fraction_from_shape": 0.18,
+    "ci": [
+     -0.01,
+     0.41
+    ]
+   },
+   "other_miner|clock_inconsistent=False": {
+    "in_band": 3608,
+    "low_0_9": 711,
+    "share": 0.197,
+    "lo": 0.184,
+    "hi": 0.21,
+    "patoshi_fraction_from_shape": 0.0,
+    "ci": [
+     -0.05,
+     0.05
+    ]
+   },
+   "unresolved|clock_inconsistent=True": {
+    "in_band": 150,
+    "low_0_9": 56,
+    "share": 0.373,
+    "lo": 0.3,
+    "hi": 0.453,
+    "patoshi_fraction_from_shape": 0.63,
+    "ci": [
+     0.37,
+     0.91
+    ]
+   },
+   "unresolved|clock_inconsistent=False": {
+    "in_band": 922,
+    "low_0_9": 171,
+    "share": 0.185,
+    "lo": 0.162,
+    "hi": 0.212,
+    "patoshi_fraction_from_shape": -0.04,
+    "ci": [
+     -0.13,
+     0.05
+    ]
+   },
+   "added_possible|clock_inconsistent=True": {
+    "in_band": 51,
+    "low_0_9": 26,
+    "share": 0.51,
+    "lo": 0.377,
+    "hi": 0.641,
+    "patoshi_fraction_from_shape": 1.12,
+    "ci": [
+     0.64,
+     1.59
+    ]
+   },
+   "added_possible|clock_inconsistent=False": {
+    "in_band": 26,
+    "low_0_9": 6,
+    "share": 0.231,
+    "lo": 0.11,
+    "hi": 0.421,
+    "patoshi_fraction_from_shape": 0.12,
+    "ci": [
+     -0.31,
+     0.8
+    ]
+   },
+   "listed_uncontradicted|clock_inconsistent=True": {
+    "in_band": 3770,
+    "low_0_9": 1822,
+    "share": 0.483,
+    "lo": 0.467,
+    "hi": 0.499,
+    "patoshi_fraction_from_shape": 1.02,
+    "ci": [
+     0.96,
+     1.08
+    ]
+   },
+   "listed_uncontradicted|clock_inconsistent=False": {
+    "in_band": 464,
+    "low_0_9": 198,
+    "share": 0.427,
+    "lo": 0.383,
+    "hi": 0.472,
+    "patoshi_fraction_from_shape": 0.82,
+    "ci": [
+     0.66,
+     0.98
+    ]
+   }
+  }
+ }
+}

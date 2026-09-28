@@ -1,0 +1,52 @@
+{
+ "patoshi_listed_uncontradicted": {
+  "blocks": 22,
+  "stock_order_match": 22,
+  "count_ok": 22
+ },
+ "ordinary_other_or_no_evidence": {
+  "blocks": 253,
+  "stock_order_match": 253,
+  "count_ok": 253
+ },
+ "by_tier": {
+  "added_probable": {
+   "blocks": 15,
+   "stock_order_match": 15,
+   "count_ok": 15
+  },
+  "added_robust": {
+   "blocks": 5,
+   "stock_order_match": 5,
+   "count_ok": 5
+  },
+  "listed_uncontradicted": {
+   "blocks": 22,
+   "stock_order_match": 22,
+   "count_ok": 22
+  },
+  "no_patoshi_evidence": {
+   "blocks": 76,
+   "stock_order_match": 76,
+   "count_ok": 76
+  },
+  "other_miner": {
+   "blocks": 177,
+   "stock_order_match": 177,
+   "count_ok": 177
+  },
+  "unresolved": {
+   "blocks": 26,
+   "stock_order_match": 26,
+   "count_ok": 26
+  }
+ },
+ "fisher_two_sided_p": 1.0,
+ "patoshi_log10_valid_orders": 7.315,
+ "all_blocks": {
+  "blocks": 321,
+  "stock_order_match": 321,
+  "count_ok": 321
+ },
+ "non_matching": []
+}

@@ -1,0 +1,18 @@
+2026-09-28T15:49:04.544957+00:00 primary: PREREGISTRATION.md sha256 f8fa9e8e57c266893e8718088cf3b3023919f58dd54afe915d022e9bb6f874dd
+2026-09-28T15:49:06.340945+00:00 primary verdict: failure: reset not supported
+2026-09-28T15:54:50.934867+00:00 amendment A1: PREREGISTRATION.md sha256 e97ce3cc90096f030433bd45e37c8ddcba39cbb291f22ba58662b2793c39bbff
+2026-09-28T15:57:17.525517+00:00 A2 clock check: {'valid': True, 'tail_confirmed': True, 'contradicted_interval_contains_0': True, 'reference_blocks': 12947, 'test_blocks': 12699, 'cells_with_reference': 23}
+2026-09-28T15:58:30.299468+00:00 amendment A1.2 verdict: {'A1.2_verdict': 'failure: no phase continuation'}
+2026-09-28T16:00:31.791103+00:00 A3 update: valid=False, named=100
+2026-09-28T16:05:10.319372+00:00 A4 assembly: PREREGISTRATION.md sha256 917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df
+2026-09-28T16:05:11.813414+00:00 A4 assembly: {'blocks': 321, 'stock_order_match': 321, 'count_ok': 321}
+2026-09-28T16:09:10.178257+00:00 live: 20 of 20 match mempool.space
+2026-09-28T16:12:03.473224+00:00 primary: PREREGISTRATION.md sha256 917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df
+2026-09-28T16:12:05.105756+00:00 primary verdict: failure: reset not supported
+2026-09-28T16:12:06.288546+00:00 A2 clock check: {'valid': True, 'tail_confirmed': True, 'contradicted_interval_contains_0': True, 'reference_blocks': 12947, 'test_blocks': 12699, 'cells_with_reference': 23}
+2026-09-28T16:12:10.205870+00:00 A3 update: valid=False, named=100
+2026-09-28T16:12:10.233554+00:00 A4 assembly: PREREGISTRATION.md sha256 917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df
+2026-09-28T16:12:11.411154+00:00 A4 assembly: {'blocks': 321, 'stock_order_match': 321, 'count_ok': 321}
+2026-09-28T16:29:03.269582+00:00 A4 assembly: PREREGISTRATION.md sha256 917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df
+2026-09-28T16:29:13.165696+00:00 A4 assembly: PREREGISTRATION.md sha256 917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df
+2026-09-28T16:29:14.704414+00:00 A4 assembly: {'blocks': 321, 'stock_order_match': 321, 'count_ok': 321}

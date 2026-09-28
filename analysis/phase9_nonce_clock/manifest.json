@@ -1,0 +1,42 @@
+{
+ "inputs": {
+  "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+  "analysis/phase8/revised_list.csv": "084ac23d0dcad0e7bcc6288cd623ebe50bc8e8835e0c8ef942f3c37c64951ae7",
+  "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c",
+  "analysis/phase3/coinbase_encoding.csv": "58c362a8526c8a5b3db08c7eb701975ef85c66292825277ee7cd3f3a67e4adc3",
+  "analysis/phase9_nonce_clock/results/block_transactions.csv": "4f109819ac3606deaab6963852304c0c6f563446b0277d9ca0ccda4b563fc145",
+  "analysis/phase9_nonce_clock/results/block_transactions.metadata.json": "b1311313f9c2c24970b3e1ca10c0d8dfb6e0ce76fa775b057f04e72a0ae6ce34",
+  "analysis/phase9_nonce_clock/sources/bitcoin-0.1.0_main.cpp": "c7357a9bece0a9efc19de966f6a2c1c6a708918359b27a9c992a7a2873b2057a",
+  "analysis/phase9_nonce_clock/sources/bitcoin-v0.3.0_main.cpp": "c814cf5af1177b718a11e896a0c093aa9d943ced967b82351cbd1dcc09ef97d6"
+ },
+ "outputs": {
+  "analysis/phase9_nonce_clock/results/assembly_blocks.csv": "db15a36bb78e3fcbcc96e6b8a69f90e3976ec16a7cdb2258535a31780cadb605",
+  "analysis/phase9_nonce_clock/results/assembly_summary.json": "5d9b375cdea3a52295dfb2cf5b3065b6fc69d231a6839cffd05d73bd4e3915dc",
+  "analysis/phase9_nonce_clock/results/clock_check_blocks.csv": "fea5d5da8e509e687cb30a8b6ae4349a872e9dcc350912528c733beb9c21a9a4",
+  "analysis/phase9_nonce_clock/results/clock_check_groups.csv": "2f1ca3fd59bd7b987b0786f3ee43419a1834d3f16a5226bb2c7001b2d2630df3",
+  "analysis/phase9_nonce_clock/results/clock_check_summary.json": "6d2d2ce72d0cf13b5228e353ad7820a17a0e00d8fdd6ad6e7089148ac4452a41",
+  "analysis/phase9_nonce_clock/results/clock_sensitivity.csv": "bcaea8869e3887a9e3b3f79e93e3ed67cf4a2bc6d7a7f0fe9808213f61ea7461",
+  "analysis/phase9_nonce_clock/results/continuation.json": "83dc74250569b37df1dd94d10cfe05ed5c8fe2c03efa24bd52366ecc6a555a11",
+  "analysis/phase9_nonce_clock/results/exploratory.json": "78266b6e682720d532b6c1b02dfbc1c883e84155dc6f8a3e300254f341041c13",
+  "analysis/phase9_nonce_clock/results/live_header_checks.csv": "2506c80b9372ab4da1943c90999ab89dc8f4f95c28ec2015b92858d63157fa6f",
+  "analysis/phase9_nonce_clock/results/named_by_clock.csv": "5214fb7251987890c4314c9825fc9ee89b45d323abeb696cb0e8763a0bed0102",
+  "analysis/phase9_nonce_clock/results/position_by_gap.csv": "c3119ec498d792ead22593abb390d2677c5c404bb746e11d6ca8e162ec60a586",
+  "analysis/phase9_nonce_clock/results/power.csv": "a8d1e322c6253d651458dae934dd662bed57d45fe2ca121bfd026e67780d5328",
+  "analysis/phase9_nonce_clock/results/power_summary.json": "67e4236c30dca2b9b135ffda1e3a72d3c15224d89bcd0b390417af1d7d0b2b71",
+  "analysis/phase9_nonce_clock/results/primary.json": "8ec07ef83208d064da3e597fec72e2d0687e33529500710df9cd9ec90d812fd1",
+  "analysis/phase9_nonce_clock/results/rayleigh_all_pairs_IN.npy": "1bb9e3e95732f650efa28f884c9e80f16c8e3c5b27186db1dba2bdbc6aa92565",
+  "analysis/phase9_nonce_clock/results/rayleigh_all_pairs_IP.npy": "7f8a4874b9c073877d89b9b53d125bba306e58cf963f5dc5398f3565b88e2851",
+  "analysis/phase9_nonce_clock/results/rayleigh_same_subrange_IN.npy": "6c8d9bce16b77fdd5890d50035a9eca47fab4ef0bccabd3206931466a92c7089",
+  "analysis/phase9_nonce_clock/results/run_log.txt": "031d10b823d940c396ac38399924a64bdc1da217a29a689c81a4295c849a8a30",
+  "analysis/phase9_nonce_clock/results/stress_permutation.json": "d81045c273e2a3c5517859d29e15311895bb2b95a47d3f8bbf808dd180e6edd5",
+  "analysis/phase9_nonce_clock/results/stress_primary.csv": "13ed8a6cbc2b20fac10d40d624f9993be96d084446f8383d4e159ad914556749",
+  "analysis/phase9_nonce_clock/results/update_summary.json": "9f18b8de5be3b9986f37d6c5b267cda2f68113651719485d53c316e94666685c",
+  "analysis/phase9_nonce_clock/results/updated_posterior.csv": "e09901dc8ac41ac87fd6f4963a44c2af7c56711d277603266431e0c002818141"
+ },
+ "scripts": {
+  "scripts/phase9_nonce_clock.py": "ee5a76beb7f8aef39112bff92a83a49de70d272c72ae3e699057099910e9e5b4",
+  "scripts/phase9_blocktx.py": "40fc883030494e67055ab76a4e920bdd279b9d263123604d97ad2292d9389c8a",
+  "analysis/phase9_nonce_clock/sql/block_transactions.sql": "af9853924c020180c73640a069b23606e249bf50b54fc12dfebc235e65d65301",
+  "analysis/phase9_nonce_clock/PREREGISTRATION.md": "917f9609c9718503d6d8874f18cddb659a2a41cadcdb7e587c3b399c79d383df"
+ }
+}

@@ -1,0 +1,81 @@
+[
+ {
+  "variant": "all_pairs_IN",
+  "pairs": 19704,
+  "best_T_s": 451.5,
+  "R_max": 0.016495555639266968,
+  "perm_p": 0.522,
+  "null_R_max_median": 0.016597023233771324,
+  "null_R_max_99pct": 0.0219065560400486,
+  "top5_T": [
+   451.5,
+   452.0,
+   452.5,
+   451.0,
+   453.0
+  ],
+  "top5_R": [
+   0.0165,
+   0.0165,
+   0.0165,
+   0.0165,
+   0.0165
+  ],
+  "expected_R_if_uniform": 0.0071,
+  "p_holm_direction": 1.0,
+  "p_holm_vs_same_subrange": 1.0
+ },
+ {
+  "variant": "all_pairs_IP",
+  "pairs": 19704,
+  "best_T_s": 20.5,
+  "R_max": 0.013937283307313919,
+  "perm_p": 0.958,
+  "null_R_max_median": 0.016757773235440254,
+  "null_R_max_99pct": 0.022094852514564986,
+  "top5_T": [
+   20.5,
+   189.5,
+   190.0,
+   189.0,
+   190.5
+  ],
+  "top5_R": [
+   0.0139,
+   0.0132,
+   0.0132,
+   0.0132,
+   0.0131
+  ],
+  "expected_R_if_uniform": 0.0071,
+  "p_holm_direction": 1.0
+ },
+ {
+  "variant": "same_subrange_IN",
+  "pairs": 5304,
+  "best_T_s": 76.0,
+  "R_max": 0.03130751848220825,
+  "perm_p": 0.618,
+  "null_R_max_median": 0.032274987548589706,
+  "null_R_max_99pct": 0.043840712457895274,
+  "top5_T": [
+   76.0,
+   133.5,
+   133.0,
+   134.0,
+   75.5
+  ],
+  "top5_R": [
+   0.0313,
+   0.0301,
+   0.0298,
+   0.0297,
+   0.0291
+  ],
+  "expected_R_if_uniform": 0.0137,
+  "p_holm_vs_same_subrange": 1.0
+ },
+ {
+  "A1.2_verdict": "failure: no phase continuation"
+ }
+]

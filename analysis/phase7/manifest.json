@@ -1,0 +1,18 @@
+{
+  "inputs": {
+    "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+    "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c"
+  },
+  "outputs": {
+    "analysis/phase7/calibration_by_posterior.csv": "41634f994da514d94c1bae41bdf1848235b73f1f2416cb52bb8a220db1a76094",
+    "analysis/phase7/habit_tests.csv": "c396bb450cbed03b9bf2780cbb49b022eb4522c8d73e90912e88fbe72764eb53",
+    "analysis/phase7/nonce_shape_history.csv": "ae2dd10d92baf9b3aa06f84d18f8870f5c521248d9985840c6c4571cf6c8d8d9",
+    "analysis/phase7/omission_position.csv": "e1df3595edb76ffa8676c5f59f1789ced65eae83091999eecd55d91cd8915fe9",
+    "analysis/phase7/second_sequence_blocks.csv": "8e5e5507891e98f8365c5150dc4b5b1085ff15d4596a612b45cc612b8ff44b4a",
+    "analysis/phase7/second_sequence_summary.json": "e3c50db28a4d34f88c006fdf77813e9e956dc0d7e3d9b0d4bf203cd6c13f59ea",
+    "analysis/phase7/verify_summary.json": "bf9b7d83bf47be8e27e0b631fb7ced50a7cb1ccfaa6da24e124ce8f367f1336d"
+  },
+  "scripts": {
+    "scripts/phase7_verify.py": "e36d8572ed54b439d73e1adfb59efeafa853995783c8b555c524cefa9fcc1b19"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "2009-01-11/12": {
+    "heights": [
+      150,
+      210
+    ],
+    "second_sequence_blocks": 18,
+    "listed_blocks": 37,
+    "other_blocks": 6,
+    "second_sequence_heights": [
+      163,
+      164,
+      165,
+      168,
+      170,
+      172,
+      174,
+      175,
+      176,
+      188,
+      189,
+      190,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197
+    ],
+    "window_test": {
+      "unlisted_blocks": 24,
+      "pass_band": 20,
+      "expected_if_ordinary": 4.7,
+      "band_p_if_ordinary": 3.2906416733393406e-11,
+      "unspent_among_band_passing": "20/20",
+      "unspent_among_band_failing": "4/4",
+      "band_dormancy_fisher_p": 1.0
+    },
+    "extra_nonce_range": {
+      "second_sequence": [
+        1,
+        31
+      ],
+      "listed": [
+        1,
+        219
+      ]
+    },
+    "in_band_low_share": {
+      "second_sequence": "3/18",
+      "listed_same_window": "9/37",
+      "note": "uninformative before height 20,000: Patoshi and other miners both near 0.2"
+    },
+    "gaps_under_300s": {
+      "second_after_second": [
+        11,
+        2
+      ],
+      "second_after_listed": [
+        6,
+        0
+      ],
+      "listed_after_second": [
+        6,
+        2
+      ],
+      "listed_after_listed": [
+        26,
+        2
+      ],
+      "note": "(pairs, under 300 s). Before height 5,000 listed pairs break the rule ~5% of the time."
+    },
+    "time_span": [
+      "2009-01-11 23:01:57",
+      "2009-01-12 09:08:32"
+    ]
+  },
+  "2009-01-28/29": {
+    "heights": [
+      2120,
+      2180
+    ],
+    "second_sequence_blocks": 10,
+    "listed_blocks": 38,
+    "other_blocks": 13,
+    "second_sequence_heights": [
+      2132,
+      2133,
+      2134,
+      2135,
+      2137,
+      2138,
+      2139,
+      2140,
+      2141,
+      2172
+    ],
+    "window_test": {
+      "unlisted_blocks": 23,
+      "pass_band": 12,
+      "expected_if_ordinary": 4.5,
+      "band_p_if_ordinary": 0.0004947402397440306,
+      "unspent_among_band_passing": "10/12",
+      "unspent_among_band_failing": "1/11",
+      "band_dormancy_fisher_p": 0.0005458264981754007
+    },
+    "extra_nonce_range": {
+      "second_sequence": [
+        6,
+        40
+      ],
+      "listed": [
+        1,
+        1036
+      ]
+    },
+    "in_band_low_share": {
+      "second_sequence": "4/10",
+      "listed_same_window": "6/38",
+      "note": "uninformative before height 20,000: Patoshi and other miners both near 0.2"
+    },
+    "gaps_under_300s": {
+      "second_after_second": [
+        7,
+        0
+      ],
+      "second_after_listed": [
+        2,
+        0
+      ],
+      "listed_after_second": [
+        2,
+        0
+      ],
+      "listed_after_listed": [
+        24,
+        0
+      ],
+      "note": "(pairs, under 300 s). Before height 5,000 listed pairs break the rule ~5% of the time."
+    },
+    "time_span": [
+      "2009-01-28 16:44:53",
+      "2009-01-29 01:28:38"
+    ]
+  }
+}

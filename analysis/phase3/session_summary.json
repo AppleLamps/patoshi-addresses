@@ -1,0 +1,151 @@
+{
+  "all_decreases": {
+    "events": 286,
+    "inter_event_days": {
+      "n": 285,
+      "min": 0.0043287037037037035,
+      "median": 0.02050925925925926,
+      "mean": 1.5976640675763485,
+      "p25": 0.013842592592592592,
+      "p75": 2.2586689814814815,
+      "max": 16.635729166666668
+    },
+    "intervals_4_to_6_days": 33,
+    "reset_to": {
+      "n": 286,
+      "min": 1.0,
+      "median": 291.5,
+      "mean": 424.6748251748252,
+      "p25": 9.25,
+      "p75": 811.75,
+      "max": 1386.0
+    },
+    "observation_bracket_seconds": {
+      "n": 286,
+      "min": 22.0,
+      "median": 733.0,
+      "mean": 11961.34965034965,
+      "p25": 334.25,
+      "p75": 4512.75,
+      "max": 862029.0
+    },
+    "intervals_are": "first observed low-counter block to next such observation; not measured downtime"
+  },
+  "moderate": {
+    "events": 100,
+    "inter_event_days": {
+      "n": 99,
+      "min": 0.35538194444444443,
+      "median": 4.296956018518519,
+      "mean": 4.493197367190423,
+      "p25": 1.8424131944444444,
+      "p75": 5.553049768518518,
+      "max": 16.635729166666668
+    },
+    "intervals_4_to_6_days": 32,
+    "reset_to": {
+      "n": 100,
+      "min": 1.0,
+      "median": 7.0,
+      "mean": 12.8,
+      "p25": 3.0,
+      "p75": 13.25,
+      "max": 87.0
+    },
+    "observation_bracket_seconds": {
+      "n": 100,
+      "min": 270.0,
+      "median": 4929.5,
+      "mean": 29074.55,
+      "p25": 3525.0,
+      "p75": 8577.75,
+      "max": 862029.0
+    },
+    "intervals_are": "first observed low-counter block to next such observation; not measured downtime"
+  },
+  "conservative": {
+    "events": 64,
+    "inter_event_days": {
+      "n": 63,
+      "min": 0.8107407407407408,
+      "median": 5.68625,
+      "mean": 6.964846413874192,
+      "p25": 5.017702546296296,
+      "p75": 7.453119212962963,
+      "max": 27.308506944444446
+    },
+    "intervals_4_to_6_days": 26,
+    "reset_to": {
+      "n": 64,
+      "min": 1.0,
+      "median": 7.5,
+      "mean": 12.015625,
+      "p25": 3.0,
+      "p75": 13.0,
+      "max": 87.0
+    },
+    "observation_bracket_seconds": {
+      "n": 64,
+      "min": 526.0,
+      "median": 5041.0,
+      "mean": 25695.5625,
+      "p25": 3884.25,
+      "p75": 8251.25,
+      "max": 466047.0
+    },
+    "intervals_are": "first observed low-counter block to next such observation; not measured downtime"
+  },
+  "tests": [
+    {
+      "test": "all_decreases_hour",
+      "events": 286,
+      "statistic": 17.856878698231824,
+      "p": 0.1844,
+      "holm_p": 1
+    },
+    {
+      "test": "all_decreases_weekday",
+      "events": 286,
+      "statistic": 76.20943054184417,
+      "p": 0.2848,
+      "holm_p": 1
+    },
+    {
+      "test": "moderate_hour",
+      "events": 100,
+      "statistic": 21.948154449955656,
+      "p": 0.5432,
+      "holm_p": 1
+    },
+    {
+      "test": "moderate_weekday",
+      "events": 100,
+      "statistic": 2.932558906100117,
+      "p": 0.7852,
+      "holm_p": 1
+    },
+    {
+      "test": "conservative_hour",
+      "events": 64,
+      "statistic": 21.622156493046475,
+      "p": 0.5684,
+      "holm_p": 1
+    },
+    {
+      "test": "conservative_weekday",
+      "events": 64,
+      "statistic": 3.7653229809552227,
+      "p": 0.6716,
+      "holm_p": 1
+    }
+  ],
+  "permutations": 4999,
+  "seed": 3302,
+  "actual_observation_gaps_4_to_6_days": [
+    {
+      "left": 20342,
+      "right": 20442,
+      "days": 5.3940625
+    }
+  ]
+}

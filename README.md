@@ -81,3 +81,15 @@ The spend count reproduces published research and does not establish miner ident
 [cached query results](analysis/phase2_bigquery/results/), and
 [checksums](analysis/phase2_bigquery/manifest.json) are committed for reproduction.
 The earlier API collector was stopped when BigQuery was selected and must not be resumed.
+
+## Phase 3 — novelty hunt
+
+The [novelty report](analysis/phase3/REPORT.md) separates bounded new measurements
+from established findings. It adds downstream transaction paths, a P2PKH funding
+census, reset-time tests, and an exploratory slope classifier. No demonstrated
+key weakness, hash collision, embedded message, or new miner attribution was found.
+Debian secp256k1 screening remains incomplete. Every novelty candidate states its
+prior-art comparison and limitations.
+
+[Methods](analysis/phase3/METHODS.md) · [Literature ledger](analysis/phase3/SOURCES.md)
+· [Cached BigQuery results](analysis/phase3/results/) · [Manifest](analysis/phase3/manifest.json).

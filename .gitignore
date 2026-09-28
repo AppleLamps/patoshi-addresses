@@ -21,3 +21,6 @@ __pycache__/
 !/analysis/phase2_bigquery/cache/schema_*.json
 !/analysis/phase2_bigquery/cache/tables.json
 /analysis/phase2_bigquery/*.log
+/.firecrawl/
+/analysis/phase3/cache/
+/analysis/phase3/*.log

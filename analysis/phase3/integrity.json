@@ -1,0 +1,128 @@
+{
+  "query_csvs": [
+    {
+      "name": "funded_keyhashes.csv",
+      "rows": 82151,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_I8TXRgTaiq-UGyWMihIazlWGLLFS",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_edges_1.csv",
+      "rows": 25,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_yA-fKht3KFAA8ZhN9f6TgCnSEtUk",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_edges_2.csv",
+      "rows": 191,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_9ebqDJS67Qq5UQtzYF0OGXz8HyPy",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_edges_3.csv",
+      "rows": 1123,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_6bQoVzF_HIrth7cFpbM4z7OfAV0P",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_transactions_1.csv",
+      "rows": 25,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_YVAG5acr46PGwooXNMBZdqpv1GCY",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_transactions_2.csv",
+      "rows": 181,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_CLSwwbUVScrmNM1Y3i1HN04mVN83",
+        "location": "US"
+      }
+    },
+    {
+      "name": "trace_transactions_3.csv",
+      "rows": 1033,
+      "checksum_verified": true,
+      "job": {
+        "projectId": "gen-lang-client-0469054007",
+        "jobId": "job_6lwlvU7mCWU1iWTHBoNu-v99uR4C",
+        "location": "US"
+      }
+    }
+  ],
+  "source_receipts": [
+    {
+      "path": "analysis/phase3/cache/badkeys_README.md",
+      "url": "https://raw.githubusercontent.com/badkeys/badkeys/main/README.md",
+      "status": 200,
+      "observed_at": "2026-09-28T00:01:46.965190+00:00",
+      "sha256": "f894be079bb6e78098f60a601ae36c3372f8cf826ce2337f75fa3efaa2afd5df",
+      "bytes": 3465
+    },
+    {
+      "path": "analysis/phase3/cache/bitcoin001_main.cpp",
+      "url": "https://raw.githubusercontent.com/blaesus/bitcoin-0.0.1/master/src/main.cpp",
+      "status": 200,
+      "observed_at": "2026-09-28T00:01:46.334645+00:00",
+      "sha256": "c89f44185df7ff5d68342e5f533ae1282d5cf1259306d14c1c79315e973e0e1c",
+      "bytes": 82983
+    },
+    {
+      "path": "analysis/phase3/cache/bitquery_dataset.csv",
+      "url": "https://www.bitquery.io/investigations/satoshi-nakamoto-net-worth/patoshi-audit-dataset.csv",
+      "status": 200,
+      "observed_at": "2026-09-28T00:01:44.107835+00:00",
+      "sha256": "a064e47a0dcaf78fda0f1394a4d16fbfdd56bcd436a1fba94c56bbeecaf030dd",
+      "bytes": 4913851
+    },
+    {
+      "path": "analysis/phase3/cache/bitquery_methods.md",
+      "url": "https://www.bitquery.io/investigations/satoshi-nakamoto-net-worth/method-changelog.md",
+      "status": 200,
+      "observed_at": "2026-09-28T00:01:45.066858+00:00",
+      "sha256": "c1c54b50ac1bcbdca95c637cb5fd09376cd76d0ea629c64ecd157dfd96fd4e8e",
+      "bytes": 15178
+    },
+    {
+      "path": "analysis/phase3/cache/coinbase_spot.json",
+      "url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+      "status": 200,
+      "observed_at": "2026-09-28T00:01:45.641073+00:00",
+      "sha256": "ed508305c5cd26eb728a6805eccc6e65b4166be07e2210216d90c92429a1ec42",
+      "bytes": 60
+    },
+    {
+      "path": "analysis/phase3/cache/milksad-data.tar.gz",
+      "url": "https://git.distrust.co/milksad/data/archive/81d1eb74585403e0042f9d507089ee4660a18502.tar.gz",
+      "status": 200,
+      "observed_at": "2026-09-28T00:07:40.419771+00:00",
+      "sha256": "25f6663e015ec2b1d655e7bf27771b089d5fc485f079e6f5dffd84b46b7850c5",
+      "bytes": 11376347
+    }
+  ],
+  "new_api_responses_checked": 96,
+  "targeted_checks": 72,
+  "targeted_checks_successful": 72,
+  "method": "Exact cached-byte checksums, query row counts and successful targeted evidence receipts. Transaction reconstruction and model conservation are performed by phase3_trace_analyze.py."
+}

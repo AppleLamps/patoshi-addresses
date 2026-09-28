@@ -1,0 +1,8 @@
+{
+  "source_commit": "81d1eb74585403e0042f9d507089ee4660a18502",
+  "files": 45,
+  "unique_corpus_addresses": 314781,
+  "target_encodings": 87812,
+  "hits": [],
+  "scope": "Published address lists, not exhaustive vulnerable PRNG spaces; four encodings per target point; modern flaws do not imply historical use."
+}

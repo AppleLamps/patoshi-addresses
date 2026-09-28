@@ -1,0 +1,85 @@
+{
+  "permutations": 1999,
+  "seed": 3301,
+  "tests": [
+    {
+      "test": "100-position phase means, X/Y/hash160 leading bytes",
+      "statistic": 76.93363178798866,
+      "p": 0.279,
+      "holm_p": 1
+    },
+    {
+      "test": "X leading byte lag 1",
+      "statistic": 0.000491325145486719,
+      "p": 0.9395,
+      "holm_p": 1
+    },
+    {
+      "test": "X leading byte lag 99",
+      "statistic": 0.007321454890429439,
+      "p": 0.267,
+      "holm_p": 1
+    },
+    {
+      "test": "X leading byte lag 100",
+      "statistic": 0.004999111623685832,
+      "p": 0.4645,
+      "holm_p": 1
+    },
+    {
+      "test": "X leading byte lag 101",
+      "statistic": 0.0036198928208690004,
+      "p": 0.6,
+      "holm_p": 1
+    },
+    {
+      "test": "Y leading byte lag 1",
+      "statistic": -0.004798613077944807,
+      "p": 0.461,
+      "holm_p": 1
+    },
+    {
+      "test": "Y leading byte lag 99",
+      "statistic": -0.0026591016377979283,
+      "p": 0.6965,
+      "holm_p": 1
+    },
+    {
+      "test": "Y leading byte lag 100",
+      "statistic": -0.005376003032079113,
+      "p": 0.422,
+      "holm_p": 1
+    },
+    {
+      "test": "Y leading byte lag 101",
+      "statistic": -0.006817472386864228,
+      "p": 0.3205,
+      "holm_p": 1
+    },
+    {
+      "test": "hash160 leading byte lag 1",
+      "statistic": 0.004629889595217888,
+      "p": 0.5,
+      "holm_p": 1
+    },
+    {
+      "test": "hash160 leading byte lag 99",
+      "statistic": 0.007646430397408548,
+      "p": 0.26,
+      "holm_p": 1
+    },
+    {
+      "test": "hash160 leading byte lag 100",
+      "statistic": 0.007482669374273507,
+      "p": 0.2715,
+      "holm_p": 1
+    },
+    {
+      "test": "hash160 leading byte lag 101",
+      "statistic": 0.0063331252458793535,
+      "p": 0.3285,
+      "holm_p": 1
+    }
+  ],
+  "limitation": "Block order is not necessarily key generation order; keypool not introduced until October 2010. No on-chain refill boundaries exist."
+}

@@ -1,0 +1,17 @@
+{
+  "watermark": 968902,
+  "original_unspent_outputs": 21922,
+  "original_unspent_btc": "1096102.49",
+  "btc_usd": "84472.06",
+  "quote_receipt": {
+    "url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "status": 200,
+    "observed_at": "2026-09-28T00:01:45.641073+00:00",
+    "sha256": "ed508305c5cd26eb728a6805eccc6e65b4166be07e2210216d90c92429a1ec42",
+    "bytes": 60
+  },
+  "original_unspent_usd": "92590035301.4294",
+  "additional_p2pkh_unspent_outputs": 82149,
+  "additional_p2pkh_unspent_btc": "7.05258112",
+  "interpretation": "Conditional exposure to sufficiently capable fault-tolerant Shor attack; not evidence of a currently practical attack. Balance is at historical dataset watermark, quote is at receipt time."
+}

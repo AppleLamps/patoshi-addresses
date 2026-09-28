@@ -1,0 +1,13 @@
+{
+  "historical_outputs": 82151,
+  "matching_hashes": 21926,
+  "unspent_outputs": 82149,
+  "unspent_hashes": 21924,
+  "unspent_sats": 705258112,
+  "spent_outputs_with_pubkey_checked": 2,
+  "distinct_revealed_pubkeys": 2,
+  "different_pubkey_same_hash_hits": 0,
+  "unparsed_spent_outputs": 0,
+  "internal_hash160_duplicates": 0,
+  "watermark": 968902
+}

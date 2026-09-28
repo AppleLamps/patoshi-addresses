@@ -1,0 +1,23 @@
+{
+  "seed": 3307,
+  "windows": 55,
+  "lines": 189,
+  "tolerance_en": 15,
+  "min_members": 50,
+  "slope_range": [
+    0.15,
+    12
+  ],
+  "top50_excluded_from_training": 50,
+  "top50_supported": 41,
+  "held_out_listed": {
+    "total": 4379,
+    "supported": 3282,
+    "pass": 2537
+  },
+  "unlisted_controls": {
+    "total": 3000,
+    "pass": 10
+  },
+  "limitations": "Exploratory signature classifier. Controls can be fitting data; their pass rate is not a held-out false-positive estimate. No independent miner truth labels. Overlapping windows can represent one physical track multiple times. Best-of-many-line fit increases acceptance. No threshold tuning after results."
+}

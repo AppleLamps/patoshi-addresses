@@ -1,0 +1,12 @@
+{
+  "pubkeys": 21953,
+  "small_positive_range": [
+    1,
+    1048576
+  ],
+  "near_order_count": 1048576,
+  "structured_classes": "powers of two, order minus powers of two, repeated-byte scalars",
+  "structured_count": 766,
+  "hits": [],
+  "debian_status": "NOT EXHAUSTIVELY TESTED: no applicable complete secp256k1 corpus acquired; date/version is not encoded in a public key"
+}

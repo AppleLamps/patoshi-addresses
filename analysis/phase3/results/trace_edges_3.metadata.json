@@ -1,0 +1,12 @@
+{
+  "query_identity_sha256": "780f16b730f725c7fd0e83d7aa6110ec89b616918dff84b1a6faf00771d940f6",
+  "csv_sha256": "92f23d25124ce00e8cb9b413c9a96502278ad4330bbaa24acc2fcfac725994fc",
+  "rows": 1123,
+  "jobReference": {
+    "projectId": "gen-lang-client-0469054007",
+    "jobId": "job_6bQoVzF_HIrth7cFpbM4z7OfAV0P",
+    "location": "US"
+  },
+  "totalBytesProcessed": "575564986060",
+  "cached_at": "2026-09-28T00:09:01.369850+00:00"
+}

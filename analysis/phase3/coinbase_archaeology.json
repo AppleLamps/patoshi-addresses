@@ -1,0 +1,21 @@
+{
+  "count": 21953,
+  "anomalies": [],
+  "shapes": [
+    {
+      "script_bytes": 7,
+      "counter_bytes": 1,
+      "bits_match": true,
+      "number_minimal": true,
+      "count": 1549
+    },
+    {
+      "script_bytes": 8,
+      "counter_bytes": 2,
+      "bits_match": true,
+      "number_minimal": true,
+      "count": 20404
+    }
+  ],
+  "message_test": "Parse entire script; require exactly difficulty and minimally encoded nonnegative counter. Incidental printable counter bytes are not messages."
+}

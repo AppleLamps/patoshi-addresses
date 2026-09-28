@@ -1,0 +1,25 @@
+{
+  "first_spend_transactions": 20,
+  "all_reconstructed_transactions": 1259,
+  "input_edges_returned": 1474,
+  "unique_spent_outpoints": 1474,
+  "depths": {
+    "0": 20,
+    "1": 25,
+    "2": 181,
+    "3": 1033
+  },
+  "proportional_fee_sats": "2247786.9108372255071747236551363967225648191742447",
+  "terminal_proportional_sats": "154997752213.08916277449282527634486360327743518079",
+  "terminal_statuses": {
+    "no_reference_to_watermark": {
+      "outputs": 28,
+      "proportional_sats": "21605982205.640030873175039283347938787747218941647"
+    },
+    "frontier_not_queried": {
+      "outputs": 9640,
+      "proportional_sats": "133391770007.44913190131778599299692481553021623908"
+    }
+  },
+  "assumption": "Illustrative proportional allocation across all outputs and fees; provenance of individual satoshis and ownership are NOT established. No change-address or common-input identity inference. Frontier spend status unknown."
+}

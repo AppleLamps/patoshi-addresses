@@ -42,6 +42,16 @@ class Phase4Primitives(unittest.TestCase):
         self.assertEqual((r, s), (r2, s2))
         self.assertFalse(strict2)
 
+    def test_der_bounds_and_size(self):
+        self.assertIsNone(p.parse_der(SIG170[:20]))          # declared integer runs past the end
+        self.assertIsNone(p.parse_der(bytes([0x30, 6, 0x02, 0, 0x02, 1, 1, 0])))  # zero-length integer
+        # minimally encoded but oversized integers: only the 72-byte limit can reject this
+        long_r = bytes([0x02, 0x22, 0x01]) + bytes(33)
+        s_part = bytes([0x02, 0x21, 0x01]) + bytes(32)
+        overlong = bytes([0x30, len(long_r) + len(s_part)]) + long_r + s_part
+        self.assertGreater(len(overlong), 72)
+        self.assertFalse(p.parse_der(overlong)[2])
+
     def test_small_k_table(self):
         t = p.small_k_table(16)
         self.assertEqual(t[p.G[0]], 1)
@@ -62,6 +72,9 @@ class Phase4Primitives(unittest.TestCase):
         self.assertAlmostEqual(p.poisson_tail(1, 2.0), 1 - math.exp(-2), places=12)
         self.assertAlmostEqual(p.poisson_binomial_tail(2, [0.5, 0.5]), 0.25, places=12)
         self.assertAlmostEqual(p.poisson_binomial_tail(1, [0.1, 0.2]), 1 - 0.9 * 0.8, places=12)
+        ps = [0.01 * i for i in range(1, 30)]
+        for k in (0, 1, 3, 7):
+            self.assertAlmostEqual(p.poisson_binomial_tail_fast(k, ps), p.poisson_binomial_tail(k, ps), places=12)
 
 
 if __name__ == '__main__':

@@ -309,6 +309,18 @@ def cospend():
 STRATA = [('fp<0.002', 0.002), ('0.002<=fp<0.01', 0.01), ('fp>=0.01', 2.0)]
 
 
+def poisson_binomial_tail_fast(k, ps):
+    """P(X >= k) for independent Bernoulli(p_i), tracking only states below k."""
+    if k <= 0:
+        return 1.0
+    dist = [1.0] + [0.0] * (k - 1)
+    for p in ps:
+        for j in range(k - 1, 0, -1):
+            dist[j] = dist[j] * (1 - p) + dist[j - 1] * p
+        dist[0] *= 1 - p
+    return float(max(0.0, 1 - sum(dist)))
+
+
 def poisson_tail(k, lam):
     if lam <= 0:
         return 0.0 if k > 0 else 1.0
@@ -324,8 +336,8 @@ def sandwich():
     bg_h = [h for h in unl if not nonce_pass(headers[h]['n']) and headers[h]['en'] is not None]
     bg_en = {h: headers[h]['en'] for h in bg_h}
     p_tight = (163840000 + (983040000 - 327680000)) / 2**32
-    rows, expected, evaluated = [], 0.0, 0
-    strata = {k: {'windows': 0, 'expected': 0.0, 'observed': 0} for k, _ in STRATA}
+    rows, evaluated = [], 0
+    windows = collections.defaultdict(lambda: {'fps': [], 'hits': 0})
     for h in unl:
         x = headers[h]
         fit = run_fit(h, headers, lsorted)
@@ -344,55 +356,75 @@ def sandwich():
         # probability a non-Patoshi block lands in the window: local background counter distribution
         near = [bg_en[k] for k in bg_h[max(0, bisect.bisect_left(bg_h, h) - 150): bisect.bisect_left(bg_h, h) + 150]]
         p_win = sum(1 for e in near if a['en'] < e < b['en']) / len(near) if near else 0.0
-        expected += p_tight * p_win
         fp = p_tight * p_win
-        stratum = next(k for k, hi_ in STRATA if fp < hi_)
-        strata[stratum]['expected'] += fp
-        strata[stratum]['windows'] += 1
+        windows[(l, r)]['fps'].append(fp)
         if fit['sandwich'] and inner_pass(x['n']):
+            windows[(l, r)]['hits'] += 1
             rows.append({'height': h, 'block_time': x['t'], 'nonce_lsb': x['n'] & 255, 'extra_nonce': x['en'],
                          'left_listed': l, 'left_en': a['en'], 'left_time': a['t'],
                          'right_listed': r, 'right_en': b['en'], 'right_time': b['t'],
                          'window_width': b['en'] - a['en'] + 1, 'background_window_prob': round(p_win, 5),
-                         'false_positive_prob': round(fp, 5), 'fp_stratum': stratum})
-            strata[stratum]['observed'] += 1
+                         'false_positive_prob': round(fp, 5)})
+    # Candidates sharing one anchor window are not independent (27,474 to 27,478 share 27,473/27,479), so the
+    # inference unit is the window: event = at least one candidate, chance = 1 - prod(1 - fp) over its heights.
+    wq = {w: 1 - math.prod(1 - f for f in v['fps']) for w, v in windows.items()}
+    strata = {k: {'windows': 0, 'expected': 0.0, 'observed': 0, 'qs': []} for k, _ in STRATA}
+    for w, q in wq.items():
+        st = strata[next(k for k, hi_ in STRATA if q < hi_)]
+        st['windows'] += 1
+        st['expected'] += q
+        st['observed'] += windows[w]['hits'] > 0
+        st['qs'].append(q)
+    for r in rows:
+        r['window_fp_prob'] = round(wq[(r['left_listed'], r['right_listed'])], 5)
+        r['window_candidates'] = windows[(r['left_listed'], r['right_listed'])]['hits']
     if rows:
         table('sandwich_candidates.csv', rows)
+    obs_w = sum(v['hits'] > 0 for v in windows.values())
     save('sandwich_summary.json', {
-        'unlisted_heights_in_range': len(unl), 'evaluable_short_monotone_windows': evaluated,
-        'candidates_observed': len(rows),
-        'candidates_expected_if_no_omissions': round(expected, 3),
-        'excess': round(len(rows) - expected, 3),
-        'poisson_upper_tail_p': poisson_tail(len(rows), expected),
-        'by_false_positive_stratum': {k: {'windows': v['windows'], 'expected': round(v['expected'], 3),
-                                          'observed': v['observed'],
-                                          'poisson_upper_tail_p': poisson_tail(v['observed'], v['expected'])}
-                                      for k, v in strata.items()},
+        'unlisted_heights_in_range': len(unl), 'evaluable_heights': evaluated, 'anchor_windows': len(windows),
+        'candidate_heights': len(rows),
+        'windows_with_candidates_observed': obs_w,
+        'windows_with_candidates_expected_if_no_omissions': round(sum(wq.values()), 3),
+        'poisson_binomial_upper_tail_p': poisson_binomial_tail_fast(obs_w, list(wq.values())),
+        'by_window_false_positive_stratum': {
+            k: {'windows': v['windows'], 'expected': round(v['expected'], 3), 'observed': v['observed'],
+                'poisson_binomial_upper_tail_p': poisson_binomial_tail_fast(v['observed'], v['qs'])}
+            for k, v in strata.items()},
+        # A window holding several candidates: its own tail under independent heights, and a conservative bound that
+        # lets counters of one miner's consecutive blocks be fully correlated (only the nonce passes stay independent).
+        'multi_candidate_windows': {
+            f"{w[0]}-{w[1]}": {'candidates': v['hits'], 'heights_in_window': len(v['fps']),
+                               'p_independent': poisson_binomial_tail_fast(v['hits'], v['fps']),
+                               'p_independent_x_windows': min(1.0, len(windows) * poisson_binomial_tail_fast(v['hits'], v['fps'])),
+                               'p_correlated_counter_bound': p_tight ** (v['hits'] - 1) * max(v['fps']) * math.comb(len(v['fps']), v['hits']),
+                               'p_correlated_counter_bound_x_windows': min(1.0, len(windows) * p_tight ** (v['hits'] - 1) * max(v['fps'])
+                                                                           * math.comb(len(v['fps']), v['hits']))}
+            for w, v in windows.items() if v['hits'] > 1},
         'includes_14450': any(r['height'] == 14450 for r in rows),
         'rule': ('Unlisted height h between consecutive listed heights L<h<R with time(L)<time(h)<time(R), '
                  'time(R)-time(L)<=3h, 0<=en(R)-en(L)<=60, en(L)<en(h)<en(R) (the counter never repeats between Patoshi blocks), and Lerner-2020 tight nonce pass. '
-                 'Null: P(tight nonce)=0.1907 for a uniform nonce times the share of nearby broad-nonce-failing '
-                 'blocks (+/-150) whose extraNonce falls in [en(L),en(R)]. Exploratory; not a replacement list.'),
+                 'Null per height: P(tight nonce)=0.1907 for a uniform nonce times the share of nearby broad-nonce-failing '
+                 'blocks (+/-150) whose extraNonce falls in (en(L),en(R)). Inference is per anchor window. Exploratory; not a replacement list.'),
     })
 
 
 # ---------------------------------------------------------------- 3. signatures
 
 def parse_der(sig):
-    """Return (r, s, strict) for a DER signature without sighash byte; strict = BIP66-canonical."""
-    strict = True
+    """Return (r, s, strict) for a DER signature without sighash byte; strict = BIP66-canonical. None if unparseable."""
     if len(sig) < 8 or sig[0] != 0x30:
         return None
-    if sig[1] != len(sig) - 2:
-        strict = False
-    i = 2
-    out = []
+    strict = len(sig) <= 72 and sig[1] == len(sig) - 2
+    i, out = 2, []
     for _ in range(2):
-        if sig[i] != 0x02:
+        if i + 2 > len(sig) or sig[i] != 0x02:
             return None
         ln = sig[i + 1]
+        if ln == 0 or i + 2 + ln > len(sig):
+            return None
         v = sig[i + 2:i + 2 + ln]
-        if ln == 0 or v[0] & 0x80 or (ln > 1 and v[0] == 0 and not v[1] & 0x80):
+        if v[0] & 0x80 or (ln > 1 and v[0] == 0 and not v[1] & 0x80):
             strict = False
         out.append(int.from_bytes(v, 'big'))
         i += 2 + ln
@@ -603,7 +635,9 @@ def fingerprint():
             'sequences': ' '.join(format(s, 'x') for s in sorted(seq)),
             'rbf_signal': any(s < 0xfffffffe for s in seq), 'inputs': len(t['vin']), 'outputs': len(t['vout']),
             'output_types': ' '.join(types), 'change_to_input_key': any(o['scriptpubkey'] in inkeys for o in t['vout']),
-            'payee_first': bool(t['vout'][-1]['scriptpubkey'] in inkeys) if len(t['vout']) > 1 else '',
+            # original-client layout: vout[0] pays someone else, the last output returns change to an input key
+            'payee_first_change_last': (t['vout'][0]['scriptpubkey'] not in inkeys and t['vout'][-1]['scriptpubkey'] in inkeys)
+                                       if len(t['vout']) > 1 else '',
             'fee_sats': t['fee'], 'fee_rate_sat_vb': round(t['fee'] / (t['weight'] / 4), 3),
             'inputs_height_sorted': mapped == sorted(mapped) if len(mapped) > 1 else '',
             # BIP69 compares previous-output hashes in serialized byte order, the reverse of the displayed txid.
@@ -632,9 +666,10 @@ def fingerprint():
 def manifest():
     inputs = ['patoshi_pubkeys_COMPLETE.csv', 'patoshi_p2pkh_addresses.csv', 'analysis/phase2_bigquery/results/headers.csv',
               'analysis/phase2_bigquery/results/context.csv', 'analysis/phase2_bigquery/results/pubkeys.csv',
-              'analysis/phase3/trace_seed_transactions.json'] + [f'analysis/phase3/results/trace_transactions_{g}.csv' for g in (1, 2, 3)]
+              'analysis/phase3/trace_seed_transactions.json', 'analysis/phase4/satoshi_linked_identifiers.csv'] + [f'analysis/phase3/results/trace_transactions_{g}.csv' for g in (1, 2, 3)]
     digest = lambda f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest()
-    outputs = sorted(str(f.relative_to(ROOT)).replace('\\', '/') for f in OUT.iterdir() if f.is_file() and f.name != 'manifest.json')
+    outputs = sorted(str(f.relative_to(ROOT)).replace('\\', '/') for f in OUT.iterdir()
+                     if f.is_file() and f.name not in ('manifest.json', 'satoshi_linked_identifiers.csv'))
     save('manifest.json', {'inputs': {f: digest(f) for f in inputs}, 'outputs': {f: digest(f) for f in outputs},
                            'scripts': {f: digest(f) for f in ('scripts/phase4_offline.py', 'scripts/phase4_links.py',
                                                               'scripts/phase2_collect.py', 'scripts/phase2_analyze.py')},

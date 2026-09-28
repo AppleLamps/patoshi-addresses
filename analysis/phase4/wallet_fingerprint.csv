@@ -1,4 +1,4 @@
-spending_txid,spending_height,time,version,locktime,locktime_class,sequences,rbf_signal,inputs,outputs,output_types,change_to_input_key,payee_first,fee_sats,fee_rate_sat_vb,inputs_height_sorted,inputs_txid_sorted_bip69,round_payment,listed_inputs
+spending_txid,spending_height,time,version,locktime,locktime_class,sequences,rbf_signal,inputs,outputs,output_types,change_to_input_key,payee_first_change_last,fee_sats,fee_rate_sat_vb,inputs_height_sorted,inputs_txid_sorted_bip69,round_payment,listed_inputs
 f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16,170,1231731025,1,0,zero,ffffffff,False,1,2,p2pk p2pk,True,True,0,0.0,,,True,1
 d71fd2f64c0b34465b7518d240c00e83f6a5b10138a7079d1252858fe7e6b577,524,1231983986,1,0,zero,ffffffff,False,1,2,p2pk p2pk,True,True,0,0.0,,,True,1
 7d73200eac9b66ea105fe63378c69f5d68663f925297117ed178deaddb6fc3d5,2616,1233505512,1,0,zero,ffffffff,False,2,1,p2pkh,False,,0,0.0,False,True,True,2

@@ -17,7 +17,7 @@ Phase 5 estimated omissions in aggregate: about 188 unlisted Patoshi blocks insi
 | 1 | **Named blocks after the list's end.** 318 unlisted blocks after 49,973 score P ≥ 0.9 (about 9.5 expected false). A **robust core of 70** stays at P ≥ 0.9 under every track-test setting (about 2 expected false). The core runs from **block 50,882 (2010-04-14) to 54,311 (2010-05-03)**, which puts a date on the end of Patoshi-like mining and matches the public estimates of about 54,316 to 54,458. | (b) |
 | 2 | **Named omissions inside the span.** 99 unlisted blocks score P ≥ 0.9 (about 5 expected false), and a robust core of 41 survives every setting (about 2 expected false). They cluster in the list's earliest days (29, 193 to 197, 2,133 to 2,141) and at **25,000 to 27,499**, the window where Phase 5 found the excess. | (b) |
 | 3 | **The totals agree with Phase 5 under every setting**, although Phase 5 used only aggregate nonce-band counts: expected Patoshi blocks 180 to 209 inside the span (Phase 5: 188, CI 119 to 258) and 357 to 363 after it (Phase 5: 353, CI 310 to 396). | (b) |
-| 4 | **Validated on known blocks.** Hidden listed blocks are recovered at P ≥ 0.9 in 97.5% of cases before height 25,000 and 65% after (88% at P ≥ 0.5). Ordinary blocks known from co-spending, made to look dormant and band-passing, are wrongly named at P ≥ 0.9 in 0.25%, 0.57% and 6.1% of cases in the three eras. The last figure matches the model's own error estimate after the list's end. | (b) |
+| 4 | **Validated on known blocks.** Hidden listed blocks are recovered at P ≥ 0.9 in 97% of cases before height 25,000 and 65% after (87% to 88% at P ≥ 0.5), whether or not they may anchor each other. Ordinary blocks known from co-spending, made to look dormant and band-passing, are wrongly named at P ≥ 0.9 in 0.25%, 0.57% and 6.1% of cases in the three eras. The last figure matches the model's own error estimate after the list's end. | (b) |
 | 5 | **Known cases.** 14,450 scores 0.999 (min over settings 0.91). The five-block run 27,474 to 27,478 scores 0.94, and 27,476 to 27,477 stay above 0.93 under every setting. Block 1 scores 0.83 (min 0.83). Block 2 (0.98) and 3,358 (0.87) are high only when the track test may search several anchor pairs, so they are not in the robust core. | (b) |
 
 ## 1. Evidence and model
@@ -53,7 +53,11 @@ Elsewhere the windows show 0 to 19 expected omissions each, mostly spread thin o
 
 ## 4. Validation
 
-- **Holdout (sensitivity).** A random 10% of listed blocks (not co-spent with others; seed 20260928) were made unlisted and removed as anchors, and everything was refitted. Before height 25,000, 97.5% score P ≥ 0.9 (mean 0.985). From 25,000 to 49,973, 64.6% score P ≥ 0.9 and 87.7% P ≥ 0.5 (mean 0.83). Hidden blocks are easier than true omissions: their neighbours are still listed.
+- **Holdout (sensitivity).** A random 10% of listed blocks (2,194, not co-spent with others; seed 20260928) were made unlisted and everything was refitted, in two variants.
+  - *As omissions:* hidden blocks that are dormant and band-passing may anchor each other, exactly as real omissions do in the main run. Before height 25,000, 97.5% score P ≥ 0.9 (mean 0.985). From 25,000 to 49,973, 64.6% score P ≥ 0.9 and 87.7% P ≥ 0.5 (mean 0.83).
+  - *Strict:* hidden blocks are excluded from every anchor set, so each is scored only against the blocks still listed and the genuine candidates. The rates are 97.1%, 65.0% and 87.3%, nearly the same.
+  
+  Hidden blocks are still easier than true omissions, because their neighbours stay listed.
 - **Null (false positives).** Ordinary blocks known from co-spending that pass the band were rescored as if dormant and never co-spent. That is the hardest ordinary case. Their own track-fit rates (1.9%, 8.0%, 8.3%) match the band-failing reference rates (2.5%, 8.9%, 9.6%), which supports the model's independence assumption. The share wrongly named at P ≥ 0.9 is 0.25%, 0.57% and 6.1%. After the list's end there are about 130 such look-alikes (482 dormant band-passing blocks minus about 353 Patoshi), and 6.1% of them is about 8 false names, close to the model's own 9.5.
 - **Sensitivity grid.** Five settings of the track test were run: absolute tolerance 3 or 10, relative tolerance 0.10 or 0.15, and 1 or 3 anchors per side.
   - Expected totals barely move: 180 to 209 inside the span, 357 to 363 after it.

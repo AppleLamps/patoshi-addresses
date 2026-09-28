@@ -220,7 +220,8 @@
   "validation_holdout_listed": {
     "hidden_fraction": 0.1,
     "seed": 20260928,
-    "by_era": [
+    "hidden": 2194,
+    "as_omissions": [
       {
         "era": [
           1,
@@ -240,6 +241,28 @@
         "mean_posterior": 0.8349,
         "p_ge_0_5": 0.8769,
         "p_ge_0_9": 0.6458
+      }
+    ],
+    "strict": [
+      {
+        "era": [
+          1,
+          24999
+        ],
+        "hidden": 1731,
+        "mean_posterior": 0.9821,
+        "p_ge_0_5": 0.9861,
+        "p_ge_0_9": 0.9705
+      },
+      {
+        "era": [
+          25000,
+          49973
+        ],
+        "hidden": 463,
+        "mean_posterior": 0.8257,
+        "p_ge_0_5": 0.8726,
+        "p_ge_0_9": 0.6501
       }
     ]
   },

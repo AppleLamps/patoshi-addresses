@@ -7,11 +7,11 @@
   "outputs": {
     "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c",
     "analysis/phase6/posterior_candidates.csv": "89043c424694504d5604e999c62b68e37a8cea4331adc653f1561f82fc919bad",
-    "analysis/phase6/posterior_summary.json": "c2bd70d87db688616bb6f9565d578e64df5bc556be32695bfca111cee13b94f0",
+    "analysis/phase6/posterior_summary.json": "dd8cf01a78ccf23cace77b5395b76fa41f7ec4fe6d11c9186ccafe077c7179db",
     "analysis/phase6/posterior_windows.csv": "06ab1be01985ec58125164e50afc1ca3b06933ad6b07483c5d2f8008a9d02617"
   },
   "scripts": {
-    "scripts/phase6_posterior.py": "2346881051f7d6c923c81488a6eeaba2376ea7e7a937ab9fc597668f0dbcc2ca",
+    "scripts/phase6_posterior.py": "80156bfe70e7843778f0b64eff8700b7e64b64b89c535dc4b9d9f22864f947fe",
     "scripts/phase2_collect.py": "10c21864b905449e83e6a79752fd4d7050a8b0d9ca6323ee4d01d53055195a2a"
   }
 }

@@ -25,6 +25,17 @@ class Track(unittest.TestCase):
         self.assertIsNone(p.track_fit(4, [0, 38], {**self.T, 38: 40 * 3600.0}, self.E, (3, 0.10, 1)))
         self.assertIsNone(p.track_fit(4, [6, 8], self.T, self.E, (3, 0.10, 1)))    # nothing below
 
+    def test_excluded_blocks_are_not_anchors(self):
+        blocks = {h: {'height': h, 'listed': h in (0, 8), 'band': True, 'spent': False, 'loo_label': 'unclustered'}
+                  for h in (0, 2, 4, 8)}
+        p.features(blocks, self.T, self.E, (3, 0.10, 1))
+        self.assertIs(blocks[4]['track'], True)                    # anchored by candidate 2 and listed 8
+        p.features(blocks, self.T, self.E, (3, 0.10, 1), exclude={2})
+        self.assertIs(blocks[4]['track'], True)                    # still bracketed by listed 0 and 8
+        self.E[0] = 1000                                           # break the listed pair; only candidate 2 could help
+        p.features(blocks, self.T, self.E, (3, 0.10, 1), exclude={2})
+        self.assertIsNone(blocks[4]['track'])
+
     def test_several_anchor_pairs_find_a_second_machine(self):
         # Nearest anchors (4, 6) are a usable machine-A pair; block 5 is on machine B, whose anchors (1, 7) are further out.
         anchors = [1, 4, 6, 7]

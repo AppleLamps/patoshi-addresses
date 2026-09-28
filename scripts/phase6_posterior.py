@@ -111,10 +111,10 @@ def load():
     return blocks, T, E
 
 
-def features(blocks, T, E, setting=SETTINGS[0]):
+def features(blocks, T, E, setting=SETTINGS[0], exclude=frozenset()):
     """Add the track feature. Anchors: listed blocks plus unlisted dormant band-passing blocks not owned by others."""
     cand = {h for h, b in blocks.items() if not b['listed'] and b['band'] and not b['spent'] and b['loo_label'] != 'other'}
-    anchors = sorted({h for h, b in blocks.items() if b['listed']} | cand)
+    anchors = sorted(({h for h, b in blocks.items() if b['listed']} | cand) - set(exclude))
     for h, b in blocks.items():
         b['candidate'] = h in cand
         b['track'] = track_fit(h, anchors, T, E, setting)
@@ -192,7 +192,8 @@ def fit_em(blocks, orates, prate, iters=500, tol=1e-10):
             fit = sum(post[b['height']] for b in eb if b['track'])
             new_e1.append((ev + 1) / (wsum + 2))          # add-one smoothing keeps sparse eras off 0 and 1
             new_f1.append((fit + 1) / (ev + 2))
-        delta = max([abs(new_pi[w] - pi[w]) for w in windows] + [abs(x - y) for x, y in zip(new_f1, f1)])
+        delta = max([abs(new_pi[w] - pi[w]) for w in windows] + [abs(x - y) for x, y in zip(new_f1, f1)]
+                    + [abs(x - y) for x, y in zip(new_e1, e1)])
         pi, f1, e1 = new_pi, new_f1, new_e1
         if delta < tol:
             break
@@ -216,8 +217,8 @@ def score(blocks, orates, prate, pi, f1, e1):
 
 # ---------------------------------------------------------------- command
 
-def run(blocks, T, E, setting=SETTINGS[0]):
-    features(blocks, T, E, setting)
+def run(blocks, T, E, setting=SETTINGS[0], exclude=frozenset()):
+    features(blocks, T, E, setting, exclude)
     orates = ordinary_rates(blocks)
     prate = patoshi_rates(blocks)
     pi, f1, e1, _ = fit_em(blocks, orates, prate)
@@ -226,23 +227,29 @@ def run(blocks, T, E, setting=SETTINGS[0]):
 
 def holdout(T, E, fraction=0.1, seed=SEED):
     """Sensitivity: hide a random fraction of listed blocks (not co-spent with others), rerun everything with them
-    unlisted and removed as anchors, and report how they score."""
+    unlisted, and report how they score. Two variants: 'as_omissions' lets hidden blocks anchor each other as
+    unlisted candidates, exactly as real omissions do in the main run; 'strict' excludes them from every anchor set,
+    so each is scored only against the blocks that remain listed and the genuine candidates."""
     import random
-    blocks, _, _ = load()
+    base, _, _ = load()
     rng = random.Random(seed)
-    pool = sorted(h for h, b in blocks.items() if b['listed'] and b['loo_label'] != 'other')
+    pool = sorted(h for h, b in base.items() if b['listed'] and b['loo_label'] != 'other')
     hidden = set(rng.sample(pool, int(fraction * len(pool))))
-    for h in hidden:
-        blocks[h]['listed'] = False
-    post = run(blocks, T, E)[-1]
-    out = []
-    for e, (a, z) in enumerate(ERAS):
-        hs = [h for h in hidden if a <= h <= z]
-        if hs:
-            out.append({'era': [a, z], 'hidden': len(hs), 'mean_posterior': round(sum(post[h] for h in hs) / len(hs), 4),
-                        'p_ge_0_5': round(sum(post[h] >= 0.5 for h in hs) / len(hs), 4),
-                        'p_ge_0_9': round(sum(post[h] >= 0.9 for h in hs) / len(hs), 4)})
-    return {'hidden_fraction': fraction, 'seed': seed, 'by_era': out}
+    result = {'hidden_fraction': fraction, 'seed': seed, 'hidden': len(hidden)}
+    for variant, exclude in (('as_omissions', frozenset()), ('strict', frozenset(hidden))):
+        blocks = load()[0]
+        for h in hidden:
+            blocks[h]['listed'] = False
+        post = run(blocks, T, E, SETTINGS[0], exclude)[-1]
+        out = []
+        for a, z in ERAS:
+            hs = [h for h in hidden if a <= h <= z]
+            if hs:
+                out.append({'era': [a, z], 'hidden': len(hs), 'mean_posterior': round(sum(post[h] for h in hs) / len(hs), 4),
+                            'p_ge_0_5': round(sum(post[h] >= 0.5 for h in hs) / len(hs), 4),
+                            'p_ge_0_9': round(sum(post[h] >= 0.9 for h in hs) / len(hs), 4)})
+        result[variant] = out
+    return result
 
 
 def null_check(blocks, orates, prate, pi, f1, e1):

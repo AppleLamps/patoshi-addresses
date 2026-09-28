@@ -1,6 +1,6 @@
-# Phase 5: complete co-spend census (methods, ready to run)
+# Phase 5: complete co-spend census (methods)
 
-Status: **the query has not been run yet.** Everything below is built and tested offline against committed data. The census itself needs one BigQuery query under the project's Google Cloud credentials, which were not available in the session that prepared it. This implements item 1 of the plan in [Phase 4, section 6](../phase4/REPORT.md#6-how-to-expand-from-here-prioritised).
+Status: **run on 2026-09-28** (BigQuery job `job_l81CCOsoTsImvjjfGK_KZ6oZk7vW`, 0.576 TB, 88,285 rows). Results are in [REPORT.md](REPORT.md). This implements item 1 of the plan in [Phase 4, section 6](../phase4/REPORT.md#6-how-to-expand-from-here-prioritised). The sections below were written before the run and are kept as the pre-registered design; the omission bound (REPORT section 4) and the post-endpoint test (section 5) were added after seeing the data.
 
 ## What it answers
 
@@ -19,7 +19,7 @@ python scripts/phase5_offline.py census manifest     # offline analysis and chec
 python -m unittest tests.test_phase5
 ```
 
-Authentication is the same gcloud application-default login as Phase 2 (`gcloud auth application-default login`). Set `GCLOUD` to the gcloud executable if it is not at the Phase 2 Windows path, and `BQ_PROJECT` to bill a different project.
+Authentication is the same gcloud application-default login as Phase 2 (`gcloud auth application-default login`). Set `GCLOUD` to the gcloud executable if it is not at the Phase 2 Windows path, and `BQ_PROJECT` to bill a different project. Without gcloud, set `GOOGLE_APPLICATION_CREDENTIALS` to a service-account JSON key with BigQuery job permission; the key is read in place and never copied (this is how the 2026-09-28 run was made).
 
 **Expected cost.** The query reads the same six columns of the `inputs` view (`transaction_hash`, `index`, `spent_transaction_hash`, `spent_output_index`, `block_number`, `block_timestamp`) as Phase 3's `trace_edges` queries. Those processed 0.576 TB each. The coinbase part is partition-pruned to 2009 to May 2010 (Phase 2's equivalent read 0.45 GB). So about **0.58 TB, roughly US$3.30 at on-demand prices or free within the monthly 1 TiB tier**. The dry run prints the actual figure before anything is billed. `--execute` refuses to run if the estimate exceeds the cap.
 

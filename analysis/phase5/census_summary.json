@@ -1,0 +1,340 @@
+{
+  "population": {
+    "heights": "0-54619",
+    "blocks_with_coinbase_rows": 54620,
+    "heights_missing_coinbase_rows": [],
+    "heights_missing_count": 0,
+    "list_span": [
+      3,
+      49973
+    ],
+    "listed": 21953,
+    "unlisted_in_span": 28018
+  },
+  "spending": {
+    "spending_transactions": 2644,
+    "spending_transactions_with_two_or_more_early_coinbases": 1469,
+    "blocks_spent": 27898,
+    "listed_blocks_spent": 31,
+    "blocks_with_outputs_spent_in_different_transactions": 0,
+    "multi_output_coinbases": 0,
+    "spend_height_range": [
+      170,
+      965646
+    ]
+  },
+  "clusters": {
+    "multi_block_clusters": 1469,
+    "blocks_in_multi_block_clusters": 26723,
+    "largest_cluster_blocks": 886,
+    "by_nonce_label": {
+      "other": 1285,
+      "undetermined": 183,
+      "patoshi": 1
+    },
+    "by_list_majority": {
+      "unlisted_only": 1455,
+      "listed_only": 2,
+      "listed_majority": 1,
+      "unlisted_majority": 11
+    },
+    "address_linked_largest_cluster_blocks": 886,
+    "address_linked_multi_block_clusters": 1469
+  },
+  "nonce_label_rule": {
+    "pass_rate_other_miner": 0.1953125,
+    "pass_rate_patoshi": 0.99,
+    "threshold_likelihood_ratio": 1000,
+    "weights_per_co_member": {
+      "pass": 1.6231,
+      "fail": -4.3879
+    },
+    "expected_mislabels": {
+      "patoshi_labels_if_all_co_members_were_other_miners": 0.1566,
+      "other_labels_if_all_co_members_were_patoshi": 0.237
+    }
+  },
+  "measurement": {
+    "list_false_positive_rate_among_other_miner_blocks": {
+      "blocks": 22959,
+      "hits": 12,
+      "rate": 0.0005226708480334509,
+      "wilson95": [
+        0.0002990251582389687,
+        0.0009134318859448124
+      ],
+      "cluster_bootstrap95": [
+        0.00024314507327941214,
+        0.0008711116026052022
+      ],
+      "clusters": 901,
+      "implied_false_positive_heights": 14.651849915021572,
+      "implied_false_positive_heights_ci": [
+        6.81409547688663,
+        24.428084469603448
+      ],
+      "implied_precision": 0.9993325809723035
+    },
+    "list_omission_rate_among_patoshi_owned_blocks": {
+      "blocks": 10,
+      "hits": 1,
+      "rate": 0.1,
+      "wilson95": [
+        0.017876212896073995,
+        0.4041500295247722
+      ],
+      "cluster_bootstrap95": [
+        0.1,
+        0.1
+      ],
+      "clusters": 1,
+      "implied_omitted_heights": 2439.222222222222,
+      "implied_recall": 0.9
+    },
+    "confusion_loo_label_by_list": {
+      "other|listed": 12,
+      "other|unlisted": 22947,
+      "patoshi|listed": 9,
+      "patoshi|unlisted": 1,
+      "unclustered|listed": 21928,
+      "unclustered|unlisted": 4412,
+      "undetermined|listed": 4,
+      "undetermined|unlisted": 658
+    }
+  },
+  "non_patoshi_background_pass_rate": {
+    "blocks": 22947,
+    "passes": 4500,
+    "rate": 0.19610406589096613,
+    "wilson95": [
+      0.1910178871914519,
+      0.20129197539082289
+    ],
+    "uniform_rate": 0.1953125
+  },
+  "omission_bound": {
+    "unlisted_not_other_miner": 5071,
+    "of_which_pass_band": 1144,
+    "of_which_pass_band_unspent": 893,
+    "chance_passes": 994.4,
+    "excess": 149.6,
+    "excess_ci95": [
+      94.1,
+      205.0
+    ],
+    "recall_lower_bound": 0.9504383179492166,
+    "recall_estimate": 0.9932270757345371,
+    "recall_estimate_ci95": [
+      0.9907421407724553,
+      0.9957290265993597
+    ]
+  },
+  "after_list_end": {
+    "unlisted_not_other_miner": 1947,
+    "of_which_pass_band": 662,
+    "of_which_pass_band_unspent": 482,
+    "chance_passes": 381.8,
+    "excess": 280.2,
+    "excess_ci95": [
+      245.8,
+      314.5
+    ]
+  },
+  "phase4_comparison": {
+    "list_majority_zero_truncated_mle": {
+      "p_hat": 0.003268086786790813,
+      "ci95_profile": [
+        0.0001918705139177459,
+        0.013268161781545778
+      ]
+    },
+    "list_majority_unlisted_majority_clusters_with_a_listed_member": 11,
+    "unlisted_blocks_in_unlisted_clusters_broad_nonce_rate": 0.1962018204292617,
+    "phase4_first_spends": {
+      "transactions": 20,
+      "found_in_census": 20,
+      "listed_counts_equal": 20,
+      "unlisted_gained_from_previously_unmapped_inputs": 9,
+      "rows": [
+        {
+          "spending_txid": "f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "d71fd2f64c0b34465b7518d240c00e83f6a5b10138a7079d1252858fe7e6b577",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "7d73200eac9b66ea105fe63378c69f5d68663f925297117ed178deaddb6fc3d5",
+          "phase4_listed": 2,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 2,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "4b96658d39f7fd4241442e6dc9877c8ee0fe0d82477e6014e1681d1efe052c8d",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "ea84d39ef6f7b3b23fbf899e11a9bb18478a19413579a69f3005359da7a62c49",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "c2a9e7f555f9dbfa76b0d5fb1d007ce2c687e7875f6033c38caf7e28925b6eb5",
+          "phase4_listed": 1,
+          "phase4_unlisted": 27,
+          "phase4_unmapped_inputs": 5,
+          "census_listed": 1,
+          "census_unlisted": 32
+        },
+        {
+          "spending_txid": "499d0f5d452891ebe18a8c23cc0a554459a0ba3341ef021f3fae15926a977ffd",
+          "phase4_listed": 9,
+          "phase4_unlisted": 1,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 9,
+          "census_unlisted": 1
+        },
+        {
+          "spending_txid": "028ad2c836163295e4723a49dd418ee8fb55a14613b1186675f01124b60fb763",
+          "phase4_listed": 2,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 2,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "66829539576d0b3b9180aa882622675760c23e5ba7f862dcb38dba034993636d",
+          "phase4_listed": 1,
+          "phase4_unlisted": 38,
+          "phase4_unmapped_inputs": 1,
+          "census_listed": 1,
+          "census_unlisted": 38
+        },
+        {
+          "spending_txid": "d3b94dcede3cbb08c7c0fdd1889478baa5a0b482cd917f276fa07be702326385",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "29591d211054478ed22c93571955cb92ef4ec2b40d914a43ba3a91d52a171c61",
+          "phase4_listed": 1,
+          "phase4_unlisted": 202,
+          "phase4_unmapped_inputs": 2,
+          "census_listed": 1,
+          "census_unlisted": 204
+        },
+        {
+          "spending_txid": "8abde2a358ca9594df1bcef520b68aed9655aee50aae01adb50667c71bb24d4e",
+          "phase4_listed": 1,
+          "phase4_unlisted": 10,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 10
+        },
+        {
+          "spending_txid": "d6e8d9348ebdc3d98fd6f1b34f5628813901a8594e655942378489e17f1dca68",
+          "phase4_listed": 1,
+          "phase4_unlisted": 18,
+          "phase4_unmapped_inputs": 4,
+          "census_listed": 1,
+          "census_unlisted": 19
+        },
+        {
+          "spending_txid": "3d9ffe4f847738863f14d7811484cce02b192c41702f2d27c974ec90d6902c9a",
+          "phase4_listed": 1,
+          "phase4_unlisted": 19,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 19
+        },
+        {
+          "spending_txid": "4dcc0f56c1bec15e29c3efdaf562cf6a2893e2b819112e9ea4e92d6b256a79db",
+          "phase4_listed": 1,
+          "phase4_unlisted": 20,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 20
+        },
+        {
+          "spending_txid": "d95a53ceb013656da033cfd490548d2c2c30b651127f4b0c4633fe83b4a1bccc",
+          "phase4_listed": 1,
+          "phase4_unlisted": 59,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 59
+        },
+        {
+          "spending_txid": "16dbad11f2d1b7148ff6e50566560aef537beffe07b1529c9a3616c57cc7800d",
+          "phase4_listed": 1,
+          "phase4_unlisted": 0,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 0
+        },
+        {
+          "spending_txid": "3e60741b3b2a0cd50afb62702e9be55cbf40831fb42f2e36e361c7f84b6fd7d7",
+          "phase4_listed": 1,
+          "phase4_unlisted": 39,
+          "phase4_unmapped_inputs": 0,
+          "census_listed": 1,
+          "census_unlisted": 39
+        },
+        {
+          "spending_txid": "907bc01510f15727d4db00a188309c0bb7cf47dd76dac1b2f8624eb2ef4f7d75",
+          "phase4_listed": 2,
+          "phase4_unlisted": 57,
+          "phase4_unmapped_inputs": 27,
+          "census_listed": 2,
+          "census_unlisted": 58
+        },
+        {
+          "spending_txid": "2efb698e61a9d9958b913d8e9c829874bfa8e67d25182f9c3580f5170e2463a7",
+          "phase4_listed": 1,
+          "phase4_unlisted": 79,
+          "phase4_unmapped_inputs": 1,
+          "census_listed": 1,
+          "census_unlisted": 79
+        }
+      ]
+    }
+  },
+  "track_test": {
+    "listed_blocks_with_other_miner_co_members": 12,
+    "observed_fits": 8,
+    "cluster_level": {
+      "clusters": 11,
+      "clusters_with_a_fit": 7,
+      "expected_if_chance": 0.7125,
+      "poisson_binomial_upper_tail_p": 8.013045015494366e-08,
+      "expected_if_chance_wilson_upper": 1.7573,
+      "poisson_binomial_upper_tail_p_wilson_upper": 4.549268561517923e-05
+    }
+  },
+  "omission_candidates": {
+    "unlisted_blocks_with_patoshi_co_members": 1,
+    "tight_nonce_pass": 1,
+    "run_sandwich": 1
+  },
+  "assumptions": "Common-input ownership: all inputs of one transaction are controlled by one entity, and every output of a coinbase belongs to its miner. Ownership labels come only from the nonce band of the other blocks spent together (leave-one-out likelihood ratio at 1000:1), never from the list. Blocks never co-spent with another early coinbase carry no ownership label. Spent blocks may not be representative of unspent ones, and custodial or CoinJoin transactions would merge owners."
+}

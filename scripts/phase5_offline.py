@@ -252,19 +252,47 @@ def track_tests(blocks, clusters, headers, lsorted):
     return track
 
 
-def era_table(blocks, width=5000):
+def background_pass_rate(blocks, span):
+    """Own-nonce pass rate of unlisted blocks whose co-members are another miner: the measured non-Patoshi rate."""
+    bs = [b for b in blocks.values() if span[0] <= b['height'] <= span[1] and not b['listed'] and b['loo_label'] == 'other']
+    k = sum(b['broad_nonce_pass'] for b in bs)
+    return {'blocks': len(bs), 'passes': k, 'rate': k / len(bs) if bs else None, 'wilson95': wilson(k, len(bs)),
+            'uniform_rate': PASS_OTHER}
+
+
+def omission_room(bs, background):
+    """Unlisted blocks that could still be omitted Patoshi blocks: not owned by another miner, and passing the band.
+
+    Any omitted Patoshi block must be in this set (assuming Patoshi blocks always pass the band), so its size is an
+    upper bound. Ordinary blocks in the set pass at the background rate, so the excess over that is an estimate."""
+    free = [b for b in bs if not b['listed'] and b['loo_label'] != 'other']
+    n, k = len(free), sum(b['broad_nonce_pass'] for b in free)
+    expected = background * n
+    sd = math.sqrt(n * background * (1 - background))
+    return {'unlisted_not_other_miner': n, 'of_which_pass_band': k,
+            'of_which_pass_band_unspent': sum(b['broad_nonce_pass'] and not b['spent'] for b in free),
+            'chance_passes': round(expected, 1), 'excess': round(k - expected, 1),
+            'excess_ci95': [round(max(0.0, k - expected - 1.96 * sd), 1), round(k - expected + 1.96 * sd, 1)]}
+
+
+def era_table(blocks, background, span, width=5000):
     rows = []
     for lo in range(0, MAX_HEIGHT + 1, width):
         bs = [b for b in blocks.values() if lo <= b['height'] < lo + width]
         other = [b for b in bs if b['loo_label'] == 'other']
         pat = [b for b in bs if b['loo_label'] == 'patoshi']
+        room = omission_room([b for b in bs if span[0] <= b['height'] <= span[1]], background)
         rows.append({'heights': f'{lo}-{min(lo + width, MAX_HEIGHT + 1) - 1}', 'blocks': len(bs),
                      'listed': sum(b['listed'] for b in bs), 'spent': sum(b['spent'] for b in bs),
                      'listed_spent': sum(b['spent'] and b['listed'] for b in bs),
                      'in_multi_block_cluster': sum(b['cluster_blocks'] > 1 for b in bs),
                      'loo_other': len(other), 'loo_other_listed': sum(b['listed'] for b in other),
                      'loo_patoshi': len(pat), 'loo_patoshi_unlisted': sum(not b['listed'] for b in pat),
-                     'loo_undetermined': sum(b['loo_label'] == 'undetermined' for b in bs)})
+                     'loo_undetermined': sum(b['loo_label'] == 'undetermined' for b in bs),
+                     'in_span_unlisted_not_other_miner': room['unlisted_not_other_miner'],
+                     'in_span_omission_bound_pass_band': room['of_which_pass_band'],
+                     'in_span_chance_passes': room['chance_passes'], 'in_span_excess': room['excess'],
+                     'in_span_excess_lo95': room['excess_ci95'][0], 'in_span_excess_hi95': room['excess_ci95'][1]})
     return rows
 
 
@@ -296,6 +324,12 @@ def analyse(rows, write=True):
     span = (lsorted[0], lsorted[-1])
     unlisted_in_span = sum(1 for h in range(span[0], span[1] + 1) if h not in listed)
     result = measure(blocks, clusters, span, unlisted_in_span, len(listed))
+    background = background_pass_rate(blocks, span)
+    room = omission_room([b for b in blocks.values() if span[0] <= b['height'] <= span[1]], background['rate'] or PASS_OTHER)
+    tp = len(listed) - (result['list_false_positive_rate_among_other_miner_blocks']['implied_false_positive_heights'] or 0)
+    room['recall_lower_bound'] = tp / (tp + room['of_which_pass_band'])
+    room['recall_estimate'] = tp / (tp + max(0.0, room['excess']))
+    room['recall_estimate_ci95'] = [tp / (tp + room['excess_ci95'][1]), tp / (tp + room['excess_ci95'][0])]
     track = track_tests(blocks, clusters, headers, lsorted)
     omission = []
     for b in sorted(blocks.values(), key=lambda b: b['height']):
@@ -338,6 +372,9 @@ def analyse(rows, write=True):
                              'weights_per_co_member': {'pass': round(W_PASS, 4), 'fail': round(W_FAIL, 4)},
                              'expected_mislabels': expected_mislabels(blocks)},
         'measurement': result,
+        'non_patoshi_background_pass_rate': background,
+        'omission_bound': room,
+        'after_list_end': omission_room([b for b in blocks.values() if b['height'] > span[1]], background['rate'] or PASS_OTHER),
         'phase4_comparison': {
             'list_majority_zero_truncated_mle': p4.zt_binomial_mle([(c['blocks'], c['listed']) for c in list_majority_other])
             if list_majority_other else None,
@@ -373,7 +410,7 @@ def analyse(rows, write=True):
         track_fields = list(track[0]) if track else ['listed_height']
         p4.table('census_listed_with_other_miner_co_members.csv', track, track_fields)
         p4.table('census_omission_candidates.csv', omission, list(omission[0]) if omission else ['height'])
-        p4.table('census_eras.csv', era_table(blocks))
+        p4.table('census_eras.csv', era_table(blocks, background['rate'] or PASS_OTHER, span))
         p4.save('census_summary.json', summary)
     return summary, blocks, txs, clusters
 

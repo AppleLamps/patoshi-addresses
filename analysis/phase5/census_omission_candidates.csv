@@ -1,0 +1,2 @@
+height,cluster_id,cluster_blocks,cluster_listed,spending_txid,nonce_lsb,broad_nonce_pass,tight_nonce_pass,extra_nonce,block_time,left_listed,right_listed,left_en,right_en,run_sandwich
+14450,1760,10,9,499d0f5d452891ebe18a8c23cc0a554459a0ba3341ef021f3fae15926a977ffd,31,True,True,14,2009-05-14 20:23:07+00,14449,14453,12,28,True

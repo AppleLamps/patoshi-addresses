@@ -86,6 +86,16 @@ class Core(unittest.TestCase):
         self.assertEqual((om['hits'], om['blocks']), (0, 5))   # 15 is outside the span
         self.assertAlmostEqual(fp['implied_false_positive_heights'], 5.0)
 
+    def test_omission_room(self):
+        span = [b for b in self.blocks.values() if 3 <= b['height'] <= 29]
+        room = p.omission_room(span, 0.2)
+        # Unlisted and not another miner's: 5-9 and 15-29 (20 blocks, block 4 is 'other'); only 15 passes the band.
+        self.assertEqual((room['unlisted_not_other_miner'], room['of_which_pass_band']), (20, 1))
+        self.assertAlmostEqual(room['chance_passes'], 4.0)
+        self.assertEqual(room['excess_ci95'][0], 0.0)
+        bg = p.background_pass_rate(self.blocks, (0, 29))
+        self.assertEqual((bg['blocks'], bg['passes']), (3, 0))       # blocks 1, 2 and 4
+
 
 class Replication(unittest.TestCase):
     def test_phase4_first_spends_reproduced(self):

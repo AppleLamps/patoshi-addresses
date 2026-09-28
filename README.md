@@ -81,6 +81,7 @@ The later [Debian OpenSSL CVE-2008-0166 follow-up](analysis/phase3/debian/REPORT
 | Novelty work | [report](analysis/phase3/REPORT.md), [methods](analysis/phase3/METHODS.md), [source ledger](analysis/phase3/SOURCES.md), [cached query CSVs](analysis/phase3/results/) |
 | Debian screen | [report](analysis/phase3/debian/REPORT.md), [model/screen](scripts/debian_weak_screen.py), [result](analysis/phase3/debian/result.json), [checksums](analysis/phase3/debian/manifest.json) |
 | Phase 4 | [report](analysis/phase4/REPORT.md), [script](scripts/phase4_offline.py), [co-spend clusters](analysis/phase4/cospend_clusters.csv), [omission scan](analysis/phase4/sandwich_candidates.csv), [discourse](analysis/phase4/DISCOURSE.md), [identifier links](analysis/phase4/LINKS.md), [checksums](analysis/phase4/manifest.json) |
+| Phase 5 (prepared, not yet run) | [methods and run instructions](analysis/phase5/METHODS.md), [census SQL](analysis/phase5/sql/cospend_census.sql), [BigQuery runner](scripts/phase5_bigquery.py), [offline analysis](scripts/phase5_offline.py) |
 
 Install the [analysis dependencies](requirements-analysis.txt) in a Python environment. Offline Phase 1, the committed provenance comparison and all of Phase 4 (`python scripts/phase4_offline.py cospend sandwich fingerprint signatures`, then `python scripts/phase4_links.py` for the identifier cross-reference, then `python scripts/phase4_offline.py manifest`) can be reproduced without cloud credentials:
 
@@ -88,6 +89,8 @@ Install the [analysis dependencies](requirements-analysis.txt) in a Python envir
 python scripts/phase1_offline.py --permutations 1999
 python scripts/provenance_compare.py --source lopp=analysis/provenance/sources/lopp_streaks_2022.php --source tehran=analysis/provenance/sources/tehran_patoshiBlocks_initial.js
 ```
+
+The Phase 5 co-spend census is one BigQuery query (`python scripts/phase5_bigquery.py census`, dry run first, then `--execute`) followed by `python scripts/phase5_offline.py census manifest`; see its [methods](analysis/phase5/METHODS.md).
 
 For Phase 2, the committed [query results](analysis/phase2_bigquery/results/) and [methods](analysis/phase2_bigquery/METHODS.md) preserve the schema, SQL, query identities, output comparisons, spend statuses and watermark. Repeating the **BigQuery collection** requires Google application-default credentials and may process substantial data; a matching completed query reuses its committed CSV. Phase 3 offline reanalysis and its separately cached sources are documented in [Phase 3 methods](analysis/phase3/METHODS.md). The Debian report includes the four commands to validate vectors, rerun the bounded screen, aggregate and checksum it; the full screen is computationally expensive.
 

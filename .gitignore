@@ -24,3 +24,5 @@ __pycache__/
 /.firecrawl/
 /analysis/phase3/cache/
 /analysis/phase3/*.log
+/analysis/phase5/cache/
+/analysis/phase5/*.log

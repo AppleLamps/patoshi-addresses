@@ -4,14 +4,14 @@
     "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c"
   },
   "outputs": {
-    "analysis/phase7/calibration_by_posterior.csv": "f19a4e37b6a8dd5cd94df5c4ee823021e4d6fc99aa9d3f0254edf02c0ec13dfb",
-    "analysis/phase7/habit_tests.csv": "729e33c5623fed7a05d5f821270cddff8956490275d3fc03ab5118eba490716e",
+    "analysis/phase7/calibration_by_posterior.csv": "41634f994da514d94c1bae41bdf1848235b73f1f2416cb52bb8a220db1a76094",
+    "analysis/phase7/habit_tests.csv": "38eb157bdb02557b7ee242771e5bc1b588efebe3b8105cca875b9ea7f1c0fa0e",
     "analysis/phase7/nonce_shape_history.csv": "ae2dd10d92baf9b3aa06f84d18f8870f5c521248d9985840c6c4571cf6c8d8d9",
     "analysis/phase7/second_sequence_blocks.csv": "8e5e5507891e98f8365c5150dc4b5b1085ff15d4596a612b45cc612b8ff44b4a",
     "analysis/phase7/second_sequence_summary.json": "e3c50db28a4d34f88c006fdf77813e9e956dc0d7e3d9b0d4bf203cd6c13f59ea",
-    "analysis/phase7/verify_summary.json": "0c14467ce93807e8f414b595fa3a2629e71df33453c20e7462204ec3a6d0fc8a"
+    "analysis/phase7/verify_summary.json": "119dfbb021528e5c18935ae699c8973f7b992d671b98d6a3977e713ad15ae5a7"
   },
   "scripts": {
-    "scripts/phase7_verify.py": "a0081990484ac23fa5a77f51e974a505250c2dd2cc5735d957266b173413e842"
+    "scripts/phase7_verify.py": "623bd2e992c3d899f4fd5df7729fa8131ccc3d6c2b6be984ba778dec6c79fa38"
   }
 }

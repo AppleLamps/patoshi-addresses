@@ -7,8 +7,9 @@ manifest  SHA-256 of inputs, outputs and scripts
 Habits used here, none of which enters the Phase 6 model:
   nonce shape   where inside the band (0-9 vs 19-58) the nonce low byte falls; Patoshi's share at 0-9 rises from
                 about 0.20 before height 20,000 to about 0.5 from 25,000, while other miners stay near 0.2
-  dead time     two consecutive Patoshi blocks are at least ~312 s apart from height 5,000 on (Lerner 2020,
-                "A New Mystery in Patoshi Timestamps"); ordinary consecutive pairs fall under 300 s ~46% of the time
+  dead time     two consecutive Patoshi blocks are never under 300 s apart from height 5,000 on (Lerner 2020,
+                "A New Mystery in Patoshi Timestamps"; Lopp 2022); the observed floor is 312 s. Tested at 300 s.
+                Ordinary consecutive pairs fall under 300 s ~44% of the time
   clock offset  timestamp minus the median of the six blocks either side
 Offline: reads committed Phase 2 headers and the Phase 5 and 6 outputs.
 """
@@ -19,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'analysis/phase7'
 LIST_END = 49973
-DEAD_TIME = 300
+DEAD_TIME = 300   # test threshold: Lopp's published 300 s; the observed floor for listed pairs is 312 s
 LATE = (25000, LIST_END)            # era where Patoshi's in-band nonce shape differs from other miners'
 TAIL = (LIST_END + 1, 54619)
 EPISODES = {'2009-01-11/12': (150, 210), '2009-01-28/29': (2120, 2180)}
@@ -77,12 +78,16 @@ def wilson(k, n, z=1.959964):
 
 
 def mixture_fraction(k, n, p0, p1):
-    """Patoshi fraction implied by a shape count: rate = f * p1 + (1 - f) * p0. Point estimate and Wilson-based CI."""
+    """Patoshi fraction implied by a shape count: rate = f * p1 + (1 - f) * p0. The estimate and the Wilson-based
+    interval are clamped to [0, 1], since a fraction cannot leave it; the unclamped values are kept alongside."""
     if n == 0 or p1 == p0:
         return None
     f = lambda r: (r - p0) / (p1 - p0)
+    clamp = lambda x: min(1.0, max(0.0, x))
     lo, hi = wilson(k, n)
-    return {'estimate': round(f(k / n), 3), 'ci95': [round(f(lo), 3), round(f(hi), 3)]}
+    raw = [f(k / n), f(lo), f(hi)]
+    return {'estimate': round(clamp(raw[0]), 3), 'ci95': [round(clamp(raw[1]), 3), round(clamp(raw[2]), 3)],
+            'unclamped': [round(x, 3) for x in raw]}
 
 
 def fisher_greater(a, b, c, d):

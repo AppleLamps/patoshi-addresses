@@ -11,7 +11,7 @@ Completed 2026-09-28 UTC. Offline, on committed data only: Phase 2 headers and t
 Phase 6 scored every block using the nonce *band*, dormancy and counter tracks. A fair check has to use evidence that model never saw. Three habits qualify:
 
 - **Nonce shape:** where inside the band (0 to 9 vs 19 to 58) the nonce low byte falls. Phase 6 used only in or out.
-- **Dead time:** two consecutive Patoshi blocks are at least about 312 s apart. First reported by [Lerner (2020)](https://bitslog.com/2020/06/22/a-new-mystery-in-patoshi-timestamps/) and summarised by [Lopp (2022)](https://blog.lopp.net/was-satoshi-a-greedy-miner/).
+- **Dead time:** two consecutive Patoshi blocks are never under 300 s apart (tested at 300 s; the observed floor is 312 s). First reported by [Lerner (2020)](https://bitslog.com/2020/06/22/a-new-mystery-in-patoshi-timestamps/) and summarised by [Lopp (2022)](https://blog.lopp.net/was-satoshi-a-greedy-miner/).
 - **Clock offset:** a block's timestamp minus the median of the six blocks either side.
 
 ## Headline results
@@ -19,7 +19,7 @@ Phase 6 scored every block using the nonce *band*, dormancy and counter tracks. 
 | # | Result | Label |
 |---|---|---|
 | 1 | **Patoshi's nonce shape changed around block 22,500.** Up to 22,499 its in-band share at 0 to 9 is 0.17 to 0.22, like any miner. At 22,500 to 24,999 it drops to 0.04. From 25,000 on it is 0.38 to 0.52. Other miners stay at 0.16 to 0.25 throughout. This makes nonce shape an independent Patoshi signature from 25,000 on. | (a) data, (b) interpretation |
-| 2 | **The post-endpoint core passes the shape test.** The 70 robust-core blocks after 49,973 imply a Patoshi fraction of **0.98** (CI 0.62 to 1.36). The chance of that shape from ordinary blocks is p = 4.6 × 10⁻⁹. The other 248 blocks named at P ≥ 0.9 give **0.89** (CI 0.70 to 1.10, p = 6 × 10⁻²⁴). | (b) |
+| 2 | **The post-endpoint core passes the shape test.** The 70 robust-core blocks after 49,973 imply a Patoshi fraction of **0.98** (CI 0.62 to 1). The chance of that shape from ordinary blocks is p = 4.6 × 10⁻⁹. The other 248 blocks named at P ≥ 0.9 give **0.89** (CI 0.70 to 1, p = 6 × 10⁻²⁴). | (b) |
 | 3 | **Phase 6 is calibrated.** Binning post-endpoint unlisted band-passing blocks by their Phase 6 posterior, the shape-only Patoshi fraction tracks the posterior: 0.03 vs 0.00, 0.43 vs 0.31, 0.91 vs 0.97. A control of ordinary blocks that wrongly passed the Phase 6 track test shows no Patoshi shape (p = 0.21), so the track test does not select for it. | (b) |
 | 4 | **The dead-time rule holds for the list, with one exception: block 24,504.** From height 5,000 on, 10,243 of 10,244 consecutive listed pairs are at least 312 s apart. Other miners' consecutive pairs fall under 300 s 43.5% of the time. The one violation, 24,504 (65 s), is the block Lopp flagged and Phase 4 found swept by another miner. Three independent lines agree on it. | (a) |
 | 5 | **Named blocks respect dead time**, but the sample is small. All 5 consecutive pairs among the 318 named post-endpoint blocks (4 outside the core), and all 4 among the late in-span core, are at least 300 s apart (the chance that all would respect it if the blocks were ordinary: 0.06 for 5 pairs, 0.10 for 4). The dormant band-passing blocks Phase 6 rejected break the rule in 4 of 5 pairs. | (b) |
@@ -42,24 +42,24 @@ Before 22,500 the shape carries no information. From 25,000 it roughly doubles t
 
 ## 2. The post-endpoint tail against independent habits
 
-**(b)** References: Patoshi = listed blocks 25,000 to 49,973 (in-band low share 0.477, from 4,254 blocks); ordinary = other-miner blocks after 49,973 (0.169). A group's Patoshi fraction *f* solves share = *f* × 0.477 + (1 − *f*) × 0.169 ([all groups](habit_tests.csv)).
+**(b)** References: Patoshi = listed blocks 25,000 to 49,973 (in-band low share 0.477, from 4,254 blocks); ordinary = other-miner blocks after 49,973 (0.169). A group's Patoshi fraction *f* solves share = *f* × 0.477 + (1 − *f*) × 0.169, clamped to [0, 1] with its Wilson-based interval ([all groups](habit_tests.csv), which also keeps the unclamped values).
 
 | Group (after 49,973) | Blocks | Mean Phase 6 posterior | Low share | Patoshi fraction from shape (95% CI) | p if ordinary |
 |---|---:|---:|---:|---|---|
-| Robust core | 70 | 0.97 | 0.471 | **0.98** (0.62 to 1.36) | 4.6 × 10⁻⁹ |
-| Named at ≥ 0.9, not core | 248 | 0.97 | 0.444 | **0.89** (0.70 to 1.10) | 6 × 10⁻²⁴ |
+| Robust core | 70 | 0.97 | 0.471 | **0.98** (0.62 to 1) | 4.6 × 10⁻⁹ |
+| Named at ≥ 0.9, not core | 248 | 0.97 | 0.444 | **0.89** (0.70 to 1) | 6 × 10⁻²⁴ |
 | Dormant band-passing, rejected (< 0.5) | 164 | 0.30 | 0.299 | 0.42 (0.21 to 0.66) | 2.9 × 10⁻⁵ |
-| Control: other-miner blocks with a false track fit | 203 | 0 | 0.235 | 0.22 (−0.15 to 0.75) | 0.21 |
+| Control: other-miner blocks with a false track fit | 203 | 0 | 0.235 | 0.22 (0 to 0.75) | 0.21 |
 
 **Calibration.** Post-endpoint unlisted band-passing blocks, not owned by another miner, binned by Phase 6 posterior ([table](calibration_by_posterior.csv)):
 
 | Posterior bin | Blocks | Mean posterior | Shape-only Patoshi fraction (95% CI) |
 |---|---:|---:|---|
-| 0 to 0.1 | 181 | 0.00 | 0.03 (−0.13 to 0.23) |
+| 0 to 0.1 | 181 | 0.00 | 0.03 (0 to 0.23) |
 | 0.1 to 0.5 | 163 | 0.31 | 0.43 (0.22 to 0.67) |
-| 0.9 to 1 | 318 | 0.97 | 0.91 (0.74 to 1.09) |
+| 0.9 to 1 | 318 | 0.97 | 0.91 (0.74 to 1) |
 
-In the late span (25,000 to 49,973) the same check gives 0.10 (0.01 to 0.20) for the 0 to 0.1 bin, 0.17 for 0.1 to 0.5, 0.80 for 0.5 to 0.9, and 0.79 (0.43 to 1.18) for 0.9 to 1. Phase 6 is well calibrated at the top. Its lowest bin in the late span, however, still holds a few percent of Patoshi blocks, about 50 of 666 by point estimate, so **Phase 6 probably undercounts late in-span omissions** that have no track fit.
+In the late span (25,000 to 49,973) the same check gives 0.10 (0.01 to 0.20) for the 0 to 0.1 bin, 0.17 for 0.1 to 0.5, 0.80 for 0.5 to 0.9, and 0.79 (0.43 to 1) for 0.9 to 1. Phase 6 is well calibrated at the top. Its lowest bin in the late span, however, still holds a few percent of Patoshi blocks, about 50 of 666 by point estimate, so **Phase 6 probably undercounts late in-span omissions** that have no track fit.
 
 **Dead time.** The tail has few consecutive Patoshi pairs because Patoshi's share there is small. All 5 pairs among the 318 named blocks respect the rule. The rejected dormant blocks break it in 4 of 5 pairs, which agrees with their low posterior.
 
@@ -89,7 +89,7 @@ The counter analysis below uses the selected blocks, so it describes structure r
 
 ## 4. Limits
 
-- The shape test has wide intervals for small groups (70 blocks gives ±0.37) and is uninformative before 22,500.
+- The shape test has wide intervals for small groups (70 blocks gives a lower bound of 0.62) and is uninformative before 22,500.
 - Dead-time evidence for the tail rests on 5 pairs. It supports the result but is not strong on its own.
 - The Patoshi references are listed blocks, so any list errors enter them. Phase 5 puts those at about 15 of 21,953.
 - Reading the counter sequences as "one counter" or "two counters" is an inference from monotonicity. Two machines restarted at the same moment could in principle mimic one counter.

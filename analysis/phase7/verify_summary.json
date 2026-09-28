@@ -28,7 +28,7 @@
       "in_band": 4254,
       "in_band_low_0_9": 2027,
       "low_share": 0.476,
-      "shape_patoshi_fraction": "{\"estimate\": 1.0, \"ci95\": [0.951, 1.049]}",
+      "shape_patoshi_fraction": "{\"estimate\": 1.0, \"ci95\": [0.951, 1.0], \"unclamped\": [1.0, 0.951, 1.049]}",
       "shape_p_vs_ordinary": 0.0,
       "consecutive_pairs": 483,
       "pairs_under_300s": 0,
@@ -44,7 +44,7 @@
       "in_band": 544,
       "in_band_low_0_9": 92,
       "low_share": 0.169,
-      "shape_patoshi_fraction": "{\"estimate\": 0.0, \"ci95\": [-0.095, 0.11]}",
+      "shape_patoshi_fraction": "{\"estimate\": 0.0, \"ci95\": [0.0, 0.11], \"unclamped\": [0.0, -0.095, 0.11]}",
       "shape_p_vs_ordinary": 0.5177779601194225,
       "consecutive_pairs": 1577,
       "pairs_under_300s": 784,
@@ -60,7 +60,7 @@
       "in_band": 70,
       "in_band_low_0_9": 33,
       "low_share": 0.471,
-      "shape_patoshi_fraction": "{\"estimate\": 0.984, \"ci95\": [0.618, 1.359]}",
+      "shape_patoshi_fraction": "{\"estimate\": 0.984, \"ci95\": [0.618, 1.0], \"unclamped\": [0.984, 0.618, 1.359]}",
       "shape_p_vs_ordinary": 4.582407113710257e-09,
       "consecutive_pairs": 0,
       "pairs_under_300s": 0,
@@ -76,7 +76,7 @@
       "in_band": 248,
       "in_band_low_0_9": 110,
       "low_share": 0.444,
-      "shape_patoshi_fraction": "{\"estimate\": 0.893, \"ci95\": [0.696, 1.095]}",
+      "shape_patoshi_fraction": "{\"estimate\": 0.893, \"ci95\": [0.696, 1.0], \"unclamped\": [0.893, 0.696, 1.095]}",
       "shape_p_vs_ordinary": 6.276562979950918e-24,
       "consecutive_pairs": 4,
       "pairs_under_300s": 0,
@@ -92,7 +92,7 @@
       "in_band": 164,
       "in_band_low_0_9": 49,
       "low_share": 0.299,
-      "shape_patoshi_fraction": "{\"estimate\": 0.422, \"ci95\": [0.211, 0.663]}",
+      "shape_patoshi_fraction": "{\"estimate\": 0.422, \"ci95\": [0.211, 0.663], \"unclamped\": [0.422, 0.211, 0.663]}",
       "shape_p_vs_ordinary": 2.888536830524835e-05,
       "consecutive_pairs": 5,
       "pairs_under_300s": 4,
@@ -108,7 +108,7 @@
       "in_band": 34,
       "in_band_low_0_9": 8,
       "low_share": 0.235,
-      "shape_patoshi_fraction": "{\"estimate\": 0.215, \"ci95\": [-0.146, 0.751]}",
+      "shape_patoshi_fraction": "{\"estimate\": 0.215, \"ci95\": [0.0, 0.751], \"unclamped\": [0.215, -0.146, 0.751]}",
       "shape_p_vs_ordinary": 0.20615572035665577,
       "consecutive_pairs": 32,
       "pairs_under_300s": 16,
@@ -124,7 +124,7 @@
       "in_band": 27,
       "in_band_low_0_9": 15,
       "low_share": 0.556,
-      "shape_patoshi_fraction": "{\"estimate\": 1.257, \"ci95\": [0.664, 1.806]}",
+      "shape_patoshi_fraction": "{\"estimate\": 1.0, \"ci95\": [0.664, 1.0], \"unclamped\": [1.257, 0.664, 1.806]}",
       "shape_p_vs_ordinary": 5.855888408132627e-06,
       "consecutive_pairs": 4,
       "pairs_under_300s": 0,
@@ -142,7 +142,7 @@
       "mean_phase6_posterior": 0.002,
       "low_share": 0.177,
       "shape_patoshi_fraction": 0.025,
-      "shape_ci95_lo": -0.133,
+      "shape_ci95_lo": 0.0,
       "shape_ci95_hi": 0.227
     },
     {
@@ -173,7 +173,7 @@
       "low_share": 0.45,
       "shape_patoshi_fraction": 0.913,
       "shape_ci95_lo": 0.738,
-      "shape_ci95_hi": 1.092
+      "shape_ci95_hi": 1.0
     },
     {
       "region": "late_span",
@@ -192,7 +192,7 @@
       "mean_phase6_posterior": 0.316,
       "low_share": 0.222,
       "shape_patoshi_fraction": 0.173,
-      "shape_ci95_lo": -0.077,
+      "shape_ci95_lo": 0.0,
       "shape_ci95_hi": 0.504
     },
     {
@@ -203,7 +203,7 @@
       "low_share": 0.416,
       "shape_patoshi_fraction": 0.802,
       "shape_ci95_lo": 0.465,
-      "shape_ci95_hi": 1.165
+      "shape_ci95_hi": 1.0
     },
     {
       "region": "late_span",
@@ -213,7 +213,7 @@
       "low_share": 0.412,
       "shape_patoshi_fraction": 0.789,
       "shape_ci95_lo": 0.434,
-      "shape_ci95_hi": 1.175
+      "shape_ci95_hi": 1.0
     }
   ],
   "notes": "Shape test: Patoshi fraction f solves share = f*p1 + (1-f)*p0 with p1 from listed 25,000-49,973 and p0 from other-miner blocks in the tail. Dead time: probability that all pairs respect the 300 s rule if the blocks were ordinary. Clock offset: two-sided Mann-Whitney against the ordinary tail reference."

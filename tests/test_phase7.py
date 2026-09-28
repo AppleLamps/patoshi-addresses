@@ -22,6 +22,10 @@ class Stats(unittest.TestCase):
         self.assertLess(m['ci95'][0], 0.5)
         self.assertGreater(m['ci95'][1], 0.5)
         self.assertIsNone(p.mixture_fraction(0, 0, 0.2, 0.5))
+        m = p.mixture_fraction(60, 100, 0.2, 0.5)                    # share above the Patoshi rate
+        self.assertEqual(m['estimate'], 1.0)
+        self.assertLessEqual(m['ci95'][1], 1.0)
+        self.assertGreater(m['unclamped'][0], 1.0)
 
     def test_fisher_exact(self):
         # [[3, 0], [0, 3]]: the only table at least this extreme; P = 1 / C(6, 3) = 0.05.

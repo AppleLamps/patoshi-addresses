@@ -1,0 +1,10 @@
+tier,blocks,in_span,after_end,before_start,btc,expected_patoshi_blocks
+listed_uncontradicted,21941,21941,0,0,1097052.49,
+listed_contradicted,12,12,0,0,600.0,
+added_robust,111,41,70,0,5550.0,107.0
+added_probable,307,58,248,1,15350.0,296.5
+added_possible,94,93,0,1,4700.0,65.7
+unresolved,1296,952,344,0,64800.0,97.8
+other_miner,25646,22947,2699,0,1282300.87,
+no_patoshi_evidence,5212,3927,1285,0,260600.47,6.2
+genesis,1,0,0,1,50.0,

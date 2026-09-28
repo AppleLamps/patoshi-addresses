@@ -4,10 +4,15 @@ This repository contains public keys from **21,953 early Bitcoin coinbase output
 
 The chain-data balance watermark is **block 968,902, timestamped 2026-09-27 23:24:41 UTC**. BigQuery queries were separate snapshots, and the 21,922 outputs with no indexed spend were not each checked against a live node at the tip. Later spends or index corrections require a fresh audit.
 
+## The revised answer
+
+**Patoshi mined about 22,481 blocks (95% interval 22,388 to 22,572), worth about 1.124 million BTC**, at heights 1 to 54,619. That is the 21,953 listed blocks, minus about 15 false positives (12 identified), plus about 189 omissions inside the list's span and about 353 blocks after its end at 49,973. [Revised list of every height](analysis/phase8/revised_list.csv) with tiers and evidence; [one-page summary with five ten-minute checks](analysis/phase8/REPORT.md). The shipped CSV below is unchanged; the revision is a separate, probabilistic layer.
+
 ## Results at a glance
 
 | Work | Result | Evidence and limit |
 |---|---|---|
+| **Revised count** | **22,481 blocks (22,388 to 22,572), ~1.124M BTC.** Remove 12 named false positives; add 111 robust and 307 probable named blocks (about 14 expected wrong); about 140 more estimated but not yet nameable | [Phase 8](analysis/phase8/REPORT.md); combines Phases 4 to 7, intervals exclude shared model assumptions |
 | CSV audit | 21,953 distinct heights, 3–49,973; valid, unique uncompressed secp256k1 keys; four amounts above 50 BTC | [Phase 1](analysis/phase1/REPORT.md); initially CSV-only |
 | List provenance | CSV heights exactly equal [Lopp's September 2022 published list](https://github.com/jlopp/bitcoin-utils/blob/45b9eb0f0d71dc7dd66c51fd3058943c1f6df0cb/findPatoshiMiningStreaks.php); bundled extractor contains only 6,183 of them | [Provenance report](analysis/provenance/REPORT.md); list membership does not prove miner attribution |
 | Coinbase verification | **21,953/21,953** CSV pubkeys and amounts match indexed coinbase output-zero scripts; zero mismatches | [Phase 2](analysis/phase2_bigquery/REPORT.md); BigQuery, with cryptographic and targeted live checks |
@@ -85,6 +90,10 @@ The later [Debian OpenSSL CVE-2008-0166 follow-up](analysis/phase3/debian/REPORT
 
 [Phase 7](analysis/phase7/REPORT.md) tests Phase 6 against evidence it did not use. Patoshi's nonce *shape* inside the band changes around block 22,500: from 25,000 on about half of its in-band low bytes are 0 to 9, against about a fifth for everyone else. On that basis alone the 70 post-endpoint core blocks are about 98% Patoshi (p = 5 × 10⁻⁹ if they were ordinary), the other 248 named blocks about 89%, and blocks the model rejected mostly not; the posterior is calibrated bin by bin, though it probably misses some late in-span omissions. The published dead-time habit (consecutive Patoshi blocks at least ~312 s apart) holds for 10,243 of 10,244 listed pairs from height 5,000; the exception, 24,504, is the block Phase 4 found swept by another miner. The January 2009 "second machine" splits in two: 28 to 29 January is Patoshi's main counter after a restart that the list missed, while 11 to 12 January is a genuine second counter running alongside the first. More generally, 83% of named in-span omissions sit just after a counter restart or on a concurrent counter.
 
+### 9. One revised answer
+
+[Phase 8](analysis/phase8/REPORT.md) combines the measured pieces into one count and one list. The count is 21,953 − 14.7 + 189 + 353 + 2 ≈ **22,481 blocks (95% interval 22,388 to 22,572), about 1.124M BTC**. A Monte Carlo run carries through the sampling noise, the uncertainty in the ordinary miners' band rate (shared by both omission estimates) and the false-positive interval. The total agrees with the extended public counts (Whale Alert 22,503; satoshi-onchain ~22,540), now with measured error rates and named blocks. [Every height is tiered](analysis/phase8/revised_list.csv): 21,941 listed and uncontradicted, 12 listed but contradicted, 111 robust additions, 307 probable, 94 possible, 1,296 unresolved, and the rest other miners' or without Patoshi evidence. The report ends with five checks, each verifiable from raw headers or one transaction.
+
 ## Files and reproduction
 
 | Area | Primary files |
@@ -99,6 +108,7 @@ The later [Debian OpenSSL CVE-2008-0166 follow-up](analysis/phase3/debian/REPORT
 | Phase 5 | [report](analysis/phase5/REPORT.md), [methods](analysis/phase5/METHODS.md), [census SQL](analysis/phase5/sql/cospend_census.sql), [query result](analysis/phase5/results/cospend_census.csv), [every block's label](analysis/phase5/census_blocks.csv), [eras](analysis/phase5/census_eras.csv), [checksums](analysis/phase5/manifest.json) |
 | Phase 6 | [report](analysis/phase6/REPORT.md), [script](scripts/phase6_posterior.py), [probability per block](analysis/phase6/posterior_blocks.csv), [ranked candidates](analysis/phase6/posterior_candidates.csv), [checksums](analysis/phase6/manifest.json) |
 | Phase 7 | [report](analysis/phase7/REPORT.md), [script](scripts/phase7_verify.py), [habit tests](analysis/phase7/habit_tests.csv), [calibration](analysis/phase7/calibration_by_posterior.csv), [January 2009 episodes](analysis/phase7/second_sequence_blocks.csv), [checksums](analysis/phase7/manifest.json) |
+| Phase 8 | [report](analysis/phase8/REPORT.md), [script](scripts/phase8_synthesis.py), [revised list](analysis/phase8/revised_list.csv), [tiers](analysis/phase8/tier_summary.csv), [estimate](analysis/phase8/revised_estimate.json), [checksums](analysis/phase8/manifest.json) |
 
 Install the [analysis dependencies](requirements-analysis.txt) in a Python environment. Offline Phase 1, the committed provenance comparison and all of Phase 4 (`python scripts/phase4_offline.py cospend sandwich fingerprint signatures`, then `python scripts/phase4_links.py` for the identifier cross-reference, then `python scripts/phase4_offline.py manifest`) can be reproduced without cloud credentials:
 
@@ -107,7 +117,7 @@ python scripts/phase1_offline.py --permutations 1999
 python scripts/provenance_compare.py --source lopp=analysis/provenance/sources/lopp_streaks_2022.php --source tehran=analysis/provenance/sources/tehran_patoshiBlocks_initial.js
 ```
 
-Phase 7 reruns offline with `python scripts/phase7_verify.py verify second manifest`. Phase 6 reruns offline with `python scripts/phase6_posterior.py posterior manifest` (about 40 s). The Phase 5 co-spend census reruns offline from its committed query result with `python scripts/phase5_offline.py census manifest`; repeating the query (`python scripts/phase5_bigquery.py census`, dry run first, then `--execute`) needs BigQuery credentials. See its [methods](analysis/phase5/METHODS.md).
+Phase 8 reruns offline with `python scripts/phase8_synthesis.py list estimate manifest`. Phase 7 reruns offline with `python scripts/phase7_verify.py verify second manifest`. Phase 6 reruns offline with `python scripts/phase6_posterior.py posterior manifest` (about 40 s). The Phase 5 co-spend census reruns offline from its committed query result with `python scripts/phase5_offline.py census manifest`; repeating the query (`python scripts/phase5_bigquery.py census`, dry run first, then `--execute`) needs BigQuery credentials. See its [methods](analysis/phase5/METHODS.md).
 
 For Phase 2, the committed [query results](analysis/phase2_bigquery/results/) and [methods](analysis/phase2_bigquery/METHODS.md) preserve the schema, SQL, query identities, output comparisons, spend statuses and watermark. Repeating the **BigQuery collection** requires Google application-default credentials and may process substantial data; a matching completed query reuses its committed CSV. Phase 3 offline reanalysis and its separately cached sources are documented in [Phase 3 methods](analysis/phase3/METHODS.md). The Debian report includes the four commands to validate vectors, rerun the bounded screen, aggregate and checksum it; the full screen is computationally expensive.
 

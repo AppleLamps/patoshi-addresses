@@ -1,0 +1,105 @@
+{
+  "answer": {
+    "total_blocks_median_and_95ci": [
+      22387.7,
+      22481.1,
+      22572.3
+    ],
+    "total_btc_median_and_95ci": [
+      1119387.0,
+      1124057.0,
+      1128617.0
+    ]
+  },
+  "components": {
+    "total_blocks": [
+      22387.7,
+      22481.1,
+      22572.3
+    ],
+    "false_positives": [
+      12.0,
+      14.7,
+      23.5
+    ],
+    "omitted_in_span": [
+      111.2,
+      188.6,
+      265.0
+    ],
+    "after_list_end": [
+      308.4,
+      353.0,
+      397.1
+    ],
+    "before_list_start": [
+      1.0,
+      2.0,
+      2.0
+    ],
+    "total_btc": [
+      1119387.0,
+      1124057.0,
+      1128617.0
+    ]
+  },
+  "inputs": {
+    "listed": 21953,
+    "listed_fee_btc": 2.49,
+    "b": 0.19610406589096613,
+    "b_sd": 0.002620940867186474,
+    "fp": 14.651849915021572,
+    "fp_sd": 4.493364538958373,
+    "fp_identified": 12,
+    "in_span": {
+      "k": 1144,
+      "n": 5071,
+      "floor": 41
+    },
+    "after_end": {
+      "k": 662,
+      "n": 1947,
+      "floor": 70
+    },
+    "pre": [
+      0.83416,
+      0.98135
+    ]
+  },
+  "sensitivity_total_blocks_95ci": {
+    "patoshi_band_rate_1.0": [
+      22382.1,
+      22474.3,
+      22564.5
+    ],
+    "tail_background_from_tail_other_miners": [
+      22380.3,
+      22469.8,
+      22558.4
+    ],
+    "tail_background_rate_used": 0.2016,
+    "phase6_sum_of_posteriors_instead": 22511.5,
+    "phase5_intervals_without_background_uncertainty": [
+      22398.2,
+      22480.8,
+      22562.9
+    ]
+  },
+  "named_by_tier": {
+    "listed_uncontradicted": 21941,
+    "listed_contradicted": 12,
+    "added_robust": 111,
+    "added_probable": 307,
+    "added_possible": 94,
+    "unresolved": 1296,
+    "other_miner": 25646,
+    "no_patoshi_evidence": 5212,
+    "genesis": 1
+  },
+  "comparison": {
+    "lopp_2022_list": 21953,
+    "whale_alert_2020_to_54316": 22503,
+    "satoshi_onchain_2026_to_54458": 22540
+  },
+  "notes": "Intervals combine sampling noise in each band count, uncertainty in the shared background band rate (measured on 22,947 other-miner blocks), and the cluster-bootstrap interval of false positives, floored at the 12 identified. Omission estimates are clipped to at least the robust-core count and at most the candidate bound. Heights are treated as independent, as in Phase 5, so intervals are optimistic; shared model assumptions (co-spend ownership, the band as a Patoshi signature) are not in the interval. The tail-background sensitivity run uses the band pass rate of other-miner blocks after 49,973 for the post-endpoint estimate instead of the all-era rate."
+}

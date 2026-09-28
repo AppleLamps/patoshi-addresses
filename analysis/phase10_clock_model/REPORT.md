@@ -38,18 +38,18 @@ Using q_cell per block, instead of one Patoshi rate, is what removes most of the
 | **V2** known ordinary blocks wrongly named at P ≥ 0.9, before 25,000 (554 blocks) | 0.54% | **0.36%** | no higher | pass |
 | **V2** same, 25,000 to 49,973 (1,579) | 0.63% | **0.51%** | no higher | pass |
 | **V2** same, after 49,973 (257) | 4.67% | **2.72%** | no higher | pass |
-| **V3** nonce-shape calibration, heights ≥ 25,000 | | mean posterior inside the shape interval in all 4 bins | all bins with ≥ 30 blocks | pass |
+| **V3** nonce-shape calibration, late span and tail separately | | mean posterior inside the shape interval in all 7 counted bins | all bins with ≥ 30 blocks | pass |
 
-The V3 bins, as mean posterior against the fraction inferred from nonce shape:
+The V3 bins, as mean posterior against the fraction inferred from nonce shape. Each range uses an ordinary reference from the same heights: amendment A1, after a review comment on the first run, which had pooled the two ranges.
 
-| Posterior bin | Blocks | Mean posterior | Shape-based fraction (95% CI) |
-|---|---:|---:|---|
-| 0 to 0.1 | 964 | 0.008 | 0 (0 to 0.04) |
-| 0.1 to 0.5 | 48 | 0.28 | 0.18 (0 to 0.68) |
-| 0.5 to 0.9 | 100 | 0.76 | 0.87 (0.53 to 1) |
-| 0.9 to 1 | 442 | 0.985 | 0.92 (0.75 to 1) |
+| Posterior bin | Late span 25,000 to 49,973: blocks, mean posterior, shape fraction (95% CI) | Tail 49,974 to 54,619: blocks, mean posterior, shape fraction (95% CI) |
+|---|---|---|
+| 0 to 0.1 | 694, 0.005, (0 to 0.07) | 270, 0.014, (0 to 0.14) |
+| 0.1 to 0.5 | 34, 0.26, (0 to 0.60) | 14 (too few to count), 0.34, (0 to 1) |
+| 0.5 to 0.9 | 40, 0.68, (0.22 to 1) | 60, 0.82, (0.58 to 1) |
+| 0.9 to 1 | 124, 0.98, (0.54 to 1) | 318, 0.99, (0.78 to 1) |
 
-The shape references are listed blocks at 25,000 to 49,973 (0.477) and co-spent ordinary blocks at the same heights (0.200). In Phase 7 the lowest bin of the late span still held a few percent of Patoshi blocks; here it is at zero. So the clock has closed most of the undercount Phase 7 found.
+The Patoshi shape reference is listed blocks at 25,000 to 49,973 (0.477). The ordinary references are co-spent ordinary blocks at the same heights: 0.205 from 3,313 blocks in the late span and 0.169 from 544 in the tail. In Phase 7 the lowest bin of the late span still held a few percent of Patoshi blocks (0.10, CI 0.01 to 0.20); here its upper bound is 0.07.
 
 **V2 uses only the half of the ordinary blocks that played no part in defining the clock's reference cells.**
 

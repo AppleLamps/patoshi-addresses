@@ -141,50 +141,147 @@
   "pass": true
  },
  "V3_shape_calibration": {
-  "ordinary_shape_reference": 0.1999,
-  "bins": [
-   {
-    "bin": "0-0.1",
-    "blocks": 964,
-    "mean_posterior": 0.008,
-    "shape_fraction": -0.055,
-    "shape_lo": 0.0,
-    "shape_hi": 0.038,
-    "inside": 1.0,
-    "counts_for_V3": true
+  "by_range": {
+   "late_span_25000_49973": {
+    "bins": [
+     {
+      "bin": "0-0.1",
+      "blocks": 694,
+      "mean_posterior": 0.005,
+      "shape_fraction": -0.044,
+      "shape_lo": 0.0,
+      "shape_hi": 0.07,
+      "inside": 1.0,
+      "counts_for_V3": true
+     },
+     {
+      "bin": "0.1-0.5",
+      "blocks": 34,
+      "mean_posterior": 0.262,
+      "shape_fraction": 0.003,
+      "shape_lo": 0.0,
+      "shape_hi": 0.599,
+      "inside": 1.0,
+      "counts_for_V3": true
+     },
+     {
+      "bin": "0.5-0.9",
+      "blocks": 40,
+      "mean_posterior": 0.675,
+      "shape_fraction": 0.717,
+      "shape_lo": 0.215,
+      "shape_hi": 1.0,
+      "inside": 1.0,
+      "counts_for_V3": true
+     },
+     {
+      "bin": "0.9-1",
+      "blocks": 124,
+      "mean_posterior": 0.978,
+      "shape_fraction": 0.847,
+      "shape_lo": 0.539,
+      "shape_hi": 1.0,
+      "inside": 1.0,
+      "counts_for_V3": true
+     }
+    ],
+    "ordinary_shape_reference": 0.205,
+    "ordinary_reference_blocks": 3313
    },
-   {
-    "bin": "0.1-0.5",
-    "blocks": 48,
-    "mean_posterior": 0.284,
-    "shape_fraction": 0.181,
-    "shape_lo": 0.0,
-    "shape_hi": 0.678,
-    "inside": 1.0,
-    "counts_for_V3": true
-   },
-   {
-    "bin": "0.5-0.9",
-    "blocks": 100,
-    "mean_posterior": 0.762,
-    "shape_fraction": 0.866,
-    "shape_lo": 0.53,
-    "shape_hi": 1.0,
-    "inside": 1.0,
-    "counts_for_V3": true
-   },
-   {
-    "bin": "0.9-1",
-    "blocks": 442,
-    "mean_posterior": 0.985,
-    "shape_fraction": 0.92,
-    "shape_lo": 0.754,
-    "shape_hi": 1.0,
-    "inside": 1.0,
-    "counts_for_V3": true
+   "tail_49974_54619": {
+    "bins": [
+     {
+      "bin": "0-0.1",
+      "blocks": 270,
+      "mean_posterior": 0.014,
+      "shape_fraction": -0.02,
+      "shape_lo": 0.0,
+      "shape_hi": 0.138,
+      "inside": 1.0,
+      "counts_for_V3": true
+     },
+     {
+      "bin": "0.1-0.5",
+      "blocks": 14,
+      "mean_posterior": 0.337,
+      "shape_fraction": 0.611,
+      "shape_lo": 0.0,
+      "shape_hi": 1.0,
+      "inside": 1.0,
+      "counts_for_V3": false
+     },
+     {
+      "bin": "0.5-0.9",
+      "blocks": 60,
+      "mean_posterior": 0.82,
+      "shape_fraction": 0.966,
+      "shape_lo": 0.575,
+      "shape_hi": 1.0,
+      "inside": 1.0,
+      "counts_for_V3": true
+     },
+     {
+      "bin": "0.9-1",
+      "blocks": 318,
+      "mean_posterior": 0.987,
+      "shape_fraction": 0.952,
+      "shape_lo": 0.777,
+      "shape_hi": 1.0,
+      "inside": 1.0,
+      "counts_for_V3": true
+     }
+    ],
+    "ordinary_shape_reference": 0.1691,
+    "ordinary_reference_blocks": 544
    }
-  ],
-  "pass": true
+  },
+  "patoshi_shape_reference": 0.477,
+  "pass": true,
+  "first_run_pooled_superseded_by_A1": {
+   "ordinary_shape_reference": 0.1999,
+   "bins": [
+    {
+     "bin": "0-0.1",
+     "blocks": 964,
+     "mean_posterior": 0.008,
+     "shape_fraction": -0.055,
+     "shape_lo": 0.0,
+     "shape_hi": 0.038,
+     "inside": 1.0,
+     "counts_for_V3": true
+    },
+    {
+     "bin": "0.1-0.5",
+     "blocks": 48,
+     "mean_posterior": 0.284,
+     "shape_fraction": 0.181,
+     "shape_lo": 0.0,
+     "shape_hi": 0.678,
+     "inside": 1.0,
+     "counts_for_V3": true
+    },
+    {
+     "bin": "0.5-0.9",
+     "blocks": 100,
+     "mean_posterior": 0.762,
+     "shape_fraction": 0.866,
+     "shape_lo": 0.53,
+     "shape_hi": 1.0,
+     "inside": 1.0,
+     "counts_for_V3": true
+    },
+    {
+     "bin": "0.9-1",
+     "blocks": 442,
+     "mean_posterior": 0.985,
+     "shape_fraction": 0.92,
+     "shape_lo": 0.754,
+     "shape_hi": 1.0,
+     "inside": 1.0,
+     "counts_for_V3": true
+    }
+   ]
+  }
  },
  "adopted_as_calibrated": true,
  "tiers": {

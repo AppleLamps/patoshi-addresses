@@ -46,3 +46,14 @@ Phase 6's model is unchanged: the same code, band, dormancy, co-spend label and 
 ## Amendments
 
 None at the time of writing.
+
+### A1, written 2026-09-28 after a review comment on the first run's V3, before V3 was recomputed
+
+The first V3 pooled heights ≥ 25,000 for both the candidates and the ordinary reference (0.200), while the Patoshi reference (0.477) comes from listed blocks at 25,000 to 49,973. Ordinary blocks after 49,973 therefore entered the reference without a matching Patoshi population (review comment on PR #9).
+
+V3 is now computed separately for two ranges, each with its ordinary reference taken from `other_miner` band-passing blocks at the same heights:
+
+- **Late span**, 25,000 to 49,973.
+- **Tail**, 49,974 to 54,619. The tail has no listed blocks, so it keeps the Patoshi reference 0.477, as Phase 7 did for the tail.
+
+The pass rule is unchanged: every bin with at least 30 blocks, in each range, must have its mean posterior inside the shape interval. The first run's pooled bins are kept in the summary for the record.

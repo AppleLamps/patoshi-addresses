@@ -128,12 +128,13 @@ def holdout_rates(clock):
     return out
 
 
-def shape_calibration(blocks, post):
-    """V3: nonce-shape Patoshi fraction per posterior bin, heights >= 25,000."""
+def shape_calibration(blocks, post, lo=25_000, hi=p6.MAX_HEIGHT):
+    """V3: nonce-shape Patoshi fraction per posterior bin, heights lo to hi. The ordinary reference is band-passing
+    other-miner blocks at the same heights (amendment A1); the Patoshi reference is Phase 7's 0.477."""
     low = lambda h: (B9[h]['n'] & 255) <= 9
-    ref = [h for h, b in blocks.items() if h >= 25_000 and b['loo_label'] == 'other' and b['band']]
+    ref = [h for h, b in blocks.items() if lo <= h <= hi and b['loo_label'] == 'other' and b['band']]
     o_share = sum(low(h) for h in ref) / len(ref)
-    cand = [h for h, b in blocks.items() if h >= 25_000 and not b['listed'] and b['loo_label'] != 'other' and b['band']]
+    cand = [h for h, b in blocks.items() if lo <= h <= hi and not b['listed'] and b['loo_label'] != 'other' and b['band']]
     rows = []
     for lo_, hi_ in ((0, 0.1), (0.1, 0.5), (0.5, 0.9), (0.9, 1.0001)):
         hs = [h for h in cand if lo_ <= post[h] < hi_]
@@ -147,7 +148,7 @@ def shape_calibration(blocks, post):
         rows.append({'bin': f'{lo_}-{min(hi_, 1)}', 'blocks': len(hs), 'mean_posterior': round(mean_p, 3),
                      'shape_fraction': round(f(k / len(hs)), 3), 'shape_lo': round(lo_f, 3), 'shape_hi': round(hi_f, 3),
                      'inside': lo_f <= mean_p <= hi_f, 'counts_for_V3': len(hs) >= 30})
-    return rows, round(o_share, 4)
+    return rows, round(o_share, 4), len(ref)
 
 
 def e1_aggregate():
@@ -184,47 +185,50 @@ def model():
     for h in sorted(blocks):
         b, r = blocks[h], p6rows[h]
         m = dict(r, posterior=post[h], posterior_min_over_settings=robust[h])
-        rows.append({'height': h, 'listed': b['listed'], 'co_spend_label': b['loo_label'], 'band': b['band'],
-                     'spent': b['spent'], 'track_fit': r['track_fit'],
-                     'clock_pi': '' if b['pi'] is None else round(b['pi'], 4),
-                     'clock_inconsistent': '' if b['clock'] is None else b['clock'],
-                     'posterior_phase6': float(r['posterior']), 'min_over_settings_phase6': float(r['posterior_min_over_settings']),
-                     'posterior_m10': round(post[h], 5), 'min_over_settings_m10': round(robust[h], 5),
-                     'tier_phase8': p8.tier(r), 'tier_m10': p8.tier({k: str(v) for k, v in m.items()})})
+        row = dict(r)                                   # every Phase 6 column, unchanged
+        row.update({'clock_pi': '' if b['pi'] is None else round(b['pi'], 4),
+                    'clock_inconsistent': '' if b['clock'] is None else b['clock'],
+                    'posterior_m10': round(post[h], 5), 'min_over_settings_m10': round(robust[h], 5),
+                    'tier_phase8': p8.tier(r), 'tier_m10': p8.tier({k: str(v) for k, v in m.items()})})
+        rows.append(row)
     write_csv('posterior_m10.csv', rows)
     tiers = {}
     for r in rows:
         for key in ('tier_phase8', 'tier_m10'):
             tiers.setdefault(r[key], {'tier_phase8': 0, 'tier_m10': 0})[key] += 1
-    moved = [{'height': r['height'], 'from': r['tier_phase8'], 'to': r['tier_m10'], 'p6': r['posterior_phase6'],
+    moved = [{'height': r['height'], 'from': r['tier_phase8'], 'to': r['tier_m10'], 'p6': r['posterior'],
               'm10': r['posterior_m10'], 'min_m10': r['min_over_settings_m10'], 'clock_inconsistent': r['clock_inconsistent']}
              for r in rows if r['tier_phase8'] != r['tier_m10']]
     write_csv('tier_changes.csv', moved)
 
     def expected(lo, hi, key):
-        return round(sum(r[key] for r in rows if lo <= r['height'] <= hi and not r['listed'] and r['co_spend_label'] != 'other'), 1)
+        return round(sum(float(r[key]) for r in rows if lo <= int(r['height']) <= hi and r['listed'] != 'True'
+                         and r['co_spend_label'] != 'other'), 1)
     v1_base, v1 = holdout_rates(False), holdout_rates(True)
     v2_base, v2 = null_rates(False, *base[:6]), null_rates(True, blocks, orates, prate, pi, f1, e1)
-    v3, o_share = shape_calibration(blocks, post)
+    v3_pooled, o_pooled, _ = shape_calibration(blocks, post)
+    v3 = {name: dict(zip(('bins', 'ordinary_shape_reference', 'ordinary_reference_blocks'), shape_calibration(blocks, post, lo, hi)))
+          for name, lo, hi in (('late_span_25000_49973', 25_000, p6.LIST_END), ('tail_49974_54619', p6.LIST_END + 1, p6.MAX_HEIGHT))}
     global USE_CLOCK
     USE_CLOCK = True
     prereg_v1 = {0: 0.975, 1: 0.646}
     v1_pass = all(v1[i]['p_ge_0_9'] >= prereg_v1[i] - 0.02 for i in (0, 1))
     v2_pass = all(v2[i]['p_ge_0_9'] <= v2_base[i]['p_ge_0_9'] for i in range(len(v2)))
-    v3_pass = all(r['inside'] for r in v3 if r['counts_for_V3'])
+    v3_pass = all(r['inside'] for part in v3.values() for r in part['bins'] if r['counts_for_V3'])
     summary = {
         'reproduces_phase6_when_clock_off_max_abs_diff': repro,
         'ordinary_clock_inconsistent_by_era': [round(o['clock_inconsistent'], 4) for o in orates],
         'ordinary_clock_reference_blocks': [o['clock_reference_blocks'] for o in orates],
         'patoshi_track_rates_fitted_m10': [[round(x, 4) for x in e1], [round(x, 4) for x in f1]],
-        'expected_unlisted_patoshi': {'in_span_phase6': expected(3, p6.LIST_END, 'posterior_phase6'),
+        'expected_unlisted_patoshi': {'in_span_phase6': expected(3, p6.LIST_END, 'posterior'),
                                       'in_span_m10': expected(3, p6.LIST_END, 'posterior_m10'),
-                                      'after_end_phase6': expected(p6.LIST_END + 1, p6.MAX_HEIGHT, 'posterior_phase6'),
+                                      'after_end_phase6': expected(p6.LIST_END + 1, p6.MAX_HEIGHT, 'posterior'),
                                       'after_end_m10': expected(p6.LIST_END + 1, p6.MAX_HEIGHT, 'posterior_m10'),
                                       'blocks_1_2_m10': [round(post[1], 4), round(post[2], 4)]},
         'V1_holdout': {'phase6_baseline': v1_base, 'm10': v1, 'preregistered_floor': prereg_v1, 'pass': v1_pass},
         'V2_null_test_half': {'phase6_baseline': v2_base, 'm10': v2, 'pass': v2_pass},
-        'V3_shape_calibration': {'ordinary_shape_reference': o_share, 'bins': v3, 'pass': v3_pass},
+        'V3_shape_calibration': {'by_range': v3, 'patoshi_shape_reference': PATOSHI_SHAPE, 'pass': v3_pass,
+                                 'first_run_pooled_superseded_by_A1': {'ordinary_shape_reference': o_pooled, 'bins': v3_pooled}},
         'adopted_as_calibrated': v1_pass and v2_pass and v3_pass,
         'tiers': tiers, 'tier_changes': len(moved),
         'E1_model_free_aggregate': e1_aggregate(),
@@ -296,7 +300,7 @@ def manifest():
     digest = lambda f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest()
     inputs = ['analysis/phase2_bigquery/results/headers.csv', 'analysis/phase5/census_blocks.csv',
               'analysis/phase5/census_summary.json', 'analysis/phase6/posterior_blocks.csv', 'analysis/phase8/revised_list.csv']
-    outputs = sorted(str(f.relative_to(ROOT)) for f in OUT.iterdir() if f.suffix in ('.csv', '.json') and f.name != 'manifest.json')
+    outputs = sorted(f.relative_to(ROOT).as_posix() for f in OUT.iterdir() if f.suffix in ('.csv', '.json') and f.name != 'manifest.json')
     scripts = ['scripts/phase10_clock_model.py', 'scripts/phase6_posterior.py', 'scripts/phase9_nonce_clock.py',
                'analysis/phase10_clock_model/PREREGISTRATION.md']
     (OUT / 'manifest.json').write_text(json.dumps({'inputs': {f: digest(f) for f in inputs}, 'outputs': {f: digest(f) for f in outputs},

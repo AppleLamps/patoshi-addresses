@@ -31,6 +31,13 @@ class Reproduction(unittest.TestCase):
         p6 = {int(r['height']): float(r['posterior']) for r in csv.DictReader(open(m.ROOT / 'analysis/phase6/posterior_blocks.csv'))}
         self.assertLess(max(abs(post[h] - p6[h]) for h in post), 1e-5)
 
+    def test_committed_posteriors_match_fresh_fit(self):
+        post = m.fit(True)[-1]
+        rows = {int(r['height']): r for r in csv.DictReader(open(m.OUT / 'posterior_m10.csv'))}
+        self.assertLess(max(abs(post[h] - float(rows[h]['posterior_m10'])) for h in post), 1e-5)
+        p6 = next(csv.reader(open(m.ROOT / 'analysis/phase6/posterior_blocks.csv')))
+        self.assertEqual(list(rows[1])[:len(p6)], p6)            # every Phase 6 column kept, in order
+
     def test_committed_summary(self):
         s = json.loads((m.OUT / 'model_summary.json').read_text())
         self.assertTrue(s['V1_holdout']['pass'] and s['V2_null_test_half']['pass'] and s['V3_shape_calibration']['pass'])

@@ -94,7 +94,7 @@ This is an aggregate inference, not a list of blocks, and it assumes the nonce b
 
 ## 8. Next steps (updated plan)
 
-1. **Per-block posterior.** Combine the census ownership label, the nonce band, counter-track and run fits into one probability per height. Rank the 1,144 in-span and 662 post-endpoint band-passing candidates. This turns results 5 and 7 into named blocks.
+1. **Per-block posterior.** Done: see the [Phase 6 report](../phase6/REPORT.md). Combine the census ownership label, the nonce band, counter-track and run fits into one probability per height. Rank the 1,144 in-span and 662 post-endpoint band-passing candidates. This turns results 5 and 7 into named blocks.
 2. **Late-era estimator.** Phase 4's plan item 3 is partly answered by section 4. What remains is to fit the Patoshi share per window as a mixture, now with the measured 19.61% background instead of the assumed 19.5%.
 3. The remaining Phase 4 plan items (counterparty documents, labelled tracing of the May 2010 path, the dormancy watch, gap-corrected time of day, quantum exposure) are unchanged.
 

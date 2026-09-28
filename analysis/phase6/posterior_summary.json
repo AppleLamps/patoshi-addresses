@@ -1,0 +1,323 @@
+{
+  "model": {
+    "window": 2500,
+    "eras": [
+      [
+        1,
+        24999
+      ],
+      [
+        25000,
+        49973
+      ],
+      [
+        49974,
+        54619
+      ]
+    ],
+    "track_max_gap_hours": 6.0,
+    "track_settings_abs_rel_neighbours": [
+      [
+        10,
+        0.15,
+        3
+      ],
+      [
+        3,
+        0.15,
+        3
+      ],
+      [
+        3,
+        0.1,
+        3
+      ],
+      [
+        10,
+        0.15,
+        1
+      ],
+      [
+        3,
+        0.1,
+        1
+      ]
+    ],
+    "primary_setting": [
+      10,
+      0.15,
+      3
+    ],
+    "band_rate_patoshi": 0.99,
+    "band_rate_ordinary": 0.19610406589096613
+  },
+  "ordinary_rates_by_era": [
+    {
+      "reference_blocks": 904,
+      "unspent": 0.8053097345132744,
+      "track_evaluable": 0.9446902654867256,
+      "track_fit": 0.02459016393442623
+    },
+    {
+      "reference_blocks": 3023,
+      "unspent": 0.7138604035726099,
+      "track_evaluable": 0.9225934502150182,
+      "track_fit": 0.0892793115812119
+    },
+    {
+      "reference_blocks": 1285,
+      "unspent": 0.4171206225680934,
+      "track_evaluable": 0.7634241245136186,
+      "track_fit": 0.09582059123343527
+    }
+  ],
+  "patoshi_rates": {
+    "unspent": 0.9985878923154011,
+    "band": 0.99
+  },
+  "patoshi_track_rates_fitted": [
+    {
+      "era": [
+        1,
+        24999
+      ],
+      "evaluable": 0.8246,
+      "fit_given_evaluable": 0.9349
+    },
+    {
+      "era": [
+        25000,
+        49973
+      ],
+      "evaluable": 0.9672,
+      "fit_given_evaluable": 0.7685
+    },
+    {
+      "era": [
+        49974,
+        54619
+      ],
+      "evaluable": 0.9742,
+      "fit_given_evaluable": 0.8789
+    }
+  ],
+  "unlisted_in_span": {
+    "expected_patoshi": 208.8,
+    "expected_patoshi_range_over_settings": [
+      180.1,
+      208.8
+    ],
+    "named_p_ge_0_5": 192,
+    "expected_false_among_named": 33.1,
+    "named_p_ge_0_9": 99,
+    "expected_false_among_p_ge_0_9": 5.0,
+    "robust_core_p_ge_0_9_all_settings": 41,
+    "robust_core_expected_false": 2.2,
+    "robust_core_heights": [
+      29,
+      27477
+    ]
+  },
+  "after_list_end": {
+    "expected_patoshi": 362.5,
+    "expected_patoshi_range_over_settings": [
+      357.0,
+      362.5
+    ],
+    "named_p_ge_0_5": 318,
+    "expected_false_among_named": 9.5,
+    "named_p_ge_0_9": 318,
+    "expected_false_among_p_ge_0_9": 9.5,
+    "robust_core_p_ge_0_9_all_settings": 70,
+    "robust_core_expected_false": 2.1,
+    "robust_core_heights": [
+      50882,
+      54311
+    ]
+  },
+  "phase5_aggregate_for_comparison": {
+    "in_span_estimated_omitted": 188.4,
+    "in_span_ci95": [
+      118.6,
+      258.2
+    ],
+    "after_list_end_estimated": 352.9,
+    "after_list_end_ci95": [
+      309.7,
+      396.2
+    ]
+  },
+  "sensitivity_grid": [
+    {
+      "setting": [
+        3,
+        0.15,
+        3
+      ],
+      "f0": [
+        0.0211,
+        0.0875,
+        0.0938
+      ],
+      "f1": [
+        0.7749,
+        0.6776,
+        0.8716
+      ]
+    },
+    {
+      "setting": [
+        3,
+        0.1,
+        3
+      ],
+      "f0": [
+        0.0164,
+        0.0739,
+        0.0683
+      ],
+      "f1": [
+        0.7793,
+        0.6214,
+        0.7573
+      ]
+    },
+    {
+      "setting": [
+        10,
+        0.15,
+        1
+      ],
+      "f0": [
+        0.0063,
+        0.0196,
+        0.0266
+      ],
+      "f1": [
+        0.9117,
+        0.6123,
+        0.3663
+      ]
+    },
+    {
+      "setting": [
+        3,
+        0.1,
+        1
+      ],
+      "f0": [
+        0.0025,
+        0.012,
+        0.0205
+      ],
+      "f1": [
+        0.7559,
+        0.3782,
+        0.2406
+      ]
+    }
+  ],
+  "validation_holdout_listed": {
+    "hidden_fraction": 0.1,
+    "seed": 20260928,
+    "by_era": [
+      {
+        "era": [
+          1,
+          24999
+        ],
+        "hidden": 1731,
+        "mean_posterior": 0.9852,
+        "p_ge_0_5": 0.9896,
+        "p_ge_0_9": 0.9752
+      },
+      {
+        "era": [
+          25000,
+          49973
+        ],
+        "hidden": 463,
+        "mean_posterior": 0.8349,
+        "p_ge_0_5": 0.8769,
+        "p_ge_0_9": 0.6458
+      }
+    ]
+  },
+  "validation_null_ordinary": [
+    {
+      "era": [
+        1,
+        24999
+      ],
+      "ordinary_band_passing_blocks": 1199,
+      "track_fit_rate": 0.0186,
+      "reference_track_fit_rate_band_failing": 0.0246,
+      "mean_posterior": 0.0292,
+      "p_ge_0_5": 0.0175,
+      "p_ge_0_9": 0.0025
+    },
+    {
+      "era": [
+        25000,
+        49973
+      ],
+      "ordinary_band_passing_blocks": 3313,
+      "track_fit_rate": 0.0801,
+      "reference_track_fit_rate_band_failing": 0.0893,
+      "mean_posterior": 0.0943,
+      "p_ge_0_5": 0.048,
+      "p_ge_0_9": 0.0057
+    },
+    {
+      "era": [
+        49974,
+        54619
+      ],
+      "ordinary_band_passing_blocks": 544,
+      "track_fit_rate": 0.0829,
+      "reference_track_fit_rate_band_failing": 0.0958,
+      "mean_posterior": 0.3371,
+      "p_ge_0_5": 0.0625,
+      "p_ge_0_9": 0.0607
+    }
+  ],
+  "known_cases": {
+    "1": {
+      "posterior": 0.8342,
+      "min_over_settings": 0.8291
+    },
+    "2": {
+      "posterior": 0.9814,
+      "min_over_settings": 0.1698
+    },
+    "3358": {
+      "posterior": 0.8702,
+      "min_over_settings": 0.0056
+    },
+    "14450": {
+      "posterior": 0.9994,
+      "min_over_settings": 0.9125
+    },
+    "27474": {
+      "posterior": 0.9397,
+      "min_over_settings": 0.507
+    },
+    "27475": {
+      "posterior": 0.9397,
+      "min_over_settings": 0.507
+    },
+    "27476": {
+      "posterior": 0.9397,
+      "min_over_settings": 0.9321
+    },
+    "27477": {
+      "posterior": 0.9397,
+      "min_over_settings": 0.9321
+    },
+    "27478": {
+      "posterior": 0.9397,
+      "min_over_settings": 0.507
+    }
+  },
+  "assumptions": "Two classes. Band, dormancy and track evidence independent given the class. Ordinary rates from band-failing unlisted blocks not owned by another miner, per era. Patoshi band and dormancy rates from the list; its track rates and the per-window share fitted by EM on unlisted blocks only. Blocks swept with another miner (Phase 5) are fixed at 0."
+}

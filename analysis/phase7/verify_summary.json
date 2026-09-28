@@ -1,0 +1,220 @@
+{
+  "references": {
+    "patoshi_low_share": 0.4765,
+    "patoshi_in_band": 4254,
+    "ordinary_low_share": 0.1691,
+    "ordinary_in_band": 544,
+    "dead_time_listed_pairs_from_5000": {
+      "pairs": 10244,
+      "under_300s": 1,
+      "shortest_s": [
+        65.0,
+        312.0,
+        312.0
+      ]
+    },
+    "dead_time_other_miner_pairs_from_5000": {
+      "pairs": 14223,
+      "under_300s": 6190,
+      "rate": 0.4352
+    },
+    "clock_offset_median_s_ordinary_tail": -2.0
+  },
+  "groups": [
+    {
+      "group": "patoshi_reference_listed_25000_49973",
+      "blocks": 4254,
+      "mean_phase6_posterior": 0.462,
+      "in_band": 4254,
+      "in_band_low_0_9": 2027,
+      "low_share": 0.476,
+      "shape_patoshi_fraction": "{\"estimate\": 1.0, \"ci95\": [0.951, 1.049]}",
+      "shape_p_vs_ordinary": 0.0,
+      "consecutive_pairs": 483,
+      "pairs_under_300s": 0,
+      "pairs_p_all_respect_if_ordinary": 0.0,
+      "clock_offset_median_s": -6.5,
+      "clock_mw_z_vs_ordinary": -1.552,
+      "clock_mw_p_vs_ordinary": 0.121
+    },
+    {
+      "group": "ordinary_reference_other_miner_tail",
+      "blocks": 2699,
+      "mean_phase6_posterior": 0.0,
+      "in_band": 544,
+      "in_band_low_0_9": 92,
+      "low_share": 0.169,
+      "shape_patoshi_fraction": "{\"estimate\": 0.0, \"ci95\": [-0.095, 0.11]}",
+      "shape_p_vs_ordinary": 0.5177779601194225,
+      "consecutive_pairs": 1577,
+      "pairs_under_300s": 784,
+      "pairs_p_all_respect_if_ordinary": "",
+      "clock_offset_median_s": -2.0,
+      "clock_mw_z_vs_ordinary": null,
+      "clock_mw_p_vs_ordinary": null
+    },
+    {
+      "group": "tail_robust_core",
+      "blocks": 70,
+      "mean_phase6_posterior": 0.969,
+      "in_band": 70,
+      "in_band_low_0_9": 33,
+      "low_share": 0.471,
+      "shape_patoshi_fraction": "{\"estimate\": 0.984, \"ci95\": [0.618, 1.359]}",
+      "shape_p_vs_ordinary": 4.582407113710257e-09,
+      "consecutive_pairs": 0,
+      "pairs_under_300s": 0,
+      "pairs_p_all_respect_if_ordinary": "",
+      "clock_offset_median_s": -32.0,
+      "clock_mw_z_vs_ordinary": -1.369,
+      "clock_mw_p_vs_ordinary": 0.171
+    },
+    {
+      "group": "tail_named_not_core",
+      "blocks": 248,
+      "mean_phase6_posterior": 0.97,
+      "in_band": 248,
+      "in_band_low_0_9": 110,
+      "low_share": 0.444,
+      "shape_patoshi_fraction": "{\"estimate\": 0.893, \"ci95\": [0.696, 1.095]}",
+      "shape_p_vs_ordinary": 6.276562979950918e-24,
+      "consecutive_pairs": 4,
+      "pairs_under_300s": 0,
+      "pairs_p_all_respect_if_ordinary": 0.1018,
+      "clock_offset_median_s": -12.2,
+      "clock_mw_z_vs_ordinary": -0.445,
+      "clock_mw_p_vs_ordinary": 0.656
+    },
+    {
+      "group": "tail_dormant_band_passing_rejected",
+      "blocks": 164,
+      "mean_phase6_posterior": 0.304,
+      "in_band": 164,
+      "in_band_low_0_9": 49,
+      "low_share": 0.299,
+      "shape_patoshi_fraction": "{\"estimate\": 0.422, \"ci95\": [0.211, 0.663]}",
+      "shape_p_vs_ordinary": 2.888536830524835e-05,
+      "consecutive_pairs": 5,
+      "pairs_under_300s": 4,
+      "pairs_p_all_respect_if_ordinary": "",
+      "clock_offset_median_s": 23.8,
+      "clock_mw_z_vs_ordinary": 1.2,
+      "clock_mw_p_vs_ordinary": 0.23
+    },
+    {
+      "group": "control_other_miner_tail_with_track_fit",
+      "blocks": 203,
+      "mean_phase6_posterior": 0.0,
+      "in_band": 34,
+      "in_band_low_0_9": 8,
+      "low_share": 0.235,
+      "shape_patoshi_fraction": "{\"estimate\": 0.215, \"ci95\": [-0.146, 0.751]}",
+      "shape_p_vs_ordinary": 0.20615572035665577,
+      "consecutive_pairs": 32,
+      "pairs_under_300s": 16,
+      "pairs_p_all_respect_if_ordinary": "",
+      "clock_offset_median_s": -15.0,
+      "clock_mw_z_vs_ordinary": -0.586,
+      "clock_mw_p_vs_ordinary": 0.558
+    },
+    {
+      "group": "span_robust_core_late",
+      "blocks": 27,
+      "mean_phase6_posterior": 0.94,
+      "in_band": 27,
+      "in_band_low_0_9": 15,
+      "low_share": 0.556,
+      "shape_patoshi_fraction": "{\"estimate\": 1.257, \"ci95\": [0.664, 1.806]}",
+      "shape_p_vs_ordinary": 5.855888408132627e-06,
+      "consecutive_pairs": 4,
+      "pairs_under_300s": 0,
+      "pairs_p_all_respect_if_ordinary": 0.1018,
+      "clock_offset_median_s": 5.0,
+      "clock_mw_z_vs_ordinary": -0.604,
+      "clock_mw_p_vs_ordinary": 0.546
+    }
+  ],
+  "calibration": [
+    {
+      "region": "tail",
+      "posterior_bin": "0-0.1",
+      "blocks": 181,
+      "mean_phase6_posterior": 0.002,
+      "low_share": 0.177,
+      "shape_patoshi_fraction": 0.025,
+      "shape_ci95_lo": -0.133,
+      "shape_ci95_hi": 0.227
+    },
+    {
+      "region": "tail",
+      "posterior_bin": "0.1-0.5",
+      "blocks": 163,
+      "mean_phase6_posterior": 0.306,
+      "low_share": 0.301,
+      "shape_patoshi_fraction": 0.428,
+      "shape_ci95_lo": 0.216,
+      "shape_ci95_hi": 0.67
+    },
+    {
+      "region": "tail",
+      "posterior_bin": "0.5-0.9",
+      "blocks": 0,
+      "mean_phase6_posterior": "",
+      "low_share": "",
+      "shape_patoshi_fraction": "",
+      "shape_ci95_lo": "",
+      "shape_ci95_hi": ""
+    },
+    {
+      "region": "tail",
+      "posterior_bin": "0.9-1.0",
+      "blocks": 318,
+      "mean_phase6_posterior": 0.97,
+      "low_share": 0.45,
+      "shape_patoshi_fraction": 0.913,
+      "shape_ci95_lo": 0.738,
+      "shape_ci95_hi": 1.092
+    },
+    {
+      "region": "late_span",
+      "posterior_bin": "0-0.1",
+      "blocks": 666,
+      "mean_phase6_posterior": 0.027,
+      "low_share": 0.2,
+      "shape_patoshi_fraction": 0.099,
+      "shape_ci95_lo": 0.006,
+      "shape_ci95_hi": 0.204
+    },
+    {
+      "region": "late_span",
+      "posterior_bin": "0.1-0.5",
+      "blocks": 81,
+      "mean_phase6_posterior": 0.316,
+      "low_share": 0.222,
+      "shape_patoshi_fraction": 0.173,
+      "shape_ci95_lo": -0.077,
+      "shape_ci95_hi": 0.504
+    },
+    {
+      "region": "late_span",
+      "posterior_bin": "0.5-0.9",
+      "blocks": 77,
+      "mean_phase6_posterior": 0.678,
+      "low_share": 0.416,
+      "shape_patoshi_fraction": 0.802,
+      "shape_ci95_lo": 0.465,
+      "shape_ci95_hi": 1.165
+    },
+    {
+      "region": "late_span",
+      "posterior_bin": "0.9-1.0",
+      "blocks": 68,
+      "mean_phase6_posterior": 0.94,
+      "low_share": 0.412,
+      "shape_patoshi_fraction": 0.789,
+      "shape_ci95_lo": 0.434,
+      "shape_ci95_hi": 1.175
+    }
+  ],
+  "notes": "Shape test: Patoshi fraction f solves share = f*p1 + (1-f)*p0 with p1 from listed 25,000-49,973 and p0 from other-miner blocks in the tail. Dead time: probability that all pairs respect the 300 s rule if the blocks were ordinary. Clock offset: two-sided Mann-Whitney against the ordinary tail reference."
+}

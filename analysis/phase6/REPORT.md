@@ -64,6 +64,8 @@ Elsewhere the windows show 0 to 19 expected omissions each, mostly spread thin o
   - The number of named blocks moves a lot: 47 to 99 inside the span, 70 to 318 after it.
   - The robust core is the set that survives all five settings. Each block's minimum posterior and its count of naming settings are in the per-block file.
 
+**Independent check.** [Phase 7](../phase7/REPORT.md) tests these results against habits this model never used (nonce shape within the band, consecutive-block dead time) and finds the named post-endpoint blocks Patoshi-like and the posterior calibrated, with one caveat: some late in-span omissions probably score below 0.1 here.
+
 ## 5. Limits
 
 - **The settings were chosen after looking.** The first run used one anchor pair per side and an absolute tolerance of 10. The primary setting (three pairs) was chosen after that run showed the nearest anchor is often another machine's. The robust core and the grid exist because of this. Quote the core when a conservative list is needed.

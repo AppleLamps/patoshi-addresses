@@ -28,9 +28,9 @@ Every height from 0 to 54,619 is in [revised_list.csv](revised_list.csv) with it
 | `listed_uncontradicted` | 21,941 | about 21,938 | On the list; no evidence against. About 3 unidentified false positives are expected among them |
 | `listed_contradicted` | 12 | 0 | On the list but swept together with another miner's coins: 2,577, 24,504, 34,813, 35,573, 35,599, 37,764, 37,808, 39,647, 46,844, 48,277, 49,174, 49,958 |
 | `added_robust` | 111 | 107 | Not listed; P ≥ 0.9 under every track-test setting. 41 inside the span, 70 after it (50,882 to 54,311) |
-| `added_probable` | 307 | 297 | Not listed; P ≥ 0.9 under the primary setting only. 58 inside the span, 248 after it, and block 2 |
+| `added_probable` | 307 | 297 | Not listed; P ≥ 0.9 under the primary track-test setting but below 0.9 under at least one other (294 of them still reach 0.9 under two to four of the five settings). 58 inside the span, 248 after it, and block 2 |
 | `added_possible` | 94 | 66 | Not listed; 0.5 ≤ P < 0.9 (includes block 1) |
-| `unresolved` | 1,296 | 98 | Never co-spent with another miner and passing the band, but no track fit: a mixture holding most of the remaining unnamed omissions |
+| `unresolved` | 1,296 | 98 | Never co-spent with another miner and passing the band, but P < 0.5, mostly for lack of a track fit (34 do have one). A mixture holding most of the remaining unnamed omissions |
 | `other_miner` | 25,646 | 0 | Swept with another miner's coins |
 | `no_patoshi_evidence` | 5,212 | 6 | Fails the band, or otherwise nothing Patoshi-like |
 | `genesis` | 1 | – | Height 0, unspendable, excluded |

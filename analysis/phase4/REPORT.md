@@ -12,7 +12,7 @@ Two companion documents:
 | # | Result | Label | Evidence |
 |---|---|---|---|
 | 1 | **12 of the 31 spent listed coinbases (600 BTC) were swept together with 10 to 202 unlisted coinbases each** (568 unlisted in total) by 11 transactions from 2010 to 2017. Common-input ownership says those 12 belonged to other miners. | (a) data, (b) ownership inference | [clusters](cospend_clusters.csv), [inputs](cospend_inputs.csv) |
-| 2 | **8 of those 12 sit exactly on the co-spending miner's own extraNonce track** (for example 2575 → **2577** → 2581, counters 649 → 651 → 655). Expected by chance: 0.72 of 12; p = 2.8 × 10⁻⁹. | (b) | [track test](cospend_listed_in_other_miner_clusters.csv) |
+| 2 | **8 of those 12 sit exactly on the co-spending miner's own extraNonce track** (for example 2575 → **2577** → 2581, counters 649 → 651 → 655). Counting one trial per sweep, 7 of 11 sweeps contain a fit against 0.71 expected by chance: p = 8 × 10⁻⁸, or 4.5 × 10⁻⁵ with conservative (Wilson upper-bound) chance rates. | (b) | [track test](cospend_listed_in_other_miner_clusters.csv) |
 | 3 | The co-spent unlisted coinbases pass Lerner's nonce rule at **21.7%** (123/568), matching the 19.5% chance rate for an ordinary miner (p = 0.11), not the ~100% expected for Patoshi. | (b) | [summary](cospend_summary.json) |
 | 4 | A zero-truncated binomial fit gives a **list inclusion rate of 0.33% (95% profile CI 0.02% to 1.35%)** for other miners' blocks. Taken naively over ~28,000 non-Patoshi heights, that is roughly **90 false-positive heights (CI ~5 to ~380)**, i.e. roughly 99.6% precision. This is far from the "19.53% false-positive floor" circulating publicly, which describes the nonce byte alone, not the published list. | (b), generalisation is (c) | [summary](cospend_summary.json) |
 | 5 | **Block 14,450 is an omission candidate supported by two independent lines**: it was spent with nine listed coinbases in the May 2010 500 BTC transaction, and it fits the listed Patoshi counter run 12 → **14** → 28 in time order with a passing tight nonce. | (a) data, (b) inference | [clusters](cospend_clusters.csv) |
@@ -50,7 +50,7 @@ Two companion documents:
 | 49,174 | 48,998: 4,150 → 49,380: 4,574 | 4,360 | 10.6% |
 | 37,808 | 37,729: 84 → 37,844: 920 | 152 | 11.6% |
 
-"Chance fit rate" is the share of all other listed blocks in the same height span that happen to fit the same miner's track. The sum over all 12 is 0.72; observing 8 has Poisson-binomial p = 2.8 × 10⁻⁹. These blocks also fit a listed Patoshi run (10 of 12), which is the known overlapping-slope problem ([BitMEX 2018](https://web.archive.org/web/20241223083952/https://blog.bitmex.com/satoshis-1-million-bitcoin/)). Spending history breaks the tie that the mining fingerprint alone cannot.
+"Chance fit rate" is the share of all other listed blocks in the same height span that happen to fit the same miner's track. Block-level trials inside one sweep share a track and a calibration sample (35,573 and 35,599 come from the same transaction), so the test counts one trial per sweep: "does any listed member fit?". Its chance probability is 1 − ∏(1 − rate), which is generous to the null. Seven of the 11 sweeps have a fit against 0.71 expected, Poisson-binomial p = 8.0 × 10⁻⁸. Replacing every rate by its Wilson 95% upper bound (expected 1.76) gives p = 4.5 × 10⁻⁵. These blocks also fit a listed Patoshi run (10 of 12), which is the known overlapping-slope problem ([BitMEX 2018](https://web.archive.org/web/20241223083952/https://blog.bitmex.com/satoshis-1-million-bitcoin/)). Spending history breaks the tie that the mining fingerprint alone cannot.
 
 **Assumptions and limits.** Common-input ownership is a heuristic. It is strong for 2010 to 2017 sweeps of dozens of P2PK coinbases into one or two outputs, but not proof: a buyer of private keys or a custodian could combine coins. The track test uses nearest cluster neighbours and does not model counter resets. Block 37,808 was already disputed on nonce grounds (Phase 3); here it gains a second, independent strike.
 
@@ -95,6 +95,7 @@ These are bounded nulls: they cover only the traced transactions and cannot say 
 - `0xfffffffe` sequences (one uses `0xfffffffd`, the opt-in replace-by-fee signal);
 - version 2 in four of them;
 - P2SH outputs in five, and only low-S signatures.
+- in the two late-2017 sweeps (86 and 81 inputs), inputs sorted in BIP69 order, which random ordering would essentially never produce. That points to a wallet implementing BIP69 input sorting.
 
 That profile belongs to modern wallet software, not the 2009 codebase. The lone 2017 spend of listed block 44,838 has the same modern profile. Software does not identify an owner. It does show these sweeps were not made with the original client.
 

@@ -1,6 +1,7 @@
 {
   "inputs": {
     "patoshi_pubkeys_COMPLETE.csv": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e",
+    "patoshi_p2pkh_addresses.csv": "30e28b44e9552b0a924bae05ed40eeb5a2dd3a4799dda8cd40a6a9a6b3e5d3f8",
     "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
     "analysis/phase2_bigquery/results/context.csv": "631148b736f6fba79e17df5c3ba89747dbb707b795cc6f7060c3584dfd8e3f13",
     "analysis/phase2_bigquery/results/pubkeys.csv": "4604f51efa215b347b96f4f1f4aa5c1287c5c47cf8f2c483b8e1e11975c82f90",
@@ -12,11 +13,11 @@
   "outputs": {
     "analysis/phase4/DISCOURSE.md": "c2ce282ddc684726f0ba675a4c8a2ed14702e1c793d3656a1485c6140d08458a",
     "analysis/phase4/LINKS.md": "d3a363b56de58de7ac938fec113ac98b1e1de48d11f4bd4404aa25b9330099e0",
-    "analysis/phase4/REPORT.md": "d4742b18c681041128d85bf5ed40a99f2a115dc9286da3e16e04394e8cf0e998",
+    "analysis/phase4/REPORT.md": "79ef59b861e06b8e4f2d2beb0f49477f2252a4976ac585605646cd1a692567fa",
     "analysis/phase4/cospend_clusters.csv": "1053fa8cfaa0d35797411abd1d7186da9a619e7aa882c2dc1e73dff028d6e9d8",
     "analysis/phase4/cospend_inputs.csv": "cdfd8afacc5aebc5996b3779ac25441dbfb300fe047cd86df55c2a9dee8350a9",
     "analysis/phase4/cospend_listed_in_other_miner_clusters.csv": "7d11288b05d94aae0df298182eb78f8fdaf39ef1713d7fb2aa8d06135248649b",
-    "analysis/phase4/cospend_summary.json": "a4ce47ed28c75f1263131910bd18f025217c6da600572014150a63f29c1d475e",
+    "analysis/phase4/cospend_summary.json": "3e6dad98a400f58ae595cbee398c7de75cfd778d201a00e73769e52af5761b8f",
     "analysis/phase4/early_followon_behaviour.csv": "c87d36237f50ffd73b6ed9c660d5d474d0d80695a6c44511e6a528730a43a8a7",
     "analysis/phase4/sandwich_candidates.csv": "22a7a0febc6d12554a4c1f18cb8213534516ae53fa3eec6a76ec321ff904e089",
     "analysis/phase4/sandwich_summary.json": "47d73dc397c55d43c224c52d9227d121ed8b41bcff03974d17edc6bba3e35fd8",
@@ -25,9 +26,17 @@
     "analysis/phase4/satoshi_linked_matches.csv": "ad8ceec468ddc452835d720a5bbdc207a6829493c5f8009d0bb935dc7522530b",
     "analysis/phase4/signature_inputs.csv": "4c769b4d0c868552faaea10f8997efda8bd2f34dd352adc48dc7e100fae94017",
     "analysis/phase4/signature_summary.json": "6c7599a58f2354c9e593b02dcda96237d9d919a439b532988133aba370048813",
-    "analysis/phase4/wallet_fingerprint.csv": "5553957bb4c69381a81b70108b3293e4b8853bd61f90454f297af5a1269cb87b"
+    "analysis/phase4/wallet_fingerprint.csv": "0ff4001a32ddeef90ed68331f32e8de2495be891cca2bc8ce21f2b0b94b35aa5"
   },
-  "script": {
-    "scripts/phase4_offline.py": "be9d79fa7e26d442a8db67769f060e8fb2537b0b636633cfd046a0bc5f60f3f2"
+  "scripts": {
+    "scripts/phase4_offline.py": "3dd2c4e1fab6fcfea9b1d1e28ef7e6be3591ffdd2ed9d7c377f629a63dd9cbce",
+    "scripts/phase4_links.py": "444e8e56c29622e45e442c06fb128c82fd88747f02f36c8fc0cf2cdf1a2a0234",
+    "scripts/phase2_collect.py": "10c21864b905449e83e6a79752fd4d7050a8b0d9ca6323ee4d01d53055195a2a",
+    "scripts/phase2_analyze.py": "fe1080449ecf9ad809748e57d3fac394f2018227283ca05075c1fb142c9e88c7"
+  },
+  "generators": {
+    "satoshi_linked_matches.csv": "scripts/phase4_links.py (also reads satoshi_linked_identifiers.csv)",
+    "*.md": "hand-written reports",
+    "other outputs": "scripts/phase4_offline.py"
   }
 }

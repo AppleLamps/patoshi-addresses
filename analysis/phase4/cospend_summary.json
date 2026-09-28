@@ -31,7 +31,15 @@
     "of": 12,
     "expected_if_chance": 0.7151,
     "poisson_binomial_upper_tail_p": 2.780937087573169e-09,
-    "note": "chance rate = share of other listed blocks in the cluster height span that fit the same track"
+    "note": "chance rate = share of other listed blocks in the cluster height span that fit the same track. Block-level trials are not independent within a cluster; use cluster_level for inference.",
+    "cluster_level": {
+      "clusters": 11,
+      "clusters_with_a_fit": 7,
+      "expected_if_chance": 0.7125,
+      "poisson_binomial_upper_tail_p": 8.013045015494366e-08,
+      "expected_if_chance_wilson_upper": 1.7573,
+      "poisson_binomial_upper_tail_p_wilson_upper": 4.5492685615179245e-05
+    }
   },
   "listed_in_listed_majority_or_only_clusters": 19,
   "unlisted_coinbases_in_unlisted_majority_clusters": {

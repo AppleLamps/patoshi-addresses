@@ -1,13 +1,13 @@
 spending_txid,spending_height,time,version,locktime,locktime_class,sequences,rbf_signal,inputs,outputs,output_types,change_to_input_key,payee_first,fee_sats,fee_rate_sat_vb,inputs_height_sorted,inputs_txid_sorted_bip69,round_payment,listed_inputs
 f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16,170,1231731025,1,0,zero,ffffffff,False,1,2,p2pk p2pk,True,True,0,0.0,,,True,1
 d71fd2f64c0b34465b7518d240c00e83f6a5b10138a7079d1252858fe7e6b577,524,1231983986,1,0,zero,ffffffff,False,1,2,p2pk p2pk,True,True,0,0.0,,,True,1
-7d73200eac9b66ea105fe63378c69f5d68663f925297117ed178deaddb6fc3d5,2616,1233505512,1,0,zero,ffffffff,False,2,1,p2pkh,False,,0,0.0,False,False,True,2
+7d73200eac9b66ea105fe63378c69f5d68663f925297117ed178deaddb6fc3d5,2616,1233505512,1,0,zero,ffffffff,False,2,1,p2pkh,False,,0,0.0,False,True,True,2
 4b96658d39f7fd4241442e6dc9877c8ee0fe0d82477e6014e1681d1efe052c8d,2754,1233598896,1,0,zero,ffffffff,False,1,1,p2pkh,False,,0,0.0,,,True,1
 ea84d39ef6f7b3b23fbf899e11a9bb18478a19413579a69f3005359da7a62c49,11408,1240070119,1,0,zero,ffffffff,False,1,1,p2pkh,False,,0,0.0,,,True,1
 c2a9e7f555f9dbfa76b0d5fb1d007ce2c687e7875f6033c38caf7e28925b6eb5,53022,1272222693,1,0,zero,ffffffff,False,33,1,p2pkh,False,,0,0.0,False,False,True,1
-499d0f5d452891ebe18a8c23cc0a554459a0ba3341ef021f3fae15926a977ffd,56173,1274133873,1,0,zero,ffffffff,False,10,1,p2pkh,False,,0,0.0,False,False,True,9
-028ad2c836163295e4723a49dd418ee8fb55a14613b1186675f01124b60fb763,56180,1274137678,1,0,zero,ffffffff,False,2,1,p2pkh,False,,0,0.0,False,False,True,2
-66829539576d0b3b9180aa882622675760c23e5ba7f862dcb38dba034993636d,69345,1279686121,1,0,zero,ffffffff,False,40,1,p2pkh,False,,0,0.0,False,False,True,1
+499d0f5d452891ebe18a8c23cc0a554459a0ba3341ef021f3fae15926a977ffd,56173,1274133873,1,0,zero,ffffffff,False,10,1,p2pkh,False,,0,0.0,False,True,True,9
+028ad2c836163295e4723a49dd418ee8fb55a14613b1186675f01124b60fb763,56180,1274137678,1,0,zero,ffffffff,False,2,1,p2pkh,False,,0,0.0,False,True,True,2
+66829539576d0b3b9180aa882622675760c23e5ba7f862dcb38dba034993636d,69345,1279686121,1,0,zero,ffffffff,False,40,1,p2pkh,False,,0,0.0,False,True,True,1
 d3b94dcede3cbb08c7c0fdd1889478baa5a0b482cd917f276fa07be702326385,69714,1279855053,1,0,zero,ffffffff,False,1,1,p2pkh,False,,0,0.0,,,True,1
 29591d211054478ed22c93571955cb92ef4ec2b40d914a43ba3a91d52a171c61,128196,1307040299,1,0,zero,ffffffff,False,205,2,p2pkh p2pkh,False,False,24000000,1023.629,False,False,True,1
 8abde2a358ca9594df1bcef520b68aed9655aee50aae01adb50667c71bb24d4e,270395,1384838933,1,0,zero,ffffffff,False,11,2,p2pkh p2pkh,False,False,20000,15.049,False,False,True,1
@@ -17,5 +17,5 @@ d6e8d9348ebdc3d98fd6f1b34f5628813901a8594e655942378489e17f1dca68,415954,14657300
 d95a53ceb013656da033cfd490548d2c2c30b651127f4b0c4633fe83b4a1bccc,467891,1495627685,2,467830,height_near_tip,fffffffe,False,60,2,p2sh p2pkh,False,False,1844573,267.951,False,False,True,1
 16dbad11f2d1b7148ff6e50566560aef537beffe07b1529c9a3616c57cc7800d,479599,1502167562,1,479595,height_near_tip,fffffffe,False,1,1,p2pkh,False,,6761,43.064,,,False,1
 3e60741b3b2a0cd50afb62702e9be55cbf40831fb42f2e36e361c7f84b6fd7d7,480180,1502522753,2,480178,height_near_tip,fffffffe,False,40,2,p2sh p2pkh,False,False,556320,120.52,False,False,True,1
-907bc01510f15727d4db00a188309c0bb7cf47dd76dac1b2f8624eb2ef4f7d75,492919,1509708533,2,492909,height_near_tip,fffffffe,False,86,2,p2sh p2sh,False,False,1855040,160.623,False,False,True,2
-2efb698e61a9d9958b913d8e9c829874bfa8e67d25182f9c3580f5170e2463a7,498031,1512621855,2,497973,height_near_tip,fffffffd,True,81,2,p2sh p2sh,False,False,1124880,120.488,False,False,False,1
+907bc01510f15727d4db00a188309c0bb7cf47dd76dac1b2f8624eb2ef4f7d75,492919,1509708533,2,492909,height_near_tip,fffffffe,False,86,2,p2sh p2sh,False,False,1855040,160.623,False,True,True,2
+2efb698e61a9d9958b913d8e9c829874bfa8e67d25182f9c3580f5170e2463a7,498031,1512621855,2,497973,height_near_tip,fffffffd,True,81,2,p2sh p2sh,False,False,1124880,120.488,False,True,False,1

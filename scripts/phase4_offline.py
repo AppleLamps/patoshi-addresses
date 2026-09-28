@@ -142,6 +142,33 @@ def poisson_binomial_tail(k, ps):
     return float(sum(dist[k:]))
 
 
+def wilson_upper(k, n, z=1.959964):
+    if n == 0:
+        return 1.0
+    p = k / n
+    return min(1.0, (p + z * z / (2 * n) + z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / (1 + z * z / n))
+
+
+def cluster_track_test(track):
+    """One trial per co-spend cluster: does any listed member fit that miner's track?
+
+    Chance per cluster is 1 - prod(1 - r_i), which is at least the largest r_i, so treating members sharing one track
+    as separate draws only makes the null more generous. The conservative variant replaces each r_i by its Wilson
+    95% upper bound, covering the uncertainty of rates estimated from small spans."""
+    groups = collections.defaultdict(list)
+    for t in track:
+        groups[t['spending_txid']].append(t)
+    obs = sum(any(t['other_miner_track_sandwich'] for t in g) for g in groups.values())
+    point = [1 - math.prod(1 - (t['chance_fit_rate'] or 0) for t in g) for g in groups.values()]
+    upper = [1 - math.prod(1 - wilson_upper(t['span_listed_blocks_fitting_track'], t['span_listed_blocks_evaluated'])
+                           for t in g) for g in groups.values()]
+    return {'clusters': len(groups), 'clusters_with_a_fit': obs,
+            'expected_if_chance': round(sum(point), 4),
+            'poisson_binomial_upper_tail_p': poisson_binomial_tail(obs, point),
+            'expected_if_chance_wilson_upper': round(sum(upper), 4),
+            'poisson_binomial_upper_tail_p_wilson_upper': poisson_binomial_tail(obs, upper)}
+
+
 def cospend():
     headers, listed, seeds = load_headers(), load_listed(), load_seeds()
     lsorted = sorted(listed)
@@ -254,7 +281,9 @@ def cospend():
             'expected_if_chance': round(sum(t['chance_fit_rate'] or 0 for t in track), 4),
             'poisson_binomial_upper_tail_p': poisson_binomial_tail(
                 sum(t['other_miner_track_sandwich'] for t in track), [t['chance_fit_rate'] or 0 for t in track]),
-            'note': 'chance rate = share of other listed blocks in the cluster height span that fit the same track'},
+            'note': ('chance rate = share of other listed blocks in the cluster height span that fit the same track. '
+                     'Block-level trials are not independent within a cluster; use cluster_level for inference.'),
+            'cluster_level': cluster_track_test(track)},
         'listed_in_listed_majority_or_only_clusters': sum(c['listed'] for c in clean),
         'unlisted_coinbases_in_unlisted_majority_clusters': {
             'n': n_u, 'broad_nonce_pass': k_b, 'tight_nonce_pass': k_t,
@@ -577,8 +606,9 @@ def fingerprint():
             'payee_first': bool(t['vout'][-1]['scriptpubkey'] in inkeys) if len(t['vout']) > 1 else '',
             'fee_sats': t['fee'], 'fee_rate_sat_vb': round(t['fee'] / (t['weight'] / 4), 3),
             'inputs_height_sorted': mapped == sorted(mapped) if len(mapped) > 1 else '',
-            'inputs_txid_sorted_bip69': ([ (bytes.fromhex(v['txid']), v['vout']) for v in t['vin']] ==
-                                         sorted((bytes.fromhex(v['txid']), v['vout']) for v in t['vin'])) if len(t['vin']) > 1 else '',
+            # BIP69 compares previous-output hashes in serialized byte order, the reverse of the displayed txid.
+            'inputs_txid_sorted_bip69': ([(bytes.fromhex(v['txid'])[::-1], v['vout']) for v in t['vin']] ==
+                                         sorted((bytes.fromhex(v['txid'])[::-1], v['vout']) for v in t['vin'])) if len(t['vin']) > 1 else '',
             'round_payment': any(o['value'] % 10**8 == 0 for o in t['vout']),
             'listed_inputs': sum(1 for x in mapped if x in listed),
         })
@@ -600,13 +630,16 @@ def fingerprint():
 
 
 def manifest():
-    inputs = ['patoshi_pubkeys_COMPLETE.csv', 'analysis/phase2_bigquery/results/headers.csv',
+    inputs = ['patoshi_pubkeys_COMPLETE.csv', 'patoshi_p2pkh_addresses.csv', 'analysis/phase2_bigquery/results/headers.csv',
               'analysis/phase2_bigquery/results/context.csv', 'analysis/phase2_bigquery/results/pubkeys.csv',
               'analysis/phase3/trace_seed_transactions.json'] + [f'analysis/phase3/results/trace_transactions_{g}.csv' for g in (1, 2, 3)]
     digest = lambda f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest()
     outputs = sorted(str(f.relative_to(ROOT)).replace('\\', '/') for f in OUT.iterdir() if f.is_file() and f.name != 'manifest.json')
     save('manifest.json', {'inputs': {f: digest(f) for f in inputs}, 'outputs': {f: digest(f) for f in outputs},
-                           'script': {'scripts/phase4_offline.py': digest('scripts/phase4_offline.py')}})
+                           'scripts': {f: digest(f) for f in ('scripts/phase4_offline.py', 'scripts/phase4_links.py',
+                                                              'scripts/phase2_collect.py', 'scripts/phase2_analyze.py')},
+                           'generators': {'satoshi_linked_matches.csv': 'scripts/phase4_links.py (also reads satoshi_linked_identifiers.csv)',
+                                          '*.md': 'hand-written reports', 'other outputs': 'scripts/phase4_offline.py'}})
 
 
 def main():

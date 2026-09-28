@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "analysis/phase2_bigquery/results/headers.csv": "093ea395920f1ff9fb2f0ad30077de4137f7eb9efce9040ba497a031ec398774",
+    "analysis/phase5/census_blocks.csv": "5944a125d458ef435060e7f38718a2a08b5440caf0b169adf3410bf0891e219b",
+    "analysis/phase5/census_summary.json": "9864e7ea5eb325005024bc0b8a019e8ae387d015ba4fd27807208a9e237297c8"
+  },
+  "outputs": {
+    "analysis/phase6/posterior_blocks.csv": "689967101abde5fc1204e89c47210df45c4746d9041725024675341c9b18a84c",
+    "analysis/phase6/posterior_candidates.csv": "89043c424694504d5604e999c62b68e37a8cea4331adc653f1561f82fc919bad",
+    "analysis/phase6/posterior_summary.json": "dd8cf01a78ccf23cace77b5395b76fa41f7ec4fe6d11c9186ccafe077c7179db",
+    "analysis/phase6/posterior_windows.csv": "06ab1be01985ec58125164e50afc1ca3b06933ad6b07483c5d2f8008a9d02617"
+  },
+  "scripts": {
+    "scripts/phase6_posterior.py": "80156bfe70e7843778f0b64eff8700b7e64b64b89c535dc4b9d9f22864f947fe",
+    "scripts/phase2_collect.py": "10c21864b905449e83e6a79752fd4d7050a8b0d9ca6323ee4d01d53055195a2a"
+  }
+}

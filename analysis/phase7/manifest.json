@@ -8,10 +8,10 @@
     "analysis/phase7/habit_tests.csv": "729e33c5623fed7a05d5f821270cddff8956490275d3fc03ab5118eba490716e",
     "analysis/phase7/nonce_shape_history.csv": "ae2dd10d92baf9b3aa06f84d18f8870f5c521248d9985840c6c4571cf6c8d8d9",
     "analysis/phase7/second_sequence_blocks.csv": "8e5e5507891e98f8365c5150dc4b5b1085ff15d4596a612b45cc612b8ff44b4a",
-    "analysis/phase7/second_sequence_summary.json": "4ff9dc712a860ad90b188c2565be2bb527296463b22a627e038ab5fdf8ad29c8",
+    "analysis/phase7/second_sequence_summary.json": "e3c50db28a4d34f88c006fdf77813e9e956dc0d7e3d9b0d4bf203cd6c13f59ea",
     "analysis/phase7/verify_summary.json": "0c14467ce93807e8f414b595fa3a2629e71df33453c20e7462204ec3a6d0fc8a"
   },
   "scripts": {
-    "scripts/phase7_verify.py": "344544aa5d4505ea18169d0ee4f352185d58968bd3185d40e300b52049145e69"
+    "scripts/phase7_verify.py": "a0081990484ac23fa5a77f51e974a505250c2dd2cc5735d957266b173413e842"
   }
 }

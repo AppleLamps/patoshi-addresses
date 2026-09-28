@@ -85,6 +85,15 @@ def mixture_fraction(k, n, p0, p1):
     return {'estimate': round(f(k / n), 3), 'ci95': [round(f(lo), 3), round(f(hi), 3)]}
 
 
+def fisher_greater(a, b, c, d):
+    """One-sided Fisher exact test for [[a, b], [c, d]]: P(top-left >= a) given the margins."""
+    r1, c1, n = a + b, a + c, a + b + c + d
+    lp = lambda x: (math.lgamma(r1 + 1) - math.lgamma(x + 1) - math.lgamma(r1 - x + 1)
+                    + math.lgamma(n - r1 + 1) - math.lgamma(c1 - x + 1) - math.lgamma(n - r1 - c1 + x + 1)
+                    - math.lgamma(n + 1) + math.lgamma(c1 + 1) + math.lgamma(n - c1 + 1))
+    return min(1.0, sum(math.exp(lp(x)) for x in range(a, min(r1, c1) + 1)))
+
+
 def mann_whitney(x, y):
     """Two-sided normal-approximation Mann-Whitney U test with tie correction. Returns (z, p)."""
     allv = sorted((v, g) for g, vs in ((0, x), (1, y)) for v in vs)
@@ -232,6 +241,21 @@ def verify():
         print(c)
 
 
+def window_test(P, unlisted, background=0.19610406589096613):
+    """The sequence itself is selected on band and dormancy, so its own band and dormancy prove nothing. Instead take
+    all unlisted blocks in the window: (1) how many pass the band against the ordinary rate; (2) whether band passing
+    and never being spent go together, which points to a separate owner of the band-passing blocks."""
+    band = [h for h in unlisted if P[h]['band'] == 'True']
+    fail = [h for h in unlisted if P[h]['band'] != 'True']
+    a = sum(P[h]['spent'] == 'False' for h in band)
+    c = sum(P[h]['spent'] == 'False' for h in fail)
+    return {'unlisted_blocks': len(unlisted), 'pass_band': len(band),
+            'expected_if_ordinary': round(background * len(unlisted), 1),
+            'band_p_if_ordinary': binom_upper(len(band), len(unlisted), background),
+            'unspent_among_band_passing': f'{a}/{len(band)}', 'unspent_among_band_failing': f'{c}/{len(fail)}',
+            'band_dormancy_fisher_p': fisher_greater(a, len(band) - a, c, len(fail) - c) if band and fail else None}
+
+
 def second():
     H, P = load()
     en = {h: (int(r['extra_nonce']) if r['extra_nonce'] else None) for h, r in P.items()}
@@ -253,8 +277,8 @@ def second():
         summary[name] = {
             'heights': [a, z], 'second_sequence_blocks': len(seq), 'listed_blocks': len(lst), 'other_blocks': len(others),
             'second_sequence_heights': seq,
-            'all_pass_band_p_if_ordinary': 0.19610406589096613 ** len(seq),
-            'never_spent': all(P[h]['spent'] == 'False' for h in seq),
+            # Non-circular tests on a set fixed before looking at band or spending: every unlisted block in the window.
+            'window_test': window_test(P, [h for h in range(a, z + 1) if h not in listed]),
             'extra_nonce_range': {'second_sequence': [min(en[h] for h in seq), max(en[h] for h in seq)],
                                   'listed': [min(en[h] for h in lst), max(en[h] for h in lst)]},
             'in_band_low_share': {'second_sequence': f'{k_s}/{n_s}', 'listed_same_window': f'{k_l}/{n_l}',

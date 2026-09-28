@@ -27,8 +27,15 @@
       196,
       197
     ],
-    "all_pass_band_p_if_ordinary": 1.8397498085369677e-13,
-    "never_spent": true,
+    "window_test": {
+      "unlisted_blocks": 24,
+      "pass_band": 20,
+      "expected_if_ordinary": 4.7,
+      "band_p_if_ordinary": 3.2906416733393406e-11,
+      "unspent_among_band_passing": "20/20",
+      "unspent_among_band_failing": "4/4",
+      "band_dormancy_fisher_p": 1.0
+    },
     "extra_nonce_range": {
       "second_sequence": [
         1,
@@ -88,8 +95,15 @@
       2141,
       2172
     ],
-    "all_pass_band_p_if_ordinary": 8.411355360955846e-08,
-    "never_spent": true,
+    "window_test": {
+      "unlisted_blocks": 23,
+      "pass_band": 12,
+      "expected_if_ordinary": 4.5,
+      "band_p_if_ordinary": 0.0004947402397440306,
+      "unspent_among_band_passing": "10/12",
+      "unspent_among_band_failing": "1/11",
+      "band_dormancy_fisher_p": 0.0005458264981754007
+    },
     "extra_nonce_range": {
       "second_sequence": [
         6,

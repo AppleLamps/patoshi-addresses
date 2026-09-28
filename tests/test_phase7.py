@@ -23,6 +23,11 @@ class Stats(unittest.TestCase):
         self.assertGreater(m['ci95'][1], 0.5)
         self.assertIsNone(p.mixture_fraction(0, 0, 0.2, 0.5))
 
+    def test_fisher_exact(self):
+        # [[3, 0], [0, 3]]: the only table at least this extreme; P = 1 / C(6, 3) = 0.05.
+        self.assertAlmostEqual(p.fisher_greater(3, 0, 0, 3), 0.05, places=12)
+        self.assertAlmostEqual(p.fisher_greater(0, 3, 3, 0), 1.0, places=12)
+
     def test_mann_whitney(self):
         z, pv = p.mann_whitney([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])
         self.assertAlmostEqual(z, 0.0)

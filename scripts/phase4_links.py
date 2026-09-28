@@ -73,7 +73,7 @@ def main():
             spent = sorted({s for (tx, _), s in spent_prev.items() if tx == i})
             if spent:
                 hits.append('outputs spent in traced tx ' + ', '.join(x[:12] for x in spent))
-        elif kind in ('height', 'block'):
+        elif kind in ('height', 'block', 'block_height'):
             h = int(i)
             x = headers.get(h)
             if x:

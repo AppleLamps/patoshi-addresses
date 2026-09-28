@@ -11,8 +11,8 @@
   },
   "outputs": {
     "analysis/phase4/DISCOURSE.md": "c2ce282ddc684726f0ba675a4c8a2ed14702e1c793d3656a1485c6140d08458a",
-    "analysis/phase4/LINKS.md": "a02e9446cd85e62b82b4cc5d35083f0e2b0454314746963a5c170f1968c14f8e",
-    "analysis/phase4/REPORT.md": "7ab0e389a19cf238460ff4e5d1f2894e3d2347db17de303d79ecc70f1b664dec",
+    "analysis/phase4/LINKS.md": "d3a363b56de58de7ac938fec113ac98b1e1de48d11f4bd4404aa25b9330099e0",
+    "analysis/phase4/REPORT.md": "d4742b18c681041128d85bf5ed40a99f2a115dc9286da3e16e04394e8cf0e998",
     "analysis/phase4/cospend_clusters.csv": "1053fa8cfaa0d35797411abd1d7186da9a619e7aa882c2dc1e73dff028d6e9d8",
     "analysis/phase4/cospend_inputs.csv": "cdfd8afacc5aebc5996b3779ac25441dbfb300fe047cd86df55c2a9dee8350a9",
     "analysis/phase4/cospend_listed_in_other_miner_clusters.csv": "7d11288b05d94aae0df298182eb78f8fdaf39ef1713d7fb2aa8d06135248649b",
@@ -20,8 +20,9 @@
     "analysis/phase4/early_followon_behaviour.csv": "c87d36237f50ffd73b6ed9c660d5d474d0d80695a6c44511e6a528730a43a8a7",
     "analysis/phase4/sandwich_candidates.csv": "22a7a0febc6d12554a4c1f18cb8213534516ae53fa3eec6a76ec321ff904e089",
     "analysis/phase4/sandwich_summary.json": "47d73dc397c55d43c224c52d9227d121ed8b41bcff03974d17edc6bba3e35fd8",
-    "analysis/phase4/satoshi_linked_identifiers.csv": "61a4f6ce52f4a9640a53a39d9b20ba3f867e73baea71104eeeb259f23480921b",
-    "analysis/phase4/satoshi_linked_matches.csv": "5d3ad60ef73d62bd147e7748ffcdb294b14f73d19f146ff868f6f50055c5b72f",
+    "analysis/phase4/satoshi_linked_identifiers.csv": "cc206d07e17919d3294021be6f740aad116a75cc38e1a6e24eb6f94653571924",
+    "analysis/phase4/satoshi_linked_identifiers.md": "8c763b0c4677b7faaf7759f9829ddf7788b224ab82d464cc9605696119724dc8",
+    "analysis/phase4/satoshi_linked_matches.csv": "ad8ceec468ddc452835d720a5bbdc207a6829493c5f8009d0bb935dc7522530b",
     "analysis/phase4/signature_inputs.csv": "4c769b4d0c868552faaea10f8997efda8bd2f34dd352adc48dc7e100fae94017",
     "analysis/phase4/signature_summary.json": "6c7599a58f2354c9e593b02dcda96237d9d919a439b532988133aba370048813",
     "analysis/phase4/wallet_fingerprint.csv": "5553957bb4c69381a81b70108b3293e4b8853bd61f90454f297af5a1269cb87b"

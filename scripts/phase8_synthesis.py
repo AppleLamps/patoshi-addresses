@@ -83,6 +83,43 @@ def load():
     return P, C
 
 
+B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+
+
+def p2pkh(pubkey_hex):
+    """Base58Check P2PKH address of a public key (version byte 0)."""
+    h = hashlib.new('ripemd160', hashlib.sha256(bytes.fromhex(pubkey_hex)).digest()).digest()
+    raw = b'\0' + h + hashlib.sha256(hashlib.sha256(b'\0' + h).digest()).digest()[:4]
+    n, out = int.from_bytes(raw, 'big'), ''
+    while n:
+        n, r = divmod(n, 58)
+        out = B58[r] + out
+    return '1' * (len(raw) - len(raw.lstrip(b'\0'))) + out
+
+
+def load_pubkeys(C):
+    """Coinbase public keys from analysis/phase8/results/coinbase_pubkeys.csv (scripts/phase8_pubkeys.py).
+
+    Every key is checked against three independent references before use: the coinbase txid and value in the
+    Phase 5 census, the census address (which must equal the key's derived P2PKH address), and, for listed
+    heights, the shipped patoshi_pubkeys_COMPLETE.csv."""
+    shipped = {int(r['Block Height']): r['Address/Pubkey'] for r in read(ROOT / 'patoshi_pubkeys_COMPLETE.csv')}
+    keys = {}
+    for r in read(OUT / 'results/coinbase_pubkeys.csv'):
+        h, s = int(r['height']), r['output_script']
+        assert r['output_index'] == '0' and r['output_type'] == 'pubkey', h
+        assert len(s) == 134 and s[:2] == '41' and s[-2:] == 'ac' and s[2:4] == '04', h
+        k = s[2:-2]
+        c = C[h]
+        assert r['coinbase_txid'] == c['coinbase_txid'] and int(r['value_raw']) == int(c['value_sats']), h
+        a = p2pkh(k)
+        assert a == c['addresses'], h
+        assert h not in shipped or shipped[h] == k, h
+        keys[h] = (k, a)
+    assert set(keys) == set(C), 'missing coinbase keys'
+    return keys
+
+
 def notes_index():
     """Specific evidence from earlier phases, keyed by height."""
     notes = {}
@@ -108,6 +145,7 @@ def notes_index():
 def build_list():
     P, C = load()
     notes = notes_index()
+    keys = load_pubkeys(C)
     rows = []
     for h in sorted(P):
         r = P[h]
@@ -120,12 +158,12 @@ def build_list():
                      'p_min_over_settings': round(float(r['posterior_min_over_settings']), 5) if not r['listed'] == 'True' else '',
                      'co_spend_label': r['co_spend_label'], 'nonce_band': r['band'], 'spent': r['spent'],
                      'track_fit': r['track_fit'], 'coinbase_btc': int(C[h]['value_sats']) / 1e8, 'time_utc': r['time'],
-                     'evidence': '; '.join(ev)})
+                     'pubkey': keys[h][0], 'p2pkh_address': keys[h][1], 'evidence': '; '.join(ev)})
     # Genesis is not in the Phase 6 file (its output is unspendable); add it for completeness.
     rows.insert(0, {'height': 0, 'tier': 'genesis', 'listed': False, 'p_patoshi': '', 'p_min_over_settings': '',
                     'co_spend_label': '', 'nonce_band': '', 'spent': False, 'track_fit': '',
                     'coinbase_btc': int(C[0]['value_sats']) / 1e8, 'time_utc': '2009-01-03 18:15:05',
-                    'evidence': 'genesis block; output unspendable; excluded from every published count'})
+                    'pubkey': keys[0][0], 'p2pkh_address': keys[0][1], 'evidence': 'genesis block; output unspendable; excluded from every published count'})
     return rows
 
 
@@ -244,12 +282,14 @@ def manifest():
     inputs = ['analysis/phase5/census_summary.json', 'analysis/phase5/census_blocks.csv', 'analysis/phase6/posterior_blocks.csv',
               'analysis/phase6/posterior_summary.json', 'analysis/phase7/verify_summary.json',
               'analysis/phase7/second_sequence_summary.json', 'analysis/phase7/omission_position.csv',
-              'analysis/phase4/cospend_listed_in_other_miner_clusters.csv']
+              'analysis/phase4/cospend_listed_in_other_miner_clusters.csv', 'patoshi_pubkeys_COMPLETE.csv',
+              'analysis/phase8/results/coinbase_pubkeys.csv', 'analysis/phase8/results/coinbase_pubkeys.metadata.json']
     digest = lambda f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest()
     outputs = sorted(str(f.relative_to(ROOT)).replace('\\', '/') for f in OUT.iterdir()
                      if f.is_file() and f.suffix in ('.csv', '.json') and f.name != 'manifest.json')
     save('manifest.json', {'inputs': {f: digest(f) for f in inputs}, 'outputs': {f: digest(f) for f in outputs},
-                           'scripts': {'scripts/phase8_synthesis.py': digest('scripts/phase8_synthesis.py')}})
+                           'scripts': {f: digest(f) for f in ('scripts/phase8_synthesis.py', 'scripts/phase8_pubkeys.py',
+                                                              'analysis/phase8/sql/coinbase_pubkeys.sql')}})
 
 
 def main():

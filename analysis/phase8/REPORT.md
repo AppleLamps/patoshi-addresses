@@ -21,7 +21,7 @@ The interval combines three sources of uncertainty: sampling noise in each count
 
 ## Which blocks (b)
 
-Every height from 0 to 54,619 is in [revised_list.csv](revised_list.csv) with its tier, probability, evidence flags, coinbase value and a short evidence note. Counts per tier are in [tier_summary.csv](tier_summary.csv).
+Every height from 0 to 54,619 is in [revised_list.csv](revised_list.csv) with its tier, probability, evidence flags, coinbase value, public key, derived address and a short evidence note. Counts per tier are in [tier_summary.csv](tier_summary.csv).
 
 | Tier | Blocks | Expected Patoshi | Meaning |
 |---|---:|---:|---|
@@ -36,6 +36,10 @@ Every height from 0 to 54,619 is in [revised_list.csv](revised_list.csv) with it
 | `genesis` | 1 | – | Height 0, unspendable, excluded |
 
 In short: remove 12 named blocks (plus about 3 that cannot yet be named), and add 418 named blocks at P ≥ 0.9 (about 14 of them expected to be wrong). About 140 further omissions are estimated but cannot yet be pinned to individual blocks.
+
+### Keys and addresses (a)
+
+`pubkey` is the uncompressed public key (130 hex characters, `04…`) that output 0 of the coinbase pays to. Every coinbase in this range is a single pay-to-public-key output, so this key is what locks the coins. `p2pkh_address` is the Base58Check address (`1…`) derived from that key. Explorers show P2PK outputs under this form, so use it for look-ups. The keys come from one BigQuery query ([SQL](sql/coinbase_pubkeys.sql), [script](../../scripts/phase8_pubkeys.py), job `job_nr93fHxgj4JuxIVzbGjlpkwJbvNG`, 15 MB processed). Before any key is written, it is checked against three references: the Phase 5 census coinbase txid and value, the census address (which must equal the derived address), and, for the 21,953 listed heights, the shipped `patoshi_pubkeys_COMPLETE.csv`. All 54,620 pass, and every key is distinct.
 
 ## Five checks anyone can do in ten minutes (a)
 
@@ -61,4 +65,4 @@ python scripts/phase8_synthesis.py list estimate manifest
 python -m unittest tests.test_phase8
 ```
 
-It reads only committed outputs of Phases 4 to 7. The inputs are checksummed in [manifest.json](manifest.json).
+It reads only committed outputs of Phases 4 to 7 and the committed key query result. The inputs are checksummed in [manifest.json](manifest.json).

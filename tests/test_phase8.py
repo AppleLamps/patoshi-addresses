@@ -61,6 +61,21 @@ class CommittedArtifacts(unittest.TestCase):
         self.assertEqual({t['tier']: t['blocks'] for t in p.tier_table(rows)}, committed)
         self.assertEqual(sum(committed.values()), 54620)
 
+    def test_committed_list_matches_fresh_build_including_keys(self):
+        import csv
+        committed = list(csv.DictReader(open(p.OUT / 'revised_list.csv')))
+        fresh = p.build_list()
+        # Every column, as the CSV writer renders it, so a regression in any existing column also fails.
+        self.assertEqual(committed, [{k: str(v) for k, v in r.items()} for r in fresh])
+        self.assertEqual(committed[0]['p2pkh_address'], '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa')   # genesis
+        self.assertEqual(len({r['pubkey'] for r in committed}), 54620)
+
+    def test_p2pkh_derivation(self):
+        # Block 3's key and address, as shipped in patoshi_p2pkh_addresses.csv.
+        k = ('0494b9d3e76c5b1629ecf97fff95d7a4bbdac87cc26099ada28066c6ff1eb9191223cd897194a08d0c2726c5747f1db49e8c'
+             'f90e75dc3e3550ae9b30086f3cd5aa')
+        self.assertEqual(p.p2pkh(k), '1FvzCLoTPGANNjWoUo6jUGuAG3wg1w4YjR')
+
     def test_estimate_matches_committed(self):
         import json
         committed = json.loads((p.OUT / 'revised_estimate.json').read_text())

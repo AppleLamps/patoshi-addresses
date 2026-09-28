@@ -7,14 +7,19 @@
     "analysis/phase7/verify_summary.json": "bf9b7d83bf47be8e27e0b631fb7ced50a7cb1ccfaa6da24e124ce8f367f1336d",
     "analysis/phase7/second_sequence_summary.json": "e3c50db28a4d34f88c006fdf77813e9e956dc0d7e3d9b0d4bf203cd6c13f59ea",
     "analysis/phase7/omission_position.csv": "e1df3595edb76ffa8676c5f59f1789ced65eae83091999eecd55d91cd8915fe9",
-    "analysis/phase4/cospend_listed_in_other_miner_clusters.csv": "7d11288b05d94aae0df298182eb78f8fdaf39ef1713d7fb2aa8d06135248649b"
+    "analysis/phase4/cospend_listed_in_other_miner_clusters.csv": "7d11288b05d94aae0df298182eb78f8fdaf39ef1713d7fb2aa8d06135248649b",
+    "patoshi_pubkeys_COMPLETE.csv": "f649579e286085325a881bec1168e88bbb6f5d67e10b7ef8cb5c65e916a34a2e",
+    "analysis/phase8/results/coinbase_pubkeys.csv": "169d5330eb60cb904830110a7ed9d3bd05af4ecb82c7e989eb3765d7f9c39c65",
+    "analysis/phase8/results/coinbase_pubkeys.metadata.json": "13ab62fdfa01afaefaa2c7b9cd9de8cf8b9ef2fc98a712f4de7cff571ad78d4a"
   },
   "outputs": {
     "analysis/phase8/revised_estimate.json": "cf95df6d670acc929e02f911b9586244084f6dcdecd2ff62be19e920d9ee0d23",
-    "analysis/phase8/revised_list.csv": "28b3b909e95669d4797ec33701dd73cbfd5f8b3a1503d1891f61009615e8dd25",
+    "analysis/phase8/revised_list.csv": "084ac23d0dcad0e7bcc6288cd623ebe50bc8e8835e0c8ef942f3c37c64951ae7",
     "analysis/phase8/tier_summary.csv": "4ddc4f9f5292d32885417d5b3136242f50bf35236cfe5599945507092b808620"
   },
   "scripts": {
-    "scripts/phase8_synthesis.py": "75b7a1b9cfb47844654d2473352b3457685c0b33c8079fde28845bb5116d428a"
+    "scripts/phase8_synthesis.py": "5a1bdc3662fdbdeefa54026dce19fe67116ebaded85459af3979a970af426924",
+    "scripts/phase8_pubkeys.py": "4802da3f50055c23ed27f50bcd7f5e97fe9ce1a26e3c3024cab5e66c209dddb7",
+    "analysis/phase8/sql/coinbase_pubkeys.sql": "5a56eb5b11dd6eac685b5688b6cd85733590a4d782b267964a87d124d0df148e"
   }
 }

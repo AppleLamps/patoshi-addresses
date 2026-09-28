@@ -70,6 +70,22 @@
       "clock_mw_p_vs_ordinary": 0.171
     },
     {
+      "group": "tail_all_named",
+      "blocks": 318,
+      "mean_phase6_posterior": 0.97,
+      "in_band": 318,
+      "in_band_low_0_9": 143,
+      "low_share": 0.45,
+      "shape_patoshi_fraction": "{\"estimate\": 0.913, \"ci95\": [0.738, 1.0], \"unclamped\": [0.913, 0.738, 1.092]}",
+      "shape_p_vs_ordinary": 2.2540773127666244e-31,
+      "consecutive_pairs": 5,
+      "pairs_under_300s": 0,
+      "pairs_p_all_respect_if_ordinary": 0.0575,
+      "clock_offset_median_s": -17.2,
+      "clock_mw_z_vs_ordinary": -1.004,
+      "clock_mw_p_vs_ordinary": 0.316
+    },
+    {
       "group": "tail_named_not_core",
       "blocks": 248,
       "mean_phase6_posterior": 0.97,
@@ -216,5 +232,13 @@
       "shape_ci95_hi": 1.0
     }
   ],
+  "omission_position": {
+    "named_in_span": 99,
+    "named_below_previous_listed": 82,
+    "core_in_span": 41,
+    "core_below_previous_listed": 34,
+    "listed_blocks_below_previous_listed": 286,
+    "listed_pairs": 21952
+  },
   "notes": "Shape test: Patoshi fraction f solves share = f*p1 + (1-f)*p0 with p1 from listed 25,000-49,973 and p0 from other-miner blocks in the tail. Dead time: probability that all pairs respect the 300 s rule if the blocks were ordinary. Clock offset: two-sided Mann-Whitney against the ordinary tail reference."
 }

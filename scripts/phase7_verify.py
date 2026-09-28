@@ -147,6 +147,7 @@ def groups(P):
                                                   and r['co_spend_label'] != 'other'],
         'ordinary_reference_other_miner_tail': [h for h, r in P.items() if tail(h) and r['co_spend_label'] == 'other'],
         'tail_robust_core': [h for h, r in P.items() if tail(h) and f(r, 'posterior_min_over_settings') >= 0.9],
+        'tail_all_named': [h for h, r in P.items() if tail(h) and f(r, 'posterior') >= 0.9],
         'tail_named_not_core': [h for h, r in P.items() if tail(h) and f(r, 'posterior') >= 0.9
                                 and f(r, 'posterior_min_over_settings') < 0.9],
         'tail_dormant_band_passing_rejected': [h for h, r in P.items() if tail(h) and r['band'] == 'True'
@@ -157,6 +158,21 @@ def groups(P):
         'span_robust_core_late': [h for h, r in P.items() if LATE[0] <= h <= LATE[1] and r['listed'] == 'False'
                                   and f(r, 'posterior_min_over_settings') >= 0.9],
     }
+
+
+def restart_position(P, hs, listed_sorted):
+    """For each block, is its counter below that of the nearest listed block before it? That marks a block just
+    after a counter restart, or on a second concurrent counter."""
+    import bisect
+    en = lambda h: int(P[h]['extra_nonce']) if P[h]['extra_nonce'] else None
+    rows = []
+    for h in sorted(hs):
+        i = bisect.bisect_left(listed_sorted, h)
+        prev = listed_sorted[i - 1] if i else None
+        below = prev is not None and en(h) is not None and en(prev) is not None and en(h) < en(prev)
+        rows.append({'height': h, 'extra_nonce': en(h), 'previous_listed': prev,
+                     'previous_listed_extra_nonce': en(prev) if prev else None, 'counter_below_previous_listed': below})
+    return rows
 
 
 def shape_counts(H, hs):
@@ -228,13 +244,28 @@ def verify():
         hist.append({'heights': f'{lo}-{lo + 2499}', 'listed_in_band': n, 'listed_low_share': round(k / n, 3) if n else '',
                      'other_miner_in_band': no, 'other_miner_low_share': round(ko / no, 3) if no else ''})
     write_csv('nonce_shape_history.csv', hist)
+    # Where the list's omissions sit relative to the listed counter (Phase 6 named in-span blocks vs listed blocks).
+    lsorted = sorted(listed)
+    in_span = lambda h: 3 <= h <= LIST_END and P[h]['listed'] == 'False'
+    named_span = [h for h in P if in_span(h) and float(P[h]['posterior']) >= 0.9]
+    core_span = [h for h in P if in_span(h) and float(P[h]['posterior_min_over_settings']) >= 0.9]
+    pos_rows = restart_position(P, named_span, lsorted)
+    for r in pos_rows:
+        r['robust_core'] = r['height'] in set(core_span)
+    write_csv('omission_position.csv', pos_rows)
+    listed_below = sum(1 for a, b in zip(lsorted, lsorted[1:]) if P[a]['extra_nonce'] and P[b]['extra_nonce']
+                       and int(P[b]['extra_nonce']) < int(P[a]['extra_nonce']))
+    position = {'named_in_span': len(pos_rows), 'named_below_previous_listed': sum(r['counter_below_previous_listed'] for r in pos_rows),
+                'core_in_span': len(core_span),
+                'core_below_previous_listed': sum(r['counter_below_previous_listed'] for r in pos_rows if r['robust_core']),
+                'listed_blocks_below_previous_listed': listed_below, 'listed_pairs': len(lsorted) - 1}
     save('verify_summary.json', {
         'references': {'patoshi_low_share': round(p1, 4), 'patoshi_in_band': n1,
                        'ordinary_low_share': round(p0, 4), 'ordinary_in_band': n0,
                        'dead_time_listed_pairs_from_5000': {'pairs': dn1, 'under_300s': dk1, 'shortest_s': dmin1},
                        'dead_time_other_miner_pairs_from_5000': {'pairs': dn0, 'under_300s': dk0, 'rate': round(q0, 4)},
                        'clock_offset_median_s_ordinary_tail': round(statistics.median(clock_o), 1)},
-        'groups': rows, 'calibration': cal,
+        'groups': rows, 'calibration': cal, 'omission_position': position,
         'notes': ('Shape test: Patoshi fraction f solves share = f*p1 + (1-f)*p0 with p1 from listed 25,000-49,973 and '
                   'p0 from other-miner blocks in the tail. Dead time: probability that all pairs respect the 300 s rule '
                   'if the blocks were ordinary. Clock offset: two-sided Mann-Whitney against the ordinary tail reference.')})

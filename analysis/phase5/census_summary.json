@@ -127,7 +127,7 @@
       118.6,
       258.2
     ],
-    "recall_lower_bound": 0.9504383179492166,
+    "recall_floor_given_assumptions": 0.9504173178357302,
     "recall_estimate": 0.9914854185205123,
     "recall_estimate_ci95": [
       0.9883675606560918,

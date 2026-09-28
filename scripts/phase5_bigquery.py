@@ -31,7 +31,9 @@ def service_account_token(path):
     signer = serialization.load_pem_private_key(key['private_key'].encode(), password=None)
     jwt = unsigned + b'.' + b64(signer.sign(unsigned, padding.PKCS1v15(), hashes.SHA256()))
     body = urllib.parse.urlencode({'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer', 'assertion': jwt.decode()})
-    with urllib.request.urlopen(urllib.request.Request(key['token_uri'], data=body.encode()), timeout=60) as r:
+    req = urllib.request.Request(key['token_uri'], data=body.encode(),
+                                 headers={'Content-Type': 'application/x-www-form-urlencoded'})
+    with urllib.request.urlopen(req, timeout=60) as r:
         return json.loads(r.read())['access_token']
 
 

@@ -197,6 +197,7 @@ class ServiceAccountToken(unittest.TestCase):
 
         def fake_urlopen(req, timeout):
             sent['url'], sent['body'] = req.full_url, req.data.decode()
+            sent['type'] = req.get_header('Content-type')
             return Response()
 
         with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
@@ -206,6 +207,7 @@ class ServiceAccountToken(unittest.TestCase):
         Path(f.name).unlink()
         form = urllib.parse.parse_qs(sent['body'])
         self.assertEqual(sent['url'], info['token_uri'])
+        self.assertEqual(sent['type'], 'application/x-www-form-urlencoded')
         self.assertEqual(form['grant_type'], ['urn:ietf:params:oauth:grant-type:jwt-bearer'])
         head, claims, sig = form['assertion'][0].split('.')
         pad = lambda s: base64.urlsafe_b64decode(s + '=' * (-len(s) % 4))

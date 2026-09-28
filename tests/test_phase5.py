@@ -151,5 +151,50 @@ class CensusSQL(unittest.TestCase):
         self.assertFalse(blocks[54619]['spent'])
 
 
+class ServiceAccountToken(unittest.TestCase):
+    def test_signed_jwt_grant(self):
+        import base64, json, sys, tempfile, urllib.parse
+        from unittest import mock
+        from cryptography.hazmat.primitives import hashes, serialization
+        from cryptography.hazmat.primitives.asymmetric import padding, rsa
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        import phase5_bigquery as runner
+        key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+        pem = key.private_bytes(serialization.Encoding.PEM, serialization.PrivateFormat.PKCS8,
+                                serialization.NoEncryption()).decode()
+        info = {'client_email': 'runner@example.iam.gserviceaccount.com', 'private_key': pem,
+                'token_uri': 'https://oauth2.example/token'}
+        sent = {}
+
+        class Response:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+
+            def read(self):
+                return b'{"access_token": "tok"}'
+
+        def fake_urlopen(req, timeout):
+            sent['url'], sent['body'] = req.full_url, req.data.decode()
+            return Response()
+
+        with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
+            json.dump(info, f)
+        with mock.patch.object(runner.urllib.request, 'urlopen', fake_urlopen):
+            self.assertEqual(runner.service_account_token(f.name), 'tok')
+        Path(f.name).unlink()
+        form = urllib.parse.parse_qs(sent['body'])
+        self.assertEqual(sent['url'], info['token_uri'])
+        self.assertEqual(form['grant_type'], ['urn:ietf:params:oauth:grant-type:jwt-bearer'])
+        head, claims, sig = form['assertion'][0].split('.')
+        pad = lambda s: base64.urlsafe_b64decode(s + '=' * (-len(s) % 4))
+        c = json.loads(pad(claims))
+        self.assertEqual((c['iss'], c['aud'], c['scope']), (info['client_email'], info['token_uri'], runner.SCOPE))
+        self.assertEqual(c['exp'] - c['iat'], 3600)
+        key.public_key().verify(pad(sig), f'{head}.{claims}'.encode(), padding.PKCS1v15(), hashes.SHA256())
+
+
 if __name__ == '__main__':
     unittest.main()

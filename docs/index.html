@@ -102,6 +102,25 @@ h1 em { font-style: normal; color: var(--accent); }
 .lede { margin: 0; max-width: 64ch; font-size: var(--step-1); color: var(--muted); line-height: 1.5; }
 .lede strong { color: var(--ink); font-weight: 600; }
 
+/* USD balance */
+.balance { display: grid; gap: 6px; padding-top: 4px; }
+.balance-label { font: 500 var(--step--1)/1.3 var(--font-body); color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.balance-label .live { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-fill); flex: none; }
+.balance-usd {
+  font: 600 clamp(1.9rem, 6vw, 3.4rem)/1.05 var(--font-data);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+.balance-meta { margin: 0; font-size: var(--step--1); color: var(--muted); max-width: 70ch; }
+.balance-meta b { color: var(--ink); font-weight: 600; font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.balance.stale .live { background: var(--muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .balance-label .live { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.35; } }
+}
+
 /* Totals */
 .totals {
   display: grid;
@@ -114,7 +133,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .total dt { font: 500 var(--step--1)/1.3 var(--font-body); color: var(--muted); }
 .total dd {
   margin: 0;
-  font: 600 var(--step-2)/1.1 var(--font-data);
+  font: 600 clamp(1.15rem, 4.6vw, 1.5rem)/1.1 var(--font-data);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
@@ -173,7 +192,18 @@ svg.density .grid { stroke: var(--rule); stroke-width: 1; }
 .seg button + button { border-left: 1px solid var(--rule); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 .seg button:hover:not([aria-pressed="true"]) { color: var(--ink); }
-.status-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: var(--step--1); color: var(--muted); margin-bottom: 10px; min-height: 28px; }
+.ledger-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 10px; }
+.status-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: var(--step--1); color: var(--muted); min-height: 28px; min-width: 0; }
+.export { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.export button {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 500 var(--step--1)/1 var(--font-body);
+  padding: 8px 11px; border-radius: var(--radius);
+  border: 1px solid var(--rule); background: var(--surface); color: var(--ink); cursor: pointer;
+}
+.export button:hover { border-color: var(--muted); }
+.export button svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+.export-note { font-size: var(--step--1); color: var(--muted); min-height: 1.2em; }
 .status-line b { color: var(--ink); font-weight: 600; font-family: var(--font-data); font-variant-numeric: tabular-nums; }
 .chip {
   display: inline-flex; align-items: center; gap: 6px;
@@ -259,6 +289,11 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
     <div class="eyebrow"><span>Blocks 1 to 49,973</span><span>Jan 2009 to Apr 2010</span><span>Bitcoin mainnet</span></div>
     <h1>The <em>Patoshi</em> addresses</h1>
     <p class="lede">Every address that received a block reward from the early miner known as Patoshi, widely believed to be Satoshi Nakamoto. <strong id="lede-count">22,087 addresses</strong> hold <strong id="lede-btc">about 1.1 million BTC</strong>, and almost none of it has ever moved.</p>
+    <div class="balance" id="balance" aria-live="polite">
+      <div class="balance-label"><span class="live" aria-hidden="true"></span>Never-spent balance in US dollars</div>
+      <div class="balance-usd" id="usd-big">$&hellip;</div>
+      <p class="balance-meta" id="usd-meta">Loading the latest BTC price&hellip;</p>
+    </div>
   </header>
 
   <dl class="totals" id="totals">
@@ -303,7 +338,15 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
         <button type="button" data-v="1" aria-pressed="false">Added 2026</button>
       </div>
     </div>
-    <div class="status-line" id="status-line"></div>
+    <div class="ledger-bar">
+      <div class="status-line" id="status-line"></div>
+      <div class="export" role="group" aria-label="Export the addresses shown">
+        <span class="export-note" id="export-note" aria-live="polite"></span>
+        <button type="button" id="dl-csv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"></path></svg>CSV</button>
+        <button type="button" id="dl-json"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"></path></svg>JSON</button>
+        <button type="button" id="copy-all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h8"></path></svg>Copy addresses</button>
+      </div>
+    </div>
     <div class="table-box">
       <table>
         <thead>
@@ -385,6 +428,100 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
     $("t-unspent").innerHTML = fmtInt(rows.length - sp) + "<small>" + fmtBTC(btc - spBtc) + " BTC</small>";
     $("t-spent").innerHTML = fmtInt(sp) + "<small>" + fmtBTC(spBtc) + " BTC</small>";
     $("lede-count").textContent = fmtInt(rows.length) + " addresses";
+    unspentBTC = btc - spBtc; unspentCount = rows.length - sp;
+    showBalance();
+  }
+
+  // USD balance. docs/price.json is refreshed every 12 hours by the
+  // update-price workflow; the copy on raw.githubusercontent.com is read too,
+  // so a fresh price shows even before GitHub Pages rebuilds the site.
+  var REFRESH_MS = 12 * 3600 * 1000;
+  var PRICE_URLS = ["https://raw.githubusercontent.com/AppleLamps/patoshi-addresses/main/docs/price.json", "price.json"];
+  var price = null, priceTried = false, unspentBTC = null, unspentCount = null, lastPriceFetch = 0;
+  function fmtUSD(n) { return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }); }
+  function fmtStamp(iso) {
+    var d = new Date(iso);
+    return d.getUTCDate() + " " + months[d.getUTCMonth()] + " " + d.getUTCFullYear() + ", " +
+      String(d.getUTCHours()).padStart(2, "0") + ":" + String(d.getUTCMinutes()).padStart(2, "0") + " UTC";
+  }
+  function showBalance() {
+    if (unspentBTC === null) return;
+    if (!price) {
+      if (priceTried) {
+        $("usd-big").textContent = "Price unavailable";
+        $("usd-meta").innerHTML = "The BTC price could not be loaded. The balance is <b>" + fmtBTC(unspentBTC) + " BTC</b>.";
+      }
+      return;
+    }
+    var usd = unspentBTC * price.btc_usd;
+    var age = Date.now() - Date.parse(price.updated_utc);
+    $("usd-big").textContent = fmtUSD(usd);
+    $("usd-meta").innerHTML = "<b>" + fmtBTC(unspentBTC) + " BTC</b> across " + fmtInt(unspentCount) + " never-spent addresses at <b>" +
+      fmtUSD(price.btc_usd) + "</b> per BTC, the median of " + price.sources.join(", ") + ". Price updated " + fmtStamp(price.updated_utc) +
+      (age > 2 * REFRESH_MS ? ". This price is older than expected; it normally refreshes every 12 hours." : "; it refreshes every 12 hours.");
+    $("balance").classList.toggle("stale", age > 2 * REFRESH_MS);
+  }
+  function loadPrice() {
+    lastPriceFetch = Date.now();
+    var bust = "?v=" + Math.floor(Date.now() / 600000);
+    var tries = PRICE_URLS.map(function (u) {
+      return fetch(u + bust, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    });
+    Promise.all(tries).then(function (list) {
+      list.forEach(function (p) {
+        if (!p || !(p.btc_usd > 0) || !p.updated_utc || !Array.isArray(p.sources)) return;
+        if (!price || Date.parse(p.updated_utc) > Date.parse(price.updated_utc)) price = p;
+      });
+      priceTried = true;
+      showBalance();
+    });
+  }
+
+  // Export the addresses currently shown in the ledger
+  function isoDate(t) { return new Date(t * 1000).toISOString().replace(".000Z", "Z"); }
+  function exportRecords() {
+    return view.map(function (r) {
+      return { block_height: r[0], mined_utc: isoDate(r[3]), address: r[1], amount_btc: r[2],
+        status: r[4] ? "spent" : "never spent", source: r[5] ? "added 2026" : "original list" };
+    });
+  }
+  function exportName(ext) {
+    var filtered = view.length !== rows.length;
+    return "patoshi-addresses" + (filtered ? "-filtered" : "") + "-" + new Date().toISOString().slice(0, 10) + "." + ext;
+  }
+  function note(msg) {
+    $("export-note").textContent = msg;
+    clearTimeout(note.t); note.t = setTimeout(function () { $("export-note").textContent = ""; }, 3500);
+  }
+  function save(text, type, name) {
+    try {
+      var url = URL.createObjectURL(new Blob([text], { type: type }));
+      var a = document.createElement("a");
+      a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      note("Saved " + fmtInt(view.length) + " " + (view.length === 1 ? "address" : "addresses"));
+    } catch (err) {
+      note("This browser blocked the download");
+    }
+  }
+  function downloadCSV() {
+    var cols = ["block_height", "mined_utc", "address", "amount_btc", "status", "source"];
+    var lines = [cols.join(",")].concat(exportRecords().map(function (o) {
+      return cols.map(function (c) { var v = String(o[c]); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(",");
+    }));
+    save(lines.join("\n") + "\n", "text/csv;charset=utf-8", exportName("csv"));
+  }
+  function downloadJSON() {
+    save(JSON.stringify(exportRecords(), null, 1), "application/json", exportName("json"));
+  }
+  function copyAll() {
+    var text = view.map(function (r) { return r[1]; }).join("\n");
+    var n = view.length;
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        note("Copied " + fmtInt(n) + " " + (n === 1 ? "address" : "addresses"));
+      }, function () { note("This browser blocked copying"); });
+    } catch (err) { note("This browser blocked copying"); }
   }
 
   // Density strip
@@ -521,6 +658,13 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
     });
     bindSeg("f-status", "status");
     bindSeg("f-source", "source");
+    $("dl-csv").addEventListener("click", downloadCSV);
+    $("dl-json").addEventListener("click", downloadJSON);
+    $("copy-all").addEventListener("click", copyAll);
+    setInterval(loadPrice, REFRESH_MS);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && Date.now() - lastPriceFetch > REFRESH_MS) loadPrice();
+    });
     $("sort-h").addEventListener("click", function () { state.desc = !state.desc; state.page = 0; update(); });
     var go = function (p) { state.page = p; render(); };
     $("first").addEventListener("click", function () { go(0); });
@@ -540,6 +684,7 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
   }
 
   wire();
+  loadPrice();
   fetch("addresses.json").then(function (r) {
     if (!r.ok) throw new Error(r.status);
     return r.json();

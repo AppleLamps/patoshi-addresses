@@ -1,0 +1,31 @@
+name: Update BTC price
+
+# Refreshes docs/price.json, which the website uses for the USD balance.
+on:
+  schedule:
+    - cron: "23 0,12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-price
+  cancel-in-progress: false
+
+jobs:
+  price:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch BTC/USD price
+        run: python3 scripts/update_price.py
+      - name: Commit the new price
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/price.json
+          git diff --cached --quiet && { echo "Price unchanged"; exit 0; }
+          git commit -m "Update BTC price"
+          git pull --rebase --quiet origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

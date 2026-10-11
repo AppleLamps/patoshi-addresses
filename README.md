@@ -1,6 +1,6 @@
 # Patoshi addresses: dataset and independent audit
 
-This repository contains public keys from **21,953 early Bitcoin coinbase outputs** attributed to the hypothesized “Patoshi” miner. It also contains an independent audit of the CSV, its block-list provenance, chain data, spending, and bounded forensic screens. **“Patoshi = Satoshi Nakamoto” is a hypothesis, not an assumption of this audit.** The block list is a published classification, not ground truth about who mined each block.
+This repository lists the Bitcoin addresses of **21,953 early block rewards** attributed to the hypothesized “Patoshi” miner, plus 134 confirmed additions. **[Browse and search every address](docs/index.html)** (the `docs/` website). It also contains an independent audit of the CSV, its block-list provenance, chain data, spending, and bounded forensic screens. **“Patoshi = Satoshi Nakamoto” is a hypothesis, not an assumption of this audit.** The block list is a published classification, not ground truth about who mined each block.
 
 The chain-data balance watermark is **block 968,902, timestamped 2026-09-27 23:24:41 UTC**. BigQuery queries were separate snapshots, and the 21,922 outputs with no indexed spend were not each checked against a live node at the tip. Later spends or index corrections require a fresh audit.
 
@@ -31,22 +31,24 @@ The chain-data balance watermark is **block 968,902, timestamped 2026-09-27 23:2
 
 Labels in the reports distinguish **(a) verified observations**, **(b) statistical or model inferences with stated tests**, and **(c) speculation**. BigQuery is a secondary chain index; each report says which material findings were also checked through a live API. An unlisted block is an *unlisted control*, not a proven different miner.
 
-## What the dataset contains
+## The addresses
 
-[`patoshi_pubkeys_COMPLETE.csv`](patoshi_pubkeys_COMPLETE.csv) has `Block Height`, `Output Index`, `Address/Pubkey`, `Amount (BTC)`, and `Script Type`. All 21,953 listed outputs are **output zero, pay-to-public-key (P2PK)**. The `Address/Pubkey` field is an uncompressed `04…` public key, not a P2PKH address. The four fee-inclusive coinbases are:
+[`patoshi_p2pkh_addresses.csv`](patoshi_p2pkh_addresses.csv) is the main list: one row per block, with `block_height`, `output_index`, `amount_btc`, `p2pkh_address` (the familiar `1…` address) and the underlying `pubkey_uncompressed` and `hash160`. The [website in `docs/`](docs/index.html) shows the same addresses with mining dates and spend status, and can be searched by address or block height.
 
-| Height | Coinbase amount |
+| Height | Block reward |
 |---:|---:|
 | 2,817 | 52.01 BTC |
 | 19,863 | 50.14 BTC |
 | 23,079 | 50.12 BTC |
 | 28,507 | 50.22 BTC |
 
-The other 21,949 rows are 50 BTC, giving **1,097,652.49 BTC** in the CSV. The four amounts were reproduced from the chain in the BigQuery smoke and full runs. [`patoshi_p2pkh_addresses.csv`](patoshi_p2pkh_addresses.csv) contains Base58Check P2PKH encodings derived from the same public keys. These are useful for looking up payments to the key hashes, but **spending the original coinbases is determined by their P2PK outpoints**, not by activity at the derived addresses.
+These four rewards include fees. The other 21,949 are 50 BTC, giving **1,097,652.49 BTC** in the original list. The four amounts were reproduced from the chain in the BigQuery smoke and full runs.
+
+**How the addresses relate to the chain.** In 2009 the client paid every block reward to a raw public key (a pay-to-public-key, or P2PK, output), so all 21,953 rewards are **output zero, P2PK**. Each address in the list is the standard Base58Check P2PKH encoding of that reward's key, which is how wallets and explorers display it. It is useful for looking up later payments to the same address, but **whether a block reward was spent is determined by its own P2PK outpoint**, not by activity at the address. [`patoshi_pubkeys_COMPLETE.csv`](patoshi_pubkeys_COMPLETE.csv) is the original source file in that raw form (`Block Height`, `Output Index`, `Address/Pubkey`, `Amount (BTC)`, `Script Type`); its `Address/Pubkey` column holds the uncompressed `04…` key, not an address.
 
 ## Confirmed additions (2026-10-11)
 
-[`patoshi_additions_confirmed.csv`](patoshi_additions_confirmed.csv) holds **134 further coinbase outputs** confirmed as Patoshi-mined after the audit above, each verified against chain data (pubkey extracted from the coinbase script, address re-derived, spend status checked at the outpoint). None overlap the 21,953. Tiers:
+[`patoshi_additions_confirmed.csv`](patoshi_additions_confirmed.csv) holds **134 further addresses** whose block rewards were confirmed as Patoshi-mined after the audit above, each verified against chain data (pubkey extracted from the coinbase script, address re-derived, spend status checked at the outpoint). None overlap the 21,953. Tiers:
 
 | Tier | Count | Basis |
 |---|---|---|
@@ -135,7 +137,7 @@ The clock also sees about 43 extra stock-like nonces among listed blocks without
 
 | Area | Primary files |
 |---|---|
-| Dataset and derived encodings | [coinbase CSV](patoshi_pubkeys_COMPLETE.csv), [P2PKH list](patoshi_p2pkh_addresses.csv) |
+| Dataset and website | [address list](patoshi_p2pkh_addresses.csv), [raw coinbase CSV](patoshi_pubkeys_COMPLETE.csv), [additions](patoshi_additions_confirmed.csv), [website](docs/index.html) built by [`scripts/build_site_data.py`](scripts/build_site_data.py) |
 | Offline audit | [report](analysis/phase1/REPORT.md), [script](scripts/phase1_offline.py), [results](analysis/phase1/results.json) |
 | Provenance | [report](analysis/provenance/REPORT.md), [comparison script](scripts/provenance_compare.py), [pinned heights](analysis/provenance/lopp_patoshi_heights.txt) |
 | Chain verification | [report](analysis/phase2_bigquery/REPORT.md), [methods](analysis/phase2_bigquery/METHODS.md), [SQL](analysis/phase2_bigquery/sql/), [all spend statuses](analysis/phase2_bigquery/spend_status_all.csv) |

@@ -337,7 +337,7 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
     </section>
     <section>
       <h3>How these addresses work</h3>
-      <p>In 2009 the Bitcoin client paid block rewards straight to a public key, before addresses were the norm. Each address here is the standard <code>1&hellip;</code> encoding of that reward's key, which is how wallets and block explorers show it. Spend status refers to the block reward itself.</p>
+      <p>In 2009 the Bitcoin client paid block rewards in an older output format called P2PK, before <code>1&hellip;</code> addresses were the norm. Each address here is the standard <code>1&hellip;</code> address for that reward, which is what wallets and block explorers show. Spend status refers to the block reward itself.</p>
     </section>
     <section>
       <h3>Download the data</h3>
@@ -502,10 +502,10 @@ td.amt { font: 400 var(--step--1)/1 var(--font-data); }
   }
   function update() { match(); render(); }
 
-  function bindSeg(id, key) {
+  function bindSeg(id, field) {
     $(id).addEventListener("click", function (e) {
       var b = e.target.closest("button"); if (!b) return;
-      state[key] = b.getAttribute("data-v"); state.page = 0;
+      state[field] = b.getAttribute("data-v"); state.page = 0;
       var bs = this.querySelectorAll("button");
       for (var i = 0; i < bs.length; i++) bs[i].setAttribute("aria-pressed", bs[i] === b ? "true" : "false");
       update();

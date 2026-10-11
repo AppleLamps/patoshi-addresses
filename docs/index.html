@@ -222,6 +222,7 @@
 
     .stats {
       display: grid;
+      margin: 0;
       grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--line-strong);
       border-top: 0;
@@ -296,6 +297,7 @@
     .context code { font-family: var(--mono); font-size: .92em; color: var(--ink); }
 
     .directory {
+      margin-top: 24px;
       background: var(--surface);
       border: 1px solid var(--line-strong);
       box-shadow: var(--shadow);
@@ -382,7 +384,7 @@
 
     .ledger-header, .ledger-row {
       display: grid;
-      grid-template-columns: 96px minmax(240px, 1.25fr) 150px 150px 160px 76px;
+      grid-template-columns: 84px minmax(0, 1.3fr) 112px 104px 132px minmax(150px, .9fr) 56px;
       align-items: center;
       column-gap: 18px;
     }
@@ -471,18 +473,23 @@
 
     .notes {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 24px 0 0;
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      box-shadow: var(--shadow);
     }
     .note {
+      min-width: 0;
+      padding: 22px 24px 24px;
       background: var(--surface);
       border-top: 3px solid var(--ink);
-      padding: 20px 0 0;
+      border-right: 1px solid var(--line);
     }
+    .note:last-child { border-right: 0; }
     .note:nth-child(2) { border-color: var(--accent); }
     .note:nth-child(3) { border-color: var(--teal); }
-    .note h3 { margin: 0 0 7px; font-size: 15px; }
+    .note h3 { margin: 0 0 8px; font-size: 15px; letter-spacing: -.01em; }
     .note p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
 
     dialog {
@@ -584,9 +591,12 @@
       .stats { grid-template-columns: repeat(3, 1fr); }
       .controls { grid-template-columns: 1fr 1fr 1fr 1fr; }
       .search-wrap { grid-column: 1 / -1; }
-      .ledger-header, .ledger-row { grid-template-columns: 78px minmax(220px, 1fr) 130px 145px 62px; }
-      .ledger-header > :nth-child(5), .ledger-row > :nth-child(5) { display: none; }
+      .ledger-header, .ledger-row { grid-template-columns: 72px minmax(0, 1fr) 96px 128px 40px; }
+      .ledger-header > :nth-child(3), .ledger-row > :nth-child(3),
+      .ledger-header > :nth-child(6), .ledger-row > :nth-child(6) { display: none; }
+      .address-sub { display: block; }
       .notes { grid-template-columns: 1fr; }
+      .note { border-right: 0; }
     }
 
     @media (max-width: 720px) {
@@ -628,6 +638,7 @@
         border: 1px solid var(--line);
       }
       .ledger-row > * { display: block !important; }
+      .ledger-row > .date { display: none !important; }
       .height { order: 1; }
       .status-cell { order: 2; justify-self: end; }
       .address { order: 3; grid-column: 1 / -1; }
@@ -756,7 +767,7 @@
       </div>
 
       <div class="ledger-header" aria-hidden="true">
-        <span>Height</span><span>Address</span><span>Balance</span><span>Spend state</span><span>Classification</span><span></span>
+        <span>Height</span><span>Address</span><span>Mined (UTC)</span><span>Balance</span><span>Spend state</span><span>Classification</span><span></span>
       </div>
       <div class="ledger-body" id="ledgerBody"></div>
       <div class="empty" id="emptyState">
@@ -770,21 +781,6 @@
         <button class="page-button" id="nextPage" type="button" disabled aria-label="Next page">›</button>
         <button class="page-button" id="lastPage" type="button" disabled aria-label="Last page">»</button>
       </nav>
-    </section>
-
-    <section class="notes" aria-label="Dataset notes">
-      <article class="note">
-        <h3>Two spend-status dates</h3>
-        <p>The published set remains bounded at block 968,902. The 131 confirmed additions were separately rechecked against live chain data on Oct 11, 2026; their current state and spending height are shown per block.</p>
-      </article>
-      <article class="note">
-        <h3>Balance means outpoint balance</h3>
-        <p>The displayed balance belongs to the original P2PK coinbase outpoint. Separate payments to the derived P2PKH address are intentionally excluded.</p>
-      </article>
-      <article class="note">
-        <h3>Audited chain fields</h3>
-        <p>All 22,087 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
-      </article>
     </section>
 
     <section class="additions-panel" aria-labelledby="additions-title">
@@ -816,6 +812,20 @@
         <h2>Attribution is not identity.</h2>
         <p class="caveat">“Patoshi” is a mining-pattern classification. It does not cryptographically prove one miner, or that the miner was Satoshi Nakamoto. All 134 additions are labeled separately; twelve published blocks remain marked as contradicted by the audit’s co-spend evidence.</p>
       </div>
+    </section>
+    <section class="notes" aria-label="Dataset notes">
+      <article class="note">
+        <h3>Two spend-status dates</h3>
+        <p>The published set remains bounded at block 968,902. The 131 confirmed additions were separately rechecked against live chain data on Oct 11, 2026; their current state and spending height are shown per block.</p>
+      </article>
+      <article class="note">
+        <h3>Balance means outpoint balance</h3>
+        <p>The displayed balance belongs to the original P2PK coinbase outpoint. Separate payments to the derived P2PKH address are intentionally excluded.</p>
+      </article>
+      <article class="note">
+        <h3>Audited chain fields</h3>
+        <p>All 22,087 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
+      </article>
     </section>
   </main>
 
@@ -1002,7 +1012,7 @@
         els.nextPage.disabled = !total || state.page === pages;
         els.lastPage.disabled = !total || state.page === pages;
         els.emptyState.style.display = total ? "none" : "block";
-        els.ledgerBody.style.display = total ? "block" : "none";
+        els.ledgerBody.style.display = total ? "" : "none";
 
         els.ledgerBody.innerHTML = pageRows.map(function (row, index) {
           var globalIndex = row._i;
@@ -1012,6 +1022,7 @@
           return '<button class="ledger-row" type="button" data-index="' + globalIndex + '" aria-label="View the full record for block ' + row[F.height] + '">' +
             '<span class="height">#' + formatInt(row[F.height]) + '</span>' +
             '<span class="address"><span class="address-main">' + escapeHtml(row[F.p2pkh]) + '</span><span class="address-sub">Mined ' + formatDate(row[F.mined]) + '</span></span>' +
+            '<span class="date">' + formatDate(row[F.mined]) + '</span>' +
             '<span class="balance">' + formatBTC(row[F.balance]) + '</span>' +
             '<span class="status-cell"><span class="status-badge ' + (spent ? "spent" : "open") + '">' + (spent ? "Spent" : "No spend found") + '</span></span>' +
             '<span class="tier-cell"><span class="tier-badge ' + (contradicted ? "contradicted" : (candidate ? "candidate" : "")) + '">' + escapeHtml(badgeLabel(row)) + '</span></span>' +

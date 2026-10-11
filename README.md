@@ -2,7 +2,7 @@
 
 Every Bitcoin address that received a block reward from **Patoshi**, the early miner whose distinctive nonce pattern dominates blocks mined in 2009 and early 2010. The list covers **22,087 addresses** holding **1,104,352.49 BTC** at issuance, almost all of it never moved. The repository also holds an independent, reproducible audit of where the list came from, whether it matches the chain, which coins have been spent, and how many Patoshi blocks the list misses.
 
-**[Browse and search every address on the website](docs/index.html)**, which also shows the never-spent balance in US dollars (refreshed every 12 hours) and exports any filtered view as CSV or JSON. You can also download the full [address list](patoshi_p2pkh_addresses.csv).
+**[Browse and search every address on the website](docs/index.html)**. Select any address to see its full record (public key, HASH160, coinbase transaction, block hash, mining time, nonce, extraNonce, spend details and classification). The site also shows the never-spent balance in US dollars, refreshed every 12 hours, and exports any filtered view as CSV or JSON. You can also download the full [address list](patoshi_p2pkh_addresses.csv).
 
 > **Patoshi = Satoshi Nakamoto is a widely held hypothesis, not an assumption of this audit.** The block list is a published classification, not ground truth about who mined each block.
 
@@ -27,7 +27,8 @@ Every Bitcoin address that received a block reward from **Patoshi**, the early m
 | [`analysis/phase8/revised_list.csv`](analysis/phase8/revised_list.csv) | Every block from 0 to 54,620 with its Patoshi probability, tier, evidence and address |
 | [`analysis/phase2_bigquery/spend_status_all.csv`](analysis/phase2_bigquery/spend_status_all.csv) | Spend status of every original-list address, with the spending transaction where one exists |
 | [`patoshi_pubkeys_COMPLETE.csv`](patoshi_pubkeys_COMPLETE.csv) | The original upstream source file in raw coinbase form, kept byte-for-byte for provenance. It is not in address format; use the main list instead |
-| [`docs/`](docs/index.html) | The website: the dollar balance, totals, a chart of Patoshi's share of each 250-block range, and a searchable ledger with CSV, JSON and copy export |
+| [`docs/`](docs/index.html) | The website: the dollar balance, totals, and a searchable address directory with a full record for every address and CSV or JSON export |
+| [`docs/data.json`](docs/data.json) | The website's data: one record per address with every field shown on the site |
 | [`docs/price.json`](docs/price.json) | The BTC/USD price behind the dollar balance, refreshed every 12 hours |
 
 Four rewards include transaction fees; every other one is exactly 50 BTC.
@@ -204,7 +205,7 @@ The clock also sees about 43 extra stock-like nonces among listed blocks without
 
 | Area | Primary files |
 |---|---|
-| Address data and website | [address list](patoshi_p2pkh_addresses.csv), [additions](patoshi_additions_confirmed.csv), [upstream source file](patoshi_pubkeys_COMPLETE.csv), [website](docs/index.html) built by [`scripts/build_site_data.py`](scripts/build_site_data.py) |
+| Address data and website | [address list](patoshi_p2pkh_addresses.csv), [additions](patoshi_additions_confirmed.csv), [upstream source file](patoshi_pubkeys_COMPLETE.csv), [website](docs/index.html) and its [data](docs/data.json) |
 | Offline audit | [report](analysis/phase1/REPORT.md), [script](scripts/phase1_offline.py), [results](analysis/phase1/results.json) |
 | Provenance | [report](analysis/provenance/REPORT.md), [comparison script](scripts/provenance_compare.py), [pinned heights](analysis/provenance/lopp_patoshi_heights.txt) |
 | Chain verification | [report](analysis/phase2_bigquery/REPORT.md), [methods](analysis/phase2_bigquery/METHODS.md), [SQL](analysis/phase2_bigquery/sql/), [all spend statuses](analysis/phase2_bigquery/spend_status_all.csv) |
@@ -220,15 +221,11 @@ The clock also sees about 43 extra stock-like nonces among listed blocks without
 
 ### Website
 
-The site in `docs/` is static and needs no build step to view. To publish it, enable GitHub Pages for the `main` branch and the `/docs` folder. After changing any of the address CSVs, regenerate its data file:
-
-```sh
-python scripts/build_site_data.py
-```
+The site in `docs/` is static and needs no build step. To publish it, enable GitHub Pages for the `main` branch and the `/docs` folder. It loads every record from [`docs/data.json`](docs/data.json). Selecting an address opens its full record, and a link such as `#block-9` opens that block's record directly.
 
 The dollar balance is the never-spent BTC times the price in [`docs/price.json`](docs/price.json). The [Update BTC price](.github/workflows/update-price.yml) workflow runs [`scripts/update_price.py`](scripts/update_price.py) at 00:23 and 12:23 UTC. It records the median of the Coinbase, Kraken and CoinGecko spot prices and commits the file. To refresh it by hand, run the workflow from the Actions tab or run the script locally. An open page also reloads the price every 12 hours.
 
-The export buttons above the ledger save exactly the addresses shown after search and filters, as CSV or JSON, or copy them to the clipboard one per line.
+The export buttons save exactly the records shown after search and filters, as CSV or JSON, with every field including the public key.
 
 ### Rerunning the analysis
 

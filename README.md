@@ -44,6 +44,18 @@ Labels in the reports distinguish **(a) verified observations**, **(b) statistic
 
 The other 21,949 rows are 50 BTC, giving **1,097,652.49 BTC** in the CSV. The four amounts were reproduced from the chain in the BigQuery smoke and full runs. [`patoshi_p2pkh_addresses.csv`](patoshi_p2pkh_addresses.csv) contains Base58Check P2PKH encodings derived from the same public keys. These are useful for looking up payments to the key hashes, but **spending the original coinbases is determined by their P2PK outpoints**, not by activity at the derived addresses.
 
+## Confirmed additions (2026-10-11)
+
+[`patoshi_additions_confirmed.csv`](patoshi_additions_confirmed.csv) holds **134 further coinbase outputs** confirmed as Patoshi-mined after the audit above, each verified against chain data (pubkey extracted from the coinbase script, address re-derived, spend status checked at the outpoint). None overlap the 21,953. Tiers:
+
+| Tier | Count | Basis |
+|---|---|---|
+| 2A | 6 | Counter-run structural confirmation |
+| 2B-confirmed | 44 | 29 structural + 14 upgrades/singleton + 1 gap-fill reclassification, per-block counter-run adjudication |
+| replication-confirmed | 84 | Independent replication of the fingerprint (Type-A/B/B) |
+
+21 of the 134 have been spent (all in the replication set, Feb 2010–Mar 2017); the rest were unspent at the 2026-10-11 check. Combined with the base list: **22,087 records, 1,104,352.49 BTC** at issuance.
+
 ## How the audit developed
 
 ### 1. Offline structural and key audit

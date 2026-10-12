@@ -422,6 +422,7 @@
     }
     .address-sub { display: none; color: var(--muted); font-size: 11px; margin-top: 4px; }
     .balance { font: 600 13px/1.2 var(--mono); white-space: nowrap; }
+    .balance-usd { display: block; margin-top: 4px; color: var(--muted); font: 500 11px/1.2 var(--mono); }
     .date { color: var(--muted); font: 12px/1.3 var(--mono); white-space: nowrap; }
     .status-badge, .tier-badge {
       display: inline-flex;
@@ -871,6 +872,11 @@
       var REFRESH_MS = 12 * 3600 * 1000;
       var price = null, priceTried = false, lastPriceFetch = 0;
       function formatUSD(value) { return value.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }); }
+      function formatUSDShort(value) {
+        if (value >= 1e9) return "$" + (value / 1e9).toFixed(2) + "B";
+        if (value >= 1e6) return "$" + (value / 1e6).toFixed(2) + "M";
+        return formatUSD(value);
+      }
       function usdFor(sats) { return price ? (Number(sats) / 100000000) * price.btc_usd : null; }
       function renderUsdValue() {
         if (!state.meta) return;
@@ -902,6 +908,7 @@
           });
           priceTried = true;
           renderUsdValue();
+          if (state.rows.length) render();
         });
       }
       function formatDate(value) {
@@ -1005,7 +1012,7 @@
         var balance = state.filtered.reduce(function (sum, row) { return sum + row[F.balance]; }, 0);
 
         els.resultCount.innerHTML = "<strong>" + formatInt(total) + "</strong> record" + (total === 1 ? "" : "s");
-        els.resultBalance.textContent = formatBTC(balance) + " indexed balance";
+        els.resultBalance.textContent = formatBTC(balance) + " indexed balance" + (price ? " · ≈ " + formatUSDShort(usdFor(balance)) : "");
         els.pageLabel.textContent = total ? ("Page " + formatInt(state.page) + " of " + formatInt(pages)) : "No pages";
         els.firstPage.disabled = !total || state.page === 1;
         els.prevPage.disabled = !total || state.page === 1;
@@ -1023,7 +1030,8 @@
             '<span class="height">#' + formatInt(row[F.height]) + '</span>' +
             '<span class="address"><span class="address-main">' + escapeHtml(row[F.p2pkh]) + '</span><span class="address-sub">Mined ' + formatDate(row[F.mined]) + '</span></span>' +
             '<span class="date">' + formatDate(row[F.mined]) + '</span>' +
-            '<span class="balance">' + formatBTC(row[F.balance]) + '</span>' +
+            '<span class="balance">' + formatBTC(row[F.balance]) +
+              (price && row[F.balance] > 0 ? '<span class="balance-usd" title="' + formatUSD(usdFor(row[F.balance])) + ' at ' + formatUSD(price.btc_usd) + '/BTC">≈ ' + formatUSDShort(usdFor(row[F.balance])) + '</span>' : '') + '</span>' +
             '<span class="status-cell"><span class="status-badge ' + (spent ? "spent" : "open") + '">' + (spent ? "Spent" : "No spend found") + '</span></span>' +
             '<span class="tier-cell"><span class="tier-badge ' + (contradicted ? "contradicted" : (candidate ? "candidate" : "")) + '">' + escapeHtml(badgeLabel(row)) + '</span></span>' +
             '<span class="inspect">View →</span>' +

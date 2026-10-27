@@ -1,9 +1,9 @@
 {
-  "btc_usd": 80111.6,
+  "btc_usd": 80217.21,
   "sources": [
     "CoinGecko",
     "Coinbase",
     "Kraken"
   ],
-  "updated_utc": "2026-10-27T01:04:58Z"
+  "updated_utc": "2026-10-27T12:46:00Z"
 }

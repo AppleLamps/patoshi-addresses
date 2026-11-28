@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <title>Patoshi Addresses</title>
-  <meta name="description" content="Search 22,057 Bitcoin addresses in the curated Patoshi index, with public keys, block data, snapshot spend status and a current USD quote." />
+  <meta name="description" content="Search 22,330 Bitcoin addresses in the curated Patoshi index, with public keys, block data, snapshot spend status and a current USD quote." />
   <style>
     :root {
       color-scheme: light;
@@ -686,12 +686,12 @@
 
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">22,057 early coinbase addresses, indexed.</h1>
+        <h1 id="hero-title">22,330 early coinbase addresses, indexed.</h1>
         <p>Search the curated Patoshi index by address, public key, block height, transaction ID, block hash, or HASH160. Select any address to see its full record and attribution tier.</p>
         <div class="tagline" aria-label="Dataset characteristics">
           <span class="tag">P2PK output #0</span>
-          <span class="tag">Heights 3–49,973</span>
-          <span class="tag">21,941 from published list + 116 additions</span>
+          <span class="tag">Heights 3–54,311</span>
+          <span class="tag">21,941 from published list + 389 additions</span>
         </div>
       </div>
     </section>
@@ -699,7 +699,7 @@
     <section class="holdings" aria-label="Total indexed value">
       <div class="holding">
         <span class="holding-label">Original coinbase outputs</span>
-        <span class="holding-value"><span id="statOriginal">1,102,852.49</span><span class="holding-unit">BTC</span></span>
+        <span class="holding-value"><span id="statOriginal">1,116,502.49</span><span class="holding-unit">BTC</span></span>
         <span class="holding-meta">Sum of every indexed output at issuance</span>
       </div>
       <div class="holding" id="usdHolding">
@@ -712,13 +712,13 @@
     <dl class="stats" aria-label="Dataset summary">
       <div class="stat">
         <dt>Indexed addresses</dt>
-        <dd id="statCount">22,057</dd>
-        <small>21,941 from published list + 116 additions</small>
+        <dd id="statCount">22,330</dd>
+        <small>21,941 from published list + 389 additions</small>
       </div>
       <div class="stat">
         <dt>No spend found</dt>
-        <dd id="statOpen">22,035</dd>
-        <small>Spend snapshots: Sep 27 and Oct 11</small>
+        <dd id="statOpen">22,308</dd>
+        <small>Spend snapshots: Sep 27, Oct 11, Nov 28</small>
       </div>
       <div class="stat">
         <dt>Confirmed spent</dt>
@@ -731,7 +731,7 @@
       <div class="directory-head">
         <div class="directory-title">
           <h2 id="directory-title">Address directory</h2>
-          <span class="loaded-state" id="loadState" aria-live="polite">Loading 22,057 records…</span>
+          <span class="loaded-state" id="loadState" aria-live="polite">Loading 22,330 records…</span>
         </div>
         <div class="controls">
           <div class="search-wrap" id="searchWrap">
@@ -786,8 +786,8 @@
 
     <section class="additions-panel" aria-labelledby="additions-title">
       <div class="additions-head">
-        <h2 id="additions-title">116 additions in the index</h2>
-        <p>Three earlier high-confidence matches and 113 later matches remain in the curated index. The evidence tier is retained on every block.</p>
+        <h2 id="additions-title">389 additions in the index</h2>
+        <p>The index retains 116 earlier additions and adds 273 high-confidence matches past the original cutoff. The evidence tier is retained on every block.</p>
       </div>
       <div class="addition-groups">
         <article class="addition-group">
@@ -801,6 +801,7 @@
           <p>Matches from the independent fingerprint screen with no exclusion under the audit’s co-spend rule.</p>
         </article>
       </div>
+      <p class="anomaly-note"><strong>Post-cutoff additions:</strong> 273 blocks passed the counter-track, nonce-band and nonce-clock checks. The coinbase amount, block inclusion and unspent status of output 0 were independently checked on November 28. <a href="https://github.com/AppleLamps/patoshi-addresses/blob/main/analysis/public_index/TAIL_EXTENSION.md">See the audit and selection rule</a>.</p>
       <p class="anomaly-note"><strong>Excluded from the index:</strong> Co-spend evidence points to other miners for 12 original-list entries and 18 October additions. None appears in search, exports, or totals. See the <a href="https://github.com/AppleLamps/patoshi-addresses/blob/main/analysis/public_index/excluded_outpoints.csv">separate audit file</a>.</p>
     </section>
 
@@ -816,8 +817,8 @@
     </section>
     <section class="notes" aria-label="Dataset notes">
       <article class="note">
-        <h3>Two spend-status dates</h3>
-        <p>The original list was spend-checked through block 968,902 on September 27, 2026. The October additions were checked separately on October 11, 2026. The displayed BTC balance uses those snapshots.</p>
+        <h3>Spend-status dates</h3>
+        <p>The original list was spend-checked through block 968,902 on September 27, 2026. The October additions were checked separately on October 11, 2026, and the post-cutoff additions on November 28, 2026. The displayed BTC balance uses those snapshots.</p>
       </article>
       <article class="note">
         <h3>Balance means outpoint balance</h3>
@@ -825,7 +826,7 @@
       </article>
       <article class="note">
         <h3>Audited chain fields</h3>
-        <p>All 22,057 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
+        <p>All 22,330 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
       </article>
     </section>
   </main>
@@ -843,7 +844,7 @@
     (function () {
       "use strict";
 
-      var DATA_URL = "data.json?v=20261128";
+      var DATA_URL = "data.json?v=tail-20261128";
       var PAGE_SIZE = 40;
       var F = {
         height: 0, p2pkh: 1, pubkey: 2, hash160: 3, coinbase: 4, blockHash: 5,
@@ -936,6 +937,7 @@
         if (tier === "candidate_95_plus") return "High-confidence addition";
         if (tier === "2B-confirmed") return "Tier 2B confirmed";
         if (tier === "replication-confirmed") return "Replication match";
+        if (tier === "tail_high_confidence") return "High-confidence tail match";
         return String(tier || "Listed").replace(/_/g, " ");
       }
       function subtypeLabel(subtype) {
@@ -955,6 +957,7 @@
         if (tier === "candidate_95_plus") return "≥95% confidence · structural review";
         if (tier === "2B-confirmed") return "Confirmed · structural counter evidence";
         if (tier === "replication-confirmed") return "Independent fingerprint match";
+        if (tier === "tail_high_confidence") return "Phase 10 model score " + (Number(value) * 100).toFixed(2) + "%";
         return value == null ? "Not scored" : (Number(value) * 100).toFixed(2) + "%";
       }
       function showToast(message) {
@@ -1025,7 +1028,7 @@
           var globalIndex = row._i;
           var spent = !!row[F.spent];
           var contradicted = row[F.tier] === "listed_contradicted";
-          var candidate = row[F.tier] === "candidate_95_plus" || row[F.tier] === "2B-confirmed" || row[F.tier] === "replication-confirmed";
+          var candidate = row[F.tier] === "candidate_95_plus" || row[F.tier] === "2B-confirmed" || row[F.tier] === "replication-confirmed" || row[F.tier] === "tail_high_confidence";
           return '<button class="ledger-row" type="button" data-index="' + globalIndex + '" aria-label="View the full record for block ' + row[F.height] + '">' +
             '<span class="height">#' + formatInt(row[F.height]) + '</span>' +
             '<span class="address"><span class="address-main">' + escapeHtml(row[F.p2pkh]) + '</span><span class="address-sub">Mined ' + formatDate(row[F.mined]) + '</span></span>' +
@@ -1088,7 +1091,7 @@
             field("Attribution basis", probabilityLabel(row[F.probability], row[F.tier]), null, false) +
             (row[F.subtype] ? field("Evidence subtype", subtypeLabel(row[F.subtype]), null, false) : "") +
             (row[F.evidenceNote] ? field("Source evidence note", row[F.evidenceNote], null, true) : "") +
-            field("Single-transaction inclusion", row[F.inclusion] ? "Proven through the header Merkle root" : "Matching indexed output; no exhaustive Merkle-proof audit", null, true) +
+            field("Coinbase inclusion", row[F.tier] === "tail_high_confidence" || row[F.inclusion] ? "Proven through the header Merkle root" : "Matching indexed output; no exhaustive Merkle-proof audit", null, true) +
             (spent ? field("Spending transaction", row[F.spendTx], row[F.spendTx], true) + field("Spent", "Block " + formatInt(row[F.spendHeight]) + " · " + fullDate(row[F.spendTime]), null, true) : "") +
           '</div><p class="detail-foot">The address is the standard Base58 encoding of this reward\'s public key. The original block reward is a pay-to-public-key output, identified on chain by its transaction outpoint.</p></div>';
         try { history.replaceState(null, "", "#block-" + row[F.height]); } catch (e) {}
@@ -1207,9 +1210,16 @@
           }
           var source = "https://raw.githubusercontent.com/AppleLamps/patoshi-addresses/" +
             manifest.baseline_commit + "/docs/data.json";
-          return getJSON(source).then(function (raw) {
-            var rows = raw.records.filter(function (row) { return !excluded.has(row[F.height]); });
-            if (raw.records.length - rows.length !== excluded.size || rows.length !== manifest.meta.count ||
+          if (manifest.tail_file !== "tail_additions.json") throw new Error("Invalid extension path");
+          return Promise.all([getJSON(source), getJSON(manifest.tail_file + "?v=tail-20261128")]).then(function (parts) {
+            var raw = parts[0], tail = parts[1].records;
+            var base = raw.records.filter(function (row) { return !excluded.has(row[F.height]); });
+            var rows = base.concat(tail);
+            var unique = new Set(rows.map(function (row) { return row[F.height]; }));
+            if (raw.records.length - base.length !== excluded.size || unique.size !== rows.length ||
+                tail.length !== manifest.meta.tail_additions_count ||
+                tail.some(function (row) { return row[F.height] <= 49973 || excluded.has(row[F.height]) || row[F.tier] !== "tail_high_confidence"; }) ||
+                rows.length !== manifest.meta.count ||
                 rows.reduce(function (sum, r) { return sum + r[F.original]; }, 0) !== manifest.meta.total_original_sats ||
                 rows.reduce(function (sum, r) { return sum + r[F.balance]; }, 0) !== manifest.meta.total_balance_sats ||
                 rows.reduce(function (sum, r) { return sum + r[F.spent]; }, 0) !== manifest.meta.spent_count) {

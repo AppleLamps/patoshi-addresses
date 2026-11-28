@@ -55,17 +55,17 @@
       "subtype",
       "evidence_note"
     ],
-    "count": 22057,
+    "count": 22330,
     "source_label": "AppleLamps/patoshi-addresses independent audit",
     "snapshot_height": 968902,
     "snapshot_utc": "2026-09-27 23:24:41 UTC",
     "query_utc": "2026-09-27 23:31–23:37 UTC",
-    "total_original_sats": 110285249000000,
-    "total_balance_sats": 110175249000000,
+    "total_original_sats": 111650249000000,
+    "total_balance_sats": 111540249000000,
     "spent_count": 22,
-    "unspent_count": 22035,
+    "unspent_count": 22308,
     "first_height": 3,
-    "last_height": 49973,
+    "last_height": 54311,
     "note": "Curated index: 12 original-list and 18 October-addition entries excluded on co-spend evidence. Balances are original P2PK coinbase outpoints at the recorded spend snapshots, not live UTXO balances. Derived P2PKH-address activity is excluded.",
     "published_count": 21941,
     "high_confidence_additions": 3,
@@ -75,6 +75,10 @@
     "confirmed_additions_unspent": 110,
     "spend_check_utc": "2026-10-11",
     "original_list_exclusions": 12,
-    "addition_exclusions": 18
-  }
+    "addition_exclusions": 18,
+    "tail_additions_count": 273,
+    "tail_spend_checked_utc": "2026-11-28T09:46:18+00:00",
+    "tail_tip_height_observed": 977922
+  },
+  "tail_file": "tail_additions.json"
 }

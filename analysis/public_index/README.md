@@ -17,3 +17,5 @@ git show d87d1e348084f6c3c08c4ef5d5414c984a3762a1:docs/data.json |
 ```
 
 The website reads that pinned snapshot and applies the manifest before enabling search or exports. It fails closed if the number of exclusions, record count, spend count or BTC totals do not reconcile.
+
+The numbers above describe the curation before the subsequent [post-cutoff extension](TAIL_EXTENSION.md). The 30 exclusions remain in force.

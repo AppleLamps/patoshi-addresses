@@ -1,8 +1,8 @@
 # Patoshi Addresses
 
-Every Bitcoin address that received a block reward from **Patoshi**, the early miner whose distinctive nonce pattern dominates blocks mined in 2009 and early 2010. The list covers **22,087 addresses** holding **1,104,352.49 BTC** at issuance, almost all of it never moved. The repository also holds an independent, reproducible audit of where the list came from, whether it matches the chain, which coins have been spent, and how many Patoshi blocks the list misses.
+This curated index contains **22,057 Bitcoin addresses** attributed to Patoshi, representing **1,102,852.49 BTC** at issuance. It excludes 30 entries whose co-spend evidence points to other miners. The underlying research snapshots are preserved separately.
 
-**[Browse and search every address on the website](docs/index.html)**. Select any address to see its full record (public key, HASH160, coinbase transaction, block hash, mining time, nonce, extraNonce, spend details and classification). The site also shows the never-spent balance in US dollars, refreshed every 12 hours, and exports any filtered view as CSV or JSON. You can also download the full [address list](patoshi_p2pkh_addresses.csv).
+**[Search the index and download CSV or JSON](https://applelamps.github.io/patoshi-addresses/).** Exports use the same curated records as the website. The USD figure reprices the recorded BTC snapshot; it does not refresh spend status.
 
 > **Patoshi = Satoshi Nakamoto is a widely held hypothesis, not an assumption of this audit.** The block list is a published classification, not ground truth about who mined each block.
 
@@ -10,11 +10,11 @@ Every Bitcoin address that received a block reward from **Patoshi**, the early m
 
 | | |
 |---|---|
-| Addresses in the original list | **21,953**, blocks 3 to 49,973 (January 2009 to April 2010) |
-| Confirmed additions (October 2026) | **134** |
-| BTC at issuance | **1,104,352.49** |
-| Never spent | **22,035** addresses, **1,101,752.49 BTC** |
-| Spent | **52** addresses: 31 from the original list, 21 from the additions |
+| Included from the original list | **21,941**, blocks 3 to 49,973 (January 2009 to April 2010) |
+| Included additions | **116** |
+| BTC at issuance | **1,102,852.49** |
+| No spend found at the snapshot | **22,035** addresses, **1,101,752.49 BTC** |
+| Spent at the snapshot | **22** addresses: 19 from the original list, 3 from the additions |
 | Spend status checked through | block 968,902 (27 September 2026) for the original list; 11 October 2026 for the additions |
 | Best estimate of all Patoshi blocks | **about 22,481** (95% interval 22,388 to 22,572), about 1.124M BTC ([Phase 8](analysis/phase8/REPORT.md)) |
 
@@ -22,13 +22,14 @@ Every Bitcoin address that received a block reward from **Patoshi**, the early m
 
 | File | What it holds |
 |---|---|
-| [`patoshi_p2pkh_addresses.csv`](patoshi_p2pkh_addresses.csv) | **The main list.** One row per block: `block_height`, `output_index`, `amount_btc`, the `p2pkh_address`, and the raw coinbase data it comes from |
-| [`patoshi_additions_confirmed.csv`](patoshi_additions_confirmed.csv) | The 134 confirmed additions, with tier, evidence note, spend status and coinbase transaction ID |
-| [`analysis/phase8/revised_list.csv`](analysis/phase8/revised_list.csv) | Every block from 0 to 54,620 with its Patoshi probability, tier, evidence and address |
+| [Public index and CSV/JSON exports](https://applelamps.github.io/patoshi-addresses/) | **The default list.** Search or export the curated 22,057 entries |
+| [Excluded outpoints](analysis/public_index/excluded_outpoints.csv) | All 30 excluded entries, their old tier, co-spend evidence and spending transactions. Not part of the public index |
+| [Original-list research input](patoshi_p2pkh_addresses.csv) | Historical 21,953-row source used by the analysis scripts. Includes 12 later exclusions; not the current download |
+| [`analysis/phase8/revised_list.csv`](analysis/phase8/revised_list.csv) | Every block from 0 to 54,619 with its Patoshi probability, tier, evidence and address |
 | [`analysis/phase2_bigquery/spend_status_all.csv`](analysis/phase2_bigquery/spend_status_all.csv) | Spend status of every original-list address, with the spending transaction where one exists |
 | [`patoshi_pubkeys_COMPLETE.csv`](patoshi_pubkeys_COMPLETE.csv) | The original upstream source file in raw coinbase form, kept byte-for-byte for provenance. It is not in address format; use the main list instead |
 | [`docs/`](docs/index.html) | The website: the dollar balance, totals, and a searchable address directory with a full record for every address and CSV or JSON export |
-| [`docs/data.json`](docs/data.json) | The website's data: one record per address with every field shown on the site |
+| [`docs/data.json`](docs/data.json) | The curation manifest: pinned source revision, exclusion heights and validated totals |
 | [`docs/price.json`](docs/price.json) | The BTC/USD price behind the dollar balance, refreshed every 12 hours |
 
 Four rewards include transaction fees; every other one is exactly 50 BTC.
@@ -42,17 +43,11 @@ Four rewards include transaction fees; every other one is exactly 50 BTC.
 
 **About the address format.** In 2009 the Bitcoin client paid block rewards in an older output format called P2PK, before `1…` addresses were the norm. Each address in this list is the standard `1…` address for that reward, which is what wallets and block explorers show. Whether a reward was spent depends on its original output, not on later activity at the address. Since 2009, people have also sent 82,151 later payments to these addresses, of which about 7.05 BTC remains unspent; those are separate from the rewards ([Phase 3](analysis/phase3/REPORT.md)).
 
-### Confirmed additions (2026-10-11)
+### Public-index exclusions
 
-The [134 additions](patoshi_additions_confirmed.csv) were confirmed as Patoshi-mined after the audit below. Each was verified against chain data: the coinbase script was read from the block, the address re-derived, and spend status checked at the original output. None overlap the 21,953.
+The website removes 12 entries from the original list and 18 from the October additions. The excluded outputs were verified on chain and all 30 were spent, but the repo’s co-spend classifier points to other miners. Removing them reduces the issuance total by **1,500 BTC** and leaves the snapshot unspent total unchanged. The 116 retained additions include 3 spent rewards.
 
-| Tier | Count | Basis |
-|---|---:|---|
-| 2A | 6 | Counter-run structural confirmation |
-| 2B-confirmed | 44 | 29 structural, 14 upgrades or singletons, 1 gap-fill reclassification; per-block counter-run adjudication |
-| replication-confirmed | 84 | Independent replication of the fingerprint (Type-A/B/B) |
-
-21 of the 134 have been spent, all in the replication set, between February 2010 and March 2017.
+See the [exclusion audit](analysis/public_index/README.md) for the rule, evidence and reproduction command. The [October source list](analysis/public_index/october_additions_source.csv) is archived as an audit input, not a Patoshi download.
 
 ## What the audit found
 
@@ -205,7 +200,7 @@ The clock also sees about 43 extra stock-like nonces among listed blocks without
 
 | Area | Primary files |
 |---|---|
-| Address data and website | [address list](patoshi_p2pkh_addresses.csv), [additions](patoshi_additions_confirmed.csv), [upstream source file](patoshi_pubkeys_COMPLETE.csv), [website](docs/index.html) and its [data](docs/data.json) |
+| Address data and website | [curated address exports](https://applelamps.github.io/patoshi-addresses/), [excluded outpoints](analysis/public_index/excluded_outpoints.csv), [upstream source file](patoshi_pubkeys_COMPLETE.csv), [website](docs/index.html) and its [data](docs/data.json) |
 | Offline audit | [report](analysis/phase1/REPORT.md), [script](scripts/phase1_offline.py), [results](analysis/phase1/results.json) |
 | Provenance | [report](analysis/provenance/REPORT.md), [comparison script](scripts/provenance_compare.py), [pinned heights](analysis/provenance/lopp_patoshi_heights.txt) |
 | Chain verification | [report](analysis/phase2_bigquery/REPORT.md), [methods](analysis/phase2_bigquery/METHODS.md), [SQL](analysis/phase2_bigquery/sql/), [all spend statuses](analysis/phase2_bigquery/spend_status_all.csv) |
@@ -221,7 +216,7 @@ The clock also sees about 43 extra stock-like nonces among listed blocks without
 
 ### Website
 
-The site in `docs/` is static and needs no build step. To publish it, enable GitHub Pages for the `main` branch and the `/docs` folder. It loads every record from [`docs/data.json`](docs/data.json). Selecting an address opens its full record, and a link such as `#block-9` opens that block's record directly.
+The site in `docs/` is static and needs no build step. To publish it, enable GitHub Pages for the `main` branch and the `/docs` folder. It reads [`docs/data.json`](docs/data.json), applies the exclusion list to the pinned source snapshot, and validates the curated totals before making records searchable or downloadable. Selecting an address opens its full record, and a link such as `#block-9` opens that block's record directly.
 
 The dollar balance is the never-spent BTC times the price in [`docs/price.json`](docs/price.json). The [Update BTC price](.github/workflows/update-price.yml) workflow runs [`scripts/update_price.py`](scripts/update_price.py) at 00:23 and 12:23 UTC. It records the median of the Coinbase, Kraken and CoinGecko spot prices and commits the file. To refresh it by hand, run the workflow from the Actions tab or run the script locally. An open page also reloads the price every 12 hours.
 

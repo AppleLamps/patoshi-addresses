@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <title>Patoshi Addresses</title>
-  <meta name="description" content="Search all 22,087 Bitcoin addresses that received Patoshi block rewards, with public keys, transactions, block data, spend status and a live USD balance." />
+  <meta name="description" content="Search 22,057 Bitcoin addresses in the curated Patoshi index, with public keys, block data, snapshot spend status and a current USD quote." />
   <style>
     :root {
       color-scheme: light;
@@ -686,12 +686,12 @@
 
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">22,087 early coinbase addresses, indexed.</h1>
-        <p>Search the published Patoshi set, three previously reviewed matches, and <strong>131 newly confirmed structural matches</strong> by address, public key, block height, transaction ID, block hash, or HASH160. Select any address to see its full record. Every addition remains separately labeled.</p>
+        <h1 id="hero-title">22,057 early coinbase addresses, indexed.</h1>
+        <p>Search the curated Patoshi index by address, public key, block height, transaction ID, block hash, or HASH160. Select any address to see its full record and attribution tier.</p>
         <div class="tagline" aria-label="Dataset characteristics">
           <span class="tag">P2PK output #0</span>
           <span class="tag">Heights 3–49,973</span>
-          <span class="tag">21,953 published + 134 additions</span>
+          <span class="tag">21,941 from published list + 116 additions</span>
         </div>
       </div>
     </section>
@@ -699,11 +699,11 @@
     <section class="holdings" aria-label="Total indexed value">
       <div class="holding">
         <span class="holding-label">Original coinbase outputs</span>
-        <span class="holding-value"><span id="statOriginal">1,104,352.49</span><span class="holding-unit">BTC</span></span>
+        <span class="holding-value"><span id="statOriginal">1,102,852.49</span><span class="holding-unit">BTC</span></span>
         <span class="holding-meta">Sum of every indexed output at issuance</span>
       </div>
       <div class="holding" id="usdHolding">
-        <span class="holding-label live-label"><span class="live-dot" aria-hidden="true"></span>Never-spent balance · USD · live</span>
+        <span class="holding-label live-label"><span class="live-dot" aria-hidden="true"></span>Snapshot balance · latest BTC price</span>
         <span class="holding-value" id="statUsdValue">$–</span>
         <span class="holding-meta" id="statUsdMeta" aria-live="polite">Loading the latest BTC price…</span>
       </div>
@@ -712,18 +712,18 @@
     <dl class="stats" aria-label="Dataset summary">
       <div class="stat">
         <dt>Indexed addresses</dt>
-        <dd id="statCount">22,087</dd>
-        <small>21,953 published + 134 additions</small>
+        <dd id="statCount">22,057</dd>
+        <small>21,941 from published list + 116 additions</small>
       </div>
       <div class="stat">
         <dt>No spend found</dt>
         <dd id="statOpen">22,035</dd>
-        <small>131 confirmations checked Oct 11</small>
+        <small>Spend snapshots: Sep 27 and Oct 11</small>
       </div>
       <div class="stat">
         <dt>Confirmed spent</dt>
-        <dd id="statSpent">52</dd>
-        <small>2,600 BTC total</small>
+        <dd id="statSpent">22</dd>
+        <small>1,100 BTC total</small>
       </div>
     </dl>
 
@@ -731,7 +731,7 @@
       <div class="directory-head">
         <div class="directory-title">
           <h2 id="directory-title">Address directory</h2>
-          <span class="loaded-state" id="loadState" aria-live="polite">Loading 22,087 records…</span>
+          <span class="loaded-state" id="loadState" aria-live="polite">Loading 22,057 records…</span>
         </div>
         <div class="controls">
           <div class="search-wrap" id="searchWrap">
@@ -786,22 +786,22 @@
 
     <section class="additions-panel" aria-labelledby="additions-title">
       <div class="additions-head">
-        <h2 id="additions-title">131 newly confirmed matches</h2>
-        <p>The published 21,953-address dataset is unchanged. These additions form a separate research layer, with the confirmation route preserved on every block.</p>
+        <h2 id="additions-title">116 additions in the index</h2>
+        <p>Three earlier high-confidence matches and 113 later matches remain in the curated index. The evidence tier is retained on every block.</p>
       </div>
       <div class="addition-groups">
         <article class="addition-group">
           <span class="addition-count">47</span>
-          <h3>Tier 2B confirmations</h3>
+          <h3>Tier 2B structural matches</h3>
           <p>29 earlier confirmations, 14 verified upgrades and singleton resolution, one adjudicated gap-fill reclassification, and three adjudicated run-extension reclassifications, each grounded in structural counter evidence.</p>
         </article>
         <article class="addition-group">
-          <span class="addition-count">84</span>
-          <h3>Independent replication confirmations</h3>
-          <p>13 Type-A, 44 Type-B, and 27 Type-A+B matches reproduced by an independent screening pass.</p>
+          <span class="addition-count">66</span>
+          <h3>Replication screen matches</h3>
+          <p>Matches from the independent fingerprint screen with no exclusion under the audit’s co-spend rule.</p>
         </article>
       </div>
-      <p class="anomaly-note"><strong>Open anomaly:</strong> 21 of these 131 confirmations (16%) are spent, versus 31 of 21,953 (0.14%) in the original set. The reason for the higher spend rate among the new blocks is unresolved.</p>
+      <p class="anomaly-note"><strong>Excluded from the index:</strong> Co-spend evidence points to other miners for 12 original-list entries and 18 October additions. None appears in search, exports, or totals. See the <a href="https://github.com/AppleLamps/patoshi-addresses/blob/main/analysis/public_index/excluded_outpoints.csv">separate audit file</a>.</p>
     </section>
 
     <section class="context" aria-label="How to read the index">
@@ -811,13 +811,13 @@
       </div>
       <div>
         <h2>Attribution is not identity.</h2>
-        <p class="caveat">“Patoshi” is a mining-pattern classification. It does not cryptographically prove one miner, or that the miner was Satoshi Nakamoto. All 134 additions are labeled separately; twelve published blocks remain marked as contradicted by the audit’s co-spend evidence.</p>
+        <p class="caveat">“Patoshi” is a mining-pattern classification. It does not cryptographically prove one miner, or that the miner was Satoshi Nakamoto. The index does not include every block the model considers possible. Excluded records are retained separately for audit.</p>
       </div>
     </section>
     <section class="notes" aria-label="Dataset notes">
       <article class="note">
         <h3>Two spend-status dates</h3>
-        <p>The published set remains bounded at block 968,902. The 131 confirmed additions were separately rechecked against live chain data on Oct 11, 2026; their current state and spending height are shown per block.</p>
+        <p>The original list was spend-checked through block 968,902 on September 27, 2026. The October additions were checked separately on October 11, 2026. The displayed BTC balance uses those snapshots.</p>
       </article>
       <article class="note">
         <h3>Balance means outpoint balance</h3>
@@ -825,7 +825,7 @@
       </article>
       <article class="note">
         <h3>Audited chain fields</h3>
-        <p>All 22,087 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
+        <p>All 22,057 addresses and amounts match their coinbase output-zero scripts. Each record includes the coinbase transaction, block hash, nonce, extraNonce, and proof status; every addition stays visibly labeled.</p>
       </article>
     </section>
   </main>
@@ -843,7 +843,7 @@
     (function () {
       "use strict";
 
-      var DATA_URL = "data.json";
+      var DATA_URL = "data.json?v=20261128";
       var PAGE_SIZE = 40;
       var F = {
         height: 0, p2pkh: 1, pubkey: 2, hash160: 3, coinbase: 4, blockHash: 5,
@@ -935,7 +935,7 @@
         if (tier === "listed_uncontradicted") return "Uncontradicted";
         if (tier === "candidate_95_plus") return "High-confidence addition";
         if (tier === "2B-confirmed") return "Tier 2B confirmed";
-        if (tier === "replication-confirmed") return "Replication confirmed";
+        if (tier === "replication-confirmed") return "Replication match";
         return String(tier || "Listed").replace(/_/g, " ");
       }
       function subtypeLabel(subtype) {
@@ -954,7 +954,7 @@
       function probabilityLabel(value, tier) {
         if (tier === "candidate_95_plus") return "≥95% confidence · structural review";
         if (tier === "2B-confirmed") return "Confirmed · structural counter evidence";
-        if (tier === "replication-confirmed") return "Confirmed · independent replication";
+        if (tier === "replication-confirmed") return "Independent fingerprint match";
         return value == null ? "Not scored" : (Number(value) * 100).toFixed(2) + "%";
       }
       function showToast(message) {
@@ -1087,7 +1087,7 @@
             field("Coinbase extraNonce", formatInt(row[F.extraNonce]), String(row[F.extraNonce]), false) +
             field("Attribution basis", probabilityLabel(row[F.probability], row[F.tier]), null, false) +
             (row[F.subtype] ? field("Evidence subtype", subtypeLabel(row[F.subtype]), null, false) : "") +
-            (row[F.evidenceNote] ? field("Evidence note", row[F.evidenceNote], null, true) : "") +
+            (row[F.evidenceNote] ? field("Source evidence note", row[F.evidenceNote], null, true) : "") +
             field("Single-transaction inclusion", row[F.inclusion] ? "Proven through the header Merkle root" : "Matching indexed output; no exhaustive Merkle-proof audit", null, true) +
             (spent ? field("Spending transaction", row[F.spendTx], row[F.spendTx], true) + field("Spent", "Block " + formatInt(row[F.spendHeight]) + " · " + fullDate(row[F.spendTime]), null, true) : "") +
           '</div><p class="detail-foot">The address is the standard Base58 encoding of this reward\'s public key. The original block reward is a pay-to-public-key output, identified on chain by its transaction outpoint.</p></div>';
@@ -1191,10 +1191,32 @@
         els.exportJsonButton.disabled = false;
       }
 
-      function loadData() {
-        fetch(DATA_URL).then(function (response) {
+      function getJSON(url) {
+        return fetch(url).then(function (response) {
           if (!response.ok) throw new Error("Data returned " + response.status);
           return response.json();
+        });
+      }
+
+      function loadData() {
+        getJSON(DATA_URL).then(function (manifest) {
+          if (!/^[0-9a-f]{40}$/.test(manifest.baseline_commit)) throw new Error("Invalid source revision");
+          var excluded = new Set(manifest.excluded_heights);
+          if (excluded.size !== manifest.meta.original_list_exclusions + manifest.meta.addition_exclusions) {
+            throw new Error("Invalid exclusion list");
+          }
+          var source = "https://raw.githubusercontent.com/AppleLamps/patoshi-addresses/" +
+            manifest.baseline_commit + "/docs/data.json";
+          return getJSON(source).then(function (raw) {
+            var rows = raw.records.filter(function (row) { return !excluded.has(row[F.height]); });
+            if (raw.records.length - rows.length !== excluded.size || rows.length !== manifest.meta.count ||
+                rows.reduce(function (sum, r) { return sum + r[F.original]; }, 0) !== manifest.meta.total_original_sats ||
+                rows.reduce(function (sum, r) { return sum + r[F.balance]; }, 0) !== manifest.meta.total_balance_sats ||
+                rows.reduce(function (sum, r) { return sum + r[F.spent]; }, 0) !== manifest.meta.spent_count) {
+              throw new Error("Curated index failed validation");
+            }
+            return {meta: manifest.meta, records: rows};
+          });
         }).then(function (data) {
           state.meta = data.meta;
           state.rows = data.records;
